@@ -25,13 +25,14 @@ export interface AvatarConfig {
 interface AvatarRendererProps {
   config?: AvatarConfig;
   size?: number;
+  overrideBgColor?: string;
   className?: string;
 }
 
-export default function AvatarRenderer({ config = {}, size = 200, className = '' }: AvatarRendererProps) {
+export default function AvatarRenderer({ config = {}, size = 200, overrideBgColor, className = '' }: AvatarRendererProps) {
   const {
     skinTone = 'light_brown',
-    bgColor = '#e2e8f0',
+    bgColor: configBgColor = '#e2e8f0',
     eyeShape = 'almond',
     hairStyle = 'black_power',
     hairColor = '#1e293b',
@@ -68,6 +69,8 @@ export default function AvatarRenderer({ config = {}, size = 200, className = ''
   };
   const currentBackpack = backpackColors[backpack] || 'transparent';
 
+  const finalBgColor = overrideBgColor !== undefined ? overrideBgColor : configBgColor;
+
   return (
     <svg
       width={size}
@@ -76,8 +79,9 @@ export default function AvatarRenderer({ config = {}, size = 200, className = ''
       className={className}
       style={{ overflow: 'visible' }}
     >
-      {bgColor !== 'transparent' && (
-        <circle cx="100" cy="120" r="95" fill={bgColor} stroke="#cbd5e1" strokeWidth="3" />
+      {/* Background Circle if desired */}
+      {finalBgColor !== 'transparent' && (
+        <circle cx="100" cy="120" r="95" fill={finalBgColor} stroke="#cbd5e1" strokeWidth="3" />
       )}
 
       {backpack !== 'none' && (

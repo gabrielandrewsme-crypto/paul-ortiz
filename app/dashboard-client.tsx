@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
+import Link from 'next/link';
 import { 
   Flame,
   Trophy, 
@@ -17,9 +18,14 @@ import {
   ChevronRight,
   Award,
   RotateCcw,
-  User
+  User,
+  Crown,
+  Lock
 } from 'lucide-react';
 import { allBooks, BookData } from '@/src/data/books';
+import { greatCommissionBooks, GreatCommissionBook } from '@/src/data/books/great-commission';
+import AvatarRenderer, { AvatarConfig } from '@/src/components/AvatarRenderer';
+import UpgradeModal from '@/src/components/UpgradeModal';
 
 interface CheckpointCoord {
   id: number;
@@ -54,7 +60,7 @@ function buildPathD(): string {
 }
 
 function getClimberTransform(x: number, y: number): string {
-  return 'translate(' + (x - 22) + ', ' + (y - 48) + ')';
+  return 'translate(' + (x - 25) + ', ' + (y - 50) + ')';
 }
 
 function getNodeTransform(x: number, y: number): string {
@@ -62,36 +68,74 @@ function getNodeTransform(x: number, y: number): string {
 }
 
 export default function DashboardClient() {
-  const [activeCheckpoint, setActiveCheckpoint] = useState<number>(4);
-  const [streakDays] = useState<number>(450);
-  const [wordsLearned, setWordsLearned] = useState<number>(450);
+  const [activeTab, setActiveTab] = useState<'main' | 'great_commission'>('main');
+  const [activeCheckpoint, setActiveCheckpoint] = useState<number>(1);
+  const [userRole, setUserRole] = useState<'USER' | 'MANAGER' | 'ADMIN'>('USER');
+  const [userAvatarConfig, setUserAvatarConfig] = useState<AvatarConfig | null>(null);
+  
+  const [streakDays, setStreakDays] = useState<number>(1);
+  const [wordsLearned, setWordsLearned] = useState<number>(0);
   const totalGoal = 2000;
 
+  // Modais
   const [isQuizOpen, setIsQuizOpen] = useState<boolean>(false);
   const [isVocabOpen, setIsVocabOpen] = useState<boolean>(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
+  const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState<boolean>(false);
+  const [upgradeSource, setUpgradeSource] = useState<'quiz_completed' | 'checkpoint_click' | 'header_btn'>('checkpoint_click');
 
+  // Quiz
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [quizScore, setQuizScore] = useState<number>(0);
   const [quizCompleted, setQuizCompleted] = useState<boolean>(false);
 
+  // Flashcards
   const [flashcardIdx, setFlashcardIdx] = useState<number>(0);
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
 
-  const currentBook: BookData = allBooks.find(b => b.checkpoint === activeCheckpoint) || allBooks[0];
-  const activeCoord = CHECKPOINT_COORDS.find(c => c.id === activeCheckpoint) || CHECKPOINT_COORDS[3];
+  useEffect(() => {
+    fetch('/api/auth/me')
+      .then(res => res.json())
+      .then(data => {
+        if (data.authenticated && data.user) {
+          setUserRole(data.user.role || 'USER');
+          if (data.user.avatarConfig) {
+            setUserAvatarConfig(data.user.avatarConfig);
+          }
+          if (data.user.streakDays) setStreakDays(data.user.streakDays);
+          if (data.user.totalWordsLearned) setWordsLearned(data.user.totalWordsLearned);
+        }
+      })
+      .catch(console.error);
+  }, []);
+
+  const isPlusUser = userRole === 'ADMIN' || userRole === 'MANAGER';
+
+  // Livro atual conforme a aba selecionada
+  const currentBook: BookData = activeTab === 'main'
+    ? (allBooks.find(b => b.checkpoint === activeCheckpoint) || allBooks[0])
+    : ({
+        ...(greatCommissionBooks.find(b => b.checkpoint === activeCheckpoint) || greatCommissionBooks[0]),
+      } as any);
+
+  const activeCoord = CHECKPOINT_COORDS.find(c => c.id === activeCheckpoint) || CHECKPOINT_COORDS[0];
 
   const handleCheckpointClick = (id: number) => {
+    // Regra Freemium: Livro 1 liberado para todos. Livros 2+ ou Great Commission apenas com Plus
+    if (id > 1 || activeTab === 'great_commission') {
+      if (!isPlusUser) {
+        setUpgradeSource('checkpoint_click');
+        setIsUpgradeModalOpen(true);
+        return;
+      }
+    }
+
     setActiveCheckpoint(id);
     setSelectedOption(null);
     setCurrentQuestionIdx(0);
     setQuizScore(0);
     setQuizCompleted(false);
-  };
-
-  const handleOptionSelect = (optionIdx: number) => {
-    setSelectedOption(optionIdx);
   };
 
   const handleNextQuestion = () => {
@@ -114,6 +158,15 @@ export default function DashboardClient() {
           origin: { y: 0.6 }
         });
         setWordsLearned(prev => Math.min(totalGoal, prev + 15));
+
+        // Gatilho de vendas se for o término do Livro 1 no plano gratuito
+        if (activeCheckpoint === 1 && !isPlusUser) {
+          setTimeout(() => {
+            setIsQuizOpen(false);
+            setUpgradeSource('quiz_completed');
+            setIsUpgradeModalOpen(true);
+          }, 1500);
+        }
       }
     }
   };
@@ -128,17 +181,29 @@ export default function DashboardClient() {
   const pathD = buildPathD();
   const climberTransform = getClimberTransform(activeCoord.x, activeCoord.y);
   const goalWidthPercent = Math.min(100, (wordsLearned / totalGoal) * 100) + '%';
-  const firstNewWord = currentBook.interactive_text?.find(w => w.is_new)?.word;
+  const firstNewWord = currentBook?.interactive_text?.find((w: any) => w.is_new)?.word;
   const nextLessonText = firstNewWord ? 'Vocabulary: ' + firstNewWord : 'Subjunctive Mood';
 
-  const newWords = currentBook.interactive_text?.filter(w => w.is_new) || [];
+  const newWords = currentBook?.interactive_text?.filter((w: any) => w.is_new) || [];
   const currentWord = newWords.length > 0 ? newWords[flashcardIdx % newWords.length] : null;
 
   return (
     <div className="app-container">
       {/* HEADER BAR */}
       <header className="header-bar">
-        <h1 className="brand-title">Paul Ortiz</h1>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <h1 className="brand-title">Paul Ortiz</h1>
+          {/* Botão de Upgrade / Plano Plus Fixo no Cabeçalho */}
+          <button
+            onClick={() => {
+              setUpgradeSource('header_btn');
+              setIsUpgradeModalOpen(true);
+            }}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-extrabold text-xs shadow-md hover:scale-105 transition cursor-pointer"
+          >
+            <Crown size={15} /> Assinar Plano Plus
+          </button>
+        </div>
 
         <div className="header-center-stats">
           <div className="streak-pill" title="Dias seguidos praticando">
@@ -165,17 +230,75 @@ export default function DashboardClient() {
         </div>
 
         <div className="user-controls">
-          <div className="avatar-wrapper" onClick={() => setIsSettingsOpen(true)} title="Seu Perfil">
+          <Link href="/avatar" className="avatar-wrapper" title="Personalizar Avatar">
             <div className="avatar-img">
-              <User size={22} color="#1e293b" />
+              {userAvatarConfig ? (
+                <AvatarRenderer config={userAvatarConfig} size={42} overrideBgColor="transparent" />
+              ) : (
+                <User size={22} color="#1e293b" />
+              )}
             </div>
             <div className="status-dot" />
-          </div>
-          <button className="icon-btn" onClick={() => setIsSettingsOpen(true)} title="Configuracoes">
+          </Link>
+          <button className="icon-btn" onClick={() => setIsSettingsOpen(true)} title="Configurações">
             <Settings size={20} />
           </button>
         </div>
       </header>
+
+      {/* SELETOR DE MÓDULOS / ABAS DA MONTANHA */}
+      <div style={{ display: 'flex', gap: '0.8rem', marginBottom: '0.5rem', zIndex: 10 }}>
+        <button
+          onClick={() => {
+            setActiveTab('main');
+            setActiveCheckpoint(1);
+          }}
+          style={{
+            background: activeTab === 'main' ? '#ffffff' : 'rgba(255,255,255,0.2)',
+            color: activeTab === 'main' ? '#1e293b' : '#ffffff',
+            border: 'none',
+            padding: '0.5rem 1.2rem',
+            borderRadius: '999px',
+            fontWeight: 800,
+            fontSize: '0.85rem',
+            cursor: 'pointer',
+            boxShadow: activeTab === 'main' ? '0 4px 12px rgba(0,0,0,0.1)' : 'none',
+            transition: 'all 0.2s'
+          }}
+        >
+          🏔️ Jornada Náutica (16 Livros)
+        </button>
+
+        <button
+          onClick={() => {
+            if (!isPlusUser) {
+              setUpgradeSource('checkpoint_click');
+              setIsUpgradeModalOpen(true);
+              return;
+            }
+            setActiveTab('great_commission');
+            setActiveCheckpoint(1);
+          }}
+          style={{
+            background: activeTab === 'great_commission' ? '#ffffff' : 'rgba(255,255,255,0.2)',
+            color: activeTab === 'great_commission' ? '#1e293b' : '#ffffff',
+            border: 'none',
+            padding: '0.5rem 1.2rem',
+            borderRadius: '999px',
+            fontWeight: 800,
+            fontSize: '0.85rem',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.4rem',
+            boxShadow: activeTab === 'great_commission' ? '0 4px 12px rgba(0,0,0,0.1)' : 'none',
+            transition: 'all 0.2s'
+          }}
+        >
+          {!isPlusUser && <Lock size={14} color="#f59e0b" />}
+          <span>✨ Great Commission</span>
+        </button>
+      </div>
 
       {/* CENTRAL MOUNTAIN STAGE */}
       <div className="mountain-stage">
@@ -223,6 +346,7 @@ export default function DashboardClient() {
             opacity="0.9"
           />
 
+          {/* Trilha de subida em ziguezague */}
           <path
             d={pathD}
             fill="none"
@@ -233,33 +357,26 @@ export default function DashboardClient() {
             opacity="0.75"
           />
 
-          <g transform="translate(500, 72)" style={{ cursor: 'pointer' }}>
-            <circle cx="0" cy="0" r="9" fill="none" stroke="#1e293b" strokeWidth="2.5" />
-            <path d="M -4 2 Q 0 6 4 2" fill="none" stroke="#1e293b" strokeWidth="2" />
-            <circle cx="-3" cy="-2" r="1.2" fill="#1e293b" />
-            <circle cx="3" cy="-2" r="1.2" fill="#1e293b" />
-            <line x1="0" y1="9" x2="0" y2="30" stroke="#1e293b" strokeWidth="2.5" />
-            <path d="M 0 16 L 14 2 L 20 -6" fill="none" stroke="#1e293b" strokeWidth="2.5" strokeLinecap="round" />
-            <line x1="0" y1="16" x2="-12" y2="24" stroke="#1e293b" strokeWidth="2.5" strokeLinecap="round" />
-            <line x1="0" y1="30" x2="-10" y2="46" stroke="#1e293b" strokeWidth="2.5" strokeLinecap="round" />
-            <line x1="0" y1="30" x2="10" y2="46" stroke="#1e293b" strokeWidth="2.5" strokeLinecap="round" />
-          </g>
-
+          {/* Avatar no Checkpoint ativo */}
           <g transform={climberTransform}>
-            <circle cx="0" cy="0" r="8" fill="none" stroke="#1e293b" strokeWidth="2.2" />
-            <circle cx="-2" cy="-2" r="1" fill="#1e293b" />
-            <circle cx="3" cy="-2" r="1" fill="#1e293b" />
-            <path d="M -3 2 Q 0 5 3 2" fill="none" stroke="#1e293b" strokeWidth="1.8" />
-            <line x1="0" y1="8" x2="4" y2="25" stroke="#1e293b" strokeWidth="2.2" />
-            <path d="M 2 12 L 18 2 L 24 -10" fill="none" stroke="#1e293b" strokeWidth="2.2" strokeLinecap="round" />
-            <line x1="2" y1="12" x2="-10" y2="20" stroke="#1e293b" strokeWidth="2.2" strokeLinecap="round" />
-            <line x1="4" y1="25" x2="-6" y2="38" stroke="#1e293b" strokeWidth="2.2" strokeLinecap="round" />
-            <line x1="4" y1="25" x2="12" y2="36" stroke="#1e293b" strokeWidth="2.2" strokeLinecap="round" />
+            {userAvatarConfig ? (
+              <AvatarRenderer config={userAvatarConfig} size={50} overrideBgColor="transparent" />
+            ) : (
+              <g>
+                <circle cx="0" cy="0" r="8" fill="none" stroke="#1e293b" strokeWidth="2.2" />
+                <circle cx="-2" cy="-2" r="1" fill="#1e293b" />
+                <circle cx="3" cy="-2" r="1" fill="#1e293b" />
+                <line x1="0" y1="8" x2="4" y2="25" stroke="#1e293b" strokeWidth="2.2" />
+              </g>
+            )}
           </g>
 
+          {/* Checkpoints da Montanha */}
           {CHECKPOINT_COORDS.map((cp) => {
             const isActive = cp.id === activeCheckpoint;
+            const isLocked = cp.id > 1 && !isPlusUser;
             const nodeTransform = getNodeTransform(cp.x, cp.y);
+
             return (
               <g 
                 key={cp.id} 
@@ -303,11 +420,18 @@ export default function DashboardClient() {
                   cy="0"
                   r="13"
                   className="checkpoint-circle"
+                  style={{ fill: isLocked ? '#94a3b8' : '#ffffff' }}
                 />
 
-                <text className="checkpoint-text">
-                  {cp.id}
-                </text>
+                {isLocked ? (
+                  <g transform="translate(-6, -6)">
+                    <Lock size={12} color="#475569" />
+                  </g>
+                ) : (
+                  <text className="checkpoint-text">
+                    {cp.id}
+                  </text>
+                )}
               </g>
             );
           })}
@@ -326,16 +450,18 @@ export default function DashboardClient() {
                 <BookOpen size={20} />
               </div>
               <div>
-                <span className="card-header-label">Current Module:</span>
+                <span className="card-header-label">
+                  {activeTab === 'main' ? `Checkpoint ${activeCheckpoint}:` : 'Great Commission:'}
+                </span>
                 <h3 className="card-main-title">{currentBook.title}</h3>
               </div>
             </div>
 
             <div className="card-progress-row">
               <div className="mini-progress-bar">
-                <div className="mini-progress-fill" style={{ width: '25%' }} />
+                <div className="mini-progress-fill" style={{ width: activeCheckpoint === 1 ? '100%' : '25%' }} />
               </div>
-              <span className="percent-label">25%</span>
+              <span className="percent-label">{activeCheckpoint === 1 ? '100%' : '25%'}</span>
             </div>
 
             <div className="sub-lesson-box">
@@ -428,7 +554,7 @@ export default function DashboardClient() {
                     return (
                       <button
                         key={idx}
-                        onClick={() => handleOptionSelect(idx)}
+                        onClick={() => setSelectedOption(idx)}
                         style={{
                           background: isSelected ? '#eff6ff' : '#ffffff',
                           border: isSelected ? '2px solid #4a90e2' : '1px solid #e2e8f0',
@@ -462,17 +588,17 @@ export default function DashboardClient() {
                     cursor: selectedOption === null ? 'not-allowed' : 'pointer'
                   }}
                 >
-                  {currentQuestionIdx + 1 === (currentBook.quiz?.length || 3) ? 'Finalizar Quiz' : 'Proxima Pergunta'}
+                  {currentQuestionIdx + 1 === (currentBook.quiz?.length || 3) ? 'Finalizar Quiz' : 'Próxima Pergunta'}
                 </button>
               </div>
             ) : (
               <div style={{ textAlign: 'center', padding: '1rem 0' }}>
                 <Sparkles size={48} color="#f59e0b" style={{ margin: '0 auto 1rem' }} />
                 <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#0f172a' }}>
-                  {quizScore >= 2 ? 'Parabens! Voce Aprovou!' : 'Tente Novamente'}
+                  {quizScore >= 2 ? 'Parabéns! Você Aprovou!' : 'Tente Novamente'}
                 </h2>
                 <p style={{ color: '#64748b', marginTop: '0.5rem', fontSize: '1rem' }}>
-                  Sua pontuacao: <strong>{quizScore} de {currentBook.quiz?.length || 3} acertos</strong>.
+                  Sua pontuação: <strong>{quizScore} de {currentBook.quiz?.length || 3} acertos</strong>.
                 </p>
 
                 <div style={{ display: 'flex', gap: '1rem', marginTop: '1.8rem', justifyContent: 'center' }}>
@@ -516,7 +642,7 @@ export default function DashboardClient() {
             </button>
 
             <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '1rem' }}>
-              Flashcards de Vocabulario - {currentBook.title}
+              Flashcards de Vocabulário - {currentBook.title}
             </h2>
 
             {currentWord === null ? (
@@ -543,21 +669,16 @@ export default function DashboardClient() {
                   {!isFlipped ? (
                     <div>
                       <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>
-                        Palavra em Ingles (Clique para virar)
+                        Palavra em Inglês (Clique para virar)
                       </span>
                       <h3 style={{ fontSize: '2.4rem', fontWeight: 800, color: '#1e3a8a', marginTop: '0.5rem' }}>
                         {currentWord.word}
                       </h3>
-                      {currentWord.part_of_speech && (
-                        <span style={{ fontSize: '0.85rem', color: '#2563eb', background: '#dbeafe', padding: '0.2rem 0.6rem', borderRadius: '999px', marginTop: '0.5rem', display: 'inline-block' }}>
-                          {currentWord.part_of_speech}
-                        </span>
-                      )}
                     </div>
                   ) : (
                     <div>
                       <span style={{ fontSize: '0.8rem', color: '#059669', fontWeight: 600, textTransform: 'uppercase' }}>
-                        Traducao em Portugues
+                        Tradução em Português
                       </span>
                       <h3 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#065f46', marginTop: '0.5rem' }}>
                         {currentWord.translation}
@@ -565,46 +686,26 @@ export default function DashboardClient() {
                     </div>
                   )}
                 </div>
-
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '1.2rem' }}>
-                  <span style={{ fontSize: '0.85rem', color: '#64748b', fontWeight: 600 }}>
-                    Card {flashcardIdx + 1} de {newWords.length}
-                  </span>
-                  <div style={{ display: 'flex', gap: '0.6rem' }}>
-                    <button
-                      onClick={() => { setFlashcardIdx(prev => Math.max(0, prev - 1)); setIsFlipped(false); }}
-                      disabled={flashcardIdx === 0}
-                      style={{ padding: '0.5rem 1rem', borderRadius: '10px', border: '1px solid #cbd5e1', cursor: flashcardIdx === 0 ? 'not-allowed' : 'pointer' }}
-                    >
-                      Anterior
-                    </button>
-                    <button
-                      onClick={() => { setFlashcardIdx(prev => (prev + 1) % newWords.length); setIsFlipped(false); }}
-                      style={{ padding: '0.5rem 1rem', borderRadius: '10px', background: '#4a90e2', color: '#fff', border: 'none', fontWeight: 700, cursor: 'pointer' }}
-                    >
-                      Proximo
-                    </button>
-                  </div>
-                </div>
               </div>
             )}
           </div>
         </div>
       )}
 
+      {/* CONFIGURAÇÕES MODAL */}
       {isSettingsOpen && (
         <div className="modal-overlay" onClick={() => setIsSettingsOpen(false)}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>
             <button className="modal-close-btn" onClick={() => setIsSettingsOpen(false)}>
               <X size={18} />
             </button>
-            <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '1rem' }}>Configuracoes da Plataforma</h2>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '1rem' }}>Configurações da Plataforma</h2>
             <p style={{ color: '#64748b', fontSize: '0.95rem' }}>
               Plataforma Paul Ortiz sincronizada com o banco de dados <strong>Neon PostgreSQL</strong>.
             </p>
             <div style={{ marginTop: '1.5rem', background: '#f8fafc', padding: '1rem', borderRadius: '12px' }}>
-              <p style={{ fontSize: '0.85rem', color: '#334155' }}><strong>Status do Banco:</strong> Conectado ao Neon (ep-misty-glade)</p>
-              <p style={{ fontSize: '0.85rem', color: '#334155', marginTop: '0.4rem' }}><strong>Progresso Salvo:</strong> Checkpoint {activeCheckpoint} de 16</p>
+              <p style={{ fontSize: '0.85rem', color: '#334155' }}><strong>Status do Plano:</strong> {isPlusUser ? '🌟 Plano Plus Ativo' : '🆓 Plano Gratuito (Freemium)'}</p>
+              <p style={{ fontSize: '0.85rem', color: '#334155', marginTop: '0.4rem' }}><strong>Progresso:</strong> Checkpoint {activeCheckpoint} de 16</p>
             </div>
             <button
               onClick={() => setIsSettingsOpen(false)}
@@ -616,6 +717,13 @@ export default function DashboardClient() {
           </div>
         </div>
       )}
+
+      {/* UPGRADE MODAL (GATILHO DE VENDAS) */}
+      <UpgradeModal
+        isOpen={isUpgradeModalOpen}
+        onClose={() => setIsUpgradeModalOpen(false)}
+        source={upgradeSource}
+      />
     </div>
   );
 }
