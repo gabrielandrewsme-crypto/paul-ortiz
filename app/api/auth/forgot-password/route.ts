@@ -5,6 +5,15 @@ import { sendPasswordResetEmail } from '@/src/lib/email';
 
 export async function POST(request: Request) {
   try {
+    // 1. Verificação da Chave de API do Resend
+    if (!process.env.RESEND_API_KEY) {
+      console.error('[RESEND ERROR] Chave da API Resend não encontrada nas variáveis de ambiente');
+      return NextResponse.json(
+        { error: 'Chave da API Resend não encontrada nas variáveis de ambiente' },
+        { status: 500 }
+      );
+    }
+
     const { email } = await request.json();
 
     if (!email) {
@@ -18,23 +27,23 @@ export async function POST(request: Request) {
     });
 
     if (!user) {
-      // Return success to avoid email enumeration security issues
+      // Retorna resposta neutra por razões de segurança (enumeração de usuários)
       return NextResponse.json({
         success: true,
         message: 'Se o e-mail estiver cadastrado, você receberá o link de redefinição em breve.',
       });
     }
 
-    // Generate random 32-byte hex token
+    // 2. Gerar token de redefinição (32 bytes hex)
     const token = crypto.randomBytes(32).toString('hex');
     const expiresAt = new Date(Date.now() + 60 * 60 * 1000); // 1 hora de validade
 
-    // Clean old tokens for this email
+    // Limpar tokens anteriores para o mesmo e-mail
     await prisma.passwordResetToken.deleteMany({
       where: { email: normalizedEmail },
     });
 
-    // Save token
+    // Salvar token no banco
     await prisma.passwordResetToken.create({
       data: {
         email: normalizedEmail,
@@ -43,15 +52,32 @@ export async function POST(request: Request) {
       },
     });
 
-    // Trigger Resend email
-    await sendPasswordResetEmail(normalizedEmail, token);
+    // 3. Disparar e-mail via Resend
+    const emailResult = await sendPasswordResetEmail(normalizedEmail, token);
+
+    if (!emailResult.success) {
+      console.error('[FORGOT PASSWORD RESEND ERROR]', JSON.stringify(emailResult.error, null, 2));
+      
+      const resendErrMsg =
+        typeof emailResult.error === 'object' && emailResult.error && 'message' in emailResult.error
+          ? String((emailResult.error as { message?: string }).message)
+          : 'Erro desconhecido na API do Resend';
+
+      return NextResponse.json(
+        { error: `Falha no envio de e-mail (Resend): ${resendErrMsg}` },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json({
       success: true,
       message: 'Instruções para redefinição enviadas para o seu e-mail.',
     });
   } catch (error) {
-    console.error('Forgot password error:', error);
-    return NextResponse.json({ error: 'Erro ao processar solicitação.' }, { status: 500 });
+    console.error('Forgot password internal server error:', error);
+    return NextResponse.json(
+      { error: 'Erro ao processar solicitação de redefinição de senha.' },
+      { status: 500 }
+    );
   }
 }

@@ -1,7 +1,7 @@
 import { Resend } from 'resend';
 
 const resendApiKey = process.env.RESEND_API_KEY || '';
-const emailFrom = process.env.EMAIL_FROM || 'Paulo Ortiz <nao-responda@saraortizai.com.br>';
+const emailFrom = process.env.EMAIL_FROM || 'Paul Ortiz <onboarding@resend.dev>';
 const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
 
 const resend = resendApiKey ? new Resend(resendApiKey) : null;
@@ -11,7 +11,6 @@ const resend = resendApiKey ? new Resend(resendApiKey) : null;
  */
 export async function sendPasswordResetEmail(email: string, token: string) {
   const resetLink = appUrl + '/reset-password?token=' + token;
-
   const year = new Date().getFullYear();
 
   const html = [
@@ -45,7 +44,7 @@ export async function sendPasswordResetEmail(email: string, token: string) {
     '</div></body></html>',
   ].join('\n');
 
-  console.log('[RESEND EMAIL] Disparando e-mail de redefini\u00e7\u00e3o para ' + email + ' | Link: ' + resetLink);
+  console.log('[RESEND EMAIL] Disparando e-mail de redefini\u00e7\u00e3o para ' + email + ' | From: ' + emailFrom + ' | Link: ' + resetLink);
 
   if (!resend || resendApiKey.startsWith('re_123456789')) {
     console.log('[RESEND SIMULA\u00c7\u00c3O] Chave API n\u00e3o configurada ou placeholder. E-mail simulado com sucesso.');
@@ -53,15 +52,22 @@ export async function sendPasswordResetEmail(email: string, token: string) {
   }
 
   try {
-    const data = await resend.emails.send({
+    const response = await resend.emails.send({
       from: emailFrom,
       to: [email],
       subject: 'Redefini\u00e7\u00e3o de Senha \u2014 Paul Ortiz / Mountain Learning',
       html,
     });
-    return { success: true, data };
+
+    if (response.error) {
+      console.error('[RESEND API ERROR]', JSON.stringify(response.error, null, 2));
+      return { success: false, error: response.error };
+    }
+
+    console.log('[RESEND API SUCCESS]', JSON.stringify(response.data, null, 2));
+    return { success: true, data: response.data };
   } catch (error) {
-    console.error('[RESEND ERRO]', error);
+    console.error('[RESEND EXCEPTION ERROR]', error);
     return { success: false, error };
   }
 }
@@ -105,22 +111,28 @@ export async function sendWelcomeEmail(email: string, name: string, role: string
     '</div></body></html>',
   ].join('\n');
 
-  console.log('[RESEND EMAIL] Disparando e-mail de boas-vindas para ' + email);
+  console.log('[RESEND EMAIL] Disparando e-mail de boas-vindas para ' + email + ' | From: ' + emailFrom);
 
   if (!resend || resendApiKey.startsWith('re_123456789')) {
     return { success: true, simulated: true };
   }
 
   try {
-    const data = await resend.emails.send({
+    const response = await resend.emails.send({
       from: emailFrom,
       to: [email],
       subject: 'Bem-vindo(a) ao Paul Ortiz \u2014 Mountain Learning! \ud83d\ude80',
       html,
     });
-    return { success: true, data };
+
+    if (response.error) {
+      console.error('[RESEND API ERROR]', JSON.stringify(response.error, null, 2));
+      return { success: false, error: response.error };
+    }
+
+    return { success: true, data: response.data };
   } catch (error) {
-    console.error('[RESEND ERRO]', error);
+    console.error('[RESEND EXCEPTION ERROR]', error);
     return { success: false, error };
   }
 }
