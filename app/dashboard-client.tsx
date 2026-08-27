@@ -29,22 +29,22 @@ interface CheckpointCoord {
 }
 
 const CHECKPOINT_COORDS: CheckpointCoord[] = [
-  { id: 1, x: 328, y: 445 },
-  { id: 2, x: 362, y: 412 },
-  { id: 3, x: 396, y: 378 },
-  { id: 4, x: 428, y: 340 },
-  { id: 5, x: 462, y: 340 },
-  { id: 6, x: 486, y: 315 },
-  { id: 7, x: 508, y: 326 },
-  { id: 8, x: 536, y: 308 },
-  { id: 9, x: 566, y: 292 },
-  { id: 10, x: 596, y: 272 },
-  { id: 11, x: 626, y: 250, hasFlag: true },
-  { id: 12, x: 648, y: 218, hasFlag: true },
-  { id: 13, x: 676, y: 258 },
-  { id: 14, x: 706, y: 298, hasFlag: true },
-  { id: 15, x: 726, y: 338 },
-  { id: 16, x: 746, y: 348, hasFlag: true },
+  { id: 1, x: 260, y: 510 },
+  { id: 2, x: 310, y: 475 },
+  { id: 3, x: 365, y: 440 },
+  { id: 4, x: 420, y: 410 },
+  { id: 5, x: 470, y: 380 },
+  { id: 6, x: 430, y: 345 },
+  { id: 7, x: 390, y: 315 },
+  { id: 8, x: 440, y: 285 },
+  { id: 9, x: 500, y: 260 },
+  { id: 10, x: 550, y: 235 },
+  { id: 11, x: 600, y: 215, hasFlag: true },
+  { id: 12, x: 550, y: 190, hasFlag: true },
+  { id: 13, x: 490, y: 170 },
+  { id: 14, x: 460, y: 145, hasFlag: true },
+  { id: 15, x: 480, y: 125 },
+  { id: 16, x: 500, y: 100, hasFlag: true },
 ];
 
 function buildPathD(): string {

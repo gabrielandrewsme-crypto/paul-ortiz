@@ -43,12 +43,8 @@ export default function RegisterPage() {
 
       setSuccess(true);
       setTimeout(() => {
-        if (data.user?.role === 'ADMIN' || data.user?.role === 'MANAGER') {
-          router.push('/admin');
-        } else {
-          router.push('/');
-        }
-      }, 1500);
+        router.push('/avatar?onboarding=true');
+      }, 1200);
     } catch (err) {
       setError('Falha na comunicação com o servidor.');
       setLoading(false);
