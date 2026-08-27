@@ -6,15 +6,18 @@ import { useRouter } from 'next/navigation';
 import { 
   ShieldCheck, 
   Users, 
-  UserCheck, 
   Database, 
-  LogOut, 
   Home, 
   AlertCircle, 
   CheckCircle2, 
   Crown,
   Search,
-  Settings2
+  MessageSquare,
+  Clock,
+  Calendar,
+  XCircle,
+  RefreshCw,
+  Sparkles
 } from 'lucide-react';
 
 interface AdminUser {
@@ -25,13 +28,20 @@ interface AdminUser {
   streakDays: number;
   currentCheckpoint: number;
   totalWordsLearned: number;
+  plan: 'FREE' | 'MONTHLY' | 'SEMIANNUAL';
+  isSubscribed: boolean;
+  subscriptionStartDate: string | null;
+  subscriptionEndDate: string | null;
+  subscriptionStatus: 'NONE' | 'ACTIVE' | 'EXPIRED';
   createdAt: string;
 }
 
 interface Metrics {
   totalUsers: number;
-  totalAdmins: number;
-  totalManagers: number;
+  totalSubscribers: number;
+  totalMonthly: number;
+  totalSemiannual: number;
+  expiringSoonCount: number;
   databaseStatus: string;
 }
 
@@ -40,14 +50,15 @@ export default function AdminDashboardPage() {
   const [currentUser, setCurrentUser] = useState<any>(null);
   const [metrics, setMetrics] = useState<Metrics | null>(null);
   const [users, setUsers] = useState<AdminUser[]>([]);
+  const [expiringSoonUsers, setExpiringSoonUsers] = useState<AdminUser[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [statusMessage, setStatusMessage] = useState('');
+  const [actionLoadingId, setActionLoadingId] = useState<string | null>(null);
 
   const fetchAdminData = async () => {
     try {
-      // 1. Verify Session
       const meRes = await fetch('/api/auth/me');
       const meData = await meRes.json();
 
@@ -59,13 +70,12 @@ export default function AdminDashboardPage() {
 
       setCurrentUser(meData.user);
 
-      if (meData.user.role !== 'ADMIN' && meData.user.role !== 'MANAGER') {
-        setError('Acesso negado. Apenas Administradores e Gestores têm permissão.');
+      if (meData.user.email.toLowerCase().trim() !== 'gabrielandrews.me@gmail.com') {
+        setError('Acesso negado. Esta área é restrita exclusivamente ao e-mail administrador Supremo.');
         setLoading(false);
         return;
       }
 
-      // 2. Fetch Users & Metrics
       const adminRes = await fetch('/api/admin/users');
       const adminData = await adminRes.json();
 
@@ -74,6 +84,7 @@ export default function AdminDashboardPage() {
       } else {
         setMetrics(adminData.metrics);
         setUsers(adminData.users);
+        setExpiringSoonUsers(adminData.expiringSoonUsers || []);
       }
     } catch (err) {
       setError('Falha de conexão com o banco Neon.');
@@ -86,13 +97,14 @@ export default function AdminDashboardPage() {
     fetchAdminData();
   }, []);
 
-  const handleRoleChange = async (userId: string, newRole: string) => {
+  const handleSubscriptionAction = async (userId: string, action: string, daysToAdd?: number) => {
     setStatusMessage('');
+    setActionLoadingId(userId);
     try {
       const res = await fetch('/api/admin/users', {
-        method: 'PATCH',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId, role: newRole }),
+        body: JSON.stringify({ userId, action, daysToAdd }),
       });
 
       const data = await res.json();
@@ -100,17 +112,37 @@ export default function AdminDashboardPage() {
       if (!res.ok) {
         setStatusMessage(`Erro: ${data.error}`);
       } else {
-        setStatusMessage('Cargo atualizado com sucesso!');
-        fetchAdminData();
+        setStatusMessage(`Assinatura atualizada com sucesso para ${data.user.name}!`);
+        await fetchAdminData();
       }
     } catch (err) {
-      setStatusMessage('Erro ao comunicar com o servidor.');
+      setStatusMessage('Falha ao processar requisição.');
+    } finally {
+      setActionLoadingId(null);
     }
   };
 
-  const handleLogout = async () => {
-    await fetch('/api/auth/logout', { method: 'POST' });
-    router.push('/login');
+  const calculateDaysRemaining = (endDateStr: string | null): number => {
+    if (!endDateStr) return 0;
+    const end = new Date(endDateStr);
+    const now = new Date();
+    const diffTime = end.getTime() - now.getTime();
+    return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  };
+
+  const formatDate = (dateStr: string | null): string => {
+    if (!dateStr) return 'N/A';
+    return new Date(dateStr).toLocaleDateString('pt-BR');
+  };
+
+  const generateWhatsAppCobrança = (u: AdminUser) => {
+    const daysLeft = calculateDaysRemaining(u.subscriptionEndDate);
+    const dateFormatted = formatDate(u.subscriptionEndDate);
+    const planName = u.plan === 'MONTHLY' ? 'Mensal' : 'Semestral';
+    const text = encodeURIComponent(
+      `Olá ${u.name}! Sua assinatura do Plano ${planName} da plataforma vence em ${daysLeft} dias (no dia ${dateFormatted}). Gostaria de garantir a renovação para continuar acessando todos os livros e podcasts da escalada?`
+    );
+    return `https://wa.me/?text=${text}`;
   };
 
   const filteredUsers = users.filter(u => 
@@ -120,183 +152,279 @@ export default function AdminDashboardPage() {
 
   if (loading) {
     return (
-      <main className="admin-wrapper" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
-        <div style={{ background: '#ffffff', padding: '2rem 3rem', borderRadius: '20px', textAlign: 'center', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}>
-          <div style={{ fontSize: '1.2rem', fontWeight: 700, color: '#4a90e2' }}>Carregando Painel de Gestão...</div>
-        </div>
+      <main className="admin-page-wrapper" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '80vh' }}>
+        <div style={{ color: '#ffffff', fontSize: '1.2rem', fontWeight: 700 }}>Carregando Painel Admin Supremo...</div>
       </main>
     );
   }
 
   if (error) {
     return (
-      <main className="admin-wrapper" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', padding: '1.5rem' }}>
-        <div style={{ background: '#ffffff', padding: '2.5rem', borderRadius: '24px', maxWidth: '480px', width: '100%', textAlign: 'center', boxShadow: '0 15px 40px rgba(0,0,0,0.12)' }}>
-          <AlertCircle size={48} color="#ef4444" style={{ margin: '0 auto 1rem' }} />
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#1e293b' }}>Acesso Restrito</h2>
-          <p style={{ color: '#64748b', marginTop: '0.5rem', fontSize: '0.95rem' }}>{error}</p>
-          <div style={{ display: 'flex', gap: '1rem', marginTop: '1.8rem', justifyContent: 'center' }}>
-            <Link href="/" style={{ background: '#f1f5f9', color: '#334155', padding: '0.8rem 1.4rem', borderRadius: '12px', fontWeight: 700, textDecoration: 'none' }}>
-              Voltar ao Início
-            </Link>
-            <Link href="/login" style={{ background: '#4a90e2', color: '#ffffff', padding: '0.8rem 1.4rem', borderRadius: '12px', fontWeight: 700, textDecoration: 'none' }}>
-              Realizar Login
-            </Link>
+      <main className="admin-page-wrapper">
+        <div className="admin-card">
+          <div className="auth-alert error">
+            <AlertCircle size={20} />
+            <span>{error}</span>
           </div>
+          <Link href="/" className="auth-btn-primary" style={{ marginTop: '1rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+            <Home size={18} /> Voltar à Página Inicial
+          </Link>
         </div>
       </main>
     );
   }
 
   return (
-    <main className="admin-container">
-      {/* Top Navbar */}
-      <header className="admin-header">
-        <div className="admin-brand">
-          <ShieldCheck size={28} color="#4a90e2" />
-          <div>
-            <h1 className="admin-title">Painel de Gestão & Administração</h1>
-            <span className="admin-subtitle">Sara Core — Neon PostgreSQL Database</span>
+    <main className="admin-page-wrapper">
+      <div className="admin-container">
+        {/* Header Admin */}
+        <header className="admin-header">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <div className="admin-badge-icon">
+              <ShieldCheck size={28} color="#f59e0b" />
+            </div>
+            <div>
+              <h1 className="admin-title">Painel de Assinaturas & Gestão Admin</h1>
+              <p className="admin-subtitle">Administrador: <strong>{currentUser?.email}</strong></p>
+            </div>
           </div>
-        </div>
 
-        <div className="admin-user-info">
-          <div className="user-badge-role">
-            <Crown size={16} color="#d97706" />
-            <span>{currentUser?.role}</span>
-          </div>
-          <span className="user-name">{currentUser?.name}</span>
-          <Link href="/" className="icon-link" title="Ir para a Montanha">
-            <Home size={20} />
+          <Link href="/" className="back-link">
+            <Home size={18} /> Ir para o Mapa
           </Link>
-          <button className="icon-link" onClick={handleLogout} title="Sair">
-            <LogOut size={20} color="#ef4444" />
-          </button>
-        </div>
-      </header>
+        </header>
 
-      {/* Metrics Cards Grid */}
-      <div className="admin-metrics-grid">
-        <div className="admin-metric-card">
-          <div className="metric-icon-box" style={{ background: '#eff6ff', color: '#3b82f6' }}>
-            <Users size={24} />
+        {statusMessage && (
+          <div className="auth-alert success" style={{ marginBottom: '1.5rem' }}>
+            <CheckCircle2 size={18} />
+            <span>{statusMessage}</span>
           </div>
-          <div className="metric-data">
-            <span className="metric-label">Total de Usuários</span>
-            <span className="metric-value">{metrics?.totalUsers || 0}</span>
-          </div>
-        </div>
+        )}
 
-        <div className="admin-metric-card">
-          <div className="metric-icon-box" style={{ background: '#fef3c7', color: '#d97706' }}>
-            <Crown size={24} />
-          </div>
-          <div className="metric-data">
-            <span className="metric-label">Administradores</span>
-            <span className="metric-value">{metrics?.totalAdmins || 0}</span>
-          </div>
-        </div>
+        {/* METRICS GRID */}
+        {metrics && (
+          <div className="metrics-grid">
+            <div className="metric-card">
+              <div className="metric-icon" style={{ background: '#dbeafe', color: '#1d4ed8' }}>
+                <Users size={22} />
+              </div>
+              <div>
+                <span className="metric-label">Total de Usuários</span>
+                <h3 className="metric-value">{metrics.totalUsers}</h3>
+              </div>
+            </div>
 
-        <div className="admin-metric-card">
-          <div className="metric-icon-box" style={{ background: '#f3e8ff', color: '#9333ea' }}>
-            <UserCheck size={24} />
-          </div>
-          <div className="metric-data">
-            <span className="metric-label">Gestores / Managers</span>
-            <span className="metric-value">{metrics?.totalManagers || 0}</span>
-          </div>
-        </div>
+            <div className="metric-card">
+              <div className="metric-icon" style={{ background: '#fef3c7', color: '#d97706' }}>
+                <Crown size={22} />
+              </div>
+              <div>
+                <span className="metric-label">Assinantes Plus Ativos</span>
+                <h3 className="metric-value">{metrics.totalSubscribers}</h3>
+              </div>
+            </div>
 
-        <div className="admin-metric-card">
-          <div className="metric-icon-box" style={{ background: '#dcfce7', color: '#16a34a' }}>
-            <Database size={24} />
-          </div>
-          <div className="metric-data">
-            <span className="metric-label">Banco de Dados</span>
-            <span className="metric-value" style={{ fontSize: '1.05rem', color: '#15803d' }}>
-              {metrics?.databaseStatus || 'Conectado'}
-            </span>
-          </div>
-        </div>
-      </div>
+            <div className="metric-card">
+              <div className="metric-icon" style={{ background: '#dcfce7', color: '#15803d' }}>
+                <Sparkles size={22} />
+              </div>
+              <div>
+                <span className="metric-label">Plano Mensal / Semestral</span>
+                <h3 className="metric-value">{metrics.totalMonthly}M / {metrics.totalSemiannual}S</h3>
+              </div>
+            </div>
 
-      {/* Status Feedback Message */}
-      {statusMessage && (
-        <div className="admin-status-bar">
-          <CheckCircle2 size={18} color="#16a34a" />
-          <span>{statusMessage}</span>
-        </div>
-      )}
+            <div className="metric-card">
+              <div className="metric-icon" style={{ background: '#fee2e2', color: '#b91c1c' }}>
+                <Clock size={22} />
+              </div>
+              <div>
+                <span className="metric-label">Vencendo em 5 dias</span>
+                <h3 className="metric-value" style={{ color: metrics.expiringSoonCount > 0 ? '#dc2626' : '#1e293b' }}>
+                  {metrics.expiringSoonCount}
+                </h3>
+              </div>
+            </div>
+          </div>
+        )}
 
-      {/* Users Section Table */}
-      <div className="admin-table-card">
-        <div className="table-card-header">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-            <Settings2 size={20} color="#4a90e2" />
-            <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#1e293b' }}>Controle de Usuários e Permissões (RBAC)</h2>
+        {/* SECTION: ALERTAS DE ASSINATURA VENCENDO */}
+        {expiringSoonUsers.length > 0 && (
+          <div style={{ background: '#fffbe3', border: '2px solid #fde047', borderRadius: '20px', padding: '1.5rem', marginBottom: '2rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: '#854d0e', marginBottom: '1rem' }}>
+              <Clock size={22} />
+              <h2 style={{ fontSize: '1.2rem', fontWeight: 800 }}>⚠️ Assinaturas Vencendo em Breve (Próximos 5 Dias)</h2>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+              {expiringSoonUsers.map(u => {
+                const daysLeft = calculateDaysRemaining(u.subscriptionEndDate);
+                return (
+                  <div key={u.id} style={{ background: '#ffffff', padding: '1rem', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', border: '1px solid #fef08a' }}>
+                    <div>
+                      <strong style={{ color: '#0f172a', fontSize: '1rem' }}>{u.name}</strong>
+                      <span style={{ color: '#64748b', fontSize: '0.85rem', marginLeft: '0.5rem' }}>({u.email})</span>
+                      <div style={{ fontSize: '0.8rem', color: '#854d0e', marginTop: '0.2rem' }}>
+                        Plano: <strong>{u.plan}</strong> | Expira em: <strong>{formatDate(u.subscriptionEndDate)}</strong> ({daysLeft <= 0 ? 'VENCIDA' : `${daysLeft} dias restantes`})
+                      </div>
+                    </div>
+
+                    <a
+                      href={generateWhatsAppCobrança(u)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        background: '#25d366',
+                        color: '#ffffff',
+                        padding: '0.6rem 1.2rem',
+                        borderRadius: '10px',
+                        fontWeight: 700,
+                        fontSize: '0.85rem',
+                        textDecoration: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.4rem',
+                        boxShadow: '0 2px 8px rgba(37,211,102,0.3)'
+                      }}
+                    >
+                      <MessageSquare size={16} /> Enviar Cobrança WhatsApp
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* USER LIST & SUBSCRIPTION MANAGEMENT */}
+        <div className="admin-table-card">
+          <div className="table-header-row">
+            <div>
+              <h2 className="table-title">Gerenciamento Manual de Assinaturas</h2>
+              <p className="table-subtitle">Ative, renove ou revogue o acesso dos usuários com atualização instantânea</p>
+            </div>
+
+            <div className="search-box">
+              <Search size={18} className="search-icon" />
+              <input
+                type="text"
+                placeholder="Buscar por nome ou e-mail..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="search-input"
+              />
+            </div>
           </div>
 
-          <div className="search-box">
-            <Search size={18} color="#94a3b8" />
-            <input
-              type="text"
-              placeholder="Buscar por nome ou e-mail..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="search-input"
-            />
-          </div>
-        </div>
-
-        <div className="table-responsive">
-          <table className="admin-table">
-            <thead>
-              <tr>
-                <th>Usuário / Escalador</th>
-                <th>E-mail</th>
-                <th>Cargo (Role)</th>
-                <th>Checkpoint</th>
-                <th>Streak</th>
-                <th>Palavras</th>
-                <th>Ações de Gestão</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredUsers.map((user) => (
-                <tr key={user.id}>
-                  <td>
-                    <div style={{ fontWeight: 700, color: '#0f172a' }}>{user.name}</div>
-                  </td>
-                  <td style={{ color: '#64748b' }}>{user.email}</td>
-                  <td>
-                    <span className={`role-badge ${user.role.toLowerCase()}`}>
-                      {user.role}
-                    </span>
-                  </td>
-                  <td>
-                    <span style={{ fontWeight: 700, color: '#4a90e2' }}>Checkpoint {user.currentCheckpoint}</span>
-                  </td>
-                  <td>⚡ {user.streakDays} dias</td>
-                  <td>✨ {user.totalWordsLearned} palavras</td>
-                  <td>
-                    {currentUser?.role === 'ADMIN' ? (
-                      <select
-                        value={user.role}
-                        onChange={(e) => handleRoleChange(user.id, e.target.value)}
-                        className="role-select"
-                      >
-                        <option value="USER">USER</option>
-                        <option value="MANAGER">MANAGER</option>
-                        <option value="ADMIN">ADMIN</option>
-                      </select>
-                    ) : (
-                      <span style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Apenas Leitura</span>
-                    )}
-                  </td>
+          <div style={{ overflowX: 'auto' }}>
+            <table className="users-table">
+              <thead>
+                <tr>
+                  <th>Usuário</th>
+                  <th>Plano Atual</th>
+                  <th>Status</th>
+                  <th>Data de Início</th>
+                  <th>Data de Expiração</th>
+                  <th>Dias Restantes</th>
+                  <th>Ações de Ativação Manual</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {filteredUsers.map((u) => {
+                  const daysLeft = calculateDaysRemaining(u.subscriptionEndDate);
+                  const isExpired = u.subscriptionStatus === 'EXPIRED' || daysLeft < 0;
+                  const isActive = u.isSubscribed && u.subscriptionStatus === 'ACTIVE' && !isExpired;
+
+                  return (
+                    <tr key={u.id}>
+                      <td>
+                        <div style={{ fontWeight: 700, color: '#0f172a' }}>{u.name}</div>
+                        <div style={{ fontSize: '0.8rem', color: '#64748b' }}>{u.email}</div>
+                      </td>
+                      <td>
+                        <span className={`role-badge ${u.plan !== 'FREE' ? 'admin' : 'user'}`}>
+                          {u.plan === 'MONTHLY' ? 'Mensal (R$37,90)' : u.plan === 'SEMIANNUAL' ? 'Semestral (R$109,90)' : 'Gratuito (FREE)'}
+                        </span>
+                      </td>
+                      <td>
+                        {isActive ? (
+                          <span style={{ background: '#dcfce7', color: '#15803d', padding: '0.2rem 0.6rem', borderRadius: '999px', fontSize: '0.75rem', fontWeight: 800 }}>
+                            ✅ Ativo
+                          </span>
+                        ) : isExpired ? (
+                          <span style={{ background: '#fee2e2', color: '#b91c1c', padding: '0.2rem 0.6rem', borderRadius: '999px', fontSize: '0.75rem', fontWeight: 800 }}>
+                            ❌ Expirado
+                          </span>
+                        ) : (
+                          <span style={{ background: '#f1f5f9', color: '#64748b', padding: '0.2rem 0.6rem', borderRadius: '999px', fontSize: '0.75rem', fontWeight: 700 }}>
+                            Gratuito
+                          </span>
+                        )}
+                      </td>
+                      <td style={{ fontSize: '0.85rem' }}>{formatDate(u.subscriptionStartDate)}</td>
+                      <td style={{ fontSize: '0.85rem' }}>{formatDate(u.subscriptionEndDate)}</td>
+                      <td>
+                        {isActive ? (
+                          <strong style={{ color: daysLeft <= 5 ? '#dc2626' : '#16a34a' }}>
+                            {daysLeft} dias
+                          </strong>
+                        ) : (
+                          <span style={{ color: '#94a3b8' }}>-</span>
+                        )}
+                      </td>
+                      <td>
+                        <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
+                          {/* Ativar Mensal */}
+                          <button
+                            onClick={() => handleSubscriptionAction(u.id, 'activate_monthly')}
+                            disabled={actionLoadingId === u.id}
+                            style={{ background: '#0284c7', color: '#ffffff', border: 'none', padding: '0.35rem 0.7rem', borderRadius: '8px', fontSize: '0.75rem', fontWeight: 700, cursor: 'pointer' }}
+                            title="Define 30 dias de acesso Plus"
+                          >
+                            + Mensal (30d)
+                          </button>
+
+                          {/* Ativar Semestral */}
+                          <button
+                            onClick={() => handleSubscriptionAction(u.id, 'activate_semiannual')}
+                            disabled={actionLoadingId === u.id}
+                            style={{ background: '#ca8a04', color: '#ffffff', border: 'none', padding: '0.35rem 0.7rem', borderRadius: '8px', fontSize: '0.75rem', fontWeight: 700, cursor: 'pointer' }}
+                            title="Define 180 dias de acesso Plus"
+                          >
+                            + Semestral (180d)
+                          </button>
+
+                          {/* Renovar +30d */}
+                          {isActive && (
+                            <button
+                              onClick={() => handleSubscriptionAction(u.id, 'renew', 30)}
+                              disabled={actionLoadingId === u.id}
+                              style={{ background: '#16a34a', color: '#ffffff', border: 'none', padding: '0.35rem 0.7rem', borderRadius: '8px', fontSize: '0.75rem', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.2rem' }}
+                              title="Adiciona +30 dias a partir da data de término"
+                            >
+                              <RefreshCw size={12} /> +30d
+                            </button>
+                          )}
+
+                          {/* Revogar */}
+                          {isActive && (
+                            <button
+                              onClick={() => handleSubscriptionAction(u.id, 'revoke')}
+                              disabled={actionLoadingId === u.id}
+                              style={{ background: '#ef4444', color: '#ffffff', border: 'none', padding: '0.35rem 0.7rem', borderRadius: '8px', fontSize: '0.75rem', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.2rem' }}
+                              title="Revoga o acesso e volta para Plano Gratuito"
+                            >
+                              <XCircle size={12} /> Cancelar
+                            </button>
+                          )}
+                        </div>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </main>

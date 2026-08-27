@@ -94,11 +94,14 @@ export default function DashboardClient() {
   const [flashcardIdx, setFlashcardIdx] = useState<number>(0);
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
 
+  const [userData, setUserData] = useState<any>(null);
+
   useEffect(() => {
     fetch('/api/auth/me')
       .then(res => res.json())
       .then(data => {
         if (data.authenticated && data.user) {
+          setUserData(data.user);
           setUserRole(data.user.role || 'USER');
           if (data.user.avatarConfig) {
             setUserAvatarConfig(data.user.avatarConfig);
@@ -110,7 +113,10 @@ export default function DashboardClient() {
       .catch(console.error);
   }, []);
 
-  const isPlusUser = userRole === 'ADMIN' || userRole === 'MANAGER';
+  const isPlusUser = 
+    userRole === 'ADMIN' || 
+    userRole === 'MANAGER' || 
+    (userData?.isSubscribed === true && userData?.subscriptionStatus === 'ACTIVE');
 
   // Livro atual conforme a aba selecionada
   const currentBook: BookData = activeTab === 'main'
@@ -193,16 +199,28 @@ export default function DashboardClient() {
       <header className="header-bar">
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <h1 className="brand-title">Paul Ortiz</h1>
-          {/* Botão de Upgrade / Plano Plus Fixo no Cabeçalho */}
-          <button
-            onClick={() => {
-              setUpgradeSource('header_btn');
-              setIsUpgradeModalOpen(true);
-            }}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-extrabold text-xs shadow-md hover:scale-105 transition cursor-pointer"
-          >
-            <Crown size={15} /> Assinar Plano Plus
-          </button>
+          {/* Indicador de Assinatura ou Botão de Upgrade */}
+          {isPlusUser ? (
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400 text-emerald-100 font-extrabold text-xs">
+              <Crown size={15} className="text-amber-300" />
+              <span>Plano Plus Ativo</span>
+              {userData?.subscriptionEndDate && (
+                <span className="text-[10px] bg-emerald-950/60 px-2 py-0.5 rounded-full text-emerald-300">
+                  {Math.max(0, Math.ceil((new Date(userData.subscriptionEndDate).getTime() - Date.now()) / (1000 * 60 * 60 * 24)))} dias restantes
+                </span>
+              )}
+            </div>
+          ) : (
+            <button
+              onClick={() => {
+                setUpgradeSource('header_btn');
+                setIsUpgradeModalOpen(true);
+              }}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-extrabold text-xs shadow-md hover:scale-105 transition cursor-pointer"
+            >
+              <Crown size={15} /> Assinar Plano Plus
+            </button>
+          )}
         </div>
 
         <div className="header-center-stats">

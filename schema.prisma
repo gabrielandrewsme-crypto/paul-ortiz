@@ -49,20 +49,43 @@ enum PartOfSpeech {
   @@map("part_of_speech_enum")
 }
 
+enum SubscriptionPlan {
+  FREE
+  MONTHLY
+  SEMIANNUAL
+
+  @@map("subscription_plan_enum")
+}
+
+enum SubscriptionStatus {
+  NONE
+  ACTIVE
+  EXPIRED
+
+  @@map("subscription_status_enum")
+}
+
 model User {
-  id                String             @id @default(uuid()) @db.Uuid
-  name              String             @db.VarChar(255)
-  email             String             @unique @db.VarChar(255)
-  passwordHash      String?            @map("password_hash") @db.VarChar(255)
-  role              UserRole           @default(USER) @map("role")
-  avatarConfig      Json?              @map("avatar_config")
-  streakDays        Int                @default(0) @map("streak_days")
-  lastActivityDate  DateTime?          @default(now()) @map("last_activity_date") @db.Date
-  totalWordsLearned Int                @default(0) @map("total_words_learned")
-  currentCheckpoint Int                @default(1) @map("current_checkpoint")
-  characterState    CharacterState     @default(climbing) @map("character_state")
-  createdAt         DateTime           @default(now()) @map("created_at") @db.Timestamptz
-  updatedAt         DateTime           @default(now()) @updatedAt @map("updated_at") @db.Timestamptz
+  id                    String             @id @default(uuid()) @db.Uuid
+  name                  String             @db.VarChar(255)
+  email                 String             @unique @db.VarChar(255)
+  passwordHash          String?            @map("password_hash") @db.VarChar(255)
+  role                  UserRole           @default(USER) @map("role")
+  avatarConfig          Json?              @map("avatar_config")
+  streakDays            Int                @default(0) @map("streak_days")
+  lastActivityDate      DateTime?          @default(now()) @map("last_activity_date") @db.Date
+  totalWordsLearned     Int                @default(0) @map("total_words_learned")
+  currentCheckpoint     Int                @default(1) @map("current_checkpoint")
+  characterState        CharacterState     @default(climbing) @map("character_state")
+  
+  plan                  SubscriptionPlan   @default(FREE) @map("plan")
+  isSubscribed          Boolean            @default(false) @map("is_subscribed")
+  subscriptionStartDate DateTime?          @map("subscription_start_date") @db.Timestamptz
+  subscriptionEndDate   DateTime?          @map("subscription_end_date") @db.Timestamptz
+  subscriptionStatus    SubscriptionStatus @default(NONE) @map("subscription_status")
+
+  createdAt             DateTime           @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt             DateTime           @default(now()) @updatedAt @map("updated_at") @db.Timestamptz
 
   wordProgress      UserWordProgress[]
   quizAttempts      QuizAttempt[]
