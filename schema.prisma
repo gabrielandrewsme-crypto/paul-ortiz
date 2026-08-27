@@ -1,0 +1,146 @@
+// ============================================================================
+// PLATAFORMA DE APRENDIZADO DE INGLÊS "PAUL ORTIZ"
+// Schema Prisma ORM
+// ============================================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL") // Para Supabase Connection Pooling
+}
+
+enum WordStatus {
+  learning
+  mastered
+
+  @@map("word_status_enum")
+}
+
+enum CharacterState {
+  climbing
+  holding_flag
+
+  @@map("character_state_enum")
+}
+
+enum UserRole {
+  USER
+  MANAGER
+  ADMIN
+
+  @@map("user_role_enum")
+}
+
+enum PartOfSpeech {
+  noun
+  verb
+  adjective
+  adverb
+  pronoun
+  preposition
+  conjunction
+  phrasal_verb
+  expression
+
+  @@map("part_of_speech_enum")
+}
+
+model User {
+  id                String             @id @default(uuid()) @db.Uuid
+  name              String             @db.VarChar(255)
+  email             String             @unique @db.VarChar(255)
+  passwordHash      String?            @map("password_hash") @db.VarChar(255)
+  role              UserRole           @default(USER) @map("role")
+  avatarConfig      Json?              @map("avatar_config")
+  streakDays        Int                @default(0) @map("streak_days")
+  lastActivityDate  DateTime?          @default(now()) @map("last_activity_date") @db.Date
+  totalWordsLearned Int                @default(0) @map("total_words_learned")
+  currentCheckpoint Int                @default(1) @map("current_checkpoint")
+  characterState    CharacterState     @default(climbing) @map("character_state")
+  createdAt         DateTime           @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt         DateTime           @default(now()) @updatedAt @map("updated_at") @db.Timestamptz
+
+  wordProgress      UserWordProgress[]
+  quizAttempts      QuizAttempt[]
+
+  @@map("users")
+}
+
+model PasswordResetToken {
+  id        String   @id @default(uuid()) @db.Uuid
+  email     String   @db.VarChar(255)
+  token     String   @unique @db.VarChar(255)
+  expiresAt DateTime @map("expires_at") @db.Timestamptz
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  @@index([email], map: "idx_reset_token_email")
+  @@map("password_reset_tokens")
+}
+
+model Book {
+  id          String        @id @default(uuid()) @db.Uuid
+  levelOrder  Int           @unique @map("level_order")
+  title       String        @db.VarChar(255)
+  summary     String        @db.Text
+  totalWords  Int           @map("total_words")
+  audioUrl    String?       @map("audio_url") @db.Text
+  createdAt   DateTime      @default(now()) @map("created_at") @db.Timestamptz
+
+  vocabulary  Vocabulary[]
+  quizAttempts QuizAttempt[]
+
+  @@index([levelOrder], map: "idx_books_level_order")
+  @@map("books")
+}
+
+model Vocabulary {
+  id              String             @id @default(uuid()) @db.Uuid
+  bookId          String             @map("book_id") @db.Uuid
+  word            String             @db.VarChar(100)
+  translation     String             @db.VarChar(100)
+  partOfSpeech    PartOfSpeech       @map("part_of_speech")
+  contextSentence String             @map("context_sentence") @db.Text
+  createdAt       DateTime           @default(now()) @map("created_at") @db.Timestamptz
+
+  book            Book               @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  userProgress    UserWordProgress[]
+
+  @@index([bookId], map: "idx_vocab_book_id")
+  @@map("vocabulary")
+}
+
+model UserWordProgress {
+  id         String     @id @default(uuid()) @db.Uuid
+  userId     String     @map("user_id") @db.Uuid
+  wordId     String     @map("word_id") @db.Uuid
+  status     WordStatus @default(learning)
+  masteredAt DateTime?  @map("mastered_at") @db.Timestamptz
+  createdAt  DateTime   @default(now()) @map("created_at") @db.Timestamptz
+
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  word       Vocabulary @relation(fields: [wordId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, wordId], map: "uq_user_word")
+  @@index([userId], map: "idx_user_word_progress_user_id")
+  @@index([userId, status], map: "idx_user_word_progress_status")
+  @@map("user_word_progress")
+}
+
+model QuizAttempt {
+  id          String   @id @default(uuid()) @db.Uuid
+  userId      String   @map("user_id") @db.Uuid
+  bookId      String   @map("book_id") @db.Uuid
+  score       Int      // 0 a 3 acertos
+  passed      Boolean  @default(false)
+  completedAt DateTime @default(now()) @map("completed_at") @db.Timestamptz
+
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  book        Book     @relation(fields: [bookId], references: [id], onDelete: Cascade)
+
+  @@index([userId, bookId], map: "idx_quiz_attempts_user_book")
+  @@map("quiz_attempts")
+}
