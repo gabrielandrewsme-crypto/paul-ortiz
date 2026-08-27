@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { 
@@ -9,7 +9,6 @@ import {
   ArrowLeft, 
   Check, 
   AlertCircle,
-  Compass,
   Smile,
   Scissors,
   Glasses,
@@ -18,7 +17,7 @@ import {
 } from 'lucide-react';
 import AvatarRenderer, { AvatarConfig } from '@/src/components/AvatarRenderer';
 
-export default function AvatarPage() {
+function AvatarContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const isOnboarding = searchParams.get('onboarding') === 'true';
@@ -357,5 +356,13 @@ export default function AvatarPage() {
         </div>
       </div>
     </main>
+  );
+}
+
+export default function AvatarPage() {
+  return (
+    <Suspense fallback={<div style={{ padding: '2rem', textAlign: 'center', color: '#ffffff' }}>Carregando Avatar...</div>}>
+      <AvatarContent />
+    </Suspense>
   );
 }
