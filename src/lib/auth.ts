@@ -4,10 +4,10 @@ import { cookies } from 'next/headers';
 import { prisma } from './db';
 
 const JWT_SECRET = new TextEncoder().encode(
-  process.env.JWT_SECRET || 'sara_core_super_secret_jwt_key_2026'
+  process.env.JWT_SECRET || 'paul_ortiz_mountain_learning_jwt_2026'
 );
 
-const COOKIE_NAME = 'sara_session';
+const COOKIE_NAME = 'po_session';
 
 export interface JWTPayload {
   userId: string;

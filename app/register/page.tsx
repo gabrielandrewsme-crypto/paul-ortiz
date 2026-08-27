@@ -3,14 +3,42 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { Eye, EyeOff } from 'lucide-react';
 import SnowfallCanvas from '@/src/components/SnowfallCanvas';
+
+/* ─────────── Mountain Logo SVG ─────────── */
+function MountainLogo() {
+  return (
+    <svg viewBox="0 0 120 100" className="w-12 h-10 drop-shadow-md">
+      <path d="M 10 90 Q 35 65 60 45 Q 85 65 110 90 Z" fill="#3B82F6" />
+      <path d="M 25 90 C 45 75 75 75 95 90 Z" fill="#60A5FA" />
+      <path d="M 60 25 L 42 52 Q 52 58 60 54 Q 68 58 78 52 Z" fill="#FFFFFF" />
+      <circle cx="60" cy="14" r="5" fill="#FFFFFF" />
+      <line x1="60" y1="19" x2="60" y2="30" stroke="#FFFFFF" strokeWidth="2.5" />
+      <path d="M 60 22 L 68 12" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M 60 22 L 52 26" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+/* ─────────── Google Icon SVG ─────────── */
+function GoogleIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 48 48">
+      <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+      <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+      <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+      <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+    </svg>
+  );
+}
 
 export default function RegisterPage() {
   const router = useRouter();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPw, setShowPw] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -18,12 +46,6 @@ export default function RegisterPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-
-    if (password !== confirmPassword) {
-      setError('Passwords do not match.');
-      return;
-    }
-
     setLoading(true);
 
     try {
@@ -45,158 +67,138 @@ export default function RegisterPage() {
       setTimeout(() => {
         router.push('/avatar?onboarding=true');
       }, 1200);
-    } catch (err) {
+    } catch {
       setError('Connection failure with server.');
       setLoading(false);
     }
   };
 
   return (
-    <main className="w-full min-h-screen flex flex-col md:flex-row bg-[#0B132B] font-sans antialiased overflow-hidden">
-      {/* LEFT COLUMN: HERO & MOUNTAIN BRANDING WITH SNOWFALL */}
-      <div className="relative w-full md:w-1/2 min-h-[340px] md:min-h-screen bg-gradient-to-b from-[#0F1B3B] via-[#0B132B] to-[#070B19] p-8 md:p-14 flex flex-col justify-between select-none overflow-hidden border-b md:border-b-0 md:border-r border-slate-800/40">
-        {/* Canvas de Neve */}
+    <main className="auth-split-root">
+      {/* ════════ LEFT HERO COLUMN ════════ */}
+      <div className="auth-split-left">
         <SnowfallCanvas />
 
-        {/* Top Logo */}
-        <div className="relative z-10 flex items-center gap-3">
-          <div className="w-12 h-10 flex items-center justify-center">
-            <svg viewBox="0 0 120 100" className="w-full h-full drop-shadow-md">
-              <path
-                d="M 10 90 Q 35 65 60 45 Q 85 65 110 90 Z"
-                fill="#3B82F6"
-              />
-              <path
-                d="M 25 90 C 45 75 75 75 95 90 Z"
-                fill="#60A5FA"
-              />
-              <path
-                d="M 60 25 L 42 52 Q 52 58 60 54 Q 68 58 78 52 Z"
-                fill="#FFFFFF"
-              />
-              <circle cx="60" cy="14" r="5" fill="#FFFFFF" />
-              <line x1="60" y1="19" x2="60" y2="30" stroke="#FFFFFF" strokeWidth="2.5" />
-              <path d="M 60 22 L 68 12" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" />
-              <path d="M 60 22 L 52 26" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" />
-            </svg>
-          </div>
+        <div className="auth-brand-top">
+          <MountainLogo />
+          <span className="auth-brand-text">PAUL ORTIZ</span>
+          <span className="auth-brand-dot">.</span>
         </div>
 
-        {/* Hero Title & Subtitle */}
-        <div className="relative z-10 my-auto py-8">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-none mb-3">
+        <div className="auth-hero-center">
+          <h1 className="auth-hero-title">
             Mountain<br />Learning
           </h1>
-          <p className="text-slate-300/80 text-sm sm:text-base font-normal tracking-wide">
+          <p className="auth-hero-subtitle">
             Start your journey now with us
           </p>
         </div>
 
-        <div className="relative z-10 text-xs text-slate-500 font-medium">
-          © Paul Ortiz. All rights reserved.
-        </div>
+        <p className="auth-hero-footer">
+          © {new Date().getFullYear()} Paul Ortiz. All rights reserved.
+        </p>
       </div>
 
-      {/* RIGHT COLUMN: REGISTER FORM CARD */}
-      <div className="w-full md:w-1/2 min-h-screen bg-[#F8FAFC] flex items-center justify-center p-6 sm:p-12">
-        <div className="w-full max-w-md bg-white rounded-2xl p-8 sm:p-10 shadow-[0_10px_35px_rgba(0,0,0,0.05)] border border-slate-100">
-          <h2 className="text-2xl font-bold text-slate-900 mb-6">
-            Create an account
-          </h2>
+      {/* ════════ RIGHT FORM COLUMN ════════ */}
+      <div className="auth-split-right">
+        {/* Mobile-only logo */}
+        <div className="auth-mobile-logo">
+          <MountainLogo />
+          <span className="auth-brand-text" style={{ color: '#0B132B' }}>PAUL ORTIZ</span>
+        </div>
+
+        <div className="auth-form-card">
+          <h2 className="auth-card-title">Create an account</h2>
 
           {error && (
-            <div className="mb-5 p-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-xs font-semibold">
-              {error}
-            </div>
+            <div className="auth-error-box">{error}</div>
           )}
 
           {success && (
-            <div className="mb-5 p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-600 text-xs font-semibold">
-              Account created successfully! Redirecting to Avatar setup...
+            <div className="auth-success-box">
+              Account created! Redirecting to Avatar setup…
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Full Name */}
-            <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1">
-                Full Name
-              </label>
+          <form onSubmit={handleSubmit} className="auth-form-fields">
+            {/* Name */}
+            <div className="auth-field">
+              <label className="auth-label">Name</label>
               <input
+                id="register-name"
                 type="text"
                 required
                 placeholder="Enter your name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full px-4 py-2.5 rounded-xl text-slate-800 text-sm bg-slate-50 border border-slate-200 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition duration-150"
+                className="auth-input"
               />
             </div>
 
             {/* Email */}
-            <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1">
-                Email
-              </label>
+            <div className="auth-field">
+              <label className="auth-label">Email</label>
               <input
+                id="register-email"
                 type="email"
                 required
                 placeholder="paulortiz@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-2.5 rounded-xl text-slate-800 text-sm bg-slate-50 border border-slate-200 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition duration-150"
+                className="auth-input"
               />
             </div>
 
             {/* Password */}
-            <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1">
-                Password
-              </label>
-              <input
-                type="password"
-                required
-                placeholder="Minimum 6 characters"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-2.5 rounded-xl text-slate-800 text-sm bg-slate-50 border border-slate-200 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition duration-150"
-              />
+            <div className="auth-field">
+              <label className="auth-label">Password</label>
+              <div className="auth-input-eye-wrapper">
+                <input
+                  id="register-password"
+                  type={showPw ? 'text' : 'password'}
+                  required
+                  placeholder="Minimum 6 characters"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="auth-input"
+                />
+                <button
+                  type="button"
+                  className="auth-eye-btn"
+                  onClick={() => setShowPw(!showPw)}
+                  tabIndex={-1}
+                  aria-label={showPw ? 'Hide password' : 'Show password'}
+                >
+                  {showPw ? <EyeOff size={18} /> : <Eye size={18} />}
+                </button>
+              </div>
             </div>
 
-            {/* Confirm Password */}
-            <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1">
-                Confirm Password
-              </label>
-              <input
-                type="password"
-                required
-                placeholder="Repeat password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                className="w-full px-4 py-2.5 rounded-xl text-slate-800 text-sm bg-slate-50 border border-slate-200 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition duration-150"
-              />
-            </div>
-
-            {/* Primary Action Button */}
+            {/* Google Button */}
             <button
+              type="button"
+              className="auth-btn-google"
+              onClick={() => alert('Google OAuth integration coming soon.')}
+            >
+              <GoogleIcon />
+              Continue with Google
+            </button>
+
+            {/* Submit */}
+            <button
+              id="register-submit"
               type="submit"
               disabled={loading || success}
-              className="w-full py-3.5 px-4 rounded-full font-bold text-white text-sm bg-[#3B82F6] hover:bg-blue-600 active:bg-blue-700 transition duration-200 shadow-md shadow-blue-500/20 cursor-pointer disabled:opacity-70 mt-3"
+              className="auth-btn-primary"
             >
               {loading ? 'Creating account...' : 'Create account'}
             </button>
           </form>
 
-          {/* Switch to Login */}
-          <div className="mt-6 text-center text-xs text-slate-500">
+          <p className="auth-switch-text">
             Already have an account?{' '}
-            <Link
-              href="/login"
-              className="text-slate-900 font-semibold hover:underline"
-            >
-              Login
-            </Link>
-          </div>
+            <Link href="/login" className="auth-switch-link">Log in</Link>
+          </p>
         </div>
       </div>
     </main>

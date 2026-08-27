@@ -3,12 +3,30 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { Eye, EyeOff } from 'lucide-react';
 import SnowfallCanvas from '@/src/components/SnowfallCanvas';
+
+/* ─────────── Minimalist Mountain Logo SVG ─────────── */
+function MountainLogo({ className = "w-7 h-7" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <path d="M16 4L4 26H28L16 4Z" fill="url(#mountain-grad)" />
+      <path d="M16 4L11 14L14 16L16 13L18 16L21 14L16 4Z" fill="#FFFFFF" opacity="0.9" />
+      <defs>
+        <linearGradient id="mountain-grad" x1="16" y1="4" x2="16" y2="26" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#3B82F6" />
+          <stop offset="1" stopColor="#1D4ED8" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}
 
 export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPw, setShowPw] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -37,135 +55,128 @@ export default function LoginPage() {
       } else {
         router.push('/');
       }
-    } catch (err) {
+    } catch {
       setError('Ocorreu uma falha de conexão. Tente novamente.');
       setLoading(false);
     }
   };
 
   return (
-    <main className="w-full min-h-screen flex flex-col md:flex-row bg-[#0B132B] font-sans antialiased overflow-hidden">
-      {/* LEFT COLUMN: HERO & MOUNTAIN BRANDING WITH SNOWFALL */}
-      <div className="relative w-full md:w-1/2 min-h-[340px] md:min-h-screen bg-gradient-to-b from-[#0F1B3B] via-[#0B132B] to-[#070B19] p-8 md:p-14 flex flex-col justify-between select-none overflow-hidden border-b md:border-b-0 md:border-r border-slate-800/40">
-        {/* Canvas de Neve */}
+    <main className="min-h-screen grid grid-cols-1 md:grid-cols-2">
+      {/* ════════ LEFT COLUMN (Lado Escuro) ════════ */}
+      <div className="relative flex flex-col justify-between p-8 md:p-12 bg-gradient-to-br from-slate-950 to-blue-950 overflow-hidden min-h-[320px] md:min-h-screen">
+        {/* Snow animation background */}
         <SnowfallCanvas />
 
-        {/* Top Logo */}
+        {/* Top Left Brand Header */}
         <div className="relative z-10 flex items-center gap-3">
-          {/* Ícone de Montanha SVG exato da imagem de referência */}
-          <div className="w-12 h-10 flex items-center justify-center">
-            <svg viewBox="0 0 120 100" className="w-full h-full drop-shadow-md">
-              {/* Base da Montanha Azul */}
-              <path
-                d="M 10 90 Q 35 65 60 45 Q 85 65 110 90 Z"
-                fill="#3B82F6"
-              />
-              <path
-                d="M 25 90 C 45 75 75 75 95 90 Z"
-                fill="#60A5FA"
-              />
-              {/* Cume de Neve Branco */}
-              <path
-                d="M 60 25 L 42 52 Q 52 58 60 54 Q 68 58 78 52 Z"
-                fill="#FFFFFF"
-              />
-              {/* Personagem com a mão levantada cravando o topo */}
-              <circle cx="60" cy="14" r="5" fill="#FFFFFF" />
-              <line x1="60" y1="19" x2="60" y2="30" stroke="#FFFFFF" strokeWidth="2.5" />
-              <path d="M 60 22 L 68 12" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" />
-              <path d="M 60 22 L 52 26" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" />
-            </svg>
-          </div>
+          <MountainLogo />
+          <span className="text-white font-extrabold text-lg tracking-wider">
+            PAUL ORTIZ<span className="text-blue-500">.</span>
+          </span>
         </div>
 
-        {/* Hero Title & Subtitle */}
-        <div className="relative z-10 my-auto py-8">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-none mb-3">
+        {/* Center Hero Content */}
+        <div className="relative z-10 my-auto py-12">
+          <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
             Mountain<br />Learning
           </h1>
-          <p className="text-slate-300/80 text-sm sm:text-base font-normal tracking-wide">
+          <p className="text-slate-400 text-lg mt-3 font-normal">
             Start your journey now with us
           </p>
         </div>
 
-        {/* Footer info sutil */}
-        <div className="relative z-10 text-xs text-slate-500 font-medium">
-          © Paul Ortiz. All rights reserved.
+        {/* Footer info */}
+        <div className="relative z-10 text-xs text-slate-500">
+          © {new Date().getFullYear()} Paul Ortiz. All rights reserved.
         </div>
       </div>
 
-      {/* RIGHT COLUMN: LOGIN FORM CARD */}
-      <div className="w-full md:w-1/2 min-h-screen bg-[#F8FAFC] flex items-center justify-center p-6 sm:p-12">
-        <div className="w-full max-w-md bg-white rounded-2xl p-8 sm:p-10 shadow-[0_10px_35px_rgba(0,0,0,0.05)] border border-slate-100">
+      {/* ════════ RIGHT COLUMN (Lado Claro) ════════ */}
+      <div className="bg-slate-50 flex flex-col items-center justify-center p-6 md:p-12 min-h-screen">
+        <div className="w-full max-w-md p-8 bg-white rounded-2xl shadow-xl border border-slate-100">
           <h2 className="text-2xl font-bold text-slate-900 mb-6">
             Login to your account
           </h2>
 
           {error && (
-            <div className="mb-5 p-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-xs font-semibold">
+            <div className="p-3 rounded-lg bg-red-50 border border-red-200 text-red-600 text-xs font-medium mb-5">
               {error}
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Campo E-mail */}
+            {/* Email Field */}
             <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+              <label className="block text-xs font-semibold text-slate-600 mb-1 uppercase tracking-wider">
                 Email
               </label>
               <input
+                id="login-email"
                 type="email"
                 required
                 placeholder="paulortiz@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl text-slate-800 text-sm bg-slate-50 border border-slate-200 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition duration-150"
+                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-50 text-slate-900 placeholder-slate-400 text-sm transition-all shadow-sm"
               />
             </div>
 
-            {/* Campo Password */}
+            {/* Password Field */}
             <div>
-              <div className="flex items-center justify-between mb-1.5">
-                <label className="block text-xs font-semibold text-slate-700">
+              <div className="flex items-center justify-between mb-1">
+                <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wider">
                   Password
                 </label>
                 <Link
                   href="/forgot-password"
-                  className="text-xs text-blue-600 hover:text-blue-700 font-medium transition"
+                  className="text-xs font-medium text-blue-600 hover:text-blue-700 transition-colors"
                 >
                   Forgot?
                 </Link>
               </div>
-              <input
-                type="password"
-                required
-                placeholder="Enter your password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl text-slate-800 text-sm bg-slate-50 border border-slate-200 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition duration-150"
-              />
+              <div className="relative">
+                <input
+                  id="login-password"
+                  type={showPw ? 'text' : 'password'}
+                  required
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full px-4 py-3 pr-11 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-50 text-slate-900 placeholder-slate-400 text-sm transition-all shadow-sm"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPw(!showPw)}
+                  tabIndex={-1}
+                  aria-label={showPw ? 'Hide password' : 'Show password'}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors p-1"
+                >
+                  {showPw ? <EyeOff size={18} /> : <Eye size={18} />}
+                </button>
+              </div>
             </div>
 
-            {/* Botão de Ação Principal */}
+            {/* Submit Button */}
             <button
+              id="login-submit"
               type="submit"
               disabled={loading}
-              className="w-full py-3.5 px-4 rounded-full font-bold text-white text-sm bg-[#3B82F6] hover:bg-blue-600 active:bg-blue-700 transition duration-200 shadow-md shadow-blue-500/20 cursor-pointer disabled:opacity-70 mt-2"
+              className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-md transition-colors cursor-pointer text-sm disabled:opacity-50"
             >
               {loading ? 'Logging in...' : 'Login now'}
             </button>
           </form>
 
-          {/* Rodapé / Alternância para Registro */}
-          <div className="mt-6 text-center text-xs text-slate-500">
-            Don't have an account?{' '}
+          <p className="mt-6 text-center text-xs text-slate-500">
+            Don&apos;t have an account?{' '}
             <Link
               href="/register"
-              className="text-slate-900 font-semibold hover:underline"
+              className="font-semibold text-blue-600 hover:text-blue-700 transition-colors"
             >
               Sign up
             </Link>
-          </div>
+          </p>
         </div>
       </div>
     </main>

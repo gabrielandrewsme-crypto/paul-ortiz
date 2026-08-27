@@ -5,8 +5,8 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Paul Ortiz — Interactive English Learning',
-  description: 'Jornada Náutica — 16 Checkpoints',
+  title: 'Paul Ortiz — Mountain Learning',
+  description: 'Plataforma de aprendizado de inglês técnico e edificação.',
 };
 
 export default function RootLayout({
