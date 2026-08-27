@@ -1,0 +1,119 @@
+{
+  "id": "gc-3",
+  "title": "Grace, Faith & Redemption",
+  "subtitle": "Explicando a Graça, a Fé e a Redenção",
+  "category": "Great Commission",
+  "order": 3,
+  "description": "Aprenda vocabulário essencial para apresentar a mensagem de salvação, a gratuidade da graça e o significado da verdadeira esperança.",
+  "vocabulary": [
+    {
+      "word": "Grace",
+      "phonetic": "/ɡreɪs/",
+      "translation": "Graça / Favor imerecido",
+      "context": "Grace is receiving love and favor we didn't earn.",
+      "contextTranslation": "Graça é receber amor e favor que não merecemos."
+    },
+    {
+      "word": "Redemption",
+      "phonetic": "/rɪˈdempʃn/",
+      "translation": "Redenção / Resgate",
+      "context": "Redemption means being set free from our past mistakes.",
+      "contextTranslation": "Redenção significa ser libertado dos nossos erros do passado."
+    },
+    {
+      "word": "Salvation",
+      "phonetic": "/sælˈveɪʃn/",
+      "translation": "Salvação",
+      "context": "Salvation is a gift available to everyone.",
+      "contextTranslation": "A salvação é um presente disponível para todos."
+    },
+    {
+      "word": "Mercy",
+      "phonetic": "/ˈmɜːsi/",
+      "translation": "Misericórdia / Compaixão",
+      "context": "His mercy renews our hope every morning.",
+      "contextTranslation": "A sua misericórdia renova a nossa esperança a cada manhã."
+    },
+    {
+      "word": "Reconciliation",
+      "phonetic": "/ˌrekənsɪliˈeɪʃn/",
+      "translation": "Reconciliação",
+      "context": "Through faith, we experience reconciliation with God.",
+      "contextTranslation": "Através da fé, experimentamos a reconciliação com Deus."
+    },
+    {
+      "word": "Covenant",
+      "phonetic": "/ˈkʌvənənt/",
+      "translation": "Aliança / Promessa sagrada",
+      "context": "A covenant is an unconditional commitment of love.",
+      "contextTranslation": "Uma aliança é um compromisso incondicional de amor."
+    }
+  ],
+  "dialogue": [
+    {
+      "speaker": "Person",
+      "text": "Sometimes I feel like I have made too many mistakes to ever be accepted.",
+      "translation": "Às vezes eu sinto que cometi erros demais para ser aceito algum dia."
+    },
+    {
+      "speaker": "Evangelist",
+      "text": "I understand that feeling, but the core of the message is grace, not perfection.",
+      "translation": "Eu entendo esse sentimento, mas o núcleo da mensagem é graça, não perfeição."
+    },
+    {
+      "speaker": "Person",
+      "text": "What does grace mean in practice?",
+      "translation": "O que significa graça na prática?"
+    },
+    {
+      "speaker": "Evangelist",
+      "text": "It means receiving unconditional mercy and salvation as a free gift, not something you have to earn.",
+      "translation": "Significa receber misericórdia incondicional e salvação como um presente gratuito, não algo que você precisa merecer."
+    },
+    {
+      "speaker": "Person",
+      "text": "So there is redemption for anyone?",
+      "translation": "Então há redenção para qualquer pessoa?"
+    },
+    {
+      "speaker": "Evangelist",
+      "text": "Yes! It offers true reconciliation and a fresh start through a new covenant.",
+      "translation": "Sim! Oferece verdadeira reconciliação e um novo começo através de uma nova aliança."
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "O que define o conceito de 'Grace' (Graça) na mensagem cristã?",
+      "options": [
+        "Um prêmio conquistado por bom comportamento",
+        "Favor imerecido e amor gratuito recebido sem esforço humano",
+        "Uma penalidade por erros cometidos",
+        "Um ritual obrigatório de entrada"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 2,
+      "question": "Qual é a tradução mais precisa para a palavra 'Redemption'?",
+      "options": [
+        "Redenção ou resgate",
+        "Condenação",
+        "Cobrança de dívida",
+        "Afastamento"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 3,
+      "question": "O termo 'Reconciliation' refere-se a:",
+      "options": [
+        "Terminar uma amizade",
+        "Manter distância das pessoas",
+        "Reconciliação e restauração de um relacionamento",
+        "Comprar algo em uma loja"
+      ],
+      "correctAnswer": 2
+    }
+  ]
+}

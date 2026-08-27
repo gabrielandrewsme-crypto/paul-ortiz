@@ -1,0 +1,119 @@
+{
+  "id": "gc-1",
+  "title": "Connecting & Breaking the Ice",
+  "subtitle": "Acolhimento, Conexão e Escuta Ativa",
+  "category": "Great Commission",
+  "order": 1,
+  "description": "Aprenda a iniciar conversas de forma natural, demonstrar empatia genuína e criar conexões com pessoas no dia a dia.",
+  "vocabulary": [
+    {
+      "word": "Approach",
+      "phonetic": "/əˈprəʊtʃ/",
+      "translation": "Abordagem / Aproximar-se",
+      "context": "A warm approach makes people feel comfortable.",
+      "contextTranslation": "Uma abordagem calorosa faz as pessoas se sentirem confortáveis."
+    },
+    {
+      "word": "Empathy",
+      "phonetic": "/ˈempəθi/",
+      "translation": "Empatia",
+      "context": "Showing true empathy opens doors for meaningful conversations.",
+      "contextTranslation": "Mostrar empatia verdadeira abre portas para conversas significativas."
+    },
+    {
+      "word": "Listening",
+      "phonetic": "/ˈlɪsənɪŋ/",
+      "translation": "Escuta / Ouvir atentamente",
+      "context": "Active listening is essential when talking about life and faith.",
+      "contextTranslation": "A escuta ativa é essencial ao falar sobre vida e fé."
+    },
+    {
+      "word": "Encouragement",
+      "phonetic": "/ɪnˈkʌrɪdʒmənt/",
+      "translation": "Encorajamento / Ânimo",
+      "context": "Everyone needs words of encouragement.",
+      "contextTranslation": "Todo mundo precisa de palavras de encorajamento."
+    },
+    {
+      "word": "Kindness",
+      "phonetic": "/ˈkaɪndnəs/",
+      "translation": "Gentileza / Bondade",
+      "context": "Acts of kindness build trust quickly.",
+      "contextTranslation": "Atos de gentileza constroem confiança rapidamente."
+    },
+    {
+      "word": "Burden",
+      "phonetic": "/ˈbɜːdn/",
+      "translation": "Fardo / Carga emocional",
+      "context": "Sometimes people just need to share their burden.",
+      "contextTranslation": "Às vezes as pessoas só precisam compartilhar seu fardo."
+    }
+  ],
+  "dialogue": [
+    {
+      "speaker": "Evangelist",
+      "text": "Hi! Excuse me, do you mind if I sit here for a moment?",
+      "translation": "Olá! Com licença, você se importa se eu me sentar aqui por um momento?"
+    },
+    {
+      "speaker": "Person",
+      "text": "Not at all, go ahead.",
+      "translation": "De forma alguma, fique à vontade."
+    },
+    {
+      "speaker": "Evangelist",
+      "text": "Thanks! How is your day going so far?",
+      "translation": "Obrigado! Como está sendo o seu dia até agora?"
+    },
+    {
+      "speaker": "Person",
+      "text": "Honestly, it has been a bit tiring and overwhelming.",
+      "translation": "Honestamente, tem sido um pouco cansativo e desgastante."
+    },
+    {
+      "speaker": "Evangelist",
+      "text": "I hear you. Sometimes life carries a heavy burden. Is there anything specific on your mind?",
+      "translation": "Eu te entendo. Às vezes a vida carrega um fardo pesado. Tem algo específico na sua mente?"
+    },
+    {
+      "speaker": "Person",
+      "text": "Just work stress and family stuff. Thank you for asking with such kindness.",
+      "translation": "Apenas estresse de trabalho e coisas de família. Obrigado por perguntar com tanta gentileza."
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "O que significa a palavra 'Empathy' no contexto de uma conversa evangelística?",
+      "options": [
+        "Capacidade de julgar o outro",
+        "Demonstrar empatia e se importar verdadeiramente com o outro",
+        "Apenas falar sem ouvir",
+        "Dar ordens para a pessoa"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 2,
+      "question": "Qual é a tradução correta para a palavra 'Burden'?",
+      "options": [
+        "Alegria",
+        "Conexão",
+        "Fardo ou carga emocional",
+        "Encaminhamento"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": 3,
+      "question": "O termo 'Encouragement' significa:",
+      "options": [
+        "Encorajamento ou palavras de ânimo",
+        "Desencorajamento",
+        "Discussão calorosa",
+        "Ignorar a pessoa"
+      ],
+      "correctAnswer": 0
+    }
+  ]
+}

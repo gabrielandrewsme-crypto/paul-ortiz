@@ -1,0 +1,119 @@
+{
+  "id": "gc-5",
+  "title": "Discipleship & Practical Steps",
+  "subtitle": "Discipulado e Passos Práticos de Crescimento",
+  "category": "Great Commission",
+  "order": 5,
+  "description": "Aprenda vocabulário para orientar novos convertidos, incentivar a prática da leitura diária e promover o crescimento constante na fé.",
+  "vocabulary": [
+    {
+      "word": "Discipleship",
+      "phonetic": "/dɪˈsaɪplʃɪp/",
+      "translation": "Discipulado / Acompanhamento",
+      "context": "Discipleship is a journey of walking together and learning daily.",
+      "contextTranslation": "Discipulado é uma jornada de caminhar juntos e aprender diariamente."
+    },
+    {
+      "word": "Devotional",
+      "phonetic": "/dɪˈvəʊʃənl/",
+      "translation": "Devocional / Leitura diária",
+      "context": "A daily devotional habit keeps your spirit focused.",
+      "contextTranslation": "Um hábito devocional diário mantém o seu espírito focado."
+    },
+    {
+      "word": "Scripture",
+      "phonetic": "/ˈskrɪptʃə/",
+      "translation": "Escrituras / Bíblia",
+      "context": "Reading the Scripture brings light and direction.",
+      "contextTranslation": "Ler as Escrituras traz luz e direção."
+    },
+    {
+      "word": "Maturity",
+      "phonetic": "/məˈtʃʊərəti/",
+      "translation": "Maturidade / Crescimento",
+      "context": "Spiritual maturity comes through practice and perseverance.",
+      "contextTranslation": "A maturidade espiritual vem através da prática e da perseverança."
+    },
+    {
+      "word": "Perseverance",
+      "phonetic": "/ˌpɜːsɪˈvɪərəns/",
+      "translation": "Perseverança / Constância",
+      "context": "Perseverance is key when facing new challenges in life.",
+      "contextTranslation": "A perseverança é a chave ao enfrentar novos desafios na vida."
+    },
+    {
+      "word": "Mentorship",
+      "phonetic": "/ˈmentɔːʃɪp/",
+      "translation": "Mentoria / Tutoria espiritual",
+      "context": "Good mentorship helps you navigate your first steps.",
+      "contextTranslation": "Uma boa mentoria ajuda você a guiar seus primeiros passos."
+    }
+  ],
+  "dialogue": [
+    {
+      "speaker": "Person",
+      "text": "I really want to grow in my faith, but I don't know where to start.",
+      "translation": "Eu realmente quero crescer na minha fé, mas não sei por onde começar."
+    },
+    {
+      "speaker": "Evangelist",
+      "text": "That is a great step! I recommend starting with a short daily devotional time.",
+      "translation": "Esse é um ótimo passo! Eu recomendo começar com um momento devocional diário curto."
+    },
+    {
+      "speaker": "Person",
+      "text": "Should I read the Scripture every day?",
+      "translation": "Eu devo ler as Escrituras todos os dias?"
+    },
+    {
+      "speaker": "Evangelist",
+      "text": "Yes, even a few verses a day build spiritual maturity and consistency over time.",
+      "translation": "Sim, até mesmo alguns versículos por dia constroem maturidade espiritual e consistência ao longo do tempo."
+    },
+    {
+      "speaker": "Person",
+      "text": "Will someone help me through this process?",
+      "translation": "Alguém vai me ajudar durante este processo?"
+    },
+    {
+      "speaker": "Evangelist",
+      "text": "Absolutely! Discipleship and mentorship mean we walk alongside you with encouragement and perseverance.",
+      "translation": "Com certeza! Discipulado e mentoria significam que caminhamos ao seu lado com encorajamento e perseverança."
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "O que significa 'Discipleship' no contexto prático?",
+      "options": [
+        "Um curso acadêmico formal",
+        "Acompanhamento e caminhada conjunta para crescimento espiritual",
+        "Apenas um encontro semanal sem compromisso",
+        "Leitura de livros de ficção"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 2,
+      "question": "A palavra 'Devotional' refere-se a:",
+      "options": [
+        "Um compromisso de trabalho",
+        "Um momento diário dedicado à leitura e oração",
+        "Uma festa comunitária",
+        "Um exercício físico"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 3,
+      "question": "Qual é a tradução de 'Perseverance'?",
+      "options": [
+        "Desistência fácil",
+        "Dúvida constante",
+        "Perseverança e constância",
+        "Apressar o processo"
+      ],
+      "correctAnswer": 2
+    }
+  ]
+}

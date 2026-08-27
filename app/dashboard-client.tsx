@@ -26,6 +26,7 @@ import { allBooks, BookData } from '@/src/data/books';
 import { greatCommissionBooks, GreatCommissionBook } from '@/src/data/books/great-commission';
 import AvatarRenderer, { AvatarConfig } from '@/src/components/AvatarRenderer';
 import UpgradeModal from '@/src/components/UpgradeModal';
+import InteractiveBookReader from '@/src/components/InteractiveBookReader';
 
 interface CheckpointCoord {
   id: number;
@@ -458,38 +459,13 @@ export default function DashboardClient() {
 
       {/* BOTTOM FEATURE CARDS */}
       <div className="bottom-cards-grid">
-        {/* CARD 1 */}
-        <div className="feature-card">
-          <div className="card-number-badge">1</div>
-          
-          <div className="card-content-top">
-            <div className="card-icon-title">
-              <div className="card-icon-box">
-                <BookOpen size={20} />
-              </div>
-              <div>
-                <span className="card-header-label">
-                  {activeTab === 'main' ? `Checkpoint ${activeCheckpoint}:` : 'Great Commission:'}
-                </span>
-                <h3 className="card-main-title">{currentBook.title}</h3>
-              </div>
-            </div>
-
-            <div className="card-progress-row">
-              <div className="mini-progress-bar">
-                <div className="mini-progress-fill" style={{ width: activeCheckpoint === 1 ? '100%' : '25%' }} />
-              </div>
-              <span className="percent-label">{activeCheckpoint === 1 ? '100%' : '25%'}</span>
-            </div>
-
-            <div className="sub-lesson-box">
-              <Lightbulb size={16} color="#f59e0b" />
-              <div className="sub-lesson-text">
-                <span className="sub-lesson-label">Next Lesson:</span>
-                <span className="sub-lesson-value">{nextLessonText}</span>
-              </div>
-            </div>
-          </div>
+        {/* CARD 1 - LEITOR INTERATIVO DE ÁUDIO WEB SPEECH */}
+        <div className="feature-card" style={{ gridColumn: 'span 2' }}>
+          <InteractiveBookReader
+            title={currentBook.title}
+            storyEn={currentBook.story_en}
+            interactiveText={currentBook.interactive_text || []}
+          />
         </div>
 
         {/* CARD 2 */}

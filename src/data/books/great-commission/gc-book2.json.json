@@ -1,0 +1,119 @@
+{
+  "id": "gc-2",
+  "title": "Sharing Your Personal Story",
+  "subtitle": "Como Compartilhar seu Testemunho com Clareza",
+  "category": "Great Commission",
+  "order": 2,
+  "description": "Aprenda a contar sua história de fé de forma genuína, destacando sua vida antes, o encontro com a mensagem e a transformação pessoal.",
+  "vocabulary": [
+    {
+      "word": "Testimony",
+      "phonetic": "/ˈtestɪməni/",
+      "translation": "Testemunho / História de vida",
+      "context": "Your personal testimony is a powerful story no one can argue with.",
+      "contextTranslation": "Seu testemunho pessoal é uma história poderosa contra a qual ninguém pode argumentar."
+    },
+    {
+      "word": "Transformation",
+      "phonetic": "/ˌtrænsfəˈmeɪʃn/",
+      "translation": "Transformação / Mudança interior",
+      "context": "Faith brings a deep transformation to how we see life.",
+      "contextTranslation": "A fé traz uma profunda transformação para a forma como vemos a vida."
+    },
+    {
+      "word": "Purpose",
+      "phonetic": "/ˈpɜːpəs/",
+      "translation": "Propósito / Sentido",
+      "context": "Finding your true purpose changes your direction.",
+      "contextTranslation": "Encontrar seu verdadeiro propósito muda sua direção."
+    },
+    {
+      "word": "Forgiveness",
+      "phonetic": "/fəˈɡɪvnəs/",
+      "translation": "Perdão",
+      "context": "Experiencing forgiveness released me from guilt.",
+      "contextTranslation": "Experimentar o perdão me libertou da culpa."
+    },
+    {
+      "word": "Restoration",
+      "phonetic": "/ˌrestəˈreɪʃn/",
+      "translation": "Restauração / Renovação",
+      "context": "There is restoration available for broken hearts.",
+      "contextTranslation": "Existe restauração disponível para corações quebrantados."
+    },
+    {
+      "word": "Witness",
+      "phonetic": "/ˈwɪtnəs/",
+      "translation": "Testemunha / Ser testemunho",
+      "context": "We are called to be a living witness of hope.",
+      "contextTranslation": "Somos chamados para ser uma testemunha viva de esperança."
+    }
+  ],
+  "dialogue": [
+    {
+      "speaker": "Person",
+      "text": "You always seem so calm and peaceful. How do you handle difficult times?",
+      "translation": "Você sempre parece tão calmo e em paz. Como você lida com momentos difíceis?"
+    },
+    {
+      "speaker": "Evangelist",
+      "text": "To be honest, I used to feel lost and full of anxiety in the past.",
+      "translation": "Para ser sincero, eu costumava me sentir perdido e cheio de ansiedade no passado."
+    },
+    {
+      "speaker": "Person",
+      "text": "Really? What changed for you?",
+      "translation": "Sério? O que mudou para você?"
+    },
+    {
+      "speaker": "Evangelist",
+      "text": "I discovered real forgiveness and purpose when I understood God's love for me.",
+      "translation": "Eu descobri verdadeiro perdão e propósito quando entendi o amor de Deus por mim."
+    },
+    {
+      "speaker": "Person",
+      "text": "That sounds like a meaningful transformation.",
+      "translation": "Isso soa como uma transformação significativa."
+    },
+    {
+      "speaker": "Evangelist",
+      "text": "It truly was. It brought restoration to my heart and gave my life a new direction.",
+      "translation": "Realmente foi. Trouxe restauração ao meu coração e deu à minha vida uma nova direção."
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "O que significa a palavra 'Testimony' em uma conversa sobre fé?",
+      "options": [
+        "Um documento formal de contrato",
+        "A história pessoal do que Deus fez na vida de alguém",
+        "Uma crítica ao comportamento de outra pessoa",
+        "Uma regra gramatical de inglês"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": 2,
+      "question": "Qual é o significado correto para 'Restoration'?",
+      "options": [
+        "Restauração ou renovação",
+        "Destruição",
+        "Abandono",
+        "Complicar uma situação"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 3,
+      "question": "A palavra 'Purpose' traduz-se como:",
+      "options": [
+        "Passatempo",
+        "Dúvida",
+        "Propósito ou sentido",
+        "Trabalho temporário"
+      ],
+      "correctAnswer": 2
+    }
+  ]
+}
