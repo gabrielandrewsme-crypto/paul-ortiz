@@ -20,7 +20,8 @@ import {
   RotateCcw,
   User,
   Crown,
-  Lock
+  Lock,
+  ShieldCheck
 } from 'lucide-react';
 import { allBooks, BookData } from '@/src/data/books';
 import { greatCommissionBooks, GreatCommissionBook } from '@/src/data/books/great-commission';
@@ -114,7 +115,10 @@ export default function DashboardClient() {
       .catch(console.error);
   }, []);
 
+  const isSuperAdminUser = userData?.email?.toLowerCase().trim() === 'gabrielandrews.me@gmail.com';
+
   const isPlusUser = 
+    isSuperAdminUser ||
     userRole === 'ADMIN' || 
     userRole === 'MANAGER' || 
     (userData?.isSubscribed === true && userData?.subscriptionStatus === 'ACTIVE');
@@ -129,7 +133,7 @@ export default function DashboardClient() {
   const activeCoord = CHECKPOINT_COORDS.find(c => c.id === activeCheckpoint) || CHECKPOINT_COORDS[0];
 
   const handleCheckpointClick = (id: number) => {
-    // Regra Freemium: Livro 1 liberado para todos. Livros 2+ ou Great Commission apenas com Plus
+    // Regra Freemium: Livro 1 liberado para todos. Livros 2+ ou Great Commission apenas com Plus (bypassed para Super Admin)
     if (id > 1 || activeTab === 'great_commission') {
       if (!isPlusUser) {
         setUpgradeSource('checkpoint_click');
@@ -201,7 +205,12 @@ export default function DashboardClient() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <h1 className="brand-title">Paul Ortiz</h1>
           {/* Indicador de Assinatura ou Botão de Upgrade */}
-          {isPlusUser ? (
+          {isSuperAdminUser ? (
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/20 border border-amber-400 text-amber-100 font-extrabold text-xs">
+              <ShieldCheck size={15} className="text-amber-300" />
+              <span>Acesso Vitalício / Ilimitado</span>
+            </div>
+          ) : isPlusUser ? (
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400 text-emerald-100 font-extrabold text-xs">
               <Crown size={15} className="text-amber-300" />
               <span>Plano Plus Ativo</span>
@@ -249,6 +258,18 @@ export default function DashboardClient() {
         </div>
 
         <div className="user-controls">
+          {/* EXCLUSIVO PARA GABRIELANDREWS.ME@GMAIL.COM */}
+          {isSuperAdminUser && (
+            <Link
+              href="/admin"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md transition-all cursor-pointer"
+              title="Painel Administrativo Supremo"
+            >
+              <ShieldCheck size={16} />
+              <span>Painel Admin</span>
+            </Link>
+          )}
+
           <Link href="/avatar" className="avatar-wrapper" title="Personalizar Avatar">
             <div className="avatar-img">
               {userAvatarConfig ? (

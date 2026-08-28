@@ -9,11 +9,21 @@ const JWT_SECRET = new TextEncoder().encode(
 
 const COOKIE_NAME = 'po_session';
 
+export const SUPER_ADMIN_EMAIL = 'gabrielandrews.me@gmail.com';
+
 export interface JWTPayload {
   userId: string;
   name: string;
   email: string;
   role: 'USER' | 'MANAGER' | 'ADMIN';
+}
+
+/**
+ * Check if given email is Super Admin
+ */
+export function isSuperAdmin(email?: string | null): boolean {
+  if (!email) return false;
+  return email.toLowerCase().trim() === SUPER_ADMIN_EMAIL;
 }
 
 /**
@@ -100,7 +110,7 @@ export async function getSessionUser(): Promise<JWTPayload | null> {
  * Helper to determine user role based on email rule
  */
 export function determineUserRole(email: string): 'USER' | 'MANAGER' | 'ADMIN' {
-  if (email.toLowerCase().trim() === 'gabrielandrews.me@gmail.com') {
+  if (isSuperAdmin(email)) {
     return 'ADMIN';
   }
   return 'USER';

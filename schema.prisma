@@ -51,6 +51,9 @@ enum PartOfSpeech {
 
 enum SubscriptionPlan {
   FREE
+  PLUS
+  PREMIUM
+  LIFETIME
   MONTHLY
   SEMIANNUAL
 
@@ -63,6 +66,13 @@ enum SubscriptionStatus {
   EXPIRED
 
   @@map("subscription_status_enum")
+}
+
+enum TransactionType {
+  INCOME
+  EXPENSE
+
+  @@map("transaction_type_enum")
 }
 
 model User {
@@ -91,6 +101,18 @@ model User {
   quizAttempts      QuizAttempt[]
 
   @@map("users")
+}
+
+model FinancialTransaction {
+  id          String          @id @default(uuid()) @db.Uuid
+  description String          @db.VarChar(255)
+  category    String          @db.VarChar(100)
+  amount      Float
+  type        TransactionType
+  date        DateTime        @default(now()) @db.Timestamptz
+  createdAt   DateTime        @default(now()) @map("created_at") @db.Timestamptz
+
+  @@map("financial_transactions")
 }
 
 model PasswordResetToken {
@@ -157,7 +179,7 @@ model QuizAttempt {
   id          String   @id @default(uuid()) @db.Uuid
   userId      String   @map("user_id") @db.Uuid
   bookId      String   @map("book_id") @db.Uuid
-  score       Int      // 0 a 3 acertos
+  score       Int
   passed      Boolean  @default(false)
   completedAt DateTime @default(now()) @map("completed_at") @db.Timestamptz
 
