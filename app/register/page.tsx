@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff, Loader2 } from 'lucide-react';
+import { signIn } from 'next-auth/react';
 import SnowfallCanvas from '@/src/components/SnowfallCanvas';
 
 /* ─────────── Mountain Logo SVG ─────────── */
@@ -42,6 +43,7 @@ export default function RegisterPage() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -70,6 +72,18 @@ export default function RegisterPage() {
     } catch {
       setError('Connection failure with server.');
       setLoading(false);
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    setError('');
+    setGoogleLoading(true);
+    try {
+      await signIn('google', { callbackUrl: '/' });
+    } catch (err) {
+      console.error('Google OAuth error:', err);
+      setError('Erro ao iniciar autenticação com o Google.');
+      setGoogleLoading(false);
     }
   };
 
@@ -177,18 +191,23 @@ export default function RegisterPage() {
             {/* Google Button */}
             <button
               type="button"
-              className="auth-btn-google"
-              onClick={() => alert('Google OAuth integration coming soon.')}
+              className="auth-btn-google flex items-center justify-center gap-3 disabled:opacity-60"
+              disabled={googleLoading || loading || success}
+              onClick={handleGoogleSignIn}
             >
-              <GoogleIcon />
-              Continue with Google
+              {googleLoading ? (
+                <Loader2 className="w-5 h-5 animate-spin text-blue-600" />
+              ) : (
+                <GoogleIcon />
+              )}
+              {googleLoading ? 'Redirecionando para o Google...' : 'Continue with Google'}
             </button>
 
             {/* Submit */}
             <button
               id="register-submit"
               type="submit"
-              disabled={loading || success}
+              disabled={loading || success || googleLoading}
               className="auth-btn-primary"
             >
               {loading ? 'Creating account...' : 'Create account'}
@@ -197,7 +216,7 @@ export default function RegisterPage() {
 
           <p className="auth-switch-text">
             Already have an account?{' '}
-            <Link href="/login" className="auth-switch-link">Log in</Link>
+            <Link href="/register" className="auth-switch-link">Log in</Link>
           </p>
         </div>
       </div>
