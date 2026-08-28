@@ -28,6 +28,7 @@ import { greatCommissionBooks, GreatCommissionBook } from '@/src/data/books/grea
 import AvatarRenderer, { AvatarConfig } from '@/src/components/AvatarRenderer';
 import UpgradeModal from '@/src/components/UpgradeModal';
 import InteractiveBookReader from '@/src/components/InteractiveBookReader';
+import WelcomeOnboardingModal from '@/src/components/WelcomeOnboardingModal';
 
 interface CheckpointCoord {
   id: number;
@@ -84,6 +85,7 @@ export default function DashboardClient() {
   const [isVocabOpen, setIsVocabOpen] = useState<boolean>(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
   const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState<boolean>(false);
+  const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState<boolean>(false);
   const [upgradeSource, setUpgradeSource] = useState<'quiz_completed' | 'checkpoint_click' | 'header_btn'>('checkpoint_click');
 
   // Quiz
@@ -110,10 +112,40 @@ export default function DashboardClient() {
           }
           if (data.user.streakDays) setStreakDays(data.user.streakDays);
           if (data.user.totalWordsLearned) setWordsLearned(data.user.totalWordsLearned);
+
+          // Verificar se é o primeiro acesso para abrir o Popup Motivacional
+          const seenKey = 'po_welcome_modal_seen_' + data.user.id;
+          const hasSeen = localStorage.getItem(seenKey);
+          const searchParams = new URLSearchParams(window.location.search);
+          const isOnboarding = searchParams.get('onboarding') === 'true';
+
+          if (!hasSeen || isOnboarding) {
+            setIsWelcomeModalOpen(true);
+          }
         }
       })
       .catch(console.error);
   }, []);
+
+  const handleCloseWelcomeModal = () => {
+    if (userData?.id) {
+      localStorage.setItem('po_welcome_modal_seen_' + userData.id, 'true');
+    } else {
+      localStorage.setItem('po_welcome_modal_seen_guest', 'true');
+    }
+    setIsWelcomeModalOpen(false);
+  };
+
+  const handleStartClimbing = () => {
+    if (userData?.id) {
+      localStorage.setItem('po_welcome_modal_seen_' + userData.id, 'true');
+    } else {
+      localStorage.setItem('po_welcome_modal_seen_guest', 'true');
+    }
+    setIsWelcomeModalOpen(false);
+    setActiveCheckpoint(1);
+    setIsVocabOpen(true);
+  };
 
   const isSuperAdminUser = userData?.email?.toLowerCase().trim() === 'gabrielandrews.me@gmail.com';
 
@@ -738,6 +770,14 @@ export default function DashboardClient() {
         isOpen={isUpgradeModalOpen}
         onClose={() => setIsUpgradeModalOpen(false)}
         source={upgradeSource}
+      />
+
+      {/* POPUP EDUCACIONAL MOTIVACIONAL (PRIMEIRO ACESSO ONLY) */}
+      <WelcomeOnboardingModal
+        userId={userData?.id}
+        isOpen={isWelcomeModalOpen}
+        onClose={handleCloseWelcomeModal}
+        onStartClimbing={handleStartClimbing}
       />
     </div>
   );
