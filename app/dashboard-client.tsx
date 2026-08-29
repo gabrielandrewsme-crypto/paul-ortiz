@@ -21,9 +21,15 @@ import {
   User,
   Crown,
   Lock,
-  ShieldCheck
+  ShieldCheck,
+  Volume2,
+  ChevronLeft,
+  Check,
+  ListChecks,
+  Send,
+  HelpCircle
 } from 'lucide-react';
-import { allBooks, BookData } from '@/src/data/books';
+import { allBooks, BookData, QuizQuestion } from '@/src/data/books';
 import { greatCommissionBooks, GreatCommissionBook } from '@/src/data/books/great-commission';
 import AvatarRenderer, { AvatarConfig } from '@/src/components/AvatarRenderer';
 import UpgradeModal from '@/src/components/UpgradeModal';
@@ -73,12 +79,20 @@ function getNodeTransform(x: number, y: number): string {
 export default function DashboardClient() {
   const [activeTab, setActiveTab] = useState<'main' | 'great_commission'>('main');
   const [activeCheckpoint, setActiveCheckpoint] = useState<number>(1);
+  const [completedCheckpoints, setCompletedCheckpoints] = useState<number[]>([1]);
   const [userRole, setUserRole] = useState<'USER' | 'MANAGER' | 'ADMIN'>('USER');
   const [userAvatarConfig, setUserAvatarConfig] = useState<AvatarConfig | null>(null);
   
   const [streakDays, setStreakDays] = useState<number>(1);
   const [wordsLearned, setWordsLearned] = useState<number>(0);
+  const [masteredWords, setMasteredWords] = useState<Set<string>>(new Set());
+  const [selectedBookForList, setSelectedBookForList] = useState<number>(1);
+  const [vocabSubTab, setVocabSubTab] = useState<'flashcards' | 'word_list'>('flashcards');
+
   const totalGoal = 2000;
+
+  // Toast / Mensagem de Status
+  const [statusToast, setStatusToast] = useState<string>('');
 
   // Modais
   const [isQuizOpen, setIsQuizOpen] = useState<boolean>(false);
@@ -88,13 +102,15 @@ export default function DashboardClient() {
   const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState<boolean>(false);
   const [upgradeSource, setUpgradeSource] = useState<'quiz_completed' | 'checkpoint_click' | 'header_btn'>('checkpoint_click');
 
-  // Quiz
+  // Quiz State
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
+  const [writtenAnswer, setWrittenAnswer] = useState<string>('');
+  const [writtenFeedback, setWrittenFeedback] = useState<string>('');
   const [quizScore, setQuizScore] = useState<number>(0);
   const [quizCompleted, setQuizCompleted] = useState<boolean>(false);
 
-  // Flashcards
+  // Flashcards State
   const [flashcardIdx, setFlashcardIdx] = useState<number>(0);
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
 
@@ -112,6 +128,12 @@ export default function DashboardClient() {
           }
           if (data.user.streakDays) setStreakDays(data.user.streakDays);
           if (data.user.totalWordsLearned) setWordsLearned(data.user.totalWordsLearned);
+          if (data.user.currentCheckpoint) {
+            const cp = data.user.currentCheckpoint;
+            const completed = Array.from({ length: cp }, (_, i) => i + 1);
+            setCompletedCheckpoints(completed);
+            setActiveCheckpoint(cp);
+          }
 
           // Verificar se é o primeiro acesso para abrir o Popup Motivacional
           const seenKey = 'po_welcome_modal_seen_' + data.user.id;
@@ -164,7 +186,19 @@ export default function DashboardClient() {
 
   const activeCoord = CHECKPOINT_COORDS.find(c => c.id === activeCheckpoint) || CHECKPOINT_COORDS[0];
 
+  // Regra de bloqueio/desbloqueio sequencial dos Checkpoints
   const handleCheckpointClick = (id: number) => {
+    setStatusToast('');
+
+    // Trava de Progressão Sequencial: id só é liberado se id === 1 ou id - 1 já foi concluído (ou Super Admin)
+    const isSequentialUnlocked = id === 1 || completedCheckpoints.includes(id - 1) || isSuperAdminUser;
+
+    if (!isSequentialUnlocked) {
+      setStatusToast(`🔒 Complete o Checkpoint ${id - 1} antes de avançar para o Checkpoint ${id}!`);
+      setTimeout(() => setStatusToast(''), 4000);
+      return;
+    }
+
     // Regra Freemium: Livro 1 liberado para todos. Livros 2+ ou Great Commission apenas com Plus (bypassed para Super Admin)
     if (id > 1 || activeTab === 'great_commission') {
       if (!isPlusUser) {
@@ -176,22 +210,50 @@ export default function DashboardClient() {
 
     setActiveCheckpoint(id);
     setSelectedOption(null);
+    setWrittenAnswer('');
+    setWrittenFeedback('');
     setCurrentQuestionIdx(0);
     setQuizScore(0);
     setQuizCompleted(false);
+    setFlashcardIdx(0);
+    setIsFlipped(false);
   };
 
+  // Tratar avanço nas perguntas do Quiz (Múltipla Escolha e Escrita Discursiva)
   const handleNextQuestion = () => {
-    if (selectedOption === null) return;
-    const questions = currentBook.quiz || [];
-    const isCorrect = selectedOption === questions[currentQuestionIdx]?.correct_answer;
-    
+    const questions: QuizQuestion[] = currentBook.quiz || [];
+    const q = questions[currentQuestionIdx];
+
+    if (!q) return;
+
+    let isCorrect = false;
+
+    if (q.type === 'open_writing') {
+      const cleanAnswer = writtenAnswer.toLowerCase().trim();
+      if (!cleanAnswer) return;
+
+      if (q.expected_keywords && q.expected_keywords.length > 0) {
+        isCorrect = q.expected_keywords.some(k => cleanAnswer.includes(k.toLowerCase()));
+      } else {
+        isCorrect = cleanAnswer.length >= 3;
+      }
+
+      setWrittenFeedback(isCorrect ? '✨ Excelente escrita! Resposta aceita.' : '💡 Bom esforço! Continue praticando.');
+    } else {
+      if (selectedOption === null) return;
+      isCorrect = selectedOption === q.correct_answer;
+    }
+
     const newScore = isCorrect ? quizScore + 1 : quizScore;
     if (isCorrect) setQuizScore(newScore);
 
     if (currentQuestionIdx + 1 < questions.length) {
-      setCurrentQuestionIdx(prev => prev + 1);
-      setSelectedOption(null);
+      setTimeout(() => {
+        setCurrentQuestionIdx(prev => prev + 1);
+        setSelectedOption(null);
+        setWrittenAnswer('');
+        setWrittenFeedback('');
+      }, q.type === 'open_writing' ? 800 : 0);
     } else {
       setQuizCompleted(true);
       if (newScore >= 2) {
@@ -200,9 +262,12 @@ export default function DashboardClient() {
           spread: 70,
           origin: { y: 0.6 }
         });
+
         setWordsLearned(prev => Math.min(totalGoal, prev + 15));
 
-        // Gatilho de vendas se for o término do Livro 1 no plano gratuito
+        // Desbloquear próximo checkpoint
+        setCompletedCheckpoints(prev => Array.from(new Set([...prev, activeCheckpoint])));
+
         if (activeCheckpoint === 1 && !isPlusUser) {
           setTimeout(() => {
             setIsQuizOpen(false);
@@ -217,18 +282,46 @@ export default function DashboardClient() {
   const restartQuiz = () => {
     setCurrentQuestionIdx(0);
     setSelectedOption(null);
+    setWrittenAnswer('');
+    setWrittenFeedback('');
     setQuizScore(0);
     setQuizCompleted(false);
+  };
+
+  // Tratar palavra marcada como dominada nos flashcards ou leitor
+  const handleMarkAsMastered = (cleanWord: string) => {
+    setMasteredWords(prev => new Set(prev).add(cleanWord.toLowerCase().trim()));
+    setWordsLearned(prev => Math.min(totalGoal, prev + 1));
+
+    // Avança para o próximo flashcard no deck completo
+    const deck = currentBook.interactive_text || [];
+    if (deck.length > 0) {
+      setFlashcardIdx(prev => (prev + 1) % deck.length);
+      setIsFlipped(false);
+    }
+  };
+
+  // Tocar pronúncia TTS de uma palavra
+  const speakWord = (word: string) => {
+    if (typeof window !== 'undefined' && window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(word);
+      utterance.lang = 'en-US';
+      utterance.rate = 0.9;
+      window.speechSynthesis.speak(utterance);
+    }
   };
 
   const pathD = buildPathD();
   const climberTransform = getClimberTransform(activeCoord.x, activeCoord.y);
   const goalWidthPercent = Math.min(100, (wordsLearned / totalGoal) * 100) + '%';
-  const firstNewWord = currentBook?.interactive_text?.find((w: any) => w.is_new)?.word;
-  const nextLessonText = firstNewWord ? 'Vocabulary: ' + firstNewWord : 'Subjunctive Mood';
+  
+  // Deck completo do livro atual
+  const currentDeck = currentBook?.interactive_text || [];
+  const currentFlashcard = currentDeck.length > 0 ? currentDeck[flashcardIdx % currentDeck.length] : null;
 
-  const newWords = currentBook?.interactive_text?.filter((w: any) => w.is_new) || [];
-  const currentWord = newWords.length > 0 ? newWords[flashcardIdx % newWords.length] : null;
+  // Livro selecionado para a Lista de Vocabulário Aprendido
+  const bookForList = allBooks.find(b => b.checkpoint === selectedBookForList) || allBooks[0];
 
   return (
     <div className="app-container">
@@ -317,6 +410,14 @@ export default function DashboardClient() {
           </button>
         </div>
       </header>
+
+      {/* TOAST DE ALERTA SE QUISER SALTAR DEGRAUS */}
+      {statusToast && (
+        <div className="fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-amber-500 text-slate-950 font-bold px-4 py-2.5 rounded-2xl shadow-xl flex items-center gap-2 text-xs sm:text-sm animate-bounce">
+          <Lock size={16} />
+          <span>{statusToast}</span>
+        </div>
+      )}
 
       {/* SELETOR DE MÓDULOS / ABAS DA MONTANHA */}
       <div style={{ display: 'flex', gap: '0.8rem', marginBottom: '0.5rem', zIndex: 10 }}>
@@ -443,10 +544,12 @@ export default function DashboardClient() {
             )}
           </g>
 
-          {/* Checkpoints da Montanha */}
+          {/* Checkpoints da Montanha com Regra de Bloqueio Sequencial */}
           {CHECKPOINT_COORDS.map((cp) => {
             const isActive = cp.id === activeCheckpoint;
-            const isLocked = cp.id > 1 && !isPlusUser;
+            const isSequentialUnlocked = cp.id === 1 || completedCheckpoints.includes(cp.id - 1) || isSuperAdminUser;
+            const isPlanLocked = cp.id > 1 && !isPlusUser;
+            const isLocked = !isSequentialUnlocked || isPlanLocked;
             const nodeTransform = getNodeTransform(cp.x, cp.y);
 
             return (
@@ -455,6 +558,7 @@ export default function DashboardClient() {
                 transform={nodeTransform}
                 className={isActive ? 'checkpoint-node active' : 'checkpoint-node'}
                 onClick={() => handleCheckpointClick(cp.id)}
+                style={{ cursor: isLocked ? 'not-allowed' : 'pointer' }}
               >
                 {cp.hasFlag && (
                   <g transform="translate(6, -26)">
@@ -492,12 +596,12 @@ export default function DashboardClient() {
                   cy="0"
                   r="13"
                   className="checkpoint-circle"
-                  style={{ fill: isLocked ? '#94a3b8' : '#ffffff' }}
+                  style={{ fill: isLocked ? '#64748b' : '#ffffff' }}
                 />
 
                 {isLocked ? (
                   <g transform="translate(-6, -6)">
-                    <Lock size={12} color="#475569" />
+                    <Lock size={12} color="#ffffff" />
                   </g>
                 ) : (
                   <text className="checkpoint-text">
@@ -518,10 +622,11 @@ export default function DashboardClient() {
             title={currentBook.title}
             storyEn={currentBook.story_en}
             interactiveText={currentBook.interactive_text || []}
+            onWordMastered={(word) => handleMarkAsMastered(word)}
           />
         </div>
 
-        {/* CARD 2 */}
+        {/* CARD 2 - VOCABULARY MASTERY */}
         <div className="feature-card" onClick={() => setIsVocabOpen(true)} style={{ cursor: 'pointer' }}>
           <div className="card-number-badge">2</div>
 
@@ -545,7 +650,7 @@ export default function DashboardClient() {
           </div>
         </div>
 
-        {/* CARD 3 */}
+        {/* CARD 3 - QUIZ DE CULTURA E INTERPRETAÇÃO */}
         <div className="feature-card">
           <div className="card-number-badge">3</div>
 
@@ -561,7 +666,7 @@ export default function DashboardClient() {
 
             <div style={{ marginTop: '0.2rem' }}>
               <span className="card-header-label">Daily Challenge:</span>
-              <h3 className="card-main-title">Culture Quiz</h3>
+              <h3 className="card-main-title">Culture & Writing Quiz</h3>
             </div>
           </div>
 
@@ -571,10 +676,10 @@ export default function DashboardClient() {
         </div>
       </div>
 
-      {/* QUIZ MODAL */}
+      {/* QUIZ MODAL - MÚLTIPLA ESCOLHA EM INGLÊS E ESCRITA DISCURSIVA */}
       {isQuizOpen && (
         <div className="modal-overlay" onClick={() => setIsQuizOpen(false)}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
+          <div className="modal-content max-w-xl" onClick={e => e.stopPropagation()}>
             <button className="modal-close-btn" onClick={() => setIsQuizOpen(false)}>
               <X size={18} />
             </button>
@@ -587,55 +692,83 @@ export default function DashboardClient() {
                 </div>
 
                 <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '12px', marginBottom: '1.2rem' }}>
-                  <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600 }}>
-                    Pergunta {currentQuestionIdx + 1} de {currentBook.quiz?.length || 3}
-                  </span>
+                  <div className="flex items-center justify-between">
+                    <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600 }}>
+                      Pergunta {currentQuestionIdx + 1} de {currentBook.quiz?.length || 5}
+                    </span>
+                    {currentBook.quiz?.[currentQuestionIdx]?.type === 'open_writing' && (
+                      <span className="text-[10px] bg-purple-100 text-purple-700 font-extrabold px-2 py-0.5 rounded-full">
+                        ✍️ Prática de Escrita Discursiva
+                      </span>
+                    )}
+                  </div>
                   <p style={{ fontSize: '1.1rem', fontWeight: 700, marginTop: '0.4rem', color: '#0f172a' }}>
                     {currentBook.quiz?.[currentQuestionIdx]?.question || 'Qual o significado correto?'}
                   </p>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                  {currentBook.quiz?.[currentQuestionIdx]?.options.map((opt, idx) => {
-                    const isSelected = selectedOption === idx;
-                    return (
-                      <button
-                        key={idx}
-                        onClick={() => setSelectedOption(idx)}
-                        style={{
-                          background: isSelected ? '#eff6ff' : '#ffffff',
-                          border: isSelected ? '2px solid #4a90e2' : '1px solid #e2e8f0',
-                          padding: '0.9rem 1.2rem',
-                          borderRadius: '14px',
-                          textAlign: 'left',
-                          fontWeight: 600,
-                          fontSize: '0.95rem',
-                          cursor: 'pointer',
-                          color: isSelected ? '#1d4ed8' : '#334155',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                          transition: 'all 0.2s'
-                        }}
-                      >
-                        {opt}
-                        {isSelected && <CheckCircle2 size={18} color="#4a90e2" />}
-                      </button>
-                    );
-                  })}
-                </div>
+                {/* Pergunta de Escrita Discursiva */}
+                {currentBook.quiz?.[currentQuestionIdx]?.type === 'open_writing' ? (
+                  <div className="space-y-3">
+                    <textarea
+                      rows={3}
+                      placeholder="Type your response in English here..."
+                      value={writtenAnswer}
+                      onChange={(e) => setWrittenAnswer(e.target.value)}
+                      className="w-full p-3.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-slate-50 text-slate-900 text-sm"
+                    />
+
+                    {writtenFeedback && (
+                      <div className="p-3 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold flex items-center gap-2">
+                        <Sparkles size={16} />
+                        <span>{writtenFeedback}</span>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  /* Pergunta de Múltipla Escolha */
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                    {currentBook.quiz?.[currentQuestionIdx]?.options.map((opt, idx) => {
+                      const isSelected = selectedOption === idx;
+                      return (
+                        <button
+                          key={idx}
+                          onClick={() => setSelectedOption(idx)}
+                          style={{
+                            background: isSelected ? '#eff6ff' : '#ffffff',
+                            border: isSelected ? '2px solid #4a90e2' : '1px solid #e2e8f0',
+                            padding: '0.9rem 1.2rem',
+                            borderRadius: '14px',
+                            textAlign: 'left',
+                            fontWeight: 600,
+                            fontSize: '0.95rem',
+                            cursor: 'pointer',
+                            color: isSelected ? '#1d4ed8' : '#334155',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            transition: 'all 0.2s'
+                          }}
+                        >
+                          {opt}
+                          {isSelected && <CheckCircle2 size={18} color="#4a90e2" />}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
 
                 <button
                   className="card-action-btn"
                   onClick={handleNextQuestion}
-                  disabled={selectedOption === null}
+                  disabled={currentBook.quiz?.[currentQuestionIdx]?.type === 'open_writing' ? !writtenAnswer.trim() : selectedOption === null}
                   style={{
                     marginTop: '1.5rem',
-                    opacity: selectedOption === null ? 0.5 : 1,
-                    cursor: selectedOption === null ? 'not-allowed' : 'pointer'
+                    opacity: (currentBook.quiz?.[currentQuestionIdx]?.type === 'open_writing' ? !writtenAnswer.trim() : selectedOption === null) ? 0.5 : 1,
+                    cursor: (currentBook.quiz?.[currentQuestionIdx]?.type === 'open_writing' ? !writtenAnswer.trim() : selectedOption === null) ? 'not-allowed' : 'pointer'
                   }}
                 >
-                  {currentQuestionIdx + 1 === (currentBook.quiz?.length || 3) ? 'Finalizar Quiz' : 'Próxima Pergunta'}
+                  {currentQuestionIdx + 1 === (currentBook.quiz?.length || 5) ? 'Finalizar Quiz' : 'Próxima Pergunta'}
                 </button>
               </div>
             ) : (
@@ -645,7 +778,7 @@ export default function DashboardClient() {
                   {quizScore >= 2 ? 'Parabéns! Você Aprovou!' : 'Tente Novamente'}
                 </h2>
                 <p style={{ color: '#64748b', marginTop: '0.5rem', fontSize: '1rem' }}>
-                  Sua pontuação: <strong>{quizScore} de {currentBook.quiz?.length || 3} acertos</strong>.
+                  Sua pontuação: <strong>{quizScore} de {currentBook.quiz?.length || 5} acertos</strong>.
                 </p>
 
                 <div style={{ display: 'flex', gap: '1rem', marginTop: '1.8rem', justifyContent: 'center' }}>
@@ -680,58 +813,213 @@ export default function DashboardClient() {
         </div>
       )}
 
-      {/* VOCABULARY FLASHCARDS MODAL */}
+      {/* VOCABULARY FLASHCARDS & LISTA DE PALAVRAS APRENDIDAS MODAL */}
       {isVocabOpen && (
         <div className="modal-overlay" onClick={() => setIsVocabOpen(false)}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
+          <div className="modal-content max-w-2xl" onClick={e => e.stopPropagation()}>
             <button className="modal-close-btn" onClick={() => setIsVocabOpen(false)}>
               <X size={18} />
             </button>
 
-            <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '1rem' }}>
-              Flashcards de Vocabulário - {currentBook.title}
-            </h2>
+            {/* SELETOR DE ABAS DO VOCABULÁRIO */}
+            <div className="flex gap-2 mb-4 bg-slate-100 p-1 rounded-xl">
+              <button
+                onClick={() => setVocabSubTab('flashcards')}
+                className={`flex-1 py-2 px-3 rounded-lg font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition cursor-pointer ${
+                  vocabSubTab === 'flashcards'
+                    ? 'bg-white text-slate-900 shadow-sm'
+                    : 'text-slate-500 hover:text-slate-800'
+                }`}
+              >
+                <Layers size={16} /> Flashcards Interativos
+              </button>
 
-            {currentWord === null ? (
-              <p>Nenhuma palavra nova neste livro.</p>
-            ) : (
+              <button
+                onClick={() => setVocabSubTab('word_list')}
+                className={`flex-1 py-2 px-3 rounded-lg font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition cursor-pointer ${
+                  vocabSubTab === 'word_list'
+                    ? 'bg-white text-slate-900 shadow-sm'
+                    : 'text-slate-500 hover:text-slate-800'
+                }`}
+              >
+                <ListChecks size={16} /> Lista por Livro
+              </button>
+            </div>
+
+            {/* ABA 1: DECK COMPLETO DE FLASHCARDS COM NAVEGAÇÃO E BOTÃO DE DOMÍNIO */}
+            {vocabSubTab === 'flashcards' && (
               <div>
-                <div
-                  onClick={() => setIsFlipped(!isFlipped)}
-                  style={{
-                    background: isFlipped ? 'linear-gradient(135deg, #eff6ff, #dbeafe)' : 'linear-gradient(135deg, #f8fafc, #f1f5f9)',
-                    border: '2px dashed #93c5fd',
-                    borderRadius: '20px',
-                    minHeight: '200px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    cursor: 'pointer',
-                    padding: '2rem',
-                    textAlign: 'center',
-                    transition: 'all 0.3s'
-                  }}
-                >
-                  {!isFlipped ? (
-                    <div>
-                      <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>
-                        Palavra em Inglês (Clique para virar)
-                      </span>
-                      <h3 style={{ fontSize: '2.4rem', fontWeight: 800, color: '#1e3a8a', marginTop: '0.5rem' }}>
-                        {currentWord.word}
-                      </h3>
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="font-extrabold text-slate-900 text-base">
+                    {currentBook.title} ({flashcardIdx + 1}/{currentDeck.length})
+                  </h3>
+                  <span className="text-xs text-slate-500 font-semibold">
+                    {masteredWords.size} dominadas
+                  </span>
+                </div>
+
+                {currentFlashcard === null ? (
+                  <p className="text-slate-500 text-center py-8">Nenhuma palavra cadastrada neste livro.</p>
+                ) : (
+                  <div>
+                    {/* Card Virável */}
+                    <div
+                      onClick={() => setIsFlipped(!isFlipped)}
+                      style={{
+                        background: isFlipped ? 'linear-gradient(135deg, #eff6ff, #dbeafe)' : 'linear-gradient(135deg, #f8fafc, #f1f5f9)',
+                        border: '2px dashed #93c5fd',
+                        borderRadius: '20px',
+                        minHeight: '220px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        cursor: 'pointer',
+                        padding: '2rem',
+                        textAlign: 'center',
+                        transition: 'all 0.3s',
+                        position: 'relative'
+                      }}
+                    >
+                      {!isFlipped ? (
+                        <div>
+                          <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>
+                            Palavra em Inglês (Clique para ver tradução)
+                          </span>
+                          <h3 style={{ fontSize: '2.4rem', fontWeight: 800, color: '#1e3a8a', marginTop: '0.5rem' }}>
+                            {currentFlashcard.word}
+                          </h3>
+                        </div>
+                      ) : (
+                        <div>
+                          <span style={{ fontSize: '0.8rem', color: '#059669', fontWeight: 600, textTransform: 'uppercase' }}>
+                            Tradução em Português
+                          </span>
+                          <h3 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#065f46', marginTop: '0.5rem' }}>
+                            {currentFlashcard.translation}
+                          </h3>
+                          {currentFlashcard.part_of_speech && (
+                            <span style={{ fontSize: '0.75rem', background: '#d1fae5', color: '#065f46', padding: '0.2rem 0.6rem', borderRadius: '999px', marginTop: '0.5rem', display: 'inline-block' }}>
+                              {currentFlashcard.part_of_speech}
+                            </span>
+                          )}
+                        </div>
+                      )}
+
+                      {/* Botão de Áudio no Card */}
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          speakWord(currentFlashcard.clean_word || currentFlashcard.word);
+                        }}
+                        style={{ position: 'absolute', bottom: '1rem', right: '1rem', background: '#ffffff', border: '1px solid #cbd5e1', padding: '0.5rem', borderRadius: '999px', cursor: 'pointer', boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}
+                        title="Ouvir Pronúncia"
+                      >
+                        <Volume2 size={18} color="#0284c7" />
+                      </button>
                     </div>
-                  ) : (
-                    <div>
-                      <span style={{ fontSize: '0.8rem', color: '#059669', fontWeight: 600, textTransform: 'uppercase' }}>
-                        Tradução em Português
-                      </span>
-                      <h3 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#065f46', marginTop: '0.5rem' }}>
-                        {currentWord.translation}
-                      </h3>
+
+                    {/* BOTÕES DE NAVEGAÇÃO E DOMÍNIO */}
+                    <div style={{ display: 'flex', gap: '0.8rem', marginTop: '1.2rem', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <button
+                        onClick={() => {
+                          setFlashcardIdx(prev => (prev > 0 ? prev - 1 : currentDeck.length - 1));
+                          setIsFlipped(false);
+                        }}
+                        style={{ background: '#f1f5f9', color: '#334155', border: 'none', padding: '0.7rem 1.2rem', borderRadius: '12px', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
+                      >
+                        <ChevronLeft size={16} /> Anterior
+                      </button>
+
+                      <button
+                        onClick={() => handleMarkAsMastered(currentFlashcard.clean_word || currentFlashcard.word)}
+                        style={{ background: '#10b981', color: '#ffffff', border: 'none', padding: '0.7rem 1.2rem', borderRadius: '12px', fontWeight: 800, fontSize: '0.85rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.4rem', boxShadow: '0 4px 12px rgba(16,185,129,0.25)' }}
+                      >
+                        <Check size={16} /> Marcar como Dominada
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          setFlashcardIdx(prev => (prev + 1) % currentDeck.length);
+                          setIsFlipped(false);
+                        }}
+                        style={{ background: '#0284c7', color: '#ffffff', border: 'none', padding: '0.7rem 1.2rem', borderRadius: '12px', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
+                      >
+                        Próxima <ChevronRight size={16} />
+                      </button>
                     </div>
-                  )}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* ABA 2: LISTA DE PALAVRAS APRENDIDAS FILTRADAS POR LIVRO */}
+            {vocabSubTab === 'word_list' && (
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.8rem' }}>
+                  <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0f172a' }}>
+                    Vocabulário por Livro
+                  </h3>
+
+                  {/* Seletor do Livro */}
+                  <select
+                    value={selectedBookForList}
+                    onChange={(e) => setSelectedBookForList(Number(e.target.value))}
+                    style={{ padding: '0.5rem 1rem', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '0.85rem', fontWeight: 700, background: '#ffffff', cursor: 'pointer' }}
+                  >
+                    {allBooks.map((b) => (
+                      <option key={b.checkpoint} value={b.checkpoint}>
+                        Livro {b.checkpoint}: {b.title}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div style={{ maxHeight: '340px', overflowY: 'auto', border: '1px solid #e2e8f0', borderRadius: '14px', background: '#ffffff' }}>
+                  <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.85rem' }}>
+                    <thead>
+                      <tr style={{ background: '#f8fafc', borderBottom: '1px solid #e2e8f0' }}>
+                        <th style={{ padding: '0.7rem' }}>Palavra (Inglês)</th>
+                        <th style={{ padding: '0.7rem' }}>Tradução</th>
+                        <th style={{ padding: '0.7rem' }}>Classe</th>
+                        <th style={{ padding: '0.7rem', textAlign: 'center' }}>Pronúncia</th>
+                        <th style={{ padding: '0.7rem', textAlign: 'center' }}>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {bookForList.interactive_text?.map((item, idx) => {
+                        const clean = (item.clean_word || item.word).toLowerCase().trim();
+                        const isMastered = masteredWords.has(clean);
+
+                        return (
+                          <tr key={idx} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                            <td style={{ padding: '0.7rem', fontWeight: 700, color: '#1e3a8a' }}>{item.word}</td>
+                            <td style={{ padding: '0.7rem', color: '#334155' }}>{item.translation}</td>
+                            <td style={{ padding: '0.7rem', color: '#64748b' }}>{item.part_of_speech || '-'}</td>
+                            <td style={{ padding: '0.7rem', textAlign: 'center' }}>
+                              <button
+                                onClick={() => speakWord(item.clean_word || item.word)}
+                                style={{ background: '#eff6ff', border: '1px solid #bfdbfe', padding: '0.3rem 0.6rem', borderRadius: '8px', cursor: 'pointer', color: '#1d4ed8', fontSize: '0.75rem', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}
+                              >
+                                <Volume2 size={14} /> Ouvir
+                              </button>
+                            </td>
+                            <td style={{ padding: '0.7rem', textAlign: 'center' }}>
+                              {isMastered ? (
+                                <span style={{ background: '#dcfce7', color: '#15803d', padding: '0.2rem 0.6rem', borderRadius: '999px', fontSize: '0.75rem', fontWeight: 800 }}>
+                                  ✅ Dominada
+                                </span>
+                              ) : (
+                                <span style={{ background: '#f1f5f9', color: '#64748b', padding: '0.2rem 0.6rem', borderRadius: '999px', fontSize: '0.75rem', fontWeight: 700 }}>
+                                  📘 Em Aprendizado
+                                </span>
+                              )}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
                 </div>
               </div>
             )}

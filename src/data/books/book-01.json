@@ -127,6 +127,43 @@
       "question": "Quais partes do corpo são mencionadas quando ele se prepara para andar?",
       "options": ["Braços e pernas", "Olhos e orelhas", "Ombros, peito e boca", "Mãos e joelhos"],
       "correct_answer": 2
+    },
+    {
+      "id": 4,
+      "question": "What object does Paul take from the wooden table before leaving the house?",
+      "options": ["A metal key", "A glass of water", "A map book", "A mirror"],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 5,
+      "question": "Where is the small dog running in the morning light?",
+      "options": ["Near the yellow house gate", "Inside the bedroom", "On top of the roof", "In the forest"],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 6,
+      "question": "How does Paul feel as he begins to walk forward?",
+      "options": ["Confident with a smile on his face", "Fearful and lost", "Angry and tired", "Bored"],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 7,
+      "question": "Writing Practice: Write a short sentence in English describing what Paul takes from the table.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": ["key", "metal", "table", "paul", "takes", "picks"]
+    },
+    {
+      "id": 8,
+      "question": "Writing Practice: Write a sentence in English using the words 'sun' or 'sky'.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": ["sun", "sky", "blue", "bright", "shines", "morning"]
     }
   ]
 }

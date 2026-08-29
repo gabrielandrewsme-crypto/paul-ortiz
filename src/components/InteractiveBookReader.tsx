@@ -1,19 +1,21 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Volume2, Play, Pause, RotateCcw, Sparkles } from 'lucide-react';
+import { Volume2, Play, Pause, RotateCcw, Sparkles, X } from 'lucide-react';
 import { InteractiveWord } from '@/src/data/books';
 
 interface InteractiveBookReaderProps {
   storyEn?: string;
   interactiveText: InteractiveWord[];
   title: string;
+  onWordMastered?: (word: string) => void;
 }
 
 export default function InteractiveBookReader({
   storyEn = '',
   interactiveText = [],
   title,
+  onWordMastered,
 }: InteractiveBookReaderProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [activeWordIdx, setActiveWordIdx] = useState<number | null>(null);
@@ -51,14 +53,14 @@ export default function InteractiveBookReader({
       partOfSpeech: item.part_of_speech,
     });
 
+    if (onWordMastered) {
+      onWordMastered(item.clean_word || item.word);
+    }
+
     const cleanText = item.clean_word || item.word.replace(/[^a-zA-Z]/g, '');
     const utterance = new SpeechSynthesisUtterance(cleanText);
     utterance.lang = 'en-US';
     utterance.rate = 0.9;
-
-    utterance.onend = () => {
-      // Keep tooltip visible, reset highlight after a short delay if desired
-    };
 
     window.speechSynthesis.speak(utterance);
   };
@@ -77,7 +79,6 @@ export default function InteractiveBookReader({
     window.speechSynthesis.cancel();
     setHoveredWord(null);
 
-    // Reconstruct full text or use storyEn
     const fullText = storyEn || interactiveText.map((i) => i.word).join(' ');
     const utterance = new SpeechSynthesisUtterance(fullText);
     utterance.lang = 'en-US';
@@ -90,13 +91,12 @@ export default function InteractiveBookReader({
 
     interactiveText.forEach((item, idx) => {
       charIndexMap.push({ charIndex: currentLength, wordIdx: idx });
-      currentLength += item.word.length + 1; // +1 for space
+      currentLength += item.word.length + 1;
     });
 
     utterance.onboundary = (event) => {
       if (event.name === 'word') {
         const charIdx = event.charIndex;
-        // Find corresponding word index
         const matched = charIndexMap.reduce((prev, curr) => {
           return curr.charIndex <= charIdx ? curr : prev;
         }, charIndexMap[0]);
@@ -121,10 +121,26 @@ export default function InteractiveBookReader({
     window.speechSynthesis.speak(utterance);
   };
 
+  const closeTooltip = () => {
+    if (typeof window !== 'undefined' && window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+    }
+    setHoveredWord(null);
+    setActiveWordIdx(null);
+  };
+
   return (
-    <div className="bg-slate-900/60 border border-slate-700/60 backdrop-blur-md rounded-2xl p-5 sm:p-6 text-white shadow-xl relative overflow-hidden my-4">
+    <div className="mx-auto my-4 w-full max-w-full sm:max-w-4xl bg-slate-900/60 border border-slate-700/60 backdrop-blur-md rounded-2xl p-4 sm:p-6 text-white shadow-xl relative overflow-hidden text-center sm:text-left mb-16 sm:mb-6">
+      {/* Backdrop transparente para fechar tooltip ao clicar fora */}
+      {hoveredWord && (
+        <div
+          className="fixed inset-0 z-20 bg-transparent"
+          onClick={closeTooltip}
+        />
+      )}
+
       {/* Reader Header */}
-      <div className="flex items-center justify-between border-b border-slate-700/60 pb-4 mb-4">
+      <div className="flex flex-col sm:flex-row items-center justify-between border-b border-slate-700/60 pb-4 mb-4 gap-3">
         <div className="flex items-center gap-2">
           <div className="p-2 rounded-xl bg-sky-500/20 text-sky-400 border border-sky-400/30">
             <Volume2 size={20} />
@@ -171,14 +187,26 @@ export default function InteractiveBookReader({
                 {item.word}
               </span>
 
-              {/* Tooltip / Popover on click */}
+              {/* Tooltip / Popover com Botão X de Fechamento Instantâneo */}
               {isTooltipActive && (
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-30 w-max max-w-[200px] bg-slate-950 border border-sky-400/40 rounded-xl p-2.5 shadow-2xl text-center animate-fade-in pointer-events-none">
-                  <div className="text-xs font-bold text-sky-400 flex items-center justify-center gap-1">
-                    <Sparkles size={12} />
-                    <span>{item.clean_word || item.word}</span>
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-30 w-max max-w-[240px] bg-slate-950 border border-sky-400/50 rounded-xl p-3 shadow-2xl text-center animate-fade-in pointer-events-auto">
+                  <div className="flex items-center justify-between gap-2 mb-1">
+                    <div className="text-xs font-bold text-sky-400 flex items-center gap-1">
+                      <Sparkles size={12} />
+                      <span>{item.clean_word || item.word}</span>
+                    </div>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        closeTooltip();
+                      }}
+                      className="text-slate-400 hover:text-white p-0.5 rounded-full hover:bg-slate-800 transition cursor-pointer"
+                      aria-label="Fechar tradução"
+                    >
+                      <X size={14} />
+                    </button>
                   </div>
-                  <div className="text-sm font-extrabold text-white mt-0.5">
+                  <div className="text-sm font-extrabold text-white">
                     {item.translation}
                   </div>
                   {item.part_of_speech && (
@@ -196,18 +224,11 @@ export default function InteractiveBookReader({
       </div>
 
       {/* Reader Footer Info */}
-      <div className="mt-4 pt-3 border-t border-slate-700/40 flex items-center justify-between text-xs text-slate-400">
+      <div className="mt-4 pt-3 border-t border-slate-700/40 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-2">
         <span>💡 Clique em qualquer palavra para ouvir sua pronúncia e ver a tradução.</span>
         {activeWordIdx !== null && (
           <button
-            onClick={() => {
-              if (typeof window !== 'undefined' && window.speechSynthesis) {
-                window.speechSynthesis.cancel();
-              }
-              setActiveWordIdx(null);
-              setHoveredWord(null);
-              setIsPlaying(false);
-            }}
+            onClick={closeTooltip}
             className="text-slate-400 hover:text-white flex items-center gap-1 cursor-pointer"
           >
             <RotateCcw size={12} /> Resetar Destaque

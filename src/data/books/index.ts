@@ -20,6 +20,8 @@ export interface QuizQuestion {
   question: string;
   options: string[];
   correct_answer: number;
+  type?: 'multiple_choice' | 'open_writing';
+  expected_keywords?: string[];
 }
 
 /** Estrutura completa de dados de um livro interativo. */
