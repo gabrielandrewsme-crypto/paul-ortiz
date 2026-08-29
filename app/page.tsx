@@ -10,7 +10,7 @@ export default async function Home() {
   }
 
   return (
-    <main style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+    <main className="w-full min-h-screen flex justify-center items-start overflow-x-hidden px-0 sm:px-4 py-2 sm:py-6">
       <DashboardClient />
     </main>
   );

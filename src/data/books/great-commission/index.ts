@@ -1,6 +1,8 @@
-import book01 from '../book-01.json';
-import book02 from '../book-02.json';
-import book03 from '../book-03.json';
+import gc1 from './gc-book1.json.json';
+import gc2 from './gc-book2.json.json';
+import gc3 from './gc-book3.json.json';
+import gc4 from './gc-book4.json.json';
+import gc5 from './gc-book5.json.json';
 
 export interface GreatCommissionBook {
   id: string;
@@ -15,43 +17,50 @@ export interface GreatCommissionBook {
   series: 'great-commission';
 }
 
+function formatGcBook(json: any, checkpoint: number): GreatCommissionBook {
+  const storyEn = json.dialogue
+    ? json.dialogue.map((d: any) => `${d.speaker}: "${d.text}"`).join('\n\n')
+    : json.story_en || '';
+
+  const interactiveText = json.vocabulary
+    ? json.vocabulary.map((v: any) => ({
+        word: v.word,
+        clean_word: v.word.replace(/[^a-zA-Z]/g, ''),
+        translation: v.translation,
+        is_new: true,
+        part_of_speech: v.phonetic || 'vocabulary',
+      }))
+    : json.interactive_text || [];
+
+  const quiz = json.quiz
+    ? json.quiz.map((q: any) => ({
+        id: q.id,
+        question: q.question,
+        options: q.options,
+        correct_answer: q.correctAnswer !== undefined ? q.correctAnswer : q.correct_answer || 0,
+      }))
+    : json.quiz || [];
+
+  return {
+    id: json.id || `gc-0${checkpoint}`,
+    checkpoint: checkpoint,
+    title: json.title ? `Great Commission ${checkpoint}: ${json.title}` : `Great Commission — Part ${checkpoint}`,
+    summary: json.subtitle || json.description || json.summary || '',
+    audio_url: '',
+    word_count_target: storyEn.split(/\s+/).filter(Boolean).length || 200,
+    story_en: storyEn,
+    interactive_text: interactiveText,
+    quiz: quiz,
+    series: 'great-commission',
+  };
+}
+
 export const greatCommissionBooks: GreatCommissionBook[] = [
-  {
-    id: 'gc-01',
-    checkpoint: 1,
-    title: 'Great Commission — Part 1: The Calling',
-    summary: 'The initial mandate to reach nations and teach foundational truths.',
-    audio_url: '',
-    word_count_target: 300,
-    story_en: book01.story_en || '',
-    interactive_text: book01.interactive_text || [],
-    quiz: book01.quiz || [],
-    series: 'great-commission',
-  },
-  {
-    id: 'gc-02',
-    checkpoint: 2,
-    title: 'Great Commission — Part 2: Discipleship',
-    summary: 'Deepening vocabulary and structured commitment to growth.',
-    audio_url: '',
-    word_count_target: 350,
-    story_en: book02.story_en || '',
-    interactive_text: book02.interactive_text || [],
-    quiz: book02.quiz || [],
-    series: 'great-commission',
-  },
-  {
-    id: 'gc-03',
-    checkpoint: 3,
-    title: 'Great Commission — Part 3: The Ascent',
-    summary: 'Mastering expressions for international communication and leadership.',
-    audio_url: '',
-    word_count_target: 400,
-    story_en: book03.story_en || '',
-    interactive_text: book03.interactive_text || [],
-    quiz: book03.quiz || [],
-    series: 'great-commission',
-  },
+  formatGcBook(gc1, 1),
+  formatGcBook(gc2, 2),
+  formatGcBook(gc3, 3),
+  formatGcBook(gc4, 4),
+  formatGcBook(gc5, 5),
 ];
 
 export function getGreatCommissionBookByCheckpoint(checkpoint: number): GreatCommissionBook | undefined {

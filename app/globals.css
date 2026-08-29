@@ -30,11 +30,13 @@
   padding: 0;
 }
 
-body {
+html, body {
   font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: var(--text-dark);
   min-height: 100vh;
   background-color: #f8fafc;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* Outer Main Canvas Card (Matching screenshot inner window frame) */
@@ -48,7 +50,7 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
@@ -525,11 +527,11 @@ body {
 /* Responsive queries */
 @media (max-width: 900px) {
   .app-container {
-    padding: 1.5rem;
+    padding: 1.25rem 1rem;
   }
   .bottom-cards-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
   .header-bar {
     flex-direction: column;
@@ -541,7 +543,38 @@ body {
     justify-content: space-between;
   }
   .goal-group {
-    min-width: 200px;
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-container {
+    padding: 1rem 0.75rem;
+    border-radius: 16px;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+  .bottom-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    margin: 0.5rem 0 0 0 !important;
+    padding: 0 !important;
+  }
+  .feature-card {
+    grid-column: span 1 !important;
+    padding: 1.25rem 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .mountain-stage {
+    height: 320px;
+    width: 100%;
+    overflow: hidden;
   }
 }
 

@@ -189,3 +189,18 @@ model QuizAttempt {
   @@index([userId, bookId], map: "idx_quiz_attempts_user_book")
   @@map("quiz_attempts")
 }
+
+model PodcastEpisode {
+  id            String   @id @default(uuid()) @db.Uuid
+  episodeNumber Int      @unique @map("episode_number")
+  title         String   @db.VarChar(255)
+  subtitle      String?  @db.VarChar(255)
+  description   String   @db.Text
+  audioUrl      String   @map("audio_url") @db.VarChar(255)
+  duration      String   @db.VarChar(50)
+  publishedAt   DateTime @default(now()) @map("published_at") @db.Timestamptz
+  tags          String[] @default([])
+  createdAt     DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  @@map("podcast_episodes")
+}

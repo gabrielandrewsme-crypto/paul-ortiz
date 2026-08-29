@@ -130,7 +130,7 @@ export default function InteractiveBookReader({
   };
 
   return (
-    <div className="mx-auto my-4 w-full max-w-full sm:max-w-4xl bg-slate-900/60 border border-slate-700/60 backdrop-blur-md rounded-2xl p-4 sm:p-6 text-white shadow-xl relative overflow-hidden text-center sm:text-left mb-16 sm:mb-6">
+    <div className="w-full max-w-md mx-auto px-4 my-3 bg-slate-900/80 border border-slate-700/60 backdrop-blur-md rounded-2xl p-4 sm:p-6 text-white shadow-xl relative overflow-hidden break-words text-left mb-6">
       {/* Backdrop transparente para fechar tooltip ao clicar fora */}
       {hoveredWord && (
         <div

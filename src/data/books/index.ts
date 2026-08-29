@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 // src/data/books/index.ts
-// Manifesto / Índice central dos livros interativos — Jornada Náutica (Fase 1)
+// Manifesto / Índice central dos livros interativos — Jornada da Montanha (Fase 1)
 // ----------------------------------------------------------------------------
 
 // ─── Tipos ──────────────────────────────────────────────────────────────────────
@@ -37,7 +37,7 @@ export interface BookData {
   quiz: QuizQuestion[];
 }
 
-// ─── Imports dos 16 livros da Jornada Náutica ───────────────────────────────────
+// ─── Imports dos 16 livros da Jornada da Montanha ───────────────────────────────────
 
 import book01 from './book-01.json';
 import book02 from './book-02.json';
@@ -68,7 +68,7 @@ export {
 // ─── Array consolidado (ordenado por checkpoint) ────────────────────────────────
 
 /**
- * Todos os 16 livros da Jornada Náutica, ordenados por checkpoint.
+ * Todos os 16 livros da Jornada da Montanha, ordenados por checkpoint.
  * Cada item é tipado como `BookData`.
  */
 export const allBooks: BookData[] = [
