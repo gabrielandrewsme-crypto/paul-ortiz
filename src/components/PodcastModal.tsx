@@ -169,14 +169,14 @@ export default function PodcastModal({ isOpen, onClose }: PodcastModalProps) {
           <div>
             <div className="flex items-center gap-2">
               <span className="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 uppercase tracking-wider">
-                Podcast Antigravity
+                Podcast Paul Ortiz
               </span>
               <span className="text-[11px] text-slate-400 font-medium flex items-center gap-1">
                 <Headphones size={12} /> Áudio Nativo
               </span>
             </div>
             <h2 className="text-xl sm:text-2xl font-extrabold text-white mt-1">
-              Antigravity Audio Experience
+              Paul Ortiz Audio Experience
             </h2>
           </div>
         </div>

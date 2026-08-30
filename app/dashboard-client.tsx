@@ -1678,7 +1678,7 @@ export default function DashboardClient() {
                 <label className="text-[11px] font-bold text-slate-500 block">E-mail da Conta (Modo Leitura)</label>
                 <input
                   type="email"
-                  value={userData?.email || 'aluno@antigravity.com'}
+                  value={userData?.email || 'aluno@paulortiz.com'}
                   readOnly
                   disabled
                   className="w-full p-2.5 rounded-xl bg-slate-200/80 border border-slate-300 text-slate-600 font-bold text-xs sm:text-sm cursor-not-allowed select-none"

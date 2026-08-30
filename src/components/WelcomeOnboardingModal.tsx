@@ -48,7 +48,7 @@ function StylizedMountainHeader() {
       </svg>
       <div className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/40 text-blue-300 font-extrabold text-[10px] uppercase tracking-wider backdrop-blur-md">
         <Sparkles size={12} className="text-blue-400" />
-        <span>Guia do Aluno Antigravity</span>
+        <span>Guia do Aluno Paul Ortiz</span>
       </div>
     </div>
   );
@@ -122,7 +122,7 @@ export default function WelcomeOnboardingModal({
             <div className="space-y-4 animate-fade-in">
               <div>
                 <span className="text-xs font-extrabold uppercase tracking-widest text-blue-400 flex items-center gap-2 mb-1">
-                  <Compass size={16} /> Método Antigravity — Fluência em 6 Meses
+                  <Compass size={16} /> Método Paul Ortiz — Fluência em 6 Meses
                 </span>
                 <h2 className="text-xl sm:text-2xl font-black text-white leading-tight">
                   Domine as 2.000 Palavras Mais Usadas no Inglês

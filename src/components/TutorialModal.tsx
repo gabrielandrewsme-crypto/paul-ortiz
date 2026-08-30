@@ -24,7 +24,7 @@ export default function TutorialModal({ isOpen, onClose, onStartJourney }: Tutor
         <div className="bg-gradient-to-r from-blue-700 via-indigo-700 to-sky-600 -mx-6 -mt-6 p-6 text-white mb-6 relative">
           <div className="flex items-center gap-2 text-sky-200 text-xs font-bold uppercase tracking-wider mb-1">
             <Sparkles size={14} />
-            <span>Guia Metodológico Antigravity</span>
+            <span>Guia Metodológico Paul Ortiz</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
             Do Zero à Fluência Prática (B1)
