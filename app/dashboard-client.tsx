@@ -34,7 +34,8 @@ import {
   ArrowRight,
   LogOut,
   Radio,
-  Headphones
+  Headphones,
+  MessageCircle
 } from 'lucide-react';
 import { allBooks, BookData, QuizQuestion } from '@/src/data/books';
 import { greatCommissionBooks, GreatCommissionBook } from '@/src/data/books/great-commission';
@@ -338,9 +339,10 @@ export default function DashboardClient() {
     } else {
       localStorage.setItem('po_welcome_modal_seen_guest', 'true');
     }
+    localStorage.setItem('@antigravity:has_seen_onboarding', 'true');
     setIsWelcomeModalOpen(false);
     setActiveCheckpoint(1);
-    setIsVocabOpen(true);
+    setCurrentStep(1);
   };
 
   const isSuperAdminUser = userData?.email?.toLowerCase().trim() === 'gabrielandrews.me@gmail.com';
@@ -880,6 +882,38 @@ export default function DashboardClient() {
             );
           })}
         </svg>
+      </div>
+
+      {/* CARD DE COMUNIDADE & PRÁTICA DE CONVERSAÇÃO NO WHATSAPP */}
+      <div className="w-full max-w-md sm:max-w-none mx-auto bg-gradient-to-r from-emerald-950/90 via-slate-900 to-slate-950 border border-emerald-500/30 rounded-3xl p-4 sm:p-5 mb-6 shadow-xl relative overflow-hidden flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <div className="p-3 rounded-2xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex-shrink-0">
+            <MessageCircle size={26} />
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] font-extrabold px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">
+                Grupo Oficial de Alunos
+              </span>
+            </div>
+            <h3 className="text-base sm:text-lg font-extrabold text-white mt-0.5">
+              Comunidade & Prática de Conversação
+            </h3>
+            <p className="text-xs text-slate-300 max-w-xl leading-relaxed">
+              Participe do nosso grupo de prática diária e tire dúvidas diretamente com o mentor.
+            </p>
+          </div>
+        </div>
+
+        <a
+          href="https://wa.me/5521965161242?text=Ol%C3%A1%2C%20gostaria%20de%20participar%20do%20grupo%20de%20pr%C3%A1tica%20de%20ingl%C3%AAs%20do%20Antigravity!"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full sm:w-auto px-5 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs sm:text-sm flex items-center justify-center gap-2 transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-emerald-500/25 cursor-pointer whitespace-nowrap"
+        >
+          <MessageCircle size={18} />
+          <span>Entrar no Grupo do WhatsApp</span>
+        </a>
       </div>
 
       {/* PAINEL DO WORKFLOW SEQUENCIAL EM 4 PASSOS NO LIVRO ATIVO */}
