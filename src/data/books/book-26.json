@@ -1,0 +1,1031 @@
+{
+  "id": "book-26",
+  "checkpoint": 10,
+  "title": "Looking Through the Window",
+  "summary": "Enquanto o trem viaja para o norte, Paul observa a paisagem mudar da cidade para o campo e pede uma xícara de chá quente.",
+  "audio_url": "/audios/book-26.mp3",
+  "word_count_target": 140,
+  "story_en": "The train gathers speed as it leaves the noisy city behind. Paul rests his elbow near the window and gazes at the changing landscape. Tall brick buildings slowly give way to wide green fields and quiet farmhouses.\n\nAfter half an hour, an attendant pushes a metal snack cart down the aisle. “Would you like something hot to drink or a fresh snack?” she asks politely.\n\n“Yes, please,” Paul answers. “Could I get a cup of hot tea and a sweet biscuit?”\n\n“Of course,” she smiles, handing him the warm cup and a small plate. “That will be three dollars.”\n\nPaul pays the attendant and takes a slow sip. The warm drink relaxes him. Through the clear glass, he sees the distant outline of the mountain range growing sharper against the blue sky.",
+  "interactive_text": [
+    {
+      "word": "The",
+      "clean_word": "the",
+      "translation": "O",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "train",
+      "clean_word": "train",
+      "translation": "trem",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "gathers",
+      "clean_word": "gathers",
+      "translation": "ganha / acumula",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "speed",
+      "clean_word": "speed",
+      "translation": "velocidade",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "as",
+      "clean_word": "as",
+      "translation": "enquanto / conforme",
+      "is_new": false,
+      "part_of_speech": "conjunção"
+    },
+    {
+      "word": "it",
+      "clean_word": "it",
+      "translation": "ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "leaves",
+      "clean_word": "leaves",
+      "translation": "deixa / sai de",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "noisy",
+      "clean_word": "noisy",
+      "translation": "barulhenta",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "city",
+      "clean_word": "city",
+      "translation": "cidade",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "behind.",
+      "clean_word": "behind",
+      "translation": "para trás",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "rests",
+      "clean_word": "rests",
+      "translation": "apoia / descansa",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "seu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "elbow",
+      "clean_word": "elbow",
+      "translation": "cotovelo",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "near",
+      "clean_word": "near",
+      "translation": "perto de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "window",
+      "clean_word": "window",
+      "translation": "janela",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "gazes",
+      "clean_word": "gazes",
+      "translation": "olha fixamente / contempla",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "at",
+      "clean_word": "at",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "changing",
+      "clean_word": "changing",
+      "translation": "em mudança / mutável",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "landscape.",
+      "clean_word": "landscape",
+      "translation": "paisagem",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Tall",
+      "clean_word": "tall",
+      "translation": "Altos",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "brick",
+      "clean_word": "brick",
+      "translation": "de tijolos",
+      "is_new": true,
+      "part_of_speech": "substantivo / adjetivo"
+    },
+    {
+      "word": "buildings",
+      "clean_word": "buildings",
+      "translation": "prédios / edifícios",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "slowly",
+      "clean_word": "slowly",
+      "translation": "lentamente",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "give",
+      "clean_word": "give",
+      "translation": "dão",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "way",
+      "clean_word": "way",
+      "translation": "lugar / passagem",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "wide",
+      "clean_word": "wide",
+      "translation": "amplos / vastos",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "green",
+      "clean_word": "green",
+      "translation": "verdes",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "fields",
+      "clean_word": "fields",
+      "translation": "campos",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "quiet",
+      "clean_word": "quiet",
+      "translation": "tranquilas",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "farmhouses.",
+      "clean_word": "farmhouses",
+      "translation": "casas de fazenda",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "After",
+      "clean_word": "after",
+      "translation": "Depois de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "half",
+      "clean_word": "half",
+      "translation": "meia",
+      "is_new": true,
+      "part_of_speech": "substantivo / determinante"
+    },
+    {
+      "word": "an",
+      "clean_word": "an",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "hour,",
+      "clean_word": "hour",
+      "translation": "hora",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "an",
+      "clean_word": "an",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "attendant",
+      "clean_word": "attendant",
+      "translation": "comissária / atendente",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "pushes",
+      "clean_word": "pushes",
+      "translation": "empurra",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "metal",
+      "clean_word": "metal",
+      "translation": "de metal",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "snack",
+      "clean_word": "snack",
+      "translation": "de lanches",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "cart",
+      "clean_word": "cart",
+      "translation": "carrinho",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "down",
+      "clean_word": "down",
+      "translation": "pelo",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "aisle.",
+      "clean_word": "aisle",
+      "translation": "corredor",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Would",
+      "clean_word": "would",
+      "translation": "Gostaria",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "you",
+      "clean_word": "you",
+      "translation": "você",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "like",
+      "clean_word": "like",
+      "translation": "de",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "something",
+      "clean_word": "something",
+      "translation": "algo",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "hot",
+      "clean_word": "hot",
+      "translation": "quente",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "drink",
+      "clean_word": "drink",
+      "translation": "beber",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "or",
+      "clean_word": "or",
+      "translation": "ou",
+      "is_new": true,
+      "part_of_speech": "conjunção"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "fresh",
+      "clean_word": "fresh",
+      "translation": "fresco",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "snack?",
+      "clean_word": "snack",
+      "translation": "lanche",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "she",
+      "clean_word": "she",
+      "translation": "ela",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "asks",
+      "clean_word": "asks",
+      "translation": "pergunta",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "politely.",
+      "clean_word": "politely",
+      "translation": "educadamente",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "Yes,",
+      "clean_word": "yes",
+      "translation": "Sim",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "please,",
+      "clean_word": "please",
+      "translation": "por favor",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "answers.",
+      "clean_word": "answers",
+      "translation": "responde",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "Could",
+      "clean_word": "could",
+      "translation": "Poderia",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "I",
+      "clean_word": "i",
+      "translation": "eu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "get",
+      "clean_word": "get",
+      "translation": "obter / pedir",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "cup",
+      "clean_word": "cup",
+      "translation": "xícara",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "hot",
+      "clean_word": "hot",
+      "translation": "quente",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "tea",
+      "clean_word": "tea",
+      "translation": "chá",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "sweet",
+      "clean_word": "sweet",
+      "translation": "doce",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "biscuit?",
+      "clean_word": "biscuit",
+      "translation": "biscoito",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Of",
+      "clean_word": "of",
+      "translation": "Com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "course,",
+      "clean_word": "course",
+      "translation": "certeza",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "she",
+      "clean_word": "she",
+      "translation": "ela",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "smiles,",
+      "clean_word": "smiles",
+      "translation": "sorri",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "handing",
+      "clean_word": "handing",
+      "translation": "entregando",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "him",
+      "clean_word": "him",
+      "translation": "a ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "warm",
+      "clean_word": "warm",
+      "translation": "quente / morna",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "cup",
+      "clean_word": "cup",
+      "translation": "xícara",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "small",
+      "clean_word": "small",
+      "translation": "pequeno",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "plate.",
+      "clean_word": "plate",
+      "translation": "prato / pires",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "That",
+      "clean_word": "that",
+      "translation": "Isso",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "will",
+      "clean_word": "will",
+      "translation": "vai",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "be",
+      "clean_word": "be",
+      "translation": "dar / ser",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "three",
+      "clean_word": "three",
+      "translation": "três",
+      "is_new": false,
+      "part_of_speech": "numeral"
+    },
+    {
+      "word": "dollars.",
+      "clean_word": "dollars",
+      "translation": "dólares",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "pays",
+      "clean_word": "pays",
+      "translation": "paga",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "attendant",
+      "clean_word": "attendant",
+      "translation": "atendente",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "takes",
+      "clean_word": "takes",
+      "translation": "dá / toma",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "slow",
+      "clean_word": "slow",
+      "translation": "lento",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "sip.",
+      "clean_word": "sip",
+      "translation": "gole",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "The",
+      "clean_word": "the",
+      "translation": "A",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "warm",
+      "clean_word": "warm",
+      "translation": "quente",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "drink",
+      "clean_word": "drink",
+      "translation": "bebida",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "relaxes",
+      "clean_word": "relaxes",
+      "translation": "relaxa",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "him.",
+      "clean_word": "him",
+      "translation": "ele / o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "Through",
+      "clean_word": "through",
+      "translation": "Através do",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "clear",
+      "clean_word": "clear",
+      "translation": "límpido",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "glass,",
+      "clean_word": "glass",
+      "translation": "vidro",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "he",
+      "clean_word": "he",
+      "translation": "ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "sees",
+      "clean_word": "sees",
+      "translation": "vê",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "distant",
+      "clean_word": "distant",
+      "translation": "distante",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "outline",
+      "clean_word": "outline",
+      "translation": "contorno / silhueta",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "da",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "mountain",
+      "clean_word": "mountain",
+      "translation": "montanhosa",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "range",
+      "clean_word": "range",
+      "translation": "cordilheira / cadeia",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "growing",
+      "clean_word": "growing",
+      "translation": "ficando / crescendo",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "sharper",
+      "clean_word": "sharper",
+      "translation": "mais nítido",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "against",
+      "clean_word": "against",
+      "translation": "contra",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "blue",
+      "clean_word": "blue",
+      "translation": "azul",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "sky.",
+      "clean_word": "sky",
+      "translation": "céu",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Como a paisagem muda conforme o trem se afasta da cidade?",
+      "options": [
+        "Os prédios altos dão lugar a campos verdes e casas de fazenda",
+        "A cidade dá lugar a um grande deserto de areia",
+        "O trem entra direto em uma floresta escura",
+        "Aparece apenas o mar ao lado dos trilhos"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 2,
+      "question": "What is the attendant pushing down the aisle?",
+      "options": [
+        "A metal snack cart",
+        "A heavy suitcase",
+        "A stack of books",
+        "A cleaning basket"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 3,
+      "question": "What does Paul order to eat and drink?",
+      "options": [
+        "A cup of hot tea and a sweet biscuit",
+        "A cup of coffee and a sandwich",
+        "Water and a fresh apple",
+        "Orange juice and bread"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 4,
+      "question": "Quanto custa o pedido de chá e biscoito de Paul?",
+      "options": [
+        "Três dólares",
+        "Dez dólares",
+        "Cinco dólares",
+        "Dois dólares"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 5,
+      "question": "What does Paul see through the clear window glass?",
+      "options": [
+        "The distant outline of the mountain range",
+        "A large clock tower",
+        "A noisy bridge with cars",
+        "A ticket office"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 6,
+      "question": "Como Paul se sente após tomar um gole da bebida quente?",
+      "options": [
+        "A bebida quente o relaxa",
+        "Ele fica com pressa",
+        "Ele sente frio",
+        "Ele fica cansado"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 7,
+      "question": "Writing Practice: Write a short sentence in English about what Paul drinks on the train.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "paul",
+        "drinks",
+        "hot",
+        "tea",
+        "cup"
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Writing Practice: Write a sentence in English using the words 'mountain' and 'window'.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "mountain",
+        "window",
+        "sees",
+        "train",
+        "paul"
+      ]
+    }
+  ]
+}

@@ -22,23 +22,26 @@ interface CheckpointCoord {
   hasFlag?: boolean;
 }
 
-const CHECKPOINT_COORDS_16: CheckpointCoord[] = [
-  { id: 1, x: 260, y: 510 },
-  { id: 2, x: 310, y: 475 },
-  { id: 3, x: 365, y: 440 },
-  { id: 4, x: 420, y: 410 },
-  { id: 5, x: 470, y: 380 },
-  { id: 6, x: 430, y: 345 },
-  { id: 7, x: 390, y: 315 },
-  { id: 8, x: 440, y: 285 },
-  { id: 9, x: 500, y: 260 },
-  { id: 10, x: 550, y: 235 },
-  { id: 11, x: 600, y: 215, hasFlag: true },
-  { id: 12, x: 550, y: 190, hasFlag: true },
-  { id: 13, x: 490, y: 170 },
-  { id: 14, x: 460, y: 145, hasFlag: true },
-  { id: 15, x: 480, y: 125 },
-  { id: 16, x: 500, y: 100, hasFlag: true },
+const CHECKPOINT_COORDS_MAX: CheckpointCoord[] = [
+  { id: 1, x: 250, y: 515 },
+  { id: 2, x: 295, y: 490 },
+  { id: 3, x: 345, y: 465 },
+  { id: 4, x: 395, y: 440 },
+  { id: 5, x: 445, y: 415 },
+  { id: 6, x: 485, y: 390 },
+  { id: 7, x: 440, y: 360 },
+  { id: 8, x: 395, y: 330, hasFlag: true },
+  { id: 9, x: 440, y: 300 },
+  { id: 10, x: 490, y: 275 },
+  { id: 11, x: 545, y: 250 },
+  { id: 12, x: 595, y: 228, hasFlag: true },
+  { id: 13, x: 550, y: 205 },
+  { id: 14, x: 500, y: 182 },
+  { id: 15, x: 455, y: 160, hasFlag: true },
+  { id: 16, x: 480, y: 140 },
+  { id: 17, x: 515, y: 120 },
+  { id: 18, x: 490, y: 100 },
+  { id: 19, x: 500, y: 80, hasFlag: true },
 ];
 
 function buildPathD(coords: CheckpointCoord[]): string {
@@ -213,7 +216,7 @@ export default function MountainMap({
   const theme = THEMES[tripId] || THEMES['mountain-adventure'];
 
   // Ajusta a lista de coordenadas com base no total de checkpoints da Trip
-  const activeCoords = CHECKPOINT_COORDS_16.slice(0, Math.min(totalCheckpoints, CHECKPOINT_COORDS_16.length));
+  const activeCoords = CHECKPOINT_COORDS_MAX.slice(0, Math.min(totalCheckpoints, CHECKPOINT_COORDS_MAX.length));
   const pathD = buildPathD(activeCoords);
 
   const activeCoord = activeCoords.find((c) => c.id === currentCheckpoint) || activeCoords[0];

@@ -1,0 +1,1021 @@
+{
+  "id": "book-34",
+  "checkpoint": 18,
+  "title": "Reaching the Summit Marker",
+  "summary": "Paul e Clara superam os últimos metros da subida, chegam ao marco de pedra no cume da montanha e celebram a conquista com uma vista infinita.",
+  "audio_url": "/audios/book-34.mp3",
+  "word_count_target": 140,
+  "story_en": "The final stretch of the trail requires steady hands and patient steps. Paul and Clara climb past the last towering boulder. Suddenly, the steep ground levels out into a wide stone plateau.\n\nIn the exact center stands the historical summit marker, built from carved granite. An ancient metal plate confirms the altitude of North Peak.\n\nPaul unslings his heavy pack and stands beside Clara. A 360-degree panorama unfolds around them. Drifting white clouds float below their feet, while distant mountain chains stretch endlessly beneath a crystal-clear blue sky.\n\n“We made it to the top,” Clara says, raising her arms in pure celebration.\n\n“Every step was worth the effort,” Paul replies, feeling an overwhelming sense of accomplishment. He writes his name in the summit guestbook, marking the completion of this unforgettable climb.",
+  "interactive_text": [
+    {
+      "word": "The",
+      "clean_word": "the",
+      "translation": "O",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "final",
+      "clean_word": "final",
+      "translation": "final",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "stretch",
+      "clean_word": "stretch",
+      "translation": "trecho / extensão",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "da",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "trail",
+      "clean_word": "trail",
+      "translation": "trilha",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "requires",
+      "clean_word": "requires",
+      "translation": "exige / requer",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "steady",
+      "clean_word": "steady",
+      "translation": "firmes",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "hands",
+      "clean_word": "hands",
+      "translation": "mãos",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "patient",
+      "clean_word": "patient",
+      "translation": "pacientes",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "steps.",
+      "clean_word": "steps",
+      "translation": "passos",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "Clara",
+      "clean_word": "clara",
+      "translation": "Clara",
+      "is_new": false
+    },
+    {
+      "word": "climb",
+      "clean_word": "climb",
+      "translation": "sobem / passam",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "past",
+      "clean_word": "past",
+      "translation": "por",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "last",
+      "clean_word": "last",
+      "translation": "última",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "towering",
+      "clean_word": "towering",
+      "translation": "imponente",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "boulder.",
+      "clean_word": "boulder",
+      "translation": "grande rocha",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Suddenly,",
+      "clean_word": "suddenly",
+      "translation": "De repente",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "steep",
+      "clean_word": "steep",
+      "translation": "íngreme",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "ground",
+      "clean_word": "ground",
+      "translation": "chão / solo",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "levels",
+      "clean_word": "levels",
+      "translation": "nivela-se / fica plano",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "out",
+      "clean_word": "out",
+      "translation": "nivela-se",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "into",
+      "clean_word": "into",
+      "translation": "em",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "wide",
+      "clean_word": "wide",
+      "translation": "amplo",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "stone",
+      "clean_word": "stone",
+      "translation": "de pedra",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "plateau.",
+      "clean_word": "plateau",
+      "translation": "planalto / platô",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "In",
+      "clean_word": "in",
+      "translation": "No",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "exact",
+      "clean_word": "exact",
+      "translation": "exato",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "center",
+      "clean_word": "center",
+      "translation": "centro",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "stands",
+      "clean_word": "stands",
+      "translation": "ergue-se / fica",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "historical",
+      "clean_word": "historical",
+      "translation": "histórico",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "summit",
+      "clean_word": "summit",
+      "translation": "do cume",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "marker,",
+      "clean_word": "marker",
+      "translation": "marco / monumento",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "built",
+      "clean_word": "built",
+      "translation": "construído",
+      "is_new": true,
+      "part_of_speech": "adjetivo / verbo"
+    },
+    {
+      "word": "from",
+      "clean_word": "from",
+      "translation": "de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "carved",
+      "clean_word": "carved",
+      "translation": "esculpido",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "granite.",
+      "clean_word": "granite",
+      "translation": "granito",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "An",
+      "clean_word": "an",
+      "translation": "Uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "ancient",
+      "clean_word": "ancient",
+      "translation": "antiga",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "metal",
+      "clean_word": "metal",
+      "translation": "de metal",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "plate",
+      "clean_word": "plate",
+      "translation": "placa",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "confirms",
+      "clean_word": "confirms",
+      "translation": "confirma",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "altitude",
+      "clean_word": "altitude",
+      "translation": "altitude",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "North",
+      "clean_word": "north",
+      "translation": "Norte",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Peak.",
+      "clean_word": "peak",
+      "translation": "Pico",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "unslings",
+      "clean_word": "unslings",
+      "translation": "tira dos ombros",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "heavy",
+      "clean_word": "heavy",
+      "translation": "pesada",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "pack",
+      "clean_word": "pack",
+      "translation": "mochila / carga",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "stands",
+      "clean_word": "stands",
+      "translation": "fica de pé",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "beside",
+      "clean_word": "beside",
+      "translation": "ao lado de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "Clara.",
+      "clean_word": "clara",
+      "translation": "Clara",
+      "is_new": false
+    },
+    {
+      "word": "A",
+      "clean_word": "a",
+      "translation": "Um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "360-degree",
+      "clean_word": "360-degree",
+      "translation": "de 360 graus",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "panorama",
+      "clean_word": "panorama",
+      "translation": "panorama / vista panorâmica",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "unfolds",
+      "clean_word": "unfolds",
+      "translation": "revela-se / desdobra-se",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "around",
+      "clean_word": "around",
+      "translation": "ao redor de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "them.",
+      "clean_word": "them",
+      "translation": "eles",
+      "is_new": false,
+      "part_of_speech": "pronome"
+    },
+    {
+      "word": "Drifting",
+      "clean_word": "drifting",
+      "translation": "Passageiras / flutuantes",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "white",
+      "clean_word": "white",
+      "translation": "brancas",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "clouds",
+      "clean_word": "clouds",
+      "translation": "nuvens",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "float",
+      "clean_word": "float",
+      "translation": "flutuam",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "below",
+      "clean_word": "below",
+      "translation": "abaixo de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "their",
+      "clean_word": "their",
+      "translation": "seus",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "feet,",
+      "clean_word": "feet",
+      "translation": "pés",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "while",
+      "clean_word": "while",
+      "translation": "enquanto",
+      "is_new": false,
+      "part_of_speech": "conjunção"
+    },
+    {
+      "word": "distant",
+      "clean_word": "distant",
+      "translation": "distantes",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "mountain",
+      "clean_word": "mountain",
+      "translation": "de montanhas",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "chains",
+      "clean_word": "chains",
+      "translation": "cadeias",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "stretch",
+      "clean_word": "stretch",
+      "translation": "estendem-se",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "endlessly",
+      "clean_word": "endlessly",
+      "translation": "infinitamente",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "beneath",
+      "clean_word": "beneath",
+      "translation": "sob / debaixo de",
+      "is_new": true,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "crystal-clear",
+      "clean_word": "crystal-clear",
+      "translation": "cristalino / límpido",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "blue",
+      "clean_word": "blue",
+      "translation": "azul",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "sky.",
+      "clean_word": "sky",
+      "translation": "céu",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "We",
+      "clean_word": "we",
+      "translation": "Nós",
+      "is_new": true,
+      "part_of_speech": "pronome"
+    },
+    {
+      "word": "made",
+      "clean_word": "made",
+      "translation": "conseguimos chegar / fizemos",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "it",
+      "clean_word": "it",
+      "translation": "lá",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "ao",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "top,",
+      "clean_word": "top",
+      "translation": "topo",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Clara",
+      "clean_word": "clara",
+      "translation": "Clara",
+      "is_new": false
+    },
+    {
+      "word": "says,",
+      "clean_word": "says",
+      "translation": "diz",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "raising",
+      "clean_word": "raising",
+      "translation": "levantando / erguendo",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "her",
+      "clean_word": "her",
+      "translation": "seus",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "arms",
+      "clean_word": "arms",
+      "translation": "braços",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "in",
+      "clean_word": "in",
+      "translation": "em",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "pure",
+      "clean_word": "pure",
+      "translation": "pura",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "celebration.",
+      "clean_word": "celebration",
+      "translation": "celebração / comemoração",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Every",
+      "clean_word": "every",
+      "translation": "Cada",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "step",
+      "clean_word": "step",
+      "translation": "passo",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "was",
+      "clean_word": "was",
+      "translation": "valeu / foi",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "worth",
+      "clean_word": "worth",
+      "translation": "a pena / valioso",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "effort,",
+      "clean_word": "effort",
+      "translation": "esforço",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "replies,",
+      "clean_word": "replies",
+      "translation": "responde",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "feeling",
+      "clean_word": "feeling",
+      "translation": "sentindo",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "an",
+      "clean_word": "an",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "overwhelming",
+      "clean_word": "overwhelming",
+      "translation": "enorme / marcante",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "sense",
+      "clean_word": "sense",
+      "translation": "sensação / sentimento",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "accomplishment.",
+      "clean_word": "accomplishment",
+      "translation": "conquista / realização",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "He",
+      "clean_word": "he",
+      "translation": "Ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "writes",
+      "clean_word": "writes",
+      "translation": "escreve",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "seu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "name",
+      "clean_word": "name",
+      "translation": "nome",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "in",
+      "clean_word": "in",
+      "translation": "no",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "summit",
+      "clean_word": "summit",
+      "translation": "do cume",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "guestbook,",
+      "clean_word": "guestbook",
+      "translation": "livro de visitas",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "marking",
+      "clean_word": "marking",
+      "translation": "marcando",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "completion",
+      "clean_word": "completion",
+      "translation": "conclusão",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "desta",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "this",
+      "clean_word": "this",
+      "translation": "esta",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "unforgettable",
+      "clean_word": "unforgettable",
+      "translation": "inesquecível",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "climb.",
+      "clean_word": "climb",
+      "translation": "subida",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "De que material é construído o marco histórico no centro do cume?",
+      "options": [
+        "Granito esculpido",
+        "Madeira de pinheiro",
+        "Tijolo vermelho",
+        "Ferro e vidro"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 2,
+      "question": "What information does the ancient metal plate confirm?",
+      "options": [
+        "The altitude of North Peak",
+        "The train departure times",
+        "The distance to the valley",
+        "The name of the local guide"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 3,
+      "question": "What is floating below their feet when they stand on the plateau?",
+      "options": [
+        "Drifting white clouds",
+        "Smoke from the campfire",
+        "The river water",
+        "Birds in the pine trees"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 4,
+      "question": "Como Clara comemora ao alcançar o topo?",
+      "options": [
+        "Erguendo os braços em pura celebração",
+        "Bebendo água da cantina",
+        "Abrindo sua barraca",
+        "Sentando no banco de pedra"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 5,
+      "question": "What does Paul write his name in at the summit?",
+      "options": [
+        "The summit guestbook",
+        "His paper road map",
+        "A train ticket receipt",
+        "On a wooden sign"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 6,
+      "question": "Como Paul descreve o esforço de cada passo dado?",
+      "options": [
+        "Cada passo valeu o esforço",
+        "Foi muito cansativo para continuar",
+        "Deveria ter pego outro caminho",
+        "Prefere ficar na cidade"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 7,
+      "question": "Writing Practice: Write a short sentence in English about reaching the top of the mountain.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "paul",
+        "reached",
+        "top",
+        "summit",
+        "peak"
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Writing Practice: Write a sentence in English using the words 'clouds' and 'sky'.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "clouds",
+        "sky",
+        "blue",
+        "float",
+        "see"
+      ]
+    }
+  ]
+}

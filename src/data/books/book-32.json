@@ -1,0 +1,1044 @@
+{
+  "id": "book-32",
+  "checkpoint": 16,
+  "title": "Packing the Gear",
+  "summary": "Paul desmonta seu acampamento, organiza os itens dentro da mochila com cuidado e se despede dos amigos antes de iniciar a subida final.",
+  "audio_url": "/audios/book-32.mp3",
+  "word_count_target": 140,
+  "story_en": "After finishing his hot drink, Paul returns to his campsite. He pulls the metal pegs from the dry soil and carefully folds the tent fabric into a compact roll. He secures it inside the lower compartment of his backpack.\n\nNext, he checks his equipment list. He arranges the heavy items close to his back to reduce pressure on his spine. He places his water canteen, map, and compass in the outer pockets for easy access.\n\nClara walks over, tightening the straps on her own rucksack. “Are you ready to depart?” she asks with a bright smile.\n\n“Everything is packed and balanced,” Paul replies, fastening the buckle around his waist.\n\nThey exchange warm farewells with the other campers. With light footsteps and a clear mind, Paul begins the final climb toward the highest mountain summit.",
+  "interactive_text": [
+    {
+      "word": "After",
+      "clean_word": "after",
+      "translation": "Depois de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "finishing",
+      "clean_word": "finishing",
+      "translation": "terminar",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "hot",
+      "clean_word": "hot",
+      "translation": "quente",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "drink,",
+      "clean_word": "drink",
+      "translation": "bebida",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "returns",
+      "clean_word": "returns",
+      "translation": "retorna",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "ao",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "seu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "campsite.",
+      "clean_word": "campsite",
+      "translation": "local de acampamento",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "He",
+      "clean_word": "he",
+      "translation": "Ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "pulls",
+      "clean_word": "pulls",
+      "translation": "puxa / retira",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "as",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "metal",
+      "clean_word": "metal",
+      "translation": "de metal",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "pegs",
+      "clean_word": "pegs",
+      "translation": "estacas / pinos",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "from",
+      "clean_word": "from",
+      "translation": "do",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "dry",
+      "clean_word": "dry",
+      "translation": "seco",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "soil",
+      "clean_word": "soil",
+      "translation": "solo / terra",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "carefully",
+      "clean_word": "carefully",
+      "translation": "cuidadosamente",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "folds",
+      "clean_word": "folds",
+      "translation": "dobra",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "tent",
+      "clean_word": "tent",
+      "translation": "da barraca",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "fabric",
+      "clean_word": "fabric",
+      "translation": "tecido / lona",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "into",
+      "clean_word": "into",
+      "translation": "em",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "compact",
+      "clean_word": "compact",
+      "translation": "compacto",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "roll.",
+      "clean_word": "roll",
+      "translation": "rolo",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "He",
+      "clean_word": "he",
+      "translation": "Ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "secures",
+      "clean_word": "secures",
+      "translation": "prende / guarda com firmeza",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "it",
+      "clean_word": "it",
+      "translation": "ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "inside",
+      "clean_word": "inside",
+      "translation": "dentro de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "lower",
+      "clean_word": "lower",
+      "translation": "inferior",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "compartment",
+      "clean_word": "compartment",
+      "translation": "compartimento / bolso",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "da",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "backpack.",
+      "clean_word": "backpack",
+      "translation": "mochila",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Next,",
+      "clean_word": "next",
+      "translation": "Em seguida",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "he",
+      "clean_word": "he",
+      "translation": "ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "checks",
+      "clean_word": "checks",
+      "translation": "verifica / confere",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "equipment",
+      "clean_word": "equipment",
+      "translation": "de equipamentos",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "list.",
+      "clean_word": "list",
+      "translation": "lista",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "He",
+      "clean_word": "he",
+      "translation": "Ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "arranges",
+      "clean_word": "arranges",
+      "translation": "organiza / acomoda",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "os",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "heavy",
+      "clean_word": "heavy",
+      "translation": "pesados",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "items",
+      "clean_word": "items",
+      "translation": "itens",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "close",
+      "clean_word": "close",
+      "translation": "perto",
+      "is_new": true,
+      "part_of_speech": "adjetivo / advérbio"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "suas",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "back",
+      "clean_word": "back",
+      "translation": "costas",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "reduce",
+      "clean_word": "reduce",
+      "translation": "reduzir",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "pressure",
+      "clean_word": "pressure",
+      "translation": "pressão",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "on",
+      "clean_word": "on",
+      "translation": "na",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "spine.",
+      "clean_word": "spine",
+      "translation": "coluna",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "He",
+      "clean_word": "he",
+      "translation": "Ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "places",
+      "clean_word": "places",
+      "translation": "coloca",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "seu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "water",
+      "clean_word": "water",
+      "translation": "de água",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "canteen,",
+      "clean_word": "canteen",
+      "translation": "cantil",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "map,",
+      "clean_word": "map",
+      "translation": "mapa",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "compass",
+      "clean_word": "compass",
+      "translation": "bússola",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "in",
+      "clean_word": "in",
+      "translation": "nos",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "os",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "outer",
+      "clean_word": "outer",
+      "translation": "externos",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "pockets",
+      "clean_word": "pockets",
+      "translation": "bolsos",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "for",
+      "clean_word": "for",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "easy",
+      "clean_word": "easy",
+      "translation": "fácil",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "access.",
+      "clean_word": "access",
+      "translation": "acesso",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Clara",
+      "clean_word": "clara",
+      "translation": "Clara",
+      "is_new": false
+    },
+    {
+      "word": "walks",
+      "clean_word": "walks",
+      "translation": "caminha",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "over,",
+      "clean_word": "over",
+      "translation": "até ali",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "tightening",
+      "clean_word": "tightening",
+      "translation": "apertando / ajustando",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "as",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "straps",
+      "clean_word": "straps",
+      "translation": "alças / correias",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "on",
+      "clean_word": "on",
+      "translation": "de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "her",
+      "clean_word": "her",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "own",
+      "clean_word": "own",
+      "translation": "própria",
+      "is_new": true,
+      "part_of_speech": "adjetivo / determinante"
+    },
+    {
+      "word": "rucksack.",
+      "clean_word": "rucksack",
+      "translation": "mochila de montanha",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Are",
+      "clean_word": "are",
+      "translation": "Você está",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "you",
+      "clean_word": "you",
+      "translation": "você",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "ready",
+      "clean_word": "ready",
+      "translation": "pronto",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "depart?",
+      "clean_word": "depart",
+      "translation": "partir",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "she",
+      "clean_word": "she",
+      "translation": "ela",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "asks",
+      "clean_word": "asks",
+      "translation": "pergunta",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "with",
+      "clean_word": "with",
+      "translation": "com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "bright",
+      "clean_word": "bright",
+      "translation": "brilhante / radiante",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "smile.",
+      "clean_word": "smile",
+      "translation": "sorriso",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Everything",
+      "clean_word": "everything",
+      "translation": "Tudo",
+      "is_new": true,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "is",
+      "clean_word": "is",
+      "translation": "está",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "packed",
+      "clean_word": "packed",
+      "translation": "guardado / embalado",
+      "is_new": true,
+      "part_of_speech": "adjetivo / verbo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "balanced,",
+      "clean_word": "balanced",
+      "translation": "equilibrado",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "replies,",
+      "clean_word": "replies",
+      "translation": "responde",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "fastening",
+      "clean_word": "fastening",
+      "translation": "afivelando / prendendo",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "buckle",
+      "clean_word": "buckle",
+      "translation": "fivela",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "around",
+      "clean_word": "around",
+      "translation": "em torno de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "waist.",
+      "clean_word": "waist",
+      "translation": "cintura",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "They",
+      "clean_word": "they",
+      "translation": "Eles",
+      "is_new": false,
+      "part_of_speech": "pronome"
+    },
+    {
+      "word": "exchange",
+      "clean_word": "exchange",
+      "translation": "trocam",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "warm",
+      "clean_word": "warm",
+      "translation": "calorosas",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "farewells",
+      "clean_word": "farewells",
+      "translation": "despedidas",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "with",
+      "clean_word": "with",
+      "translation": "com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "os",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "other",
+      "clean_word": "other",
+      "translation": "outros",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "campers.",
+      "clean_word": "campers",
+      "translation": "campistas",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "With",
+      "clean_word": "with",
+      "translation": "Com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "light",
+      "clean_word": "light",
+      "translation": "leves",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "footsteps",
+      "clean_word": "footsteps",
+      "translation": "passos",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "clear",
+      "clean_word": "clear",
+      "translation": "clara / tranquila",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "mind,",
+      "clean_word": "mind",
+      "translation": "mente",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "begins",
+      "clean_word": "begins",
+      "translation": "começa",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "final",
+      "clean_word": "final",
+      "translation": "final",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "climb",
+      "clean_word": "climb",
+      "translation": "subida",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "toward",
+      "clean_word": "toward",
+      "translation": "em direção a",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "highest",
+      "clean_word": "highest",
+      "translation": "mais alto",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "mountain",
+      "clean_word": "mountain",
+      "translation": "da montanha",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "summit.",
+      "clean_word": "summit",
+      "translation": "cume / pico",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Onde Paul guarda a barraca dobrada em sua mochila?",
+      "options": [
+        "No compartimento inferior",
+        "Nos bolsos externos",
+        "No topo da mochila",
+        "Amarrada nas alças"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 2,
+      "question": "Why does Paul arrange the heavy items close to his back?",
+      "options": [
+        "To reduce pressure on his spine",
+        "To keep them dry from the mist",
+        "To make room for his tent",
+        "To easily reach his snacks"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 3,
+      "question": "Which items does Paul place in the outer pockets for easy access?",
+      "options": [
+        "His canteen, map, and compass",
+        "His tent pegs and rope",
+        "His tea cup and biscuit plate",
+        "His metal watch and train receipt"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 4,
+      "question": "O que Clara está ajustando em sua própria mochila ao se aproximar?",
+      "options": [
+        "As alças",
+        "As estacas de metal",
+        "A garrafa de água",
+        "A fivela da cintura"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 5,
+      "question": "What does Paul fasten around his waist to balance the weight?",
+      "options": [
+        "The backpack buckle",
+        "A walking pole belt",
+        "A piece of rope",
+        "A leather jacket"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 6,
+      "question": "Para onde Paul e Clara iniciam a caminhada após as despedidas?",
+      "options": [
+        "Em direção ao cume mais alto da montanha",
+        "De volta para a estação de trem",
+        "Para a margem do rio",
+        "Para a loja de livros e mapas"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 7,
+      "question": "Writing Practice: Write a short sentence in English about what Paul packs before leaving.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "paul",
+        "packs",
+        "tent",
+        "gear",
+        "backpack"
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Writing Practice: Write a sentence in English using the words 'climb' and 'summit'.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "climb",
+        "summit",
+        "mountain",
+        "paul",
+        "begins"
+      ]
+    }
+  ]
+}

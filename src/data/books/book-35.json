@@ -1,0 +1,994 @@
+{
+  "id": "book-35",
+  "checkpoint": 19,
+  "title": "Reflecting on the Journey",
+  "summary": "No cume da montanha, Paul e Clara descansam, refletem sobre tudo o que aprenderam pelo caminho e planejam o retorno à cidade com novas metas.",
+  "audio_url": "/audios/book-35.mp3",
+  "word_count_target": 140,
+  "story_en": "Paul and Clara sit side by side on a smooth granite rock, watching the afternoon sun illuminate the valley. The long climb tested their strength, but every challenge taught them patience and determination.\n\n“Standing here makes every difficulty seem small,” Clara reflects softly, tracing the mountain outline with her finger. “What is your next plan after returning to the city?”\n\n“I want to explore new regions, meet diverse people, and master more skills,” Paul answers thoughtfully.\n\nThey pack their belongings, verify that the area is clean, and stand together for one last panoramic look. The wind calms down, leaving behind a peaceful silence.\n\nWith confidence in his heart and meaningful experiences in his memory, Paul turns toward the trail, ready to begin his journey toward new horizons.",
+  "interactive_text": [
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "Clara",
+      "clean_word": "clara",
+      "translation": "Clara",
+      "is_new": false
+    },
+    {
+      "word": "sit",
+      "clean_word": "sit",
+      "translation": "sentam",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "side",
+      "clean_word": "side",
+      "translation": "lado",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "by",
+      "clean_word": "by",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "side",
+      "clean_word": "side",
+      "translation": "lado",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "on",
+      "clean_word": "on",
+      "translation": "em",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "smooth",
+      "clean_word": "smooth",
+      "translation": "lisa",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "granite",
+      "clean_word": "granite",
+      "translation": "de granito",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "rock,",
+      "clean_word": "rock",
+      "translation": "rocha / pedra",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "watching",
+      "clean_word": "watching",
+      "translation": "observando / assistindo",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "afternoon",
+      "clean_word": "afternoon",
+      "translation": "da tarde",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "sun",
+      "clean_word": "sun",
+      "translation": "sol",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "illuminate",
+      "clean_word": "illuminate",
+      "translation": "iluminar",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "valley.",
+      "clean_word": "valley",
+      "translation": "vale",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "The",
+      "clean_word": "the",
+      "translation": "A",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "long",
+      "clean_word": "long",
+      "translation": "longa",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "climb",
+      "clean_word": "climb",
+      "translation": "subida",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "tested",
+      "clean_word": "tested",
+      "translation": "testou",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "their",
+      "clean_word": "their",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "strength,",
+      "clean_word": "strength",
+      "translation": "força",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "but",
+      "clean_word": "but",
+      "translation": "mas",
+      "is_new": false,
+      "part_of_speech": "conjunção"
+    },
+    {
+      "word": "every",
+      "clean_word": "every",
+      "translation": "cada",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "challenge",
+      "clean_word": "challenge",
+      "translation": "desafio",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "taught",
+      "clean_word": "taught",
+      "translation": "ensinou",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "them",
+      "clean_word": "them",
+      "translation": "a eles",
+      "is_new": false,
+      "part_of_speech": "pronome"
+    },
+    {
+      "word": "patience",
+      "clean_word": "patience",
+      "translation": "paciência",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "determination.",
+      "clean_word": "determination",
+      "translation": "determinação",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Standing",
+      "clean_word": "standing",
+      "translation": "Estar em pé",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "here",
+      "clean_word": "here",
+      "translation": "aqui",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "makes",
+      "clean_word": "makes",
+      "translation": "faz",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "every",
+      "clean_word": "every",
+      "translation": "cada",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "difficulty",
+      "clean_word": "difficulty",
+      "translation": "dificuldade",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "seem",
+      "clean_word": "seem",
+      "translation": "parecer",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "small,",
+      "clean_word": "small",
+      "translation": "pequena",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "Clara",
+      "clean_word": "clara",
+      "translation": "Clara",
+      "is_new": false
+    },
+    {
+      "word": "reflects",
+      "clean_word": "reflects",
+      "translation": "reflete / pondera",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "softly,",
+      "clean_word": "softly",
+      "translation": "suavemente",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "tracing",
+      "clean_word": "tracing",
+      "translation": "traçando / contornando",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "mountain",
+      "clean_word": "mountain",
+      "translation": "da montanha",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "outline",
+      "clean_word": "outline",
+      "translation": "contorno",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "with",
+      "clean_word": "with",
+      "translation": "com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "her",
+      "clean_word": "her",
+      "translation": "seu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "finger.",
+      "clean_word": "finger",
+      "translation": "dedo",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "What",
+      "clean_word": "what",
+      "translation": "Qual",
+      "is_new": true,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "is",
+      "clean_word": "is",
+      "translation": "é",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "your",
+      "clean_word": "your",
+      "translation": "seu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "next",
+      "clean_word": "next",
+      "translation": "próximo",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "plan",
+      "clean_word": "plan",
+      "translation": "plano",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "after",
+      "clean_word": "after",
+      "translation": "após / depois de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "returning",
+      "clean_word": "returning",
+      "translation": "retornar / voltar",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "city?",
+      "clean_word": "city",
+      "translation": "cidade",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "I",
+      "clean_word": "i",
+      "translation": "Eu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "want",
+      "clean_word": "want",
+      "translation": "quero",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "explore",
+      "clean_word": "explore",
+      "translation": "explorar",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "new",
+      "clean_word": "new",
+      "translation": "novas",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "regions,",
+      "clean_word": "regions",
+      "translation": "regiões",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "meet",
+      "clean_word": "meet",
+      "translation": "conhecer / encontrar",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "diverse",
+      "clean_word": "diverse",
+      "translation": "diversas / variadas",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "people,",
+      "clean_word": "people",
+      "translation": "pessoas",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "master",
+      "clean_word": "master",
+      "translation": "dominar / aperfeiçoar",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "more",
+      "clean_word": "more",
+      "translation": "mais",
+      "is_new": false,
+      "part_of_speech": "determinante"
+    },
+    {
+      "word": "skills,",
+      "clean_word": "skills",
+      "translation": "habilidades",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "answers",
+      "clean_word": "answers",
+      "translation": "responde",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "thoughtfully.",
+      "clean_word": "thoughtfully",
+      "translation": "pensativamente",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "They",
+      "clean_word": "they",
+      "translation": "Eles",
+      "is_new": false,
+      "part_of_speech": "pronome"
+    },
+    {
+      "word": "pack",
+      "clean_word": "pack",
+      "translation": "guardam / arrumam",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "their",
+      "clean_word": "their",
+      "translation": "seus",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "belongings,",
+      "clean_word": "belongings",
+      "translation": "pertences",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "verify",
+      "clean_word": "verify",
+      "translation": "verificam / conferem",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "that",
+      "clean_word": "that",
+      "translation": "que",
+      "is_new": false,
+      "part_of_speech": "conjunção"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "area",
+      "clean_word": "area",
+      "translation": "área / local",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "is",
+      "clean_word": "is",
+      "translation": "está",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "clean,",
+      "clean_word": "clean",
+      "translation": "limpa",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "stand",
+      "clean_word": "stand",
+      "translation": "ficam de pé",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "together",
+      "clean_word": "together",
+      "translation": "juntos",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "for",
+      "clean_word": "for",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "one",
+      "clean_word": "one",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "numeral"
+    },
+    {
+      "word": "last",
+      "clean_word": "last",
+      "translation": "último",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "panoramic",
+      "clean_word": "panoramic",
+      "translation": "panorâmico",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "look.",
+      "clean_word": "look",
+      "translation": "olhar / vislumbre",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "The",
+      "clean_word": "the",
+      "translation": "O",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "wind",
+      "clean_word": "wind",
+      "translation": "vento",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "calms",
+      "clean_word": "calms",
+      "translation": "acalma / cessa",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "down,",
+      "clean_word": "down",
+      "translation": "acalma",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "leaving",
+      "clean_word": "leaving",
+      "translation": "deixando",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "behind",
+      "clean_word": "behind",
+      "translation": "para trás",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "peaceful",
+      "clean_word": "peaceful",
+      "translation": "tranquilo / pacífico",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "silence.",
+      "clean_word": "silence",
+      "translation": "silêncio",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "With",
+      "clean_word": "with",
+      "translation": "Com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "confidence",
+      "clean_word": "confidence",
+      "translation": "confiança",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "in",
+      "clean_word": "in",
+      "translation": "em",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "seu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "heart",
+      "clean_word": "heart",
+      "translation": "coração",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "meaningful",
+      "clean_word": "meaningful",
+      "translation": "significativas / valiosas",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "experiences",
+      "clean_word": "experiences",
+      "translation": "experiências",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "in",
+      "clean_word": "in",
+      "translation": "em",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "memory,",
+      "clean_word": "memory",
+      "translation": "memória",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "turns",
+      "clean_word": "turns",
+      "translation": "vira-se",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "toward",
+      "clean_word": "toward",
+      "translation": "em direção a",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "trail,",
+      "clean_word": "trail",
+      "translation": "trilha",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "ready",
+      "clean_word": "ready",
+      "translation": "pronto",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "begin",
+      "clean_word": "begin",
+      "translation": "começar",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "journey",
+      "clean_word": "journey",
+      "translation": "jornada",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "toward",
+      "clean_word": "toward",
+      "translation": "rumo a",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "new",
+      "clean_word": "new",
+      "translation": "novos",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "horizons.",
+      "clean_word": "horizons",
+      "translation": "horizontes",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "O que a longa subida até o cume ensinou a Paul e Clara?",
+      "options": [
+        "Paciência e determinação",
+        "A usar mapas mais caros",
+        "A pegar trens mais rápidos",
+        "A evitar montanhas altas"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 2,
+      "question": "How does Clara describe the difficulties when looking from the summit?",
+      "options": [
+        "Standing here makes every difficulty seem small",
+        "The climb was too difficult to remember",
+        "The mountain is too dangerous for travelers",
+        "The city looks better than the summit"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 3,
+      "question": "What does Paul want to do after returning to the city?",
+      "options": [
+        "Explore new regions, meet diverse people, and master skills",
+        "Buy a house in the mountains and stay forever",
+        "Open a ticket shop at the train station",
+        "Stop traveling and stay home"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 4,
+      "question": "O que Paul e Clara conferem antes de iniciar a descida?",
+      "options": [
+        "Se todos os pertences estão guardados e a área está limpa",
+        "Se o livro de visitas tem mais páginas",
+        "Se a estação de trem ainda está aberta",
+        "Se a bússola precisa de conserto"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 5,
+      "question": "What happens to the weather as they prepare to leave?",
+      "options": [
+        "The wind calms down, leaving behind a peaceful silence",
+        "A heavy snowstorm begins suddenly",
+        "Dark rain clouds cover the sun completely",
+        "Thick mist hides the trail"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 6,
+      "question": "Com qual sentimento Paul se vira para a trilha ao final da história?",
+      "options": [
+        "Com confiança no coração e pronto para novos horizontes",
+        "Com pressa para pegar o ônibus",
+        "Com medo da descida íngreme",
+        "Com tristeza por ter saído do café"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 7,
+      "question": "Writing Practice: Write a short sentence in English about what Paul wants to explore next.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "paul",
+        "wants",
+        "explore",
+        "new",
+        "regions"
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Writing Practice: Write a sentence in English using the words 'journey' and 'horizons'.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "journey",
+        "horizons",
+        "paul",
+        "new",
+        "ready"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1106 @@
+{
+  "id": "book-20",
+  "checkpoint": 4,
+  "title": "The Map Shop",
+  "summary": "Paul segue as instruções, encontra a pequena loja na esquina e compra um mapa para continuar sua jornada.",
+  "audio_url": "/audios/book-20.mp3",
+  "word_count_target": 140,
+  "story_en": "Paul reaches the corner and turns left. Ahead, he spots a small shop with a large clean window. Over the door, a wooden sign reads: City Books and Maps.\n\nHe pushes the door and steps inside. A quiet bell rings. An elderly clerk stands behind the wooden counter, reading a newspaper.\n\n“Good morning,” the clerk greets him with a kind voice. “Can I help you find something?”\n\n“Good morning,” Paul replies. “I am looking for a road map of the region.”\n\nThe clerk nods and pulls out a large paper map from a shelf. “This one shows every town, mountain, and path clearly.”\n\n“How much does it cost?” Paul asks.\n\n“It is ten dollars,” the clerk answers.\n\nPaul opens his bag, takes out the money, and pays for the item. With the map in his hands, Paul feels confident about the road ahead.",
+  "interactive_text": [
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "reaches",
+      "clean_word": "reaches",
+      "translation": "alcança / chega a",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a/o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "corner",
+      "clean_word": "corner",
+      "translation": "esquina",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "turns",
+      "clean_word": "turns",
+      "translation": "vira",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "left.",
+      "clean_word": "left",
+      "translation": "à esquerda",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "Ahead,",
+      "clean_word": "ahead",
+      "translation": "à frente",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "he",
+      "clean_word": "he",
+      "translation": "ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "spots",
+      "clean_word": "spots",
+      "translation": "avista / nota",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "small",
+      "clean_word": "small",
+      "translation": "pequena",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "shop",
+      "clean_word": "shop",
+      "translation": "loja",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "with",
+      "clean_word": "with",
+      "translation": "com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "large",
+      "clean_word": "large",
+      "translation": "grande",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "clean",
+      "clean_word": "clean",
+      "translation": "limpa",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "window.",
+      "clean_word": "window",
+      "translation": "janela",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Over",
+      "clean_word": "over",
+      "translation": "Acima de / sobre",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "door,",
+      "clean_word": "door",
+      "translation": "porta",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "wooden",
+      "clean_word": "wooden",
+      "translation": "de madeira",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "sign",
+      "clean_word": "sign",
+      "translation": "placa / letreiro",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "reads:",
+      "clean_word": "reads",
+      "translation": "diz / lê-se",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "City",
+      "clean_word": "city",
+      "translation": "Cidade",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Books",
+      "clean_word": "books",
+      "translation": "Livros",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "Maps.",
+      "clean_word": "maps",
+      "translation": "Mapas",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "He",
+      "clean_word": "he",
+      "translation": "Ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "pushes",
+      "clean_word": "pushes",
+      "translation": "empurra",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "door",
+      "clean_word": "door",
+      "translation": "porta",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "steps",
+      "clean_word": "steps",
+      "translation": "dá passos / entra",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "inside.",
+      "clean_word": "inside",
+      "translation": "dentro / para dentro",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "A",
+      "clean_word": "a",
+      "translation": "Um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "quiet",
+      "clean_word": "quiet",
+      "translation": "suave / discreto",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "bell",
+      "clean_word": "bell",
+      "translation": "sino / campainha",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "rings.",
+      "clean_word": "rings",
+      "translation": "toca",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "An",
+      "clean_word": "an",
+      "translation": "Um",
+      "is_new": true,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "elderly",
+      "clean_word": "elderly",
+      "translation": "idoso",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "clerk",
+      "clean_word": "clerk",
+      "translation": "atendente / vendedor",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "stands",
+      "clean_word": "stands",
+      "translation": "está de pé / fica",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "behind",
+      "clean_word": "behind",
+      "translation": "atrás de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "wooden",
+      "clean_word": "wooden",
+      "translation": "de madeira",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "counter,",
+      "clean_word": "counter",
+      "translation": "balcão",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "reading",
+      "clean_word": "reading",
+      "translation": "lendo",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "newspaper.",
+      "clean_word": "newspaper",
+      "translation": "jornal",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Good",
+      "clean_word": "good",
+      "translation": "bom",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "morning,",
+      "clean_word": "morning",
+      "translation": "dia / manhã",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "clerk",
+      "clean_word": "clerk",
+      "translation": "atendente",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "greets",
+      "clean_word": "greets",
+      "translation": "cumprimenta",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "him",
+      "clean_word": "him",
+      "translation": "ele / o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "with",
+      "clean_word": "with",
+      "translation": "com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "kind",
+      "clean_word": "kind",
+      "translation": "gentil / amável",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "voice.",
+      "clean_word": "voice",
+      "translation": "voz",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Can",
+      "clean_word": "can",
+      "translation": "Posso",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "I",
+      "clean_word": "i",
+      "translation": "eu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "help",
+      "clean_word": "help",
+      "translation": "ajudar",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "you",
+      "clean_word": "you",
+      "translation": "você",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "find",
+      "clean_word": "find",
+      "translation": "encontrar",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "something?",
+      "clean_word": "something",
+      "translation": "algo / alguma coisa",
+      "is_new": true,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "Good",
+      "clean_word": "good",
+      "translation": "bom",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "morning,",
+      "clean_word": "morning",
+      "translation": "dia / manhã",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "replies.",
+      "clean_word": "replies",
+      "translation": "responde",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "I",
+      "clean_word": "i",
+      "translation": "Eu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "am",
+      "clean_word": "am",
+      "translation": "estou",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "looking",
+      "clean_word": "looking",
+      "translation": "procurando",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "for",
+      "clean_word": "for",
+      "translation": "por",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "road",
+      "clean_word": "road",
+      "translation": "estrada",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "map",
+      "clean_word": "map",
+      "translation": "mapa",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "da",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "region.",
+      "clean_word": "region",
+      "translation": "região",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "The",
+      "clean_word": "the",
+      "translation": "O",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "clerk",
+      "clean_word": "clerk",
+      "translation": "atendente",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "nods",
+      "clean_word": "nods",
+      "translation": "acena com a cabeça",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "pulls",
+      "clean_word": "pulls",
+      "translation": "puxa / retira",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "out",
+      "clean_word": "out",
+      "translation": "para fora",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "large",
+      "clean_word": "large",
+      "translation": "grande",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "paper",
+      "clean_word": "paper",
+      "translation": "de papel",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "map",
+      "clean_word": "map",
+      "translation": "mapa",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "from",
+      "clean_word": "from",
+      "translation": "de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "shelf.",
+      "clean_word": "shelf",
+      "translation": "prateleira",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "This",
+      "clean_word": "this",
+      "translation": "Este",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "one",
+      "clean_word": "one",
+      "translation": "aqui / modelo",
+      "is_new": true,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "shows",
+      "clean_word": "shows",
+      "translation": "mostra",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "every",
+      "clean_word": "every",
+      "translation": "cada / todo",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "town,",
+      "clean_word": "town",
+      "translation": "cidade pequena / vila",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "mountain,",
+      "clean_word": "mountain",
+      "translation": "montanha",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "path",
+      "clean_word": "path",
+      "translation": "caminho / trilha",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "clearly.",
+      "clean_word": "clearly",
+      "translation": "claramente",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "How",
+      "clean_word": "how",
+      "translation": "Quanto",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "much",
+      "clean_word": "much",
+      "translation": "muito / custa",
+      "is_new": true,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "does",
+      "clean_word": "does",
+      "translation": "auxiliar",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "it",
+      "clean_word": "it",
+      "translation": "ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "cost?",
+      "clean_word": "cost",
+      "translation": "custar",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "asks.",
+      "clean_word": "asks",
+      "translation": "pergunta",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "It",
+      "clean_word": "it",
+      "translation": "Ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "is",
+      "clean_word": "is",
+      "translation": "custa / é",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "ten",
+      "clean_word": "ten",
+      "translation": "dez",
+      "is_new": true,
+      "part_of_speech": "numeral"
+    },
+    {
+      "word": "dollars,",
+      "clean_word": "dollars",
+      "translation": "dólares",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "clerk",
+      "clean_word": "clerk",
+      "translation": "atendente",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "answers.",
+      "clean_word": "answers",
+      "translation": "responde",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "opens",
+      "clean_word": "opens",
+      "translation": "abre",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "bag,",
+      "clean_word": "bag",
+      "translation": "bolsa / mochila",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "takes",
+      "clean_word": "takes",
+      "translation": "pega / tira",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "out",
+      "clean_word": "out",
+      "translation": "para fora",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "money,",
+      "clean_word": "money",
+      "translation": "dinheiro",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "pays",
+      "clean_word": "pays",
+      "translation": "paga",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "for",
+      "clean_word": "for",
+      "translation": "pelo",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "item.",
+      "clean_word": "item",
+      "translation": "item",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "With",
+      "clean_word": "with",
+      "translation": "Com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "map",
+      "clean_word": "map",
+      "translation": "mapa",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "in",
+      "clean_word": "in",
+      "translation": "em",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "suas",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "hands,",
+      "clean_word": "hands",
+      "translation": "mãos",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "feels",
+      "clean_word": "feels",
+      "translation": "sente-se",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "confident",
+      "clean_word": "confident",
+      "translation": "confiante",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "about",
+      "clean_word": "about",
+      "translation": "sobre / com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "road",
+      "clean_word": "road",
+      "translation": "estrada",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "ahead.",
+      "clean_word": "ahead",
+      "translation": "à frente",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "O que está escrito na placa acima da porta da loja?",
+      "options": [
+        "City Books and Maps",
+        "The Coffee House",
+        "Main Street Station",
+        "Quiet Morning Shop"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 2,
+      "question": "What is the clerk doing when Paul walks inside?",
+      "options": [
+        "Reading a newspaper",
+        "Drinking coffee",
+        "Cleaning the window",
+        "Drawing a map"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 3,
+      "question": "What kind of map is Paul looking for?",
+      "options": [
+        "A road map of the region",
+        "A map of the subway",
+        "A world map",
+        "A star map"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 4,
+      "question": "Quanto custa o mapa que o atendente mostra?",
+      "options": [
+        "Dez dólares",
+        "Cinco dólares",
+        "Vinte dólares",
+        "É de graça"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 5,
+      "question": "Where does Paul take the money from?",
+      "options": [
+        "From his bag",
+        "From the table",
+        "From his book",
+        "From the counter"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 6,
+      "question": "Como Paul se sente ao segurar o mapa nas mãos?",
+      "options": [
+        "Confiante sobre a estrada à frente",
+        "Cansado da caminhada",
+        "Com dúvida sobre o preço",
+        "Com pressa para voltar ao café"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 7,
+      "question": "Writing Practice: Write a short sentence in English stating how much the map costs.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "map",
+        "costs",
+        "ten",
+        "dollars",
+        "is"
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Writing Practice: Write a sentence in English using the words 'shop' and 'map'.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "shop",
+        "map",
+        "paul",
+        "buys",
+        "finds"
+      ]
+    }
+  ]
+}

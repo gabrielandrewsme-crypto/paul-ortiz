@@ -53,45 +53,7 @@ import BookCompletionModal from '@/src/components/BookCompletionModal';
 import PodcastModal from '@/src/components/PodcastModal';
 import MountainMap from '@/src/components/MountainMap';
 
-interface CheckpointCoord {
-  id: number;
-  x: number;
-  y: number;
-  hasFlag?: boolean;
-}
 
-const CHECKPOINT_COORDS: CheckpointCoord[] = [
-  { id: 1, x: 260, y: 510 },
-  { id: 2, x: 310, y: 475 },
-  { id: 3, x: 365, y: 440 },
-  { id: 4, x: 420, y: 410 },
-  { id: 5, x: 470, y: 380 },
-  { id: 6, x: 430, y: 345 },
-  { id: 7, x: 390, y: 315 },
-  { id: 8, x: 440, y: 285 },
-  { id: 9, x: 500, y: 260 },
-  { id: 10, x: 550, y: 235 },
-  { id: 11, x: 600, y: 215, hasFlag: true },
-  { id: 12, x: 550, y: 190, hasFlag: true },
-  { id: 13, x: 490, y: 170 },
-  { id: 14, x: 460, y: 145, hasFlag: true },
-  { id: 15, x: 480, y: 125 },
-  { id: 16, x: 500, y: 100, hasFlag: true },
-];
-
-function buildPathD(coords: CheckpointCoord[]): string {
-  return coords.map((pt, idx) => {
-    return idx === 0 ? 'M ' + pt.x + ' ' + pt.y : 'L ' + pt.x + ' ' + pt.y;
-  }).join(' ');
-}
-
-function getClimberTransform(x: number, y: number): string {
-  return 'translate(' + (x - 25) + ', ' + (y - 50) + ')';
-}
-
-function getNodeTransform(x: number, y: number): string {
-  return 'translate(' + x + ', ' + y + ')';
-}
 
 interface BookProgress {
   completedBooks: number[]; // IDs dos livros concluídos ex: [1, 2]
@@ -112,6 +74,13 @@ export default function DashboardClient() {
 
   // Progresso isolado para The Great Commission
   const [gcProgress, setGcProgress] = useState<BookProgress>({
+    completedBooks: [1],
+    unlockedLevel: 1,
+    learnedWordsCount: 0,
+  });
+
+  // Progresso isolado para Vida Cotidiana & Diálogos Reais
+  const [dailyLifeProgress, setDailyLifeProgress] = useState<BookProgress>({
     completedBooks: [1],
     unlockedLevel: 1,
     learnedWordsCount: 0,
@@ -193,6 +162,18 @@ export default function DashboardClient() {
       }
     }
 
+    const savedDailyLife = localStorage.getItem('@antigravity:progress_daily_life');
+    if (savedDailyLife) {
+      try {
+        const parsed: BookProgress = JSON.parse(savedDailyLife);
+        if (parsed && Array.isArray(parsed.completedBooks)) {
+          setDailyLifeProgress(parsed);
+        }
+      } catch (e) {
+        console.error('Erro ao ler progresso Vida Cotidiana:', e);
+      }
+    }
+
     const savedFreeMode = localStorage.getItem('@antigravity:free_mode');
     if (savedFreeMode) {
       setFreeMode(savedFreeMode === 'true');
@@ -201,8 +182,15 @@ export default function DashboardClient() {
   }, []);
 
   // Progresso da Trip ativa no momento
-  const activeProgress = activeTripId === 'mountain-adventure' ? mountainProgress : gcProgress;
-  const maxCheckpoints = activeTripId === 'mountain-adventure' ? 16 : 5;
+  const activeTrip = getTripById(activeTripId);
+  const activeProgress =
+    activeTripId === 'mountain-adventure'
+      ? mountainProgress
+      : activeTripId === 'daily-life'
+      ? dailyLifeProgress
+      : gcProgress;
+
+  const maxCheckpoints = activeTrip.books?.length || 16;
 
   // Salva o progresso na Trip correspondente
   const saveProgress = (newProgress: BookProgress) => {
@@ -210,6 +198,9 @@ export default function DashboardClient() {
       setMountainProgress(newProgress);
       localStorage.setItem('@antigravity:progress_mountain', JSON.stringify(newProgress));
       localStorage.setItem('@antigravity:progress', JSON.stringify(newProgress));
+    } else if (activeTripId === 'daily-life') {
+      setDailyLifeProgress(newProgress);
+      localStorage.setItem('@antigravity:progress_daily_life', JSON.stringify(newProgress));
     } else {
       setGcProgress(newProgress);
       localStorage.setItem('@antigravity:progress_great_commission', JSON.stringify(newProgress));
@@ -360,32 +351,35 @@ export default function DashboardClient() {
     (userData?.isSubscribed === true && userData?.subscriptionStatus === 'ACTIVE');
 
   // Alternar TRIPS com isolamento total de dados, progresso e checkpoints
-  const activeTrip = getTripById(activeTripId);
 
   const handleTripChange = (tripId: string) => {
-    if (tripId === 'great-commission' && !isPlusUser) {
+    if ((tripId === 'great-commission' || tripId === 'daily-life') && !isPlusUser) {
       setUpgradeSource('checkpoint_click');
       setIsUpgradeModalOpen(true);
       return;
     }
     setActiveTripId(tripId);
-    const targetProg = tripId === 'mountain-adventure' ? mountainProgress : gcProgress;
-    const maxLvl = tripId === 'mountain-adventure' ? 16 : 5;
+    const targetTrip = getTripById(tripId);
+    const targetProg =
+      tripId === 'mountain-adventure'
+        ? mountainProgress
+        : tripId === 'daily-life'
+        ? dailyLifeProgress
+        : gcProgress;
+    const maxLvl = targetTrip.books?.length || 1;
     setActiveCheckpoint(Math.min(maxLvl, Math.max(1, targetProg.unlockedLevel)));
     setCurrentStep(1);
     setOutputSentences(['', '', '']);
     setOutputSubmitted(false);
   };
 
-  // Coordenadas dinâmicas da trilha baseadas na Trip ativa
-  const activeCoords = activeTripId === 'mountain-adventure' ? CHECKPOINT_COORDS : CHECKPOINT_COORDS.slice(0, 5);
-  const pathD = buildPathD(activeCoords);
-
   // Coleção de livros isolada da Trip ativa
   const currentBookList: BookData[] = activeTrip.books && activeTrip.books.length > 0 ? activeTrip.books : allBooks;
   const currentBook: BookData = currentBookList.find(b => b.checkpoint === activeCheckpoint) || currentBookList[0];
-  const activeCoord = activeCoords.find(c => c.id === activeCheckpoint) || activeCoords[0];
-  const wordsLearned = (mountainProgress.learnedWordsCount || 0) + (gcProgress.learnedWordsCount || 0);
+  const wordsLearned =
+    (mountainProgress.learnedWordsCount || 0) +
+    (gcProgress.learnedWordsCount || 0) +
+    (dailyLifeProgress.learnedWordsCount || 0);
 
   // Regra de bloqueio/desbloqueio sequencial dos Checkpoints por coleção
   const handleCheckpointClick = (id: number) => {
@@ -553,7 +547,6 @@ export default function DashboardClient() {
     }
   };
 
-  const climberTransform = getClimberTransform(activeCoord.x, activeCoord.y);
   const goalWidthPercent = Math.min(100, (wordsLearned / totalGoal) * 100) + '%';
   
   // Deck completo do livro atual

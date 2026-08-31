@@ -94,12 +94,26 @@ export const allBooks: BookData[] = [
  * Busca um livro pelo seu `id` (ex: "book-01").
  * Retorna `undefined` se não encontrado.
  */
+import { dailyLifeBooks } from './daily-life';
+import { greatCommissionBooks } from './great-commission';
+
+export { dailyLifeBooks, greatCommissionBooks };
+
+/**
+ * Busca qualquer livro da plataforma pelo seu `id` (ex: "book-01", "book-17", "gc-book1").
+ * Procura na Jornada da Montanha, Vida Cotidiana e Great Commission.
+ */
 export function getBookById(id: string): BookData | undefined {
-  return allBooks.find((book) => book.id === id);
+  const allPlatformBooks: BookData[] = [
+    ...allBooks,
+    ...(dailyLifeBooks as unknown as BookData[]),
+    ...(greatCommissionBooks as unknown as BookData[]),
+  ];
+  return allPlatformBooks.find((book) => book.id === id);
 }
 
 /**
- * Busca um livro pelo número do checkpoint (1–16).
+ * Busca um livro da Jornada da Montanha pelo número do checkpoint (1–16).
  * Retorna `undefined` se não encontrado.
  */
 export function getBookByCheckpoint(checkpoint: number): BookData | undefined {
@@ -113,6 +127,7 @@ export function countNewWords(book: BookData): number {
   return book.interactive_text.filter((w) => w.is_new).length;
 }
 
-// ─── Re-exportação do módulo Great Commission ───────────────────────────────────
+// ─── Re-exportação dos módulos adicionais ───────────────────────────────────
 
 export * from './great-commission';
+export * from './daily-life';

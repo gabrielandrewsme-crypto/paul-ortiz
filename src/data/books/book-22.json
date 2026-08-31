@@ -1,0 +1,1016 @@
+{
+  "id": "book-22",
+  "checkpoint": 6,
+  "title": "Crossing the Bridge",
+  "summary": "Paul segue pela avenida principal em direção ao norte, atravessa a grande ponte sobre o rio e observa a movimentação da cidade.",
+  "audio_url": "/audios/book-22.mp3",
+  "word_count_target": 140,
+  "story_en": "Paul follows the wide avenue toward the north. Many people walk along the sidewalks, and cars drive past in a steady rhythm. The morning air feels cool against his skin.\n\nSoon, he arrives at the stone bridge. Below, the clear water of the river flows smoothly toward the valley. Several boats rest near the riverbank.\n\nPaul stops in the middle of the bridge and leans on the iron rail. An older cyclist slows down beside him. “Nice view of the water, isn’t it?” the cyclist remarks with a warm grin.\n\n“It really is,” Paul agrees. “Is the train station straight ahead?”\n\n“Yes, keep going forward for two more blocks,” the cyclist explains. “You cannot miss the big clock tower.”\n\nPaul thanks the rider and continues his journey across the bridge.",
+  "interactive_text": [
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "follows",
+      "clean_word": "follows",
+      "translation": "segue",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "wide",
+      "clean_word": "wide",
+      "translation": "larga / ampla",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "avenue",
+      "clean_word": "avenue",
+      "translation": "avenida",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "toward",
+      "clean_word": "toward",
+      "translation": "em direção ao",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "north.",
+      "clean_word": "north",
+      "translation": "norte",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Many",
+      "clean_word": "many",
+      "translation": "Muitas",
+      "is_new": true,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "people",
+      "clean_word": "people",
+      "translation": "pessoas",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "walk",
+      "clean_word": "walk",
+      "translation": "caminham",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "along",
+      "clean_word": "along",
+      "translation": "ao longo de",
+      "is_new": true,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "as",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "sidewalks,",
+      "clean_word": "sidewalks",
+      "translation": "calçadas",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "cars",
+      "clean_word": "cars",
+      "translation": "carros",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "drive",
+      "clean_word": "drive",
+      "translation": "dirigem / passam",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "past",
+      "clean_word": "past",
+      "translation": "por perto / adiante",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "in",
+      "clean_word": "in",
+      "translation": "em",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "steady",
+      "clean_word": "steady",
+      "translation": "constante / firme",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "rhythm.",
+      "clean_word": "rhythm",
+      "translation": "ritmo",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "The",
+      "clean_word": "the",
+      "translation": "O",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "morning",
+      "clean_word": "morning",
+      "translation": "da manhã",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "air",
+      "clean_word": "air",
+      "translation": "ar",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "feels",
+      "clean_word": "feels",
+      "translation": "parece / fica",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "cool",
+      "clean_word": "cool",
+      "translation": "fresco",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "against",
+      "clean_word": "against",
+      "translation": "contra",
+      "is_new": true,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "skin.",
+      "clean_word": "skin",
+      "translation": "pele",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Soon,",
+      "clean_word": "soon",
+      "translation": "Em breve / Logo",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "he",
+      "clean_word": "he",
+      "translation": "ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "arrives",
+      "clean_word": "arrives",
+      "translation": "chega",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "at",
+      "clean_word": "at",
+      "translation": "em / na",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "stone",
+      "clean_word": "stone",
+      "translation": "de pedra",
+      "is_new": true,
+      "part_of_speech": "substantivo / adjetivo"
+    },
+    {
+      "word": "bridge.",
+      "clean_word": "bridge",
+      "translation": "ponte",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Below,",
+      "clean_word": "below",
+      "translation": "Abaixo",
+      "is_new": true,
+      "part_of_speech": "advérbio / preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "clear",
+      "clean_word": "clear",
+      "translation": "límpida / clara",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "water",
+      "clean_word": "water",
+      "translation": "água",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "do",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "river",
+      "clean_word": "river",
+      "translation": "rio",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "flows",
+      "clean_word": "flows",
+      "translation": "flui / corre",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "smoothly",
+      "clean_word": "smoothly",
+      "translation": "suavemente",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "toward",
+      "clean_word": "toward",
+      "translation": "em direção ao",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "valley.",
+      "clean_word": "valley",
+      "translation": "vale",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Several",
+      "clean_word": "several",
+      "translation": "Vários",
+      "is_new": true,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "boats",
+      "clean_word": "boats",
+      "translation": "barcos",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "rest",
+      "clean_word": "rest",
+      "translation": "descansam / ficam parados",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "near",
+      "clean_word": "near",
+      "translation": "perto de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "riverbank.",
+      "clean_word": "riverbank",
+      "translation": "margem do rio",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "stops",
+      "clean_word": "stops",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "in",
+      "clean_word": "in",
+      "translation": "no",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "middle",
+      "clean_word": "middle",
+      "translation": "meio",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "da",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "bridge",
+      "clean_word": "bridge",
+      "translation": "ponte",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "leans",
+      "clean_word": "leans",
+      "translation": "apoia-se / inclina-se",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "on",
+      "clean_word": "on",
+      "translation": "no",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "iron",
+      "clean_word": "iron",
+      "translation": "de ferro",
+      "is_new": true,
+      "part_of_speech": "substantivo / adjetivo"
+    },
+    {
+      "word": "rail.",
+      "clean_word": "rail",
+      "translation": "parapeito / corrimão",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "An",
+      "clean_word": "an",
+      "translation": "Um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "older",
+      "clean_word": "older",
+      "translation": "mais velho",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "cyclist",
+      "clean_word": "cyclist",
+      "translation": "ciclista",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "slows",
+      "clean_word": "slows",
+      "translation": "diminui a velocidade",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "down",
+      "clean_word": "down",
+      "translation": "diminui",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "beside",
+      "clean_word": "beside",
+      "translation": "ao lado de",
+      "is_new": true,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "him.",
+      "clean_word": "him",
+      "translation": "dele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "Nice",
+      "clean_word": "nice",
+      "translation": "Bela / agradável",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "view",
+      "clean_word": "view",
+      "translation": "vista",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "da",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "water,",
+      "clean_word": "water",
+      "translation": "água",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "isn’t",
+      "clean_word": "isn’t",
+      "translation": "não é",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "it?",
+      "clean_word": "it",
+      "translation": "ela",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "cyclist",
+      "clean_word": "cyclist",
+      "translation": "ciclista",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "remarks",
+      "clean_word": "remarks",
+      "translation": "comenta",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "with",
+      "clean_word": "with",
+      "translation": "com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "warm",
+      "clean_word": "warm",
+      "translation": "caloroso",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "grin.",
+      "clean_word": "grin",
+      "translation": "sorriso largo",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "It",
+      "clean_word": "it",
+      "translation": "Ela",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "really",
+      "clean_word": "really",
+      "translation": "realmente",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "is,",
+      "clean_word": "is",
+      "translation": "é",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "agrees.",
+      "clean_word": "agrees",
+      "translation": "concorda",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "Is",
+      "clean_word": "is",
+      "translation": "A",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "train",
+      "clean_word": "train",
+      "translation": "de trem",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "station",
+      "clean_word": "station",
+      "translation": "estação",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "straight",
+      "clean_word": "straight",
+      "translation": "direto / em frente",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "ahead?",
+      "clean_word": "ahead",
+      "translation": "à frente",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "Yes,",
+      "clean_word": "yes",
+      "translation": "Sim",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "keep",
+      "clean_word": "keep",
+      "translation": "continue",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "going",
+      "clean_word": "going",
+      "translation": "indo",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "forward",
+      "clean_word": "forward",
+      "translation": "em frente",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "for",
+      "clean_word": "for",
+      "translation": "por",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "two",
+      "clean_word": "two",
+      "translation": "dois",
+      "is_new": true,
+      "part_of_speech": "numeral"
+    },
+    {
+      "word": "more",
+      "clean_word": "more",
+      "translation": "mais",
+      "is_new": true,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "blocks,",
+      "clean_word": "blocks",
+      "translation": "quarteirões",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "cyclist",
+      "clean_word": "cyclist",
+      "translation": "ciclista",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "explains.",
+      "clean_word": "explains",
+      "translation": "explica",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "You",
+      "clean_word": "you",
+      "translation": "Você",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "cannot",
+      "clean_word": "cannot",
+      "translation": "não pode",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "miss",
+      "clean_word": "miss",
+      "translation": "errar / perder de vista",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "big",
+      "clean_word": "big",
+      "translation": "grande",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "clock",
+      "clean_word": "clock",
+      "translation": "relógio",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "tower.",
+      "clean_word": "tower",
+      "translation": "torre",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "thanks",
+      "clean_word": "thanks",
+      "translation": "agradece",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "rider",
+      "clean_word": "rider",
+      "translation": "ciclista / condutor",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "continues",
+      "clean_word": "continues",
+      "translation": "continua",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "journey",
+      "clean_word": "journey",
+      "translation": "jornada",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "across",
+      "clean_word": "across",
+      "translation": "através de",
+      "is_new": true,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "bridge.",
+      "clean_word": "bridge",
+      "translation": "ponte",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "De que material é feita a ponte que Paul atravessa?",
+      "options": [
+        "Pedra",
+        "Madeira",
+        "Vidro",
+        "Plástico"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 2,
+      "question": "What is flowing smoothly below the bridge?",
+      "options": [
+        "The clear water of the river",
+        "A line of cars",
+        "A crowd of people",
+        "Train tracks"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 3,
+      "question": "Who slows down beside Paul to talk?",
+      "options": [
+        "An older cyclist",
+        "A bus driver",
+        "The shop clerk",
+        "A train conductor"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 4,
+      "question": "Quantos quarteirões Paul ainda precisa andar para chegar à estação?",
+      "options": [
+        "Mais dois quarteirões",
+        "Mais dez quarteirões",
+        "Cinco quarteirões",
+        "Apenas um quarteirão"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 5,
+      "question": "What landmark will help Paul find the train station?",
+      "options": [
+        "The big clock tower",
+        "A green park fountain",
+        "A small map shop",
+        "A yellow gate"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 6,
+      "question": "O que Paul faz no meio da ponte antes de falar com o ciclista?",
+      "options": [
+        "Apoia-se no parapeito de ferro para olhar a água",
+        "Senta para ler o jornal",
+        "Abre sua mochila para comer",
+        "Começa a correr"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 7,
+      "question": "Writing Practice: Write a short sentence in English about what Paul sees below the bridge.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "river",
+        "water",
+        "boats",
+        "bridge",
+        "sees"
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Writing Practice: Write a sentence in English using the words 'station' and 'tower'.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "station",
+        "clock",
+        "tower",
+        "train",
+        "near"
+      ]
+    }
+  ]
+}

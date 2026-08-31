@@ -1,0 +1,1142 @@
+{
+  "id": "book-21",
+  "checkpoint": 5,
+  "title": "Studying the Route",
+  "summary": "Paul senta em um banco na praça pública, estuda o mapa que comprou e planeja a rota até a estação de trem.",
+  "audio_url": "/audios/book-21.mp3",
+  "word_count_target": 140,
+  "story_en": "Paul leaves the shop and walks toward a public park. In the center of the green space, he finds an empty wooden bench near a fountain. The weather is pleasant, and birds sing in the tall trees.\n\nHe sits down, unrolls his paper map, and begins to study the lines. He marks his current position near the town square with a pencil. Then, he looks for the main train station.\n\n“The station is three miles north,” Paul notes quietly. “I should follow this wide avenue and cross the bridge over the river.”\n\nA young woman walking her dog passes by and notices the map. “Are you planning a long trip?” she asks with interest.\n\n“Yes, I am going to the mountains,” Paul explains.\n\n“Take the morning train,” she suggests kindly. “It is fast and safe.”\n\nPaul thanks her for the advice, folds the map, and prepares to walk.",
+  "interactive_text": [
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "leaves",
+      "clean_word": "leaves",
+      "translation": "sai de / deixa",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a/o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "shop",
+      "clean_word": "shop",
+      "translation": "loja",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "walks",
+      "clean_word": "walks",
+      "translation": "caminha",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "toward",
+      "clean_word": "toward",
+      "translation": "em direção a",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "public",
+      "clean_word": "public",
+      "translation": "público",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "park.",
+      "clean_word": "park",
+      "translation": "parque / praça",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "In",
+      "clean_word": "in",
+      "translation": "Em / no",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "center",
+      "clean_word": "center",
+      "translation": "centro",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "do",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "green",
+      "clean_word": "green",
+      "translation": "verde",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "space,",
+      "clean_word": "space",
+      "translation": "espaço",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "he",
+      "clean_word": "he",
+      "translation": "ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "finds",
+      "clean_word": "finds",
+      "translation": "encontra",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "an",
+      "clean_word": "an",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "empty",
+      "clean_word": "empty",
+      "translation": "vazio",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "wooden",
+      "clean_word": "wooden",
+      "translation": "de madeira",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "bench",
+      "clean_word": "bench",
+      "translation": "banco",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "near",
+      "clean_word": "near",
+      "translation": "perto de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "fountain.",
+      "clean_word": "fountain",
+      "translation": "fonte / chafariz",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "The",
+      "clean_word": "the",
+      "translation": "O",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "weather",
+      "clean_word": "weather",
+      "translation": "clima / tempo",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "is",
+      "clean_word": "is",
+      "translation": "está",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "pleasant,",
+      "clean_word": "pleasant",
+      "translation": "agradável",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "birds",
+      "clean_word": "birds",
+      "translation": "pássaros",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "sing",
+      "clean_word": "sing",
+      "translation": "cantam",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "in",
+      "clean_word": "in",
+      "translation": "nas",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "as",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "tall",
+      "clean_word": "tall",
+      "translation": "altas",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "trees.",
+      "clean_word": "trees",
+      "translation": "árvores",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "He",
+      "clean_word": "he",
+      "translation": "Ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "sits",
+      "clean_word": "sits",
+      "translation": "senta",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "down,",
+      "clean_word": "down",
+      "translation": "para baixo",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "unrolls",
+      "clean_word": "unrolls",
+      "translation": "desenrola",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "seu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "paper",
+      "clean_word": "paper",
+      "translation": "de papel",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "map,",
+      "clean_word": "map",
+      "translation": "mapa",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "begins",
+      "clean_word": "begins",
+      "translation": "começa",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "study",
+      "clean_word": "study",
+      "translation": "estudar",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "as",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "lines.",
+      "clean_word": "lines",
+      "translation": "linhas",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "He",
+      "clean_word": "he",
+      "translation": "Ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "marks",
+      "clean_word": "marks",
+      "translation": "marca",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "current",
+      "clean_word": "current",
+      "translation": "atual",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "position",
+      "clean_word": "position",
+      "translation": "posição",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "near",
+      "clean_word": "near",
+      "translation": "perto de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "town",
+      "clean_word": "town",
+      "translation": "da cidade",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "square",
+      "clean_word": "square",
+      "translation": "praça",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "with",
+      "clean_word": "with",
+      "translation": "com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "pencil.",
+      "clean_word": "pencil",
+      "translation": "lápis",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Then,",
+      "clean_word": "then",
+      "translation": "Então / Depois",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "he",
+      "clean_word": "he",
+      "translation": "ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "looks",
+      "clean_word": "looks",
+      "translation": "olha / procura",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "for",
+      "clean_word": "for",
+      "translation": "por",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "main",
+      "clean_word": "main",
+      "translation": "principal",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "train",
+      "clean_word": "train",
+      "translation": "de trem",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "station.",
+      "clean_word": "station",
+      "translation": "estação",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "The",
+      "clean_word": "the",
+      "translation": "A",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "station",
+      "clean_word": "station",
+      "translation": "estação",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "is",
+      "clean_word": "is",
+      "translation": "fica / é",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "three",
+      "clean_word": "three",
+      "translation": "três",
+      "is_new": true,
+      "part_of_speech": "numeral"
+    },
+    {
+      "word": "miles",
+      "clean_word": "miles",
+      "translation": "milhas",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "north,",
+      "clean_word": "north",
+      "translation": "ao norte",
+      "is_new": true,
+      "part_of_speech": "substantivo / advérbio"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "notes",
+      "clean_word": "notes",
+      "translation": "observa / anota",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "quietly.",
+      "clean_word": "quietly",
+      "translation": "baixinho / calmamente",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "I",
+      "clean_word": "i",
+      "translation": "Eu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "should",
+      "clean_word": "should",
+      "translation": "devo / deveria",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "follow",
+      "clean_word": "follow",
+      "translation": "seguir",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "this",
+      "clean_word": "this",
+      "translation": "esta",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "wide",
+      "clean_word": "wide",
+      "translation": "larga / ampla",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "avenue",
+      "clean_word": "avenue",
+      "translation": "avenida",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "cross",
+      "clean_word": "cross",
+      "translation": "cruzar / atravessar",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "bridge",
+      "clean_word": "bridge",
+      "translation": "ponte",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "over",
+      "clean_word": "over",
+      "translation": "sobre",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "river.",
+      "clean_word": "river",
+      "translation": "rio",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "A",
+      "clean_word": "a",
+      "translation": "Uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "young",
+      "clean_word": "young",
+      "translation": "jovem",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "woman",
+      "clean_word": "woman",
+      "translation": "mulher",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "walking",
+      "clean_word": "walking",
+      "translation": "passeando / caminhando com",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "her",
+      "clean_word": "her",
+      "translation": "seu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "dog",
+      "clean_word": "dog",
+      "translation": "cachorro",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "passes",
+      "clean_word": "passes",
+      "translation": "passa",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "by",
+      "clean_word": "by",
+      "translation": "por perto",
+      "is_new": true,
+      "part_of_speech": "preposição / advérbio"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "notices",
+      "clean_word": "notices",
+      "translation": "nota / percebe",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "map.",
+      "clean_word": "map",
+      "translation": "mapa",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Are",
+      "clean_word": "are",
+      "translation": "Está",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "you",
+      "clean_word": "you",
+      "translation": "você",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "planning",
+      "clean_word": "planning",
+      "translation": "planejando",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "long",
+      "clean_word": "long",
+      "translation": "longa",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "trip?",
+      "clean_word": "trip",
+      "translation": "viagem",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "she",
+      "clean_word": "she",
+      "translation": "ela",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "asks",
+      "clean_word": "asks",
+      "translation": "pergunta",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "with",
+      "clean_word": "with",
+      "translation": "com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "interest.",
+      "clean_word": "interest",
+      "translation": "interesse",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Yes,",
+      "clean_word": "yes",
+      "translation": "Sim",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "I",
+      "clean_word": "i",
+      "translation": "eu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "am",
+      "clean_word": "am",
+      "translation": "estou",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "going",
+      "clean_word": "going",
+      "translation": "indo",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "as",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "mountains,",
+      "clean_word": "mountains",
+      "translation": "montanhas",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "explains.",
+      "clean_word": "explains",
+      "translation": "explica",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "Take",
+      "clean_word": "take",
+      "translation": "Pegue",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "morning",
+      "clean_word": "morning",
+      "translation": "da manhã",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "train,",
+      "clean_word": "train",
+      "translation": "trem",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "she",
+      "clean_word": "she",
+      "translation": "ela",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "suggests",
+      "clean_word": "suggests",
+      "translation": "sugere",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "kindly.",
+      "clean_word": "kindly",
+      "translation": "gentilmente",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "It",
+      "clean_word": "it",
+      "translation": "Ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "is",
+      "clean_word": "is",
+      "translation": "é",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "fast",
+      "clean_word": "fast",
+      "translation": "rápido",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "safe.",
+      "clean_word": "safe",
+      "translation": "seguro",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "thanks",
+      "clean_word": "thanks",
+      "translation": "agradece",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "her",
+      "clean_word": "her",
+      "translation": "a ela",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "for",
+      "clean_word": "for",
+      "translation": "pelo",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "advice,",
+      "clean_word": "advice",
+      "translation": "conselho",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "folds",
+      "clean_word": "folds",
+      "translation": "dobra",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "map,",
+      "clean_word": "map",
+      "translation": "mapa",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "prepares",
+      "clean_word": "prepares",
+      "translation": "prepara-se",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "walk.",
+      "clean_word": "walk",
+      "translation": "caminhar",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Onde Paul senta para estudar o mapa?",
+      "options": [
+        "Em um banco de madeira perto de uma fonte",
+        "Em uma mesa de cafeteria",
+        "Na estação de trem",
+        "Dentro da loja de mapas"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 2,
+      "question": "What does Paul use to mark his position on the map?",
+      "options": [
+        "A pencil",
+        "A key",
+        "A coffee cup",
+        "A book"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 3,
+      "question": "How far is the train station from Paul's current position?",
+      "options": [
+        "Three miles north",
+        "Ten miles south",
+        "Right next to the park",
+        "Across the corner"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 4,
+      "question": "O que Paul precisa atravessar para chegar à estação?",
+      "options": [
+        "A ponte sobre o rio",
+        "Uma montanha rochosa",
+        "Um túnel escuro",
+        "Um mercado antigo"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 5,
+      "question": "What advice does the young woman give to Paul?",
+      "options": [
+        "Take the morning train because it is fast and safe",
+        "Buy another map at the shop",
+        "Stay in the town square",
+        "Walk to the mountains without a train"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 6,
+      "question": "O que Paul faz com o mapa antes de se preparar para caminhar?",
+      "options": [
+        "Dobra o mapa",
+        "Deixa o mapa no banco",
+        "Entrega o mapa para a mulher",
+        "Joga o mapa fora"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 7,
+      "question": "Writing Practice: Write a short sentence in English stating where Paul is going.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "paul",
+        "going",
+        "mountains",
+        "station",
+        "trip"
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Writing Practice: Write a sentence in English using the word 'train'.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "train",
+        "station",
+        "morning",
+        "take",
+        "fast"
+      ]
+    }
+  ]
+}

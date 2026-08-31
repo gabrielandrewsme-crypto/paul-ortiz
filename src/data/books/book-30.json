@@ -1,0 +1,1031 @@
+{
+  "id": "book-30",
+  "checkpoint": 14,
+  "title": "Arriving at the Base Camp",
+  "summary": "Paul desce a encosta da montanha antes do anoitecer, chega ao acampamento base, registra-se na recepção e monta sua barraca ao redor da fogueira.",
+  "audio_url": "/audios/book-30.mp3",
+  "word_count_target": 140,
+  "story_en": "Paul descends the gentle slope as evening approaches. The golden rays of the setting sun touch the wooden cabins of the base camp. Smoke rises from a central campfire where several travelers gather.\n\nHe enters the main office to register his stay. A friendly manager checks his name on a list and hands him a wooden key. “Welcome, traveler. You can pitch your tent near the western trees or rent a cabin bed.”\n\n“I will sleep in my tent tonight,” Paul replies with a smile.\n\nHe walks to the grassy clearing, unpacks his gear, and sets up his small shelter. Other hikers greet him warmly and invite him to share warm vegetable soup by the fire.\n\nSitting under the emerging stars, Paul feels deep satisfaction after completing a long day of travel.",
+  "interactive_text": [
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "descends",
+      "clean_word": "descends",
+      "translation": "desce",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "gentle",
+      "clean_word": "gentle",
+      "translation": "suave",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "slope",
+      "clean_word": "slope",
+      "translation": "encosta / descida",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "as",
+      "clean_word": "as",
+      "translation": "enquanto / conforme",
+      "is_new": false,
+      "part_of_speech": "conjunção"
+    },
+    {
+      "word": "evening",
+      "clean_word": "evening",
+      "translation": "o entardecer / a noite",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "approaches.",
+      "clean_word": "approaches",
+      "translation": "aproxima-se",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "The",
+      "clean_word": "the",
+      "translation": "Os",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "golden",
+      "clean_word": "golden",
+      "translation": "dourados",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "rays",
+      "clean_word": "rays",
+      "translation": "raios",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "do",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "setting",
+      "clean_word": "setting",
+      "translation": "poente",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "sun",
+      "clean_word": "sun",
+      "translation": "sol",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "touch",
+      "clean_word": "touch",
+      "translation": "tocam",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "as",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "wooden",
+      "clean_word": "wooden",
+      "translation": "de madeira",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "cabins",
+      "clean_word": "cabins",
+      "translation": "cabanas",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "do",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "base",
+      "clean_word": "base",
+      "translation": "base",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "camp.",
+      "clean_word": "camp",
+      "translation": "acampamento",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Smoke",
+      "clean_word": "smoke",
+      "translation": "Fumaça",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "rises",
+      "clean_word": "rises",
+      "translation": "sobe / ergue-se",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "from",
+      "clean_word": "from",
+      "translation": "de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "central",
+      "clean_word": "central",
+      "translation": "central",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "campfire",
+      "clean_word": "campfire",
+      "translation": "fogueira",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "where",
+      "clean_word": "where",
+      "translation": "onde",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "several",
+      "clean_word": "several",
+      "translation": "vários",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "travelers",
+      "clean_word": "travelers",
+      "translation": "viajantes",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "gather.",
+      "clean_word": "gather",
+      "translation": "reúnem-se / juntam-se",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "He",
+      "clean_word": "he",
+      "translation": "Ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "enters",
+      "clean_word": "enters",
+      "translation": "entra no",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "main",
+      "clean_word": "main",
+      "translation": "principal",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "office",
+      "clean_word": "office",
+      "translation": "escritório / recepção",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "register",
+      "clean_word": "register",
+      "translation": "registrar",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "stay.",
+      "clean_word": "stay",
+      "translation": "estadia",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "A",
+      "clean_word": "a",
+      "translation": "Um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "friendly",
+      "clean_word": "friendly",
+      "translation": "simpático / amigável",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "manager",
+      "clean_word": "manager",
+      "translation": "gerente / administrador",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "checks",
+      "clean_word": "checks",
+      "translation": "verifica / confere",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "seu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "name",
+      "clean_word": "name",
+      "translation": "nome",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "on",
+      "clean_word": "on",
+      "translation": "em",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "list",
+      "clean_word": "list",
+      "translation": "lista",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "hands",
+      "clean_word": "hands",
+      "translation": "entrega",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "him",
+      "clean_word": "him",
+      "translation": "a ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "wooden",
+      "clean_word": "wooden",
+      "translation": "de madeira",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "key.",
+      "clean_word": "key",
+      "translation": "chave",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Welcome,",
+      "clean_word": "welcome",
+      "translation": "Bem-vindo",
+      "is_new": false,
+      "part_of_speech": "interjeição"
+    },
+    {
+      "word": "traveler.",
+      "clean_word": "traveler",
+      "translation": "viajante",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "You",
+      "clean_word": "you",
+      "translation": "Você",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "can",
+      "clean_word": "can",
+      "translation": "pode",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "pitch",
+      "clean_word": "pitch",
+      "translation": "montar / armar",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "your",
+      "clean_word": "your",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "tent",
+      "clean_word": "tent",
+      "translation": "barraca",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "near",
+      "clean_word": "near",
+      "translation": "perto de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "as",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "western",
+      "clean_word": "western",
+      "translation": "do oeste / ocidentais",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "trees",
+      "clean_word": "trees",
+      "translation": "árvores",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "or",
+      "clean_word": "or",
+      "translation": "ou",
+      "is_new": false,
+      "part_of_speech": "conjunção"
+    },
+    {
+      "word": "rent",
+      "clean_word": "rent",
+      "translation": "alugar",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "cabin",
+      "clean_word": "cabin",
+      "translation": "de cabana",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "bed.",
+      "clean_word": "bed",
+      "translation": "cama",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "I",
+      "clean_word": "i",
+      "translation": "Eu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "will",
+      "clean_word": "will",
+      "translation": "vou",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "sleep",
+      "clean_word": "sleep",
+      "translation": "dormir",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "in",
+      "clean_word": "in",
+      "translation": "na",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "my",
+      "clean_word": "my",
+      "translation": "minha",
+      "is_new": true,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "tent",
+      "clean_word": "tent",
+      "translation": "barraca",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "tonight,",
+      "clean_word": "tonight",
+      "translation": "esta noite",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "replies",
+      "clean_word": "replies",
+      "translation": "responde",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "with",
+      "clean_word": "with",
+      "translation": "com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "smile.",
+      "clean_word": "smile",
+      "translation": "sorriso",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "He",
+      "clean_word": "he",
+      "translation": "Ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "walks",
+      "clean_word": "walks",
+      "translation": "caminha",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "grassy",
+      "clean_word": "grassy",
+      "translation": "gramada",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "clearing,",
+      "clean_word": "clearing",
+      "translation": "clareira",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "unpacks",
+      "clean_word": "unpacks",
+      "translation": "desempacota / tira da mochila",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "seu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "gear,",
+      "clean_word": "gear",
+      "translation": "equipamento",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "sets",
+      "clean_word": "sets",
+      "translation": "monta",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "up",
+      "clean_word": "up",
+      "translation": "monta",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "seu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "small",
+      "clean_word": "small",
+      "translation": "pequeno",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "shelter.",
+      "clean_word": "shelter",
+      "translation": "abrigo",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Other",
+      "clean_word": "other",
+      "translation": "Outros",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "hikers",
+      "clean_word": "hikers",
+      "translation": "trilheiros / caminhantes",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "greet",
+      "clean_word": "greet",
+      "translation": "cumprimentam",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "him",
+      "clean_word": "him",
+      "translation": "ele / o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "warmly",
+      "clean_word": "warmly",
+      "translation": "calorosamente",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "invite",
+      "clean_word": "invite",
+      "translation": "convidam",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "him",
+      "clean_word": "him",
+      "translation": "ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "share",
+      "clean_word": "share",
+      "translation": "compartilhar / tomar junto",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "warm",
+      "clean_word": "warm",
+      "translation": "quente",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "vegetable",
+      "clean_word": "vegetable",
+      "translation": "de legumes",
+      "is_new": true,
+      "part_of_speech": "substantivo / adjetivo"
+    },
+    {
+      "word": "soup",
+      "clean_word": "soup",
+      "translation": "sopa",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "by",
+      "clean_word": "by",
+      "translation": "ao lado de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "fire.",
+      "clean_word": "fire",
+      "translation": "fogo / fogueira",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Sitting",
+      "clean_word": "sitting",
+      "translation": "Sentado",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "under",
+      "clean_word": "under",
+      "translation": "sob / debaixo de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "as",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "emerging",
+      "clean_word": "emerging",
+      "translation": "que surgem / nascentes",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "stars,",
+      "clean_word": "stars",
+      "translation": "estrelas",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "feels",
+      "clean_word": "feels",
+      "translation": "sente",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "deep",
+      "clean_word": "deep",
+      "translation": "profunda",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "satisfaction",
+      "clean_word": "satisfaction",
+      "translation": "satisfação",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "after",
+      "clean_word": "after",
+      "translation": "após / depois de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "completing",
+      "clean_word": "completing",
+      "translation": "completar",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "long",
+      "clean_word": "long",
+      "translation": "longo",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "day",
+      "clean_word": "day",
+      "translation": "dia",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "travel.",
+      "clean_word": "travel",
+      "translation": "viagem",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "O que Paul vê ao se aproximar do acampamento base?",
+      "options": [
+        "Fumaça subindo de uma fogueira central e cabanas iluminadas pelo sol poente",
+        "Uma estação de trem movimentada com passageiros",
+        "Um grande mercado público",
+        "Uma tempestade de neve cobrindo as montanhas"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 2,
+      "question": "What options does the manager give to Paul for his overnight stay?",
+      "options": [
+        "Pitch a tent near the western trees or rent a cabin bed",
+        "Sleep at the train station or walk back to town",
+        "Buy a new map or take a bus",
+        "Stay at a city hotel"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 3,
+      "question": "Where does Paul choose to sleep tonight?",
+      "options": [
+        "In his tent",
+        "In a rented cabin",
+        "Inside the main office",
+        "On the wooden bench"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 4,
+      "question": "O que os outros trilheiros convidam Paul para compartilhar ao redor do fogo?",
+      "options": [
+        "Sopa quente de legumes",
+        "Chá e biscoito doce",
+        "Um sanduíche frio e café",
+        "Frutas frescas"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 5,
+      "question": "What appears in the sky as Paul sits by the fire?",
+      "options": [
+        "Emerging stars",
+        "Dark rain clouds",
+        "A bright morning sun",
+        "Thick black smoke"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 6,
+      "question": "Como Paul se sente ao final de seu longo dia de viagem?",
+      "options": [
+        "Sente profunda satisfação",
+        "Sente medo do escuro",
+        "Fica desapontado com a trilha",
+        "Quer voltar imediatamente para a cidade"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 7,
+      "question": "Writing Practice: Write a short sentence in English about where Paul arrives at sunset.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "paul",
+        "arrives",
+        "base",
+        "camp",
+        "evening"
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Writing Practice: Write a sentence in English using the words 'tent' and 'fire'.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "tent",
+        "fire",
+        "camp",
+        "sets",
+        "sits"
+      ]
+    }
+  ]
+}

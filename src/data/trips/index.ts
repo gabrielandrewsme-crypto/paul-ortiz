@@ -6,7 +6,7 @@
 // ----------------------------------------------------------------------------
 
 import { Trip } from '@/src/types/trip';
-import { allBooks, BookData } from '@/src/data/books';
+import { allBooks, BookData, dailyLifeBooks } from '@/src/data/books';
 import { greatCommissionBooks } from '@/src/data/books/great-commission';
 
 export const allTrips: Trip[] = [
@@ -38,22 +38,22 @@ export const allTrips: Trip[] = [
     books: greatCommissionBooks as unknown as BookData[],
     storageKey: '@antigravity:progress_great_commission',
   },
-
-  // ─── ESTRUTURA PARA FUTURAS TRIPS (ROADMAP DE ~100 LIVROS) ──────────────────────────
   {
     id: 'daily-life',
     slug: 'vida-cotidiana',
     title: 'Vida Cotidiana & Diálogos Reais',
-    subtitle: 'Situações Práticas do Dia a Dia',
-    description: 'Jornada focada na conversação do dia a dia, rotinas, compras e expressões mais comuns faladas por nativos.',
+    subtitle: 'Diálogos Práticos & Vocabulário do Dia a Dia',
+    description: 'Explore 19 minilivros (Books 17 ao 35) focados em situações reais do cotidiano, diálogos práticos e assimilação do vocabulário NGSL.',
     category: 'daily_life',
-    badgeText: 'Em Breve • Roadmap 100 Livros',
+    badgeText: '19 LIVROS • DIÁLOGOS & JORNADA NGSL',
     iconName: 'Coffee',
-    accentColor: 'from-amber-600 to-orange-500',
-    isAvailable: false,
-    books: [],
+    accentColor: 'from-amber-600 via-orange-600 to-rose-600',
+    isAvailable: true,
+    books: dailyLifeBooks as unknown as BookData[],
     storageKey: '@antigravity:progress_daily_life',
   },
+
+  // ─── ESTRUTURA PARA FUTURAS TRIPS (ROADMAP DE ~100 LIVROS) ──────────────────────────
   {
     id: 'travel-exploration',
     slug: 'viagens-e-exploracao',

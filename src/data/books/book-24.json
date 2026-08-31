@@ -1,0 +1,1009 @@
+{
+  "id": "book-24",
+  "checkpoint": 8,
+  "title": "Waiting at Platform Four",
+  "summary": "Paul caminha até a plataforma quatro, confere o painel eletrônico de horários e conversa brevemente com outro passageiro enquanto aguarda o trem.",
+  "audio_url": "/audios/book-24.mp3",
+  "word_count_target": 140,
+  "story_en": "Paul holds his ticket and walks toward platform four. A large electronic board displays the departure times and train numbers. The line for North Peak shows on time.\n\nHe steps onto the long concrete platform. Cool wind blows across the tracks. A few passengers stand with luggage, while others sit on metal benches checking their phones.\n\nAn elderly man wearing a dark coat notices Paul looking at the schedule. “Are you boarding the express train?” the man asks politely.\n\n“Yes, I am heading north,” Paul answers.\n\n“It usually arrives five minutes early,” the man explains with a friendly smile. “You will hear the loud whistle soon.”\n\nA distant engine sound echoes under the roof. Paul checks his watch, adjusts his backpack, and steps closer to the yellow safety line.",
+  "interactive_text": [
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "holds",
+      "clean_word": "holds",
+      "translation": "segura",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "ticket",
+      "clean_word": "ticket",
+      "translation": "passagem",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "walks",
+      "clean_word": "walks",
+      "translation": "caminha",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "toward",
+      "clean_word": "toward",
+      "translation": "em direção a",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "platform",
+      "clean_word": "platform",
+      "translation": "plataforma",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "four.",
+      "clean_word": "four",
+      "translation": "quatro",
+      "is_new": false,
+      "part_of_speech": "numeral"
+    },
+    {
+      "word": "A",
+      "clean_word": "a",
+      "translation": "Um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "large",
+      "clean_word": "large",
+      "translation": "grande",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "electronic",
+      "clean_word": "electronic",
+      "translation": "eletrônico",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "board",
+      "clean_word": "board",
+      "translation": "painel / quadro",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "displays",
+      "clean_word": "displays",
+      "translation": "exibe / mostra",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "os",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "departure",
+      "clean_word": "departure",
+      "translation": "de partida",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "times",
+      "clean_word": "times",
+      "translation": "horários",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "train",
+      "clean_word": "train",
+      "translation": "do trem",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "numbers.",
+      "clean_word": "numbers",
+      "translation": "números",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "The",
+      "clean_word": "the",
+      "translation": "A",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "line",
+      "clean_word": "line",
+      "translation": "linha",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "for",
+      "clean_word": "for",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "North",
+      "clean_word": "north",
+      "translation": "Norte",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Peak",
+      "clean_word": "peak",
+      "translation": "Pico",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "shows",
+      "clean_word": "shows",
+      "translation": "mostra / consta",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "on",
+      "clean_word": "on",
+      "translation": "no",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "time.",
+      "clean_word": "time",
+      "translation": "horário / no horário previsto",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "He",
+      "clean_word": "he",
+      "translation": "Ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "steps",
+      "clean_word": "steps",
+      "translation": "entra / pisa",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "onto",
+      "clean_word": "onto",
+      "translation": "sobre / em",
+      "is_new": true,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "long",
+      "clean_word": "long",
+      "translation": "longa",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "concrete",
+      "clean_word": "concrete",
+      "translation": "de concreto",
+      "is_new": true,
+      "part_of_speech": "substantivo / adjetivo"
+    },
+    {
+      "word": "platform.",
+      "clean_word": "platform",
+      "translation": "plataforma",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Cool",
+      "clean_word": "cool",
+      "translation": "Fresco",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "wind",
+      "clean_word": "wind",
+      "translation": "vento",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "blows",
+      "clean_word": "blows",
+      "translation": "sopra",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "across",
+      "clean_word": "across",
+      "translation": "através de / pelos",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "os",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "tracks.",
+      "clean_word": "tracks",
+      "translation": "trilhos",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "A",
+      "clean_word": "a",
+      "translation": "Alguns",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "few",
+      "clean_word": "few",
+      "translation": "poucos",
+      "is_new": false,
+      "part_of_speech": "determinante"
+    },
+    {
+      "word": "passengers",
+      "clean_word": "passengers",
+      "translation": "passageiros",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "stand",
+      "clean_word": "stand",
+      "translation": "ficam de pé",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "with",
+      "clean_word": "with",
+      "translation": "com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "luggage,",
+      "clean_word": "luggage",
+      "translation": "bagagem",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "while",
+      "clean_word": "while",
+      "translation": "enquanto",
+      "is_new": false,
+      "part_of_speech": "conjunção"
+    },
+    {
+      "word": "others",
+      "clean_word": "others",
+      "translation": "outros",
+      "is_new": true,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "sit",
+      "clean_word": "sit",
+      "translation": "sentam",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "on",
+      "clean_word": "on",
+      "translation": "em",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "metal",
+      "clean_word": "metal",
+      "translation": "de metal",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "benches",
+      "clean_word": "benches",
+      "translation": "bancos",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "checking",
+      "clean_word": "checking",
+      "translation": "conferindo / checando",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "their",
+      "clean_word": "their",
+      "translation": "seus",
+      "is_new": true,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "phones.",
+      "clean_word": "phones",
+      "translation": "telefones / celulares",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "An",
+      "clean_word": "an",
+      "translation": "Um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "elderly",
+      "clean_word": "elderly",
+      "translation": "idoso",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "man",
+      "clean_word": "man",
+      "translation": "homem",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "wearing",
+      "clean_word": "wearing",
+      "translation": "vestindo / usando",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "dark",
+      "clean_word": "dark",
+      "translation": "escuro",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "coat",
+      "clean_word": "coat",
+      "translation": "casaco",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "notices",
+      "clean_word": "notices",
+      "translation": "nota",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "looking",
+      "clean_word": "looking",
+      "translation": "olhando",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "at",
+      "clean_word": "at",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "schedule.",
+      "clean_word": "schedule",
+      "translation": "quadro de horários / cronograma",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Are",
+      "clean_word": "are",
+      "translation": "Você vai",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "you",
+      "clean_word": "you",
+      "translation": "você",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "boarding",
+      "clean_word": "boarding",
+      "translation": "embarcar no",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "express",
+      "clean_word": "express",
+      "translation": "expresso",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "train?",
+      "clean_word": "train",
+      "translation": "trem",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "man",
+      "clean_word": "man",
+      "translation": "homem",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "asks",
+      "clean_word": "asks",
+      "translation": "pergunta",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "politely.",
+      "clean_word": "politely",
+      "translation": "educadamente",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "Yes,",
+      "clean_word": "yes",
+      "translation": "Sim",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "I",
+      "clean_word": "i",
+      "translation": "eu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "am",
+      "clean_word": "am",
+      "translation": "estou",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "heading",
+      "clean_word": "heading",
+      "translation": "indo em direção ao / rumando",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "north,",
+      "clean_word": "north",
+      "translation": "norte",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "answers.",
+      "clean_word": "answers",
+      "translation": "responde",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "It",
+      "clean_word": "it",
+      "translation": "Ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "usually",
+      "clean_word": "usually",
+      "translation": "geralmente / costuma",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "arrives",
+      "clean_word": "arrives",
+      "translation": "chegar",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "five",
+      "clean_word": "five",
+      "translation": "cinco",
+      "is_new": true,
+      "part_of_speech": "numeral"
+    },
+    {
+      "word": "minutes",
+      "clean_word": "minutes",
+      "translation": "minutos",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "early,",
+      "clean_word": "early",
+      "translation": "antes / adiantado",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "man",
+      "clean_word": "man",
+      "translation": "homem",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "explains",
+      "clean_word": "explains",
+      "translation": "explica",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "with",
+      "clean_word": "with",
+      "translation": "com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "friendly",
+      "clean_word": "friendly",
+      "translation": "amigável",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "smile.",
+      "clean_word": "smile",
+      "translation": "sorriso",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "You",
+      "clean_word": "you",
+      "translation": "Você",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "will",
+      "clean_word": "will",
+      "translation": "vai",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "hear",
+      "clean_word": "hear",
+      "translation": "ouvir",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "loud",
+      "clean_word": "loud",
+      "translation": "alto / sonoro",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "whistle",
+      "clean_word": "whistle",
+      "translation": "apito",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "soon.",
+      "clean_word": "soon",
+      "translation": "em breve",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "A",
+      "clean_word": "a",
+      "translation": "Um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "distant",
+      "clean_word": "distant",
+      "translation": "distante",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "engine",
+      "clean_word": "engine",
+      "translation": "de motor",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "sound",
+      "clean_word": "sound",
+      "translation": "som",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "echoes",
+      "clean_word": "echoes",
+      "translation": "ecoa",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "under",
+      "clean_word": "under",
+      "translation": "sob / debaixo de",
+      "is_new": true,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "roof.",
+      "clean_word": "roof",
+      "translation": "teto / cobertura",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "checks",
+      "clean_word": "checks",
+      "translation": "olha / confere",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "seu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "watch,",
+      "clean_word": "watch",
+      "translation": "relógio de pulso",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "adjusts",
+      "clean_word": "adjusts",
+      "translation": "ajusta",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "backpack,",
+      "clean_word": "backpack",
+      "translation": "mochila",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "steps",
+      "clean_word": "steps",
+      "translation": "dá passos / aproxima-se",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "closer",
+      "clean_word": "closer",
+      "translation": "mais perto",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "da",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "yellow",
+      "clean_word": "yellow",
+      "translation": "amarela",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "safety",
+      "clean_word": "safety",
+      "translation": "de segurança",
+      "is_new": true,
+      "part_of_speech": "substantivo / adjetivo"
+    },
+    {
+      "word": "line.",
+      "clean_word": "line",
+      "translation": "linha",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "O que o painel eletrônico na estação exibe?",
+      "options": [
+        "Os horários de partida e os números dos trens",
+        "O mapa da cidade e das montanhas",
+        "O cardápio do restaurante",
+        "O preço das passagens de ônibus"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 2,
+      "question": "What is the status of the train to North Peak on the board?",
+      "options": [
+        "On time",
+        "Delayed",
+        "Cancelled",
+        "Full"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 3,
+      "question": "What is the elderly man on the platform wearing?",
+      "options": [
+        "A dark coat",
+        "A green hat",
+        "A yellow safety vest",
+        "A blue jacket"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 4,
+      "question": "De acordo com o homem, quanto tempo antes o trem costuma chegar?",
+      "options": [
+        "Cinco minutos adiantado",
+        "Dez minutos adiantado",
+        "Vinte minutos atrasado",
+        "Exatamente na hora"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 5,
+      "question": "What sound echoes under the roof as the train approaches?",
+      "options": [
+        "A distant engine sound",
+        "A loud bell ringing",
+        "Music from a shop",
+        "Birds singing"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 6,
+      "question": "O que Paul faz ao ouvir o som do trem se aproximando?",
+      "options": [
+        "Confere o relógio e aproxima-se da linha amarela de segurança",
+        "Senta no banco de metal para ler",
+        "Corre de volta para a bilheteria",
+        "Pega sua garrafa de água"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 7,
+      "question": "Writing Practice: Write a short sentence in English about what Paul is waiting for on the platform.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "paul",
+        "waiting",
+        "train",
+        "platform",
+        "express"
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Writing Practice: Write a sentence in English using the words 'platform' and 'line'.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "platform",
+        "line",
+        "yellow",
+        "safety",
+        "train"
+      ]
+    }
+  ]
+}
