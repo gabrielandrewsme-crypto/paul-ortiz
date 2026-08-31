@@ -1,0 +1,227 @@
+{
+  "id": "great-commission-07",
+  "checkpoint": 7,
+  "title": "Abiding and Bearing Fruit",
+  "summary": "Paul conclui ensinando sobre a importância de permanecer conectado a Cristo diariamente para frutificar na missão.",
+  "audio_url": "/audios/great-commission-07.mp3",
+  "word_count_target": 140,
+  "story_en": "Believers must stay deeply connected to the tree to receive life and bear fruit. In the same way, Paul explains, we must stay deeply connected to God every single day.",
+  "interactive_text": [
+    {
+      "word": "must",
+      "clean_word": "must",
+      "translation": "deve",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "stay",
+      "clean_word": "stay",
+      "translation": "permanecer",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "deeply",
+      "clean_word": "deeply",
+      "translation": "profundamente",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "connected",
+      "clean_word": "connected",
+      "translation": "conectado / ligado",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "à",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "tree",
+      "clean_word": "tree",
+      "translation": "árvore",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "receive",
+      "clean_word": "receive",
+      "translation": "receber",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "life",
+      "clean_word": "life",
+      "translation": "vida",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "conjunção"
+    },
+    {
+      "word": "bear",
+      "clean_word": "bear",
+      "translation": "gerar / dar",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "fruit.",
+      "clean_word": "fruit",
+      "translation": "fruto",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "In",
+      "clean_word": "in",
+      "translation": "Da",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "mesma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "same",
+      "clean_word": "same",
+      "translation": "mesmo",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "way,",
+      "clean_word": "way",
+      "translation": "forma",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "explains,",
+      "clean_word": "explains",
+      "translation": "explica",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "we",
+      "clean_word": "we",
+      "translation": "nós",
+      "is_new": false,
+      "part_of_speech": "pronome"
+    },
+    {
+      "word": "must",
+      "clean_word": "must",
+      "translation": "devemos",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "stay",
+      "clean_word": "stay",
+      "translation": "permanecer",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "deeply",
+      "clean_word": "deeply",
+      "translation": "profundamente",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "connected",
+      "clean_word": "connected",
+      "translation": "conectado / ligado",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "God",
+      "clean_word": "god",
+      "translation": "Deus",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "every",
+      "clean_word": "every",
+      "translation": "cada / todo",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "single",
+      "clean_word": "single",
+      "translation": "único",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "day.",
+      "clean_word": "day",
+      "translation": "dia",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What must believers do to bear spiritual fruit according to Paul?",
+      "options": [
+        "Stay deeply connected to God every single day",
+        "Isolate themselves from others",
+        "Travel to new places without prayer",
+        "Focus only on material tasks"
+      ],
+      "correct_answer": 0
+    }
+  ]
+}

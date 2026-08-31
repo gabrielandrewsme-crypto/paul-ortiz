@@ -706,22 +706,53 @@ export default function DashboardClient() {
                   {trip.subtitle}
                 </p>
 
-                <div className="mt-3 flex items-center justify-between pt-2 border-t border-slate-800/80 text-xs">
-                  <span className="font-bold text-slate-400 flex items-center gap-1">
-                    {trip.books.length > 0 ? `${trip.books.length} minilivros` : 'Em desenvolvimento'}
-                  </span>
+                <div className="mt-3 pt-2 border-t border-slate-800/80 text-xs space-y-1.5">
+                  <div className="flex items-center justify-between">
+                    <span className="font-bold text-slate-400 flex items-center gap-1">
+                      {trip.books.length > 0 ? `${trip.books.length} minilivros` : 'Em desenvolvimento'}
+                    </span>
 
-                  {isSelected ? (
-                    <span className="text-sky-400 font-extrabold flex items-center gap-1">
-                      Trip Ativa <ChevronRight size={14} />
-                    </span>
-                  ) : trip.isAvailable ? (
-                    <span className="text-slate-400 hover:text-white font-bold flex items-center gap-1">
-                      Explorar <ChevronRight size={14} />
-                    </span>
-                  ) : (
-                    <span className="text-slate-500 font-bold">Roadmap</span>
-                  )}
+                    {isSelected ? (
+                      <span className="text-sky-400 font-extrabold flex items-center gap-1">
+                        Trip Ativa <ChevronRight size={14} />
+                      </span>
+                    ) : trip.isAvailable ? (
+                      <span className="text-slate-400 hover:text-white font-bold flex items-center gap-1">
+                        Explorar <ChevronRight size={14} />
+                      </span>
+                    ) : (
+                      <span className="text-slate-500 font-bold">Roadmap</span>
+                    )}
+                  </div>
+
+                  {trip.isAvailable && trip.books.length > 0 && (() => {
+                    const tripProg =
+                      trip.id === 'mountain-adventure'
+                        ? mountainProgress
+                        : trip.id === 'daily-life'
+                        ? dailyLifeProgress
+                        : trip.id === 'great-commission'
+                        ? gcProgress
+                        : null;
+                    const completedCount = tripProg?.completedBooks?.length || 0;
+                    const totalCount = trip.books.length;
+                    const percent = Math.min(100, Math.round((completedCount / totalCount) * 100));
+
+                    return (
+                      <div className="w-full space-y-1 pt-1">
+                        <div className="flex justify-between text-[10px] text-slate-400 font-bold">
+                          <span>Concluído: {completedCount}/{totalCount}</span>
+                          <span className="text-sky-400 font-extrabold">{percent}%</span>
+                        </div>
+                        <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                          <div
+                            className="h-full bg-gradient-to-r from-sky-400 to-emerald-400 transition-all duration-300"
+                            style={{ width: `${percent}%` }}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })()}
                 </div>
               </div>
             );

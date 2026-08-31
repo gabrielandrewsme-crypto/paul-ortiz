@@ -1,0 +1,1009 @@
+{
+  "id": "great-commission-02",
+  "checkpoint": 2,
+  "title": "Sharing Your Personal Story",
+  "summary": "Paul compartilha seu testemunho pessoal de perdão, transformação e restauração para mostrar como encontrou um propósito verdadeiro na vida.",
+  "audio_url": "/audios/great-commission-02.mp3",
+  "word_count_target": 140,
+  "story_en": "As the afternoon light softens, the young man asks Paul how he found such peace. Paul smiles warmly, recognizing the open door to give his personal testimony.\n\n“Years ago, my life felt empty and directionless,” Paul begins honestly. “I carried guilt and wounded relationships. But when I experienced God’s unconditional forgiveness, everything changed from the inside out.”\n\nHe explains how this spiritual encounter brought deep inner transformation. Old habits lost their power, and God’s grace began a complete restoration of his heart. Instead of chasing temporary success, he discovered a clear divine purpose for his future.\n\n“My life is now a living witness of His mercy,” Paul concludes with genuine conviction. The young man listens intently, realizing that the same healing and renewal are possible in his own life.",
+  "interactive_text": [
+    {
+      "word": "As",
+      "clean_word": "as",
+      "translation": "Conforme / À medida que",
+      "is_new": false,
+      "part_of_speech": "conjunção"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "afternoon",
+      "clean_word": "afternoon",
+      "translation": "da tarde",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "light",
+      "clean_word": "light",
+      "translation": "luz",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "softens,",
+      "clean_word": "softens",
+      "translation": "suaviza-se",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "young",
+      "clean_word": "young",
+      "translation": "jovem",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "man",
+      "clean_word": "man",
+      "translation": "homem",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "asks",
+      "clean_word": "asks",
+      "translation": "pergunta a",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "how",
+      "clean_word": "how",
+      "translation": "como",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "he",
+      "clean_word": "he",
+      "translation": "ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "found",
+      "clean_word": "found",
+      "translation": "encontrou",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "such",
+      "clean_word": "such",
+      "translation": "tamanha / tanta",
+      "is_new": false,
+      "part_of_speech": "determinante"
+    },
+    {
+      "word": "peace.",
+      "clean_word": "peace",
+      "translation": "paz",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "smiles",
+      "clean_word": "smiles",
+      "translation": "sorri",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "warmly,",
+      "clean_word": "warmly",
+      "translation": "calorosamente",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "recognizing",
+      "clean_word": "recognizing",
+      "translation": "reconhecendo",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "open",
+      "clean_word": "open",
+      "translation": "aberta",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "door",
+      "clean_word": "door",
+      "translation": "porta",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "give",
+      "clean_word": "give",
+      "translation": "dar",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "seu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "personal",
+      "clean_word": "personal",
+      "translation": "pessoal",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "testimony.",
+      "clean_word": "testimony",
+      "translation": "testemunho",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Years",
+      "clean_word": "years",
+      "translation": "Anos",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "ago,",
+      "clean_word": "ago",
+      "translation": "atrás",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "my",
+      "clean_word": "my",
+      "translation": "minha",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "life",
+      "clean_word": "life",
+      "translation": "vida",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "felt",
+      "clean_word": "felt",
+      "translation": "parecia / sentia-se",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "empty",
+      "clean_word": "empty",
+      "translation": "vazia",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "directionless,",
+      "clean_word": "directionless",
+      "translation": "sem direção / sem rumo",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "begins",
+      "clean_word": "begins",
+      "translation": "começa",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "honestly.",
+      "clean_word": "honestly",
+      "translation": "honestamente",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "I",
+      "clean_word": "i",
+      "translation": "Eu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "carried",
+      "clean_word": "carried",
+      "translation": "carregava",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "guilt",
+      "clean_word": "guilt",
+      "translation": "culpa",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "wounded",
+      "clean_word": "wounded",
+      "translation": "feridos / magoados",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "relationships.",
+      "clean_word": "relationships",
+      "translation": "relacionamentos",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "But",
+      "clean_word": "but",
+      "translation": "Mas",
+      "is_new": false,
+      "part_of_speech": "conjunção"
+    },
+    {
+      "word": "when",
+      "clean_word": "when",
+      "translation": "quando",
+      "is_new": false,
+      "part_of_speech": "conjunção"
+    },
+    {
+      "word": "I",
+      "clean_word": "i",
+      "translation": "eu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "experienced",
+      "clean_word": "experienced",
+      "translation": "experimentei",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "God’s",
+      "clean_word": "god’s",
+      "translation": "de Deus",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "unconditional",
+      "clean_word": "unconditional",
+      "translation": "incondicional",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "forgiveness,",
+      "clean_word": "forgiveness",
+      "translation": "perdão",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "everything",
+      "clean_word": "everything",
+      "translation": "tudo",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "changed",
+      "clean_word": "changed",
+      "translation": "mudou",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "from",
+      "clean_word": "from",
+      "translation": "de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "dentro",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "inside",
+      "clean_word": "inside",
+      "translation": "dentro",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "out.",
+      "clean_word": "out",
+      "translation": "para fora",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "He",
+      "clean_word": "he",
+      "translation": "Ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "explains",
+      "clean_word": "explains",
+      "translation": "explica",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "how",
+      "clean_word": "how",
+      "translation": "como",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "this",
+      "clean_word": "this",
+      "translation": "este",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "spiritual",
+      "clean_word": "spiritual",
+      "translation": "espiritual",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "encounter",
+      "clean_word": "encounter",
+      "translation": "encontro",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "brought",
+      "clean_word": "brought",
+      "translation": "trouxe",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "deep",
+      "clean_word": "deep",
+      "translation": "profunda",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "inner",
+      "clean_word": "inner",
+      "translation": "interior",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "transformation.",
+      "clean_word": "transformation",
+      "translation": "transformação",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Old",
+      "clean_word": "old",
+      "translation": "Velhos / antigos",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "habits",
+      "clean_word": "habits",
+      "translation": "hábitos",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "lost",
+      "clean_word": "lost",
+      "translation": "perderam",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "their",
+      "clean_word": "their",
+      "translation": "seu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "power,",
+      "clean_word": "power",
+      "translation": "poder",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "God’s",
+      "clean_word": "god’s",
+      "translation": "de Deus",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "grace",
+      "clean_word": "grace",
+      "translation": "a graça",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "began",
+      "clean_word": "began",
+      "translation": "iniciou / começou",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "complete",
+      "clean_word": "complete",
+      "translation": "completa",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "restoration",
+      "clean_word": "restoration",
+      "translation": "restauração",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "do",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "seu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "heart.",
+      "clean_word": "heart",
+      "translation": "coração",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Instead",
+      "clean_word": "instead",
+      "translation": "Em vez",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "chasing",
+      "clean_word": "chasing",
+      "translation": "perseguir / correr atrás de",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "temporary",
+      "clean_word": "temporary",
+      "translation": "temporário",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "success,",
+      "clean_word": "success",
+      "translation": "sucesso",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "he",
+      "clean_word": "he",
+      "translation": "ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "discovered",
+      "clean_word": "discovered",
+      "translation": "descobriu",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "clear",
+      "clean_word": "clear",
+      "translation": "claro",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "divine",
+      "clean_word": "divine",
+      "translation": "divino",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "purpose",
+      "clean_word": "purpose",
+      "translation": "propósito",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "for",
+      "clean_word": "for",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "seu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "future.",
+      "clean_word": "future",
+      "translation": "futuro",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "My",
+      "clean_word": "my",
+      "translation": "Minha",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "life",
+      "clean_word": "life",
+      "translation": "vida",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "is",
+      "clean_word": "is",
+      "translation": "é",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "now",
+      "clean_word": "now",
+      "translation": "agora",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "living",
+      "clean_word": "living",
+      "translation": "viva",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "witness",
+      "clean_word": "witness",
+      "translation": "testemunha",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "da",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "His",
+      "clean_word": "his",
+      "translation": "Sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "mercy,",
+      "clean_word": "mercy",
+      "translation": "misericórdia",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "concludes",
+      "clean_word": "concludes",
+      "translation": "conclui",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "with",
+      "clean_word": "with",
+      "translation": "com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "genuine",
+      "clean_word": "genuine",
+      "translation": "genuína / sincera",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "conviction.",
+      "clean_word": "conviction",
+      "translation": "convicção",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "The",
+      "clean_word": "the",
+      "translation": "O",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "young",
+      "clean_word": "young",
+      "translation": "jovem",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "man",
+      "clean_word": "man",
+      "translation": "homem",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "listens",
+      "clean_word": "listens",
+      "translation": "escuta",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "intently,",
+      "clean_word": "intently",
+      "translation": "atentamente",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "realizing",
+      "clean_word": "realizing",
+      "translation": "percebendo",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "that",
+      "clean_word": "that",
+      "translation": "que",
+      "is_new": false,
+      "part_of_speech": "conjunção"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "same",
+      "clean_word": "same",
+      "translation": "mesma",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "healing",
+      "clean_word": "healing",
+      "translation": "cura",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "renewal",
+      "clean_word": "renewal",
+      "translation": "renovação",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "are",
+      "clean_word": "are",
+      "translation": "são",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "possible",
+      "clean_word": "possible",
+      "translation": "possíveis",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "in",
+      "clean_word": "in",
+      "translation": "em",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "own",
+      "clean_word": "own",
+      "translation": "própria",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "life.",
+      "clean_word": "life",
+      "translation": "vida",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "O que o jovem pergunta a Paul no início da história?",
+      "options": [
+        "Como ele encontrou tamanha paz",
+        "Onde fica a estação mais próxima",
+        "Quanto custa um mapa",
+        "Como montar uma barraca"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 2,
+      "question": "What did Paul carry in his life before his transformation?",
+      "options": [
+        "Guilt and wounded relationships",
+        "Heavy luggage on a train",
+        "A list of mountain routes",
+        "A collection of ancient books"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 3,
+      "question": "What brought deep inner transformation to Paul's heart?",
+      "options": [
+        "Experiencing God's unconditional forgiveness",
+        "Buying new climbing gear",
+        "Reaching the highest mountain summit",
+        "Moving to a crowded city"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 4,
+      "question": "O que Paul descobriu para o seu futuro no lugar de correr atrás de sucesso temporário?",
+      "options": [
+        "Um claro propósito divino",
+        "Um novo trabalho na ferrovia",
+        "Uma loja de livros e mapas",
+        "Um acampamento permanente"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 5,
+      "question": "How does Paul describe his life today?",
+      "options": [
+        "A living witness of God's mercy",
+        "A quiet struggle with loneliness",
+        "A continuous business trip",
+        "A search for shelter"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 6,
+      "question": "O que o jovem percebe ao ouvir o testemunho de Paul?",
+      "options": [
+        "Que a mesma cura e renovação são possíveis em sua própria vida",
+        "Que ele precisa voltar para casa imediatamente",
+        "Que a viagem de trem é muito longa",
+        "Que ele deve comprar uma bússola nova"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 7,
+      "question": "Writing Practice: Write a short sentence in English about what Paul shares.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "paul",
+        "shares",
+        "testimony",
+        "story",
+        "forgiveness"
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Writing Practice: Write a sentence in English using the words 'purpose' and 'transformation'.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "purpose",
+        "transformation",
+        "life",
+        "god",
+        "brings"
+      ]
+    }
+  ]
+}

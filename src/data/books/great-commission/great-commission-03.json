@@ -1,0 +1,1059 @@
+{
+  "id": "great-commission-03",
+  "checkpoint": 3,
+  "title": "Grace, Faith and Redemption",
+  "summary": "Paul explica a mensagem central do Evangelho: como a graça imerecida de Deus, a redenção em Cristo e uma aliança de fé trazem reconciliação e salvação.",
+  "audio_url": "/audios/great-commission-03.mp3",
+  "word_count_target": 140,
+  "story_en": "The young man leans forward, eager to understand how forgiveness works. Paul opens a small pocket Bible to explain the message of hope clearly.\n\n“Salvation is not earned by our own good deeds,” Paul explains gently. “It is a free gift received purely by grace through genuine faith.”\n\nHe describes how human brokenness separated us from God, creating a need for true reconciliation. Through Christ’s sacrifice on the cross, full redemption was paid for our past, present, and future.\n\n“God offers an everlasting covenant built on his deep mercy,” Paul continues. “When we trust Him, our debt is completely cleared, and our relationship with the Father is restored.”\n\nTears well up in the listener's eyes as the weight of guilt lifts from his heart. For the first time, he understands the beauty of God’s redeeming love.",
+  "interactive_text": [
+    {
+      "word": "The",
+      "clean_word": "the",
+      "translation": "O",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "young",
+      "clean_word": "young",
+      "translation": "jovem",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "man",
+      "clean_word": "man",
+      "translation": "homem",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "leans",
+      "clean_word": "leans",
+      "translation": "inclina-se",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "forward,",
+      "clean_word": "forward",
+      "translation": "para a frente",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "eager",
+      "clean_word": "eager",
+      "translation": "ansioso / desejoso",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "understand",
+      "clean_word": "understand",
+      "translation": "entender / compreender",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "how",
+      "clean_word": "how",
+      "translation": "como",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "forgiveness",
+      "clean_word": "forgiveness",
+      "translation": "o perdão",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "works.",
+      "clean_word": "works",
+      "translation": "funciona",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "opens",
+      "clean_word": "opens",
+      "translation": "abre",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "small",
+      "clean_word": "small",
+      "translation": "pequena",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "pocket",
+      "clean_word": "pocket",
+      "translation": "de bolso",
+      "is_new": false,
+      "part_of_speech": "substantivo / adjetivo"
+    },
+    {
+      "word": "Bible",
+      "clean_word": "bible",
+      "translation": "Bíblia",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "explain",
+      "clean_word": "explain",
+      "translation": "explicar",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "message",
+      "clean_word": "message",
+      "translation": "mensagem",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "hope",
+      "clean_word": "hope",
+      "translation": "esperança",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "clearly.",
+      "clean_word": "clearly",
+      "translation": "claramente",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "Salvation",
+      "clean_word": "salvation",
+      "translation": "A salvação",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "is",
+      "clean_word": "is",
+      "translation": "é",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "not",
+      "clean_word": "not",
+      "translation": "não",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "earned",
+      "clean_word": "earned",
+      "translation": "conquistada / merecida",
+      "is_new": true,
+      "part_of_speech": "verbo / adjetivo"
+    },
+    {
+      "word": "by",
+      "clean_word": "by",
+      "translation": "por",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "our",
+      "clean_word": "our",
+      "translation": "nossas",
+      "is_new": true,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "own",
+      "clean_word": "own",
+      "translation": "próprias",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "good",
+      "clean_word": "good",
+      "translation": "boas",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "deeds,",
+      "clean_word": "deeds",
+      "translation": "obras / ações",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "explains",
+      "clean_word": "explains",
+      "translation": "explica",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "gently.",
+      "clean_word": "gently",
+      "translation": "gentilmente",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "It",
+      "clean_word": "it",
+      "translation": "Ela",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "is",
+      "clean_word": "is",
+      "translation": "é",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "free",
+      "clean_word": "free",
+      "translation": "gratuito",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "gift",
+      "clean_word": "gift",
+      "translation": "presente / dom",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "received",
+      "clean_word": "received",
+      "translation": "recebido",
+      "is_new": true,
+      "part_of_speech": "verbo / adjetivo"
+    },
+    {
+      "word": "purely",
+      "clean_word": "purely",
+      "translation": "puramente",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "by",
+      "clean_word": "by",
+      "translation": "pela",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "grace",
+      "clean_word": "grace",
+      "translation": "graça",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "through",
+      "clean_word": "through",
+      "translation": "por meio de / através de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "genuine",
+      "clean_word": "genuine",
+      "translation": "genuína / sincera",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "faith.",
+      "clean_word": "faith",
+      "translation": "fé",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "He",
+      "clean_word": "he",
+      "translation": "Ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "describes",
+      "clean_word": "describes",
+      "translation": "descreve",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "how",
+      "clean_word": "how",
+      "translation": "como",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "human",
+      "clean_word": "human",
+      "translation": "humana",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "brokenness",
+      "clean_word": "brokenness",
+      "translation": "fragilidade / corrupção",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "separated",
+      "clean_word": "separated",
+      "translation": "separou",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "us",
+      "clean_word": "us",
+      "translation": "nós",
+      "is_new": true,
+      "part_of_speech": "pronome"
+    },
+    {
+      "word": "from",
+      "clean_word": "from",
+      "translation": "de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "God,",
+      "clean_word": "god",
+      "translation": "Deus",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "creating",
+      "clean_word": "creating",
+      "translation": "criando",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "need",
+      "clean_word": "need",
+      "translation": "necessidade",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "for",
+      "clean_word": "for",
+      "translation": "de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "true",
+      "clean_word": "true",
+      "translation": "verdadeira",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "reconciliation.",
+      "clean_word": "reconciliation",
+      "translation": "reconciliação",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Through",
+      "clean_word": "through",
+      "translation": "Através do",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "Christ’s",
+      "clean_word": "christ’s",
+      "translation": "de Cristo",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "sacrifice",
+      "clean_word": "sacrifice",
+      "translation": "sacrifício",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "on",
+      "clean_word": "on",
+      "translation": "na",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "cross,",
+      "clean_word": "cross",
+      "translation": "cruz",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "full",
+      "clean_word": "full",
+      "translation": "completa",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "redemption",
+      "clean_word": "redemption",
+      "translation": "redenção",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "was",
+      "clean_word": "was",
+      "translation": "foi",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "paid",
+      "clean_word": "paid",
+      "translation": "paga",
+      "is_new": true,
+      "part_of_speech": "verbo / adjetivo"
+    },
+    {
+      "word": "for",
+      "clean_word": "for",
+      "translation": "por",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "our",
+      "clean_word": "our",
+      "translation": "nosso",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "past,",
+      "clean_word": "past",
+      "translation": "passado",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "present,",
+      "clean_word": "present",
+      "translation": "presente",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "future.",
+      "clean_word": "future",
+      "translation": "futuro",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "God",
+      "clean_word": "god",
+      "translation": "Deus",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "offers",
+      "clean_word": "offers",
+      "translation": "oferece",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "an",
+      "clean_word": "an",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "everlasting",
+      "clean_word": "everlasting",
+      "translation": "eterna",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "covenant",
+      "clean_word": "covenant",
+      "translation": "aliança",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "built",
+      "clean_word": "built",
+      "translation": "fundamentada / construída",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "on",
+      "clean_word": "on",
+      "translation": "em",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "Sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "deep",
+      "clean_word": "deep",
+      "translation": "profunda",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "mercy,",
+      "clean_word": "mercy",
+      "translation": "misericórdia",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "continues.",
+      "clean_word": "continues",
+      "translation": "continua",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "When",
+      "clean_word": "when",
+      "translation": "Quando",
+      "is_new": false,
+      "part_of_speech": "conjunção"
+    },
+    {
+      "word": "we",
+      "clean_word": "we",
+      "translation": "nós",
+      "is_new": false,
+      "part_of_speech": "pronome"
+    },
+    {
+      "word": "trust",
+      "clean_word": "trust",
+      "translation": "confiamos em",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "Him,",
+      "clean_word": "him",
+      "translation": "Ele",
+      "is_new": false,
+      "part_of_speech": "pronome"
+    },
+    {
+      "word": "our",
+      "clean_word": "our",
+      "translation": "nossa",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "debt",
+      "clean_word": "debt",
+      "translation": "dívida",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "is",
+      "clean_word": "is",
+      "translation": "é",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "completely",
+      "clean_word": "completely",
+      "translation": "completamente",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "cleared,",
+      "clean_word": "cleared",
+      "translation": "perdoada / cancelada",
+      "is_new": true,
+      "part_of_speech": "verbo / adjetivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "our",
+      "clean_word": "our",
+      "translation": "nosso",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "relationship",
+      "clean_word": "relationship",
+      "translation": "relacionamento",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "with",
+      "clean_word": "with",
+      "translation": "com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "Father",
+      "clean_word": "father",
+      "translation": "Pai",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "is",
+      "clean_word": "is",
+      "translation": "é",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "restored.",
+      "clean_word": "restored",
+      "translation": "restaurado",
+      "is_new": true,
+      "part_of_speech": "verbo / adjetivo"
+    },
+    {
+      "word": "Tears",
+      "clean_word": "tears",
+      "translation": "Lágrimas",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "well",
+      "clean_word": "well",
+      "translation": "enchem-se",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "up",
+      "clean_word": "up",
+      "translation": "enchem-se",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "in",
+      "clean_word": "in",
+      "translation": "nos",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "os",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "listener's",
+      "clean_word": "listener's",
+      "translation": "do ouvinte",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "eyes",
+      "clean_word": "eyes",
+      "translation": "olhos",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "as",
+      "clean_word": "as",
+      "translation": "conforme",
+      "is_new": false,
+      "part_of_speech": "conjunção"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "weight",
+      "clean_word": "weight",
+      "translation": "peso",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "da",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "guilt",
+      "clean_word": "guilt",
+      "translation": "culpa",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "lifts",
+      "clean_word": "lifts",
+      "translation": "dissipa-se / sai",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "from",
+      "clean_word": "from",
+      "translation": "do",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "seu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "heart.",
+      "clean_word": "heart",
+      "translation": "coração",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "For",
+      "clean_word": "for",
+      "translation": "Pela",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "first",
+      "clean_word": "first",
+      "translation": "primeira",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "time,",
+      "clean_word": "time",
+      "translation": "vez",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "he",
+      "clean_word": "he",
+      "translation": "ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "understands",
+      "clean_word": "understands",
+      "translation": "compreende",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "beauty",
+      "clean_word": "beauty",
+      "translation": "beleza",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "do",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "God’s",
+      "clean_word": "god’s",
+      "translation": "de Deus",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "redeeming",
+      "clean_word": "redeeming",
+      "translation": "redentor",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "love.",
+      "clean_word": "love",
+      "translation": "amor",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Como a salvação é alcançada de acordo com a explicação de Paul?",
+      "options": [
+        "Como um dom gratuito recebido pela graça através da fé",
+        "Através de boas obras e riqueza pessoal",
+        "Comprando livros e mapas sagrados",
+        "Subindo a montanha mais alta"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 2,
+      "question": "What created the human need for reconciliation with God?",
+      "options": [
+        "Human brokenness separating people from God",
+        "A lack of food and water in the valley",
+        "The stormy weather in the city",
+        "Losing a compass on the trail"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 3,
+      "question": "What paid for full redemption according to Paul?",
+      "options": [
+        "Christ's sacrifice on the cross",
+        "A large financial donation",
+        "Daily hard work in the city",
+        "A long physical journey"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 4,
+      "question": "Em que está fundamentada a aliança eterna oferecida por Deus?",
+      "options": [
+        "Em Sua profunda misericórdia",
+        "Em regras rígidas da cidade",
+        "Em contratos temporários",
+        "No silêncio das montanhas"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 5,
+      "question": "What happens when someone places their trust in God?",
+      "options": [
+        "Their debt is cleared and their relationship with the Father is restored",
+        "They receive a new ticket to North Peak",
+        "They no longer need to study or work",
+        "They forget all their past friends"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 6,
+      "question": "O que o ouvinte sente saindo do seu coração ao final da conversa?",
+      "options": [
+        "O peso da culpa se dissipa",
+        "Um cansaço físico extremo",
+        "Uma dúvida sobre o futuro",
+        "Vontade de ficar sozinho"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 7,
+      "question": "Writing Practice: Write a short sentence in English about how salvation is received.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "salvation",
+        "grace",
+        "faith",
+        "gift",
+        "god"
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Writing Practice: Write a sentence in English using the words 'redemption' and 'covenant'.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "redemption",
+        "covenant",
+        "god",
+        "mercy",
+        "offers"
+      ]
+    }
+  ]
+}

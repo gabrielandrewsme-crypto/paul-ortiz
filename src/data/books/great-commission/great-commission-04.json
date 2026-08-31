@@ -1,0 +1,1001 @@
+{
+  "id": "great-commission-04",
+  "checkpoint": 4,
+  "title": "Praying for Others and Welcoming Them",
+  "summary": "Paul estende um convite caloroso ao jovem, oferece oração de intercessão por cura emocional e o acolhe em uma comunidade de comunhão e hospitalidade.",
+  "audio_url": "/audios/great-commission-04.mp3",
+  "word_count_target": 140,
+  "story_en": "Seeing peace return to the young man’s face, Paul gently places a hand on his shoulder. “Would you like me to pray for you right now?” Paul asks with care.\n\nThe young man nods gratefully. Paul bows his head in sincere intercession, asking God to bring emotional healing, deep comfort, and spiritual renewal into his new friend's heart. He speaks a blessing of divine peace and strength over his daily life.\n\nAfter their prayer, Paul invites him to join a small fellowship gathering of believers. “We share meals, read scripture, and practice open hospitality,” Paul explains. “You will find a safe family where people support each other through every trial.”\n\nFeeling the warmth of genuine community, the man accepts the invitation, knowing he has found a spiritual home.",
+  "interactive_text": [
+    {
+      "word": "Seeing",
+      "clean_word": "seeing",
+      "translation": "Vendo",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "peace",
+      "clean_word": "peace",
+      "translation": "a paz",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "return",
+      "clean_word": "return",
+      "translation": "retornar / voltar",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "ao",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "young",
+      "clean_word": "young",
+      "translation": "jovem",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "man’s",
+      "clean_word": "man’s",
+      "translation": "do homem",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "face,",
+      "clean_word": "face",
+      "translation": "rosto",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "gently",
+      "clean_word": "gently",
+      "translation": "gentilmente",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "places",
+      "clean_word": "places",
+      "translation": "coloca",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "hand",
+      "clean_word": "hand",
+      "translation": "mão",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "on",
+      "clean_word": "on",
+      "translation": "no",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "seu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "shoulder.",
+      "clean_word": "shoulder",
+      "translation": "ombro",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Would",
+      "clean_word": "would",
+      "translation": "Gostaria",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "you",
+      "clean_word": "you",
+      "translation": "você",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "like",
+      "clean_word": "like",
+      "translation": "que",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "me",
+      "clean_word": "me",
+      "translation": "eu",
+      "is_new": true,
+      "part_of_speech": "pronome"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "orasse",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "pray",
+      "clean_word": "pray",
+      "translation": "orar / rezar",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "for",
+      "clean_word": "for",
+      "translation": "por",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "you",
+      "clean_word": "you",
+      "translation": "você",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "right",
+      "clean_word": "right",
+      "translation": "agora",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "now?",
+      "clean_word": "now",
+      "translation": "mesmo",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "asks",
+      "clean_word": "asks",
+      "translation": "pergunta",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "with",
+      "clean_word": "with",
+      "translation": "com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "care.",
+      "clean_word": "care",
+      "translation": "cuidado / carinho",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "The",
+      "clean_word": "the",
+      "translation": "O",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "young",
+      "clean_word": "young",
+      "translation": "jovem",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "man",
+      "clean_word": "man",
+      "translation": "homem",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "nods",
+      "clean_word": "nods",
+      "translation": "acena com a cabeça",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "gratefully.",
+      "clean_word": "gratefully",
+      "translation": "agradecidamente",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "bows",
+      "clean_word": "bows",
+      "translation": "inclina / abaixa",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "head",
+      "clean_word": "head",
+      "translation": "cabeça",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "in",
+      "clean_word": "in",
+      "translation": "em",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "sincere",
+      "clean_word": "sincere",
+      "translation": "sincera",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "intercession,",
+      "clean_word": "intercession",
+      "translation": "intercessão",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "asking",
+      "clean_word": "asking",
+      "translation": "pedindo a",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "God",
+      "clean_word": "god",
+      "translation": "Deus",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "bring",
+      "clean_word": "bring",
+      "translation": "trazer",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "emotional",
+      "clean_word": "emotional",
+      "translation": "emocional",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "healing,",
+      "clean_word": "healing",
+      "translation": "cura",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "deep",
+      "clean_word": "deep",
+      "translation": "profundo",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "comfort,",
+      "clean_word": "comfort",
+      "translation": "conforto / consolo",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "spiritual",
+      "clean_word": "spiritual",
+      "translation": "espiritual",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "renewal",
+      "clean_word": "renewal",
+      "translation": "renovação",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "into",
+      "clean_word": "into",
+      "translation": "ao",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "seu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "new",
+      "clean_word": "new",
+      "translation": "novo",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "friend's",
+      "clean_word": "friend's",
+      "translation": "amigo",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "heart.",
+      "clean_word": "heart",
+      "translation": "coração",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "He",
+      "clean_word": "he",
+      "translation": "Ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "speaks",
+      "clean_word": "speaks",
+      "translation": "profere / fala",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "blessing",
+      "clean_word": "blessing",
+      "translation": "bênção",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "divine",
+      "clean_word": "divine",
+      "translation": "divina",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "peace",
+      "clean_word": "peace",
+      "translation": "paz",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "strength",
+      "clean_word": "strength",
+      "translation": "força",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "over",
+      "clean_word": "over",
+      "translation": "sobre",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "daily",
+      "clean_word": "daily",
+      "translation": "diária",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "life.",
+      "clean_word": "life",
+      "translation": "vida",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "After",
+      "clean_word": "after",
+      "translation": "Após / depois de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "their",
+      "clean_word": "their",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "prayer,",
+      "clean_word": "prayer",
+      "translation": "oração",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "invites",
+      "clean_word": "invites",
+      "translation": "convida",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "him",
+      "clean_word": "him",
+      "translation": "ele / o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "join",
+      "clean_word": "join",
+      "translation": "participar de / juntar-se a",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "small",
+      "clean_word": "small",
+      "translation": "pequeno",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "fellowship",
+      "clean_word": "fellowship",
+      "translation": "de comunhão / comunidade",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "gathering",
+      "clean_word": "gathering",
+      "translation": "encontro / reunião",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "believers.",
+      "clean_word": "believers",
+      "translation": "irmãos / crentes",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "We",
+      "clean_word": "we",
+      "translation": "Nós",
+      "is_new": false,
+      "part_of_speech": "pronome"
+    },
+    {
+      "word": "share",
+      "clean_word": "share",
+      "translation": "compartilhamos",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "meals,",
+      "clean_word": "meals",
+      "translation": "refeições",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "read",
+      "clean_word": "read",
+      "translation": "lemos",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "scripture,",
+      "clean_word": "scripture",
+      "translation": "a escritura / Palavra",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "practice",
+      "clean_word": "practice",
+      "translation": "praticamos",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "open",
+      "clean_word": "open",
+      "translation": "aberta",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "hospitality,",
+      "clean_word": "hospitality",
+      "translation": "hospitalidade",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "explains.",
+      "clean_word": "explains",
+      "translation": "explica",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "You",
+      "clean_word": "you",
+      "translation": "Você",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "will",
+      "clean_word": "will",
+      "translation": "vai",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "find",
+      "clean_word": "find",
+      "translation": "encontrar",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "safe",
+      "clean_word": "safe",
+      "translation": "segura",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "family",
+      "clean_word": "family",
+      "translation": "família",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "where",
+      "clean_word": "where",
+      "translation": "onde",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "people",
+      "clean_word": "people",
+      "translation": "as pessoas",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "support",
+      "clean_word": "support",
+      "translation": "apoiam / ajudam",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "each",
+      "clean_word": "each",
+      "translation": "uns",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "other",
+      "clean_word": "other",
+      "translation": "aos outros",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "through",
+      "clean_word": "through",
+      "translation": "em / através de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "every",
+      "clean_word": "every",
+      "translation": "cada",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "trial.",
+      "clean_word": "trial",
+      "translation": "prova / tribulação",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Feeling",
+      "clean_word": "feeling",
+      "translation": "Sentindo",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "warmth",
+      "clean_word": "warmth",
+      "translation": "calor / carinho",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "de uma",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "genuine",
+      "clean_word": "genuine",
+      "translation": "genuína / verdadeira",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "community,",
+      "clean_word": "community",
+      "translation": "comunidade",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "man",
+      "clean_word": "man",
+      "translation": "homem",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "accepts",
+      "clean_word": "accepts",
+      "translation": "aceita",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "invitation,",
+      "clean_word": "invitation",
+      "translation": "convite",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "knowing",
+      "clean_word": "knowing",
+      "translation": "sabendo",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "he",
+      "clean_word": "he",
+      "translation": "ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "has",
+      "clean_word": "has",
+      "translation": "tem / havia",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "found",
+      "clean_word": "found",
+      "translation": "encontrado",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "spiritual",
+      "clean_word": "spiritual",
+      "translation": "espiritual",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "home.",
+      "clean_word": "home",
+      "translation": "lar / casa",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "O que Paul pede permissão para fazer logo após a conversa?",
+      "options": [
+        "Orar pelo jovem naquele mesmo momento",
+        "Tirar uma foto na praça",
+        "Comprar uma xícara de café para viagem",
+        "Anotar o endereço da estação de trem"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 2,
+      "question": "What does Paul ask God to bring into his friend's heart during intercession?",
+      "options": [
+        "Emotional healing, deep comfort, and spiritual renewal",
+        "A large sum of money and worldly success",
+        "A quick journey back to the mountains",
+        "A new tent for the camp"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 3,
+      "question": "What kind of blessing does Paul speak over the young man?",
+      "options": [
+        "A blessing of divine peace and strength",
+        "A blessing of good weather for hiking",
+        "A blessing of cheap travel tickets",
+        "A blessing of silent solitude"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 4,
+      "question": "Para onde Paul convida o jovem após a oração?",
+      "options": [
+        "Para um pequeno encontro de comunhão e hospitalidade entre irmãos",
+        "Para a biblioteca pública da cidade",
+        "Para o guichê de passagens da estação",
+        "Para uma caminhada sozinho na floresta"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 5,
+      "question": "How does Paul describe the fellowship community?",
+      "options": [
+        "A safe family where people support each other through every trial",
+        "A place only for experienced climbers",
+        "A quiet office with strict rules",
+        "A temporary stop for travelers"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 6,
+      "question": "O que o jovem percebe ao aceitar o convite de Paul?",
+      "options": [
+        "Que encontrou um verdadeiro lar espiritual",
+        "Que precisa comprar roupas novas",
+        "Que deve voltar para o acampamento base",
+        "Que a praça está muito barulhenta"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 7,
+      "question": "Writing Practice: Write a short sentence in English about what Paul does for the man.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "paul",
+        "prays",
+        "intercession",
+        "comfort",
+        "healing"
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Writing Practice: Write a sentence in English using the words 'fellowship' and 'hospitality'.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "fellowship",
+        "hospitality",
+        "community",
+        "share",
+        "welcoming"
+      ]
+    }
+  ]
+}

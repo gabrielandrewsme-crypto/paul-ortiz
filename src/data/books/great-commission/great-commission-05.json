@@ -1,0 +1,1023 @@
+{
+  "id": "great-commission-05",
+  "checkpoint": 5,
+  "title": "Discipleship and Practical Steps",
+  "summary": "Paul orienta seu novo irmão na fé sobre os passos práticos do discipulado: leitura diária das escrituras, vida devocional, mentoria e perseverança rumo à maturidade espiritual.",
+  "audio_url": "/audios/great-commission-05.mp3",
+  "word_count_target": 140,
+  "story_en": "Over a warm meal, Paul explains that salvation is the beginning of a lifelong journey of discipleship. “Growing in faith requires daily spiritual nourishment,” Paul shares warmly.\n\nHe gives the young man a study journal and recommends establishing a consistent devotional routine. He encourages him to read the sacred scripture every morning, allowing God’s truth to guide his thoughts and decisions.\n\n“Christian maturity does not happen overnight,” Paul teaches. “It is developed through patient perseverance, prayer, and honest mentorship.”\n\nPaul commits to meeting with him weekly to answer questions, pray together, and offer guidance through life's challenges.\n\nWith a grateful heart and clear direction, the young disciple stands up. No longer lost or weighed down by guilt, he takes his first firm steps in a transformed life of faith and purpose.",
+  "interactive_text": [
+    {
+      "word": "Over",
+      "clean_word": "over",
+      "translation": "Durante / sobre",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "warm",
+      "clean_word": "warm",
+      "translation": "quente",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "meal,",
+      "clean_word": "meal",
+      "translation": "refeição",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "explains",
+      "clean_word": "explains",
+      "translation": "explica",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "that",
+      "clean_word": "that",
+      "translation": "que",
+      "is_new": false,
+      "part_of_speech": "conjunção"
+    },
+    {
+      "word": "salvation",
+      "clean_word": "salvation",
+      "translation": "a salvação",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "is",
+      "clean_word": "is",
+      "translation": "é",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "beginning",
+      "clean_word": "beginning",
+      "translation": "começo / início",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "lifelong",
+      "clean_word": "lifelong",
+      "translation": "para a vida toda",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "journey",
+      "clean_word": "journey",
+      "translation": "jornada",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "discipleship.",
+      "clean_word": "discipleship",
+      "translation": "discipulado",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Growing",
+      "clean_word": "growing",
+      "translation": "Crescer",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "in",
+      "clean_word": "in",
+      "translation": "na",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "faith",
+      "clean_word": "faith",
+      "translation": "fé",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "requires",
+      "clean_word": "requires",
+      "translation": "requer / exige",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "daily",
+      "clean_word": "daily",
+      "translation": "diário",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "spiritual",
+      "clean_word": "spiritual",
+      "translation": "espiritual",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "nourishment,",
+      "clean_word": "nourishment",
+      "translation": "alimento / nutrição",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "shares",
+      "clean_word": "shares",
+      "translation": "compartilha",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "warmly.",
+      "clean_word": "warmly",
+      "translation": "calorosamente",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "He",
+      "clean_word": "he",
+      "translation": "Ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "gives",
+      "clean_word": "gives",
+      "translation": "dá / entrega",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "ao",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "young",
+      "clean_word": "young",
+      "translation": "jovem",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "man",
+      "clean_word": "man",
+      "translation": "homem",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "study",
+      "clean_word": "study",
+      "translation": "de estudos",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "journal",
+      "clean_word": "journal",
+      "translation": "diário / caderno",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "recommends",
+      "clean_word": "recommends",
+      "translation": "recomenda",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "establishing",
+      "clean_word": "establishing",
+      "translation": "estabelecer",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "consistent",
+      "clean_word": "consistent",
+      "translation": "constante / consistente",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "devotional",
+      "clean_word": "devotional",
+      "translation": "devocional",
+      "is_new": true,
+      "part_of_speech": "adjetivo / substantivo"
+    },
+    {
+      "word": "routine.",
+      "clean_word": "routine",
+      "translation": "rotina",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "He",
+      "clean_word": "he",
+      "translation": "Ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "encourages",
+      "clean_word": "encourages",
+      "translation": "incentiva / encoraja",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "him",
+      "clean_word": "him",
+      "translation": "ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "read",
+      "clean_word": "read",
+      "translation": "ler",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "sacred",
+      "clean_word": "sacred",
+      "translation": "sagrada",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "scripture",
+      "clean_word": "scripture",
+      "translation": "escritura",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "every",
+      "clean_word": "every",
+      "translation": "toda",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "morning,",
+      "clean_word": "morning",
+      "translation": "manhã",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "allowing",
+      "clean_word": "allowing",
+      "translation": "permitindo que",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "God’s",
+      "clean_word": "god’s",
+      "translation": "de Deus",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "truth",
+      "clean_word": "truth",
+      "translation": "a verdade",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "guide",
+      "clean_word": "guide",
+      "translation": "guiar",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "seus",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "thoughts",
+      "clean_word": "thoughts",
+      "translation": "pensamentos",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "decisions.",
+      "clean_word": "decisions",
+      "translation": "decisões",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Christian",
+      "clean_word": "christian",
+      "translation": "A cristã",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "maturity",
+      "clean_word": "maturity",
+      "translation": "maturidade",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "does",
+      "clean_word": "does",
+      "translation": "não",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "not",
+      "clean_word": "not",
+      "translation": "acontece",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "happen",
+      "clean_word": "happen",
+      "translation": "acontecer",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "overnight,",
+      "clean_word": "overnight",
+      "translation": "da noite para o dia",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "teaches.",
+      "clean_word": "teaches",
+      "translation": "ensina",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "It",
+      "clean_word": "it",
+      "translation": "Ela",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "is",
+      "clean_word": "is",
+      "translation": "é",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "developed",
+      "clean_word": "developed",
+      "translation": "desenvolvida",
+      "is_new": true,
+      "part_of_speech": "verbo / adjetivo"
+    },
+    {
+      "word": "through",
+      "clean_word": "through",
+      "translation": "através de / por meio de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "patient",
+      "clean_word": "patient",
+      "translation": "paciente",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "perseverance,",
+      "clean_word": "perseverance",
+      "translation": "perseverança",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "prayer,",
+      "clean_word": "prayer",
+      "translation": "oração",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "honest",
+      "clean_word": "honest",
+      "translation": "honesta / sincera",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "mentorship.",
+      "clean_word": "mentorship",
+      "translation": "mentoria",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "commits",
+      "clean_word": "commits",
+      "translation": "compromete-se",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "meeting",
+      "clean_word": "meeting",
+      "translation": "encontrar",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "with",
+      "clean_word": "with",
+      "translation": "com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "him",
+      "clean_word": "him",
+      "translation": "ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "weekly",
+      "clean_word": "weekly",
+      "translation": "semanalmente",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "para",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "answer",
+      "clean_word": "answer",
+      "translation": "responder a",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "questions,",
+      "clean_word": "questions",
+      "translation": "perguntas",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "pray",
+      "clean_word": "pray",
+      "translation": "orar",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "together,",
+      "clean_word": "together",
+      "translation": "juntos",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "offer",
+      "clean_word": "offer",
+      "translation": "oferecer",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "guidance",
+      "clean_word": "guidance",
+      "translation": "orientação / direção",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "through",
+      "clean_word": "through",
+      "translation": "em meio a",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "life's",
+      "clean_word": "life's",
+      "translation": "da vida",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "challenges.",
+      "clean_word": "challenges",
+      "translation": "desafios",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "With",
+      "clean_word": "with",
+      "translation": "Com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "grateful",
+      "clean_word": "grateful",
+      "translation": "grato",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "heart",
+      "clean_word": "heart",
+      "translation": "coração",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "clear",
+      "clean_word": "clear",
+      "translation": "clara",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "direction,",
+      "clean_word": "direction",
+      "translation": "direção",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "young",
+      "clean_word": "young",
+      "translation": "jovem",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "disciple",
+      "clean_word": "disciple",
+      "translation": "discípulo",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "stands",
+      "clean_word": "stands",
+      "translation": "levanta-se",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "up.",
+      "clean_word": "up",
+      "translation": "em pé",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "No",
+      "clean_word": "no",
+      "translation": "Não",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "longer",
+      "clean_word": "longer",
+      "translation": "mais",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "lost",
+      "clean_word": "lost",
+      "translation": "perdido",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "or",
+      "clean_word": "or",
+      "translation": "ou",
+      "is_new": false,
+      "part_of_speech": "conjunção"
+    },
+    {
+      "word": "weighed",
+      "clean_word": "weighed",
+      "translation": "sobrecarregado",
+      "is_new": true,
+      "part_of_speech": "adjetivo / verbo"
+    },
+    {
+      "word": "down",
+      "clean_word": "down",
+      "translation": "para baixo",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "by",
+      "clean_word": "by",
+      "translation": "pela",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "guilt,",
+      "clean_word": "guilt",
+      "translation": "culpa",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "he",
+      "clean_word": "he",
+      "translation": "ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "takes",
+      "clean_word": "takes",
+      "translation": "dá",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "seus",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "first",
+      "clean_word": "first",
+      "translation": "primeiros",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "firm",
+      "clean_word": "firm",
+      "translation": "firmes",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "steps",
+      "clean_word": "steps",
+      "translation": "passos",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "in",
+      "clean_word": "in",
+      "translation": "em",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "transformed",
+      "clean_word": "transformed",
+      "translation": "transformada",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "life",
+      "clean_word": "life",
+      "translation": "vida",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "faith",
+      "clean_word": "faith",
+      "translation": "fé",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "purpose.",
+      "clean_word": "purpose",
+      "translation": "propósito",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "O que Paul entrega ao jovem para ajudá-lo na jornada de discipulado?",
+      "options": [
+        "Um diário de estudos",
+        "Uma bússola de montanha",
+        "Uma passagem de trem",
+        "Uma mochila de viagem"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 2,
+      "question": "What practical routine does Paul recommend establishing every morning?",
+      "options": [
+        "Reading the sacred scripture in a consistent devotional routine",
+        "Running in the public square",
+        "Cleaning the campfire area",
+        "Buying fresh food at the market"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 3,
+      "question": "How does Christian maturity develop according to Paul?",
+      "options": [
+        "Through patient perseverance, prayer, and honest mentorship",
+        "Overnight without effort",
+        "Only by traveling to high mountains",
+        "By avoiding conversations with others"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 4,
+      "question": "Qual compromisso Paul assume semanalmente com o novo discípulo?",
+      "options": [
+        "Encontrar-se para responder dúvidas, orar juntos e oferecer mentoria",
+        "Comprar livros de mapas na estação",
+        "Viajar para outra cidade de trem",
+        "Trabalhar no restaurante local"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 5,
+      "question": "How does the young disciple feel as he stands up at the end?",
+      "options": [
+        "With a grateful heart, clear direction, and no longer weighed down by guilt",
+        "Confused about which train to take",
+        "Tired and wanting to sleep in the park",
+        "Worried about the upcoming weather"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 6,
+      "question": "O que a salvação representa na vida de um cristão, segundo Paul?",
+      "options": [
+        "O início de uma jornada contínua de discipulado",
+        "O fim de todo o aprendizado",
+        "Uma regra temporária",
+        "Um evento que não muda a rotina"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 7,
+      "question": "Writing Practice: Write a short sentence in English about what the disciple reads daily.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "disciple",
+        "reads",
+        "scripture",
+        "morning",
+        "devotional"
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Writing Practice: Write a sentence in English using the words 'discipleship' and 'maturity'.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "discipleship",
+        "maturity",
+        "faith",
+        "perseverance",
+        "mentorship"
+      ]
+    }
+  ]
+}

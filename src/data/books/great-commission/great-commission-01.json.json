@@ -1,0 +1,1042 @@
+{
+  "id": "great-commission-01",
+  "checkpoint": 1,
+  "title": "Connecting and Breaking the Ice",
+  "summary": "Paul percebe um jovem viajante cansado em uma praça, aproxima-se com gentileza e pratica uma escuta atenta para ajudá-lo com seu fardo emocional.",
+  "audio_url": "/audios/great-commission-01.mp3",
+  "word_count_target": 140,
+  "story_en": "Paul sits in a quiet public square and notices a tired young man holding his head in his hands. Sensing his quiet struggle, Paul decides to approach him with a calm smile.\n\n“Good afternoon,” Paul says softly. “May I sit beside you?”\n\nThe man looks up, surprised by such genuine kindness. “Sure,” he replies with a sigh.\n\nPaul chooses an attitude of deep empathy. Instead of giving quick answers, he practices patient listening as the stranger begins to share his story. The man speaks about the heavy burden he carries in his daily life and the loneliness he feels in the crowded city.\n\nWith gentle encouragement, Paul speaks words of hope. “You do not have to walk through this alone,” Paul says warmly. The stranger smiles for the first time, feeling understood and supported.",
+  "interactive_text": [
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "sits",
+      "clean_word": "sits",
+      "translation": "senta",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "in",
+      "clean_word": "in",
+      "translation": "em",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "quiet",
+      "clean_word": "quiet",
+      "translation": "tranquila",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "public",
+      "clean_word": "public",
+      "translation": "pública",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "square",
+      "clean_word": "square",
+      "translation": "praça",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "notices",
+      "clean_word": "notices",
+      "translation": "nota / percebe",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "tired",
+      "clean_word": "tired",
+      "translation": "cansado",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "young",
+      "clean_word": "young",
+      "translation": "jovem",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "man",
+      "clean_word": "man",
+      "translation": "homem",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "holding",
+      "clean_word": "holding",
+      "translation": "segurando / apoiando",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "head",
+      "clean_word": "head",
+      "translation": "cabeça",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "in",
+      "clean_word": "in",
+      "translation": "nas",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "suas",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "hands.",
+      "clean_word": "hands",
+      "translation": "mãos",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Sensing",
+      "clean_word": "sensing",
+      "translation": "Sentindo / percebendo",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "quiet",
+      "clean_word": "quiet",
+      "translation": "silenciosa",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "struggle,",
+      "clean_word": "struggle",
+      "translation": "luta / angústia",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "decides",
+      "clean_word": "decides",
+      "translation": "decide",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "approach",
+      "clean_word": "approach",
+      "translation": "aproximar-se de / abordar",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "him",
+      "clean_word": "him",
+      "translation": "dele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "with",
+      "clean_word": "with",
+      "translation": "com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "calm",
+      "clean_word": "calm",
+      "translation": "calmo",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "smile.",
+      "clean_word": "smile",
+      "translation": "sorriso",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Good",
+      "clean_word": "good",
+      "translation": "Boa",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "afternoon,",
+      "clean_word": "afternoon",
+      "translation": "tarde",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "says",
+      "clean_word": "says",
+      "translation": "diz",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "softly.",
+      "clean_word": "softly",
+      "translation": "suavemente",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "May",
+      "clean_word": "may",
+      "translation": "Posso",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "I",
+      "clean_word": "i",
+      "translation": "eu",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "sit",
+      "clean_word": "sit",
+      "translation": "sentar",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "beside",
+      "clean_word": "beside",
+      "translation": "ao lado de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "you?",
+      "clean_word": "you",
+      "translation": "você",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "The",
+      "clean_word": "the",
+      "translation": "O",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "man",
+      "clean_word": "man",
+      "translation": "homem",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "looks",
+      "clean_word": "looks",
+      "translation": "olha para cima",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "up,",
+      "clean_word": "up",
+      "translation": "para cima",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "surprised",
+      "clean_word": "surprised",
+      "translation": "surpreso",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "by",
+      "clean_word": "by",
+      "translation": "por",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "such",
+      "clean_word": "such",
+      "translation": "tamanha / tal",
+      "is_new": true,
+      "part_of_speech": "determinante"
+    },
+    {
+      "word": "genuine",
+      "clean_word": "genuine",
+      "translation": "genuína / sincera",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "kindness.",
+      "clean_word": "kindness",
+      "translation": "gentileza / bondade",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Sure,",
+      "clean_word": "sure",
+      "translation": "Claro",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "he",
+      "clean_word": "he",
+      "translation": "ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "replies",
+      "clean_word": "replies",
+      "translation": "responde",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "with",
+      "clean_word": "with",
+      "translation": "com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "sigh.",
+      "clean_word": "sigh",
+      "translation": "suspiro",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "chooses",
+      "clean_word": "chooses",
+      "translation": "escolhe",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "an",
+      "clean_word": "an",
+      "translation": "uma",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "attitude",
+      "clean_word": "attitude",
+      "translation": "postura / atitude",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "deep",
+      "clean_word": "deep",
+      "translation": "profunda",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "empathy.",
+      "clean_word": "empathy",
+      "translation": "empatia",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Instead",
+      "clean_word": "instead",
+      "translation": "Em vez",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "giving",
+      "clean_word": "giving",
+      "translation": "dar",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "quick",
+      "clean_word": "quick",
+      "translation": "rápidas",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "answers,",
+      "clean_word": "answers",
+      "translation": "respostas",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "he",
+      "clean_word": "he",
+      "translation": "ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "practices",
+      "clean_word": "practices",
+      "translation": "pratica",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "patient",
+      "clean_word": "patient",
+      "translation": "paciente",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "listening",
+      "clean_word": "listening",
+      "translation": "escuta",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "as",
+      "clean_word": "as",
+      "translation": "conforme",
+      "is_new": false,
+      "part_of_speech": "conjunção"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "stranger",
+      "clean_word": "stranger",
+      "translation": "estranho / desconhecido",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "begins",
+      "clean_word": "begins",
+      "translation": "começa",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "share",
+      "clean_word": "share",
+      "translation": "compartilhar",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "story.",
+      "clean_word": "story",
+      "translation": "história",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "The",
+      "clean_word": "the",
+      "translation": "O",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "man",
+      "clean_word": "man",
+      "translation": "homem",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "speaks",
+      "clean_word": "speaks",
+      "translation": "fala",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "about",
+      "clean_word": "about",
+      "translation": "sobre",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "heavy",
+      "clean_word": "heavy",
+      "translation": "pesado",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "burden",
+      "clean_word": "burden",
+      "translation": "fardo / peso",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "he",
+      "clean_word": "he",
+      "translation": "ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "carries",
+      "clean_word": "carries",
+      "translation": "carrega",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "in",
+      "clean_word": "in",
+      "translation": "em",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "daily",
+      "clean_word": "daily",
+      "translation": "diária",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "life",
+      "clean_word": "life",
+      "translation": "vida",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "loneliness",
+      "clean_word": "loneliness",
+      "translation": "solidão",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "he",
+      "clean_word": "he",
+      "translation": "ele",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "feels",
+      "clean_word": "feels",
+      "translation": "sente",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "in",
+      "clean_word": "in",
+      "translation": "na",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "crowded",
+      "clean_word": "crowded",
+      "translation": "lotada / movimentada",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "city.",
+      "clean_word": "city",
+      "translation": "cidade",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "With",
+      "clean_word": "with",
+      "translation": "Com",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "gentle",
+      "clean_word": "gentle",
+      "translation": "gentil",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "encouragement,",
+      "clean_word": "encouragement",
+      "translation": "encorajamento / ânimo",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "speaks",
+      "clean_word": "speaks",
+      "translation": "fala",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "words",
+      "clean_word": "words",
+      "translation": "palavras",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "de",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "hope.",
+      "clean_word": "hope",
+      "translation": "esperança",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "You",
+      "clean_word": "you",
+      "translation": "Você",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "do",
+      "clean_word": "do",
+      "translation": "não",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "not",
+      "clean_word": "not",
+      "translation": "precisa",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "have",
+      "clean_word": "have",
+      "translation": "ter",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "que",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "walk",
+      "clean_word": "walk",
+      "translation": "caminhar",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "through",
+      "clean_word": "through",
+      "translation": "por",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "this",
+      "clean_word": "this",
+      "translation": "isso",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "alone,",
+      "clean_word": "alone",
+      "translation": "sozinho",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "says",
+      "clean_word": "says",
+      "translation": "diz",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "warmly.",
+      "clean_word": "warmly",
+      "translation": "calorosamente",
+      "is_new": false,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "The",
+      "clean_word": "the",
+      "translation": "O",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "stranger",
+      "clean_word": "stranger",
+      "translation": "estranho",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "smiles",
+      "clean_word": "smiles",
+      "translation": "sorri",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "for",
+      "clean_word": "for",
+      "translation": "pela",
+      "is_new": false,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "first",
+      "clean_word": "first",
+      "translation": "primeira",
+      "is_new": false,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "time,",
+      "clean_word": "time",
+      "translation": "vez",
+      "is_new": false,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "feeling",
+      "clean_word": "feeling",
+      "translation": "sentindo-se",
+      "is_new": false,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "understood",
+      "clean_word": "understood",
+      "translation": "compreendido",
+      "is_new": true,
+      "part_of_speech": "adjetivo / verbo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false,
+      "part_of_speech": "pronome/determinante"
+    },
+    {
+      "word": "supported.",
+      "clean_word": "supported",
+      "translation": "apoiado",
+      "is_new": true,
+      "part_of_speech": "adjetivo / verbo"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Como Paul aborda o jovem cansado na praça?",
+      "options": [
+        "Com um sorriso calmo e gentileza sincera",
+        "Oferecendo um mapa da montanha",
+        "Pedindo dinheiro emprestado",
+        "Fazendo perguntas rápidas e duras"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 2,
+      "question": "What does the young man talk about during their conversation?",
+      "options": [
+        "The heavy burden he carries in his daily life and his loneliness",
+        "His plans to buy a train ticket",
+        "The weather forecast in the valley",
+        "How to pitch a tent"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 3,
+      "question": "What attitude does Paul choose instead of giving quick answers?",
+      "options": [
+        "Deep empathy and patient listening",
+        "Silence and indifference",
+        "Debating and arguing",
+        "Reading a book"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 4,
+      "question": "Que tipo de palavras Paul dirige ao jovem?",
+      "options": [
+        "Palavras de esperança e encorajamento",
+        "Palavras sobre regras do acampamento",
+        "Palavras de aviso sobre o vento",
+        "Palavras sobre preços de passagens"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 5,
+      "question": "How does the stranger feel at the end of the conversation?",
+      "options": [
+        "Understood and supported",
+        "Confused and afraid",
+        "Tired and hungry",
+        "Anxious to leave"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 6,
+      "question": "O que Paul afirma para acolher o estranho?",
+      "options": [
+        "Que ele não precisa passar por aquilo sozinho",
+        "Que a viagem é muito longa",
+        "Que ele deve comprar uma mochila nova",
+        "Que a cidade é perigosa"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 7,
+      "question": "Writing Practice: Write a short sentence in English about what Paul listens to.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "paul",
+        "listens",
+        "story",
+        "man",
+        "burden"
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Writing Practice: Write a sentence in English using the words 'empathy' and 'kindness'.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "empathy",
+        "kindness",
+        "paul",
+        "shows",
+        "speaks"
+      ]
+    }
+  ]
+}
