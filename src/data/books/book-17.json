@@ -1,0 +1,954 @@
+{
+  "id": "book-17",
+  "checkpoint": 17,
+  "title": "The First Conversation",
+  "summary": "Paul chega a uma pequena cafeteria, pede algo para beber e começa uma conversa simples com outra pessoa.",
+  "audio_url": "/audios/book-17.mp3",
+  "word_count_target": 150,
+  "story_en": "Paul walks down the street and sees a small cafe. He opens the door and looks around. A woman is sitting at a table near the window. Paul walks to the counter and asks for a coffee. The man behind the counter smiles and asks if he wants anything to eat. Paul says he is not hungry, but he wants some water too. He takes his coffee and sits at a table. After a few minutes, the woman looks at him and smiles. She asks if the seat is free. Paul says yes and moves his bag. She sits down and asks where he is going. Paul tells her about his trip. They talk for a while, and Paul feels happy because his first conversation of the day is easy and natural.",
+  "interactive_text": [
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "walks",
+      "clean_word": "walks",
+      "translation": "caminha",
+      "is_new": false
+    },
+    {
+      "word": "down",
+      "clean_word": "down",
+      "translation": "pela / para baixo",
+      "is_new": true,
+      "part_of_speech": "preposição/advérbio"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o/a",
+      "is_new": false
+    },
+    {
+      "word": "street",
+      "clean_word": "street",
+      "translation": "rua",
+      "is_new": false
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false
+    },
+    {
+      "word": "sees",
+      "clean_word": "sees",
+      "translation": "vê",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false
+    },
+    {
+      "word": "small",
+      "clean_word": "small",
+      "translation": "pequena",
+      "is_new": false
+    },
+    {
+      "word": "cafe.",
+      "clean_word": "cafe",
+      "translation": "cafeteria",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "He",
+      "clean_word": "he",
+      "translation": "ele",
+      "is_new": false
+    },
+    {
+      "word": "opens",
+      "clean_word": "opens",
+      "translation": "abre",
+      "is_new": false
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false
+    },
+    {
+      "word": "door",
+      "clean_word": "door",
+      "translation": "porta",
+      "is_new": false
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false
+    },
+    {
+      "word": "looks",
+      "clean_word": "looks",
+      "translation": "olha",
+      "is_new": false
+    },
+    {
+      "word": "around.",
+      "clean_word": "around",
+      "translation": "ao redor",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "A",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false
+    },
+    {
+      "word": "woman",
+      "clean_word": "woman",
+      "translation": "mulher",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "is",
+      "clean_word": "is",
+      "translation": "está/é",
+      "is_new": false
+    },
+    {
+      "word": "sitting",
+      "clean_word": "sitting",
+      "translation": "sentada",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "at",
+      "clean_word": "at",
+      "translation": "em",
+      "is_new": false
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false
+    },
+    {
+      "word": "table",
+      "clean_word": "table",
+      "translation": "mesa",
+      "is_new": false
+    },
+    {
+      "word": "near",
+      "clean_word": "near",
+      "translation": "perto de",
+      "is_new": false
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false
+    },
+    {
+      "word": "window.",
+      "clean_word": "window",
+      "translation": "janela",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "walks",
+      "clean_word": "walks",
+      "translation": "caminha",
+      "is_new": false
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "para",
+      "is_new": false
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false
+    },
+    {
+      "word": "counter",
+      "clean_word": "counter",
+      "translation": "balcão",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false
+    },
+    {
+      "word": "asks",
+      "clean_word": "asks",
+      "translation": "pergunta/pede",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "for",
+      "clean_word": "for",
+      "translation": "por/para",
+      "is_new": false
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um",
+      "is_new": false
+    },
+    {
+      "word": "coffee.",
+      "clean_word": "coffee",
+      "translation": "café",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "The",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false
+    },
+    {
+      "word": "man",
+      "clean_word": "man",
+      "translation": "homem",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "behind",
+      "clean_word": "behind",
+      "translation": "atrás de",
+      "is_new": true,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false
+    },
+    {
+      "word": "counter",
+      "clean_word": "counter",
+      "translation": "balcão",
+      "is_new": false
+    },
+    {
+      "word": "smiles",
+      "clean_word": "smiles",
+      "translation": "sorri",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false
+    },
+    {
+      "word": "asks",
+      "clean_word": "asks",
+      "translation": "pergunta",
+      "is_new": false
+    },
+    {
+      "word": "if",
+      "clean_word": "if",
+      "translation": "se",
+      "is_new": true,
+      "part_of_speech": "conjunção"
+    },
+    {
+      "word": "he",
+      "clean_word": "he",
+      "translation": "ele",
+      "is_new": false
+    },
+    {
+      "word": "wants",
+      "clean_word": "wants",
+      "translation": "quer",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "anything",
+      "clean_word": "anything",
+      "translation": "alguma coisa",
+      "is_new": true,
+      "part_of_speech": "pronome"
+    },
+    {
+      "word": "to",
+      "clean_word": "to",
+      "translation": "para",
+      "is_new": false
+    },
+    {
+      "word": "eat.",
+      "clean_word": "eat",
+      "translation": "comer",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "says",
+      "clean_word": "says",
+      "translation": "diz",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "he",
+      "clean_word": "he",
+      "translation": "ele",
+      "is_new": false
+    },
+    {
+      "word": "is",
+      "clean_word": "is",
+      "translation": "está/é",
+      "is_new": false
+    },
+    {
+      "word": "not",
+      "clean_word": "not",
+      "translation": "não",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "hungry,",
+      "clean_word": "hungry",
+      "translation": "com fome",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "but",
+      "clean_word": "but",
+      "translation": "mas",
+      "is_new": true,
+      "part_of_speech": "conjunção"
+    },
+    {
+      "word": "he",
+      "clean_word": "he",
+      "translation": "ele",
+      "is_new": false
+    },
+    {
+      "word": "wants",
+      "clean_word": "wants",
+      "translation": "quer",
+      "is_new": false
+    },
+    {
+      "word": "some",
+      "clean_word": "some",
+      "translation": "um pouco de/algum",
+      "is_new": true,
+      "part_of_speech": "determinante"
+    },
+    {
+      "word": "water",
+      "clean_word": "water",
+      "translation": "água",
+      "is_new": false
+    },
+    {
+      "word": "too.",
+      "clean_word": "too",
+      "translation": "também",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "He",
+      "clean_word": "he",
+      "translation": "ele",
+      "is_new": false
+    },
+    {
+      "word": "takes",
+      "clean_word": "takes",
+      "translation": "pega",
+      "is_new": false
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "seu",
+      "is_new": false
+    },
+    {
+      "word": "coffee",
+      "clean_word": "coffee",
+      "translation": "café",
+      "is_new": false
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false
+    },
+    {
+      "word": "sits",
+      "clean_word": "sits",
+      "translation": "senta",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "at",
+      "clean_word": "at",
+      "translation": "em",
+      "is_new": false
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "uma",
+      "is_new": false
+    },
+    {
+      "word": "table.",
+      "clean_word": "table",
+      "translation": "mesa",
+      "is_new": false
+    },
+    {
+      "word": "After",
+      "clean_word": "after",
+      "translation": "depois de",
+      "is_new": true,
+      "part_of_speech": "preposição/conjunção"
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "alguns/uma",
+      "is_new": false
+    },
+    {
+      "word": "few",
+      "clean_word": "few",
+      "translation": "poucos",
+      "is_new": true,
+      "part_of_speech": "determinante"
+    },
+    {
+      "word": "minutes,",
+      "clean_word": "minutes",
+      "translation": "minutos",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "a",
+      "is_new": false
+    },
+    {
+      "word": "woman",
+      "clean_word": "woman",
+      "translation": "mulher",
+      "is_new": false
+    },
+    {
+      "word": "looks",
+      "clean_word": "looks",
+      "translation": "olha",
+      "is_new": false
+    },
+    {
+      "word": "at",
+      "clean_word": "at",
+      "translation": "para",
+      "is_new": false
+    },
+    {
+      "word": "him",
+      "clean_word": "him",
+      "translation": "ele/o",
+      "is_new": true,
+      "part_of_speech": "pronome"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false
+    },
+    {
+      "word": "smiles.",
+      "clean_word": "smiles",
+      "translation": "sorri",
+      "is_new": false
+    },
+    {
+      "word": "She",
+      "clean_word": "she",
+      "translation": "ela",
+      "is_new": true,
+      "part_of_speech": "pronome"
+    },
+    {
+      "word": "asks",
+      "clean_word": "asks",
+      "translation": "pergunta",
+      "is_new": false
+    },
+    {
+      "word": "if",
+      "clean_word": "if",
+      "translation": "se",
+      "is_new": false
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false
+    },
+    {
+      "word": "seat",
+      "clean_word": "seat",
+      "translation": "assento/lugar",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "is",
+      "clean_word": "is",
+      "translation": "está/é",
+      "is_new": false
+    },
+    {
+      "word": "free.",
+      "clean_word": "free",
+      "translation": "livre",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "says",
+      "clean_word": "says",
+      "translation": "diz",
+      "is_new": false
+    },
+    {
+      "word": "yes",
+      "clean_word": "yes",
+      "translation": "sim",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false
+    },
+    {
+      "word": "moves",
+      "clean_word": "moves",
+      "translation": "move",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false
+    },
+    {
+      "word": "bag.",
+      "clean_word": "bag",
+      "translation": "bolsa/mochila",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "She",
+      "clean_word": "she",
+      "translation": "ela",
+      "is_new": false
+    },
+    {
+      "word": "sits",
+      "clean_word": "sits",
+      "translation": "senta",
+      "is_new": false
+    },
+    {
+      "word": "down",
+      "clean_word": "down",
+      "translation": "para baixo",
+      "is_new": false
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false
+    },
+    {
+      "word": "asks",
+      "clean_word": "asks",
+      "translation": "pergunta",
+      "is_new": false
+    },
+    {
+      "word": "where",
+      "clean_word": "where",
+      "translation": "onde",
+      "is_new": true,
+      "part_of_speech": "advérbio"
+    },
+    {
+      "word": "he",
+      "clean_word": "he",
+      "translation": "ele",
+      "is_new": false
+    },
+    {
+      "word": "is",
+      "clean_word": "is",
+      "translation": "está/é",
+      "is_new": false
+    },
+    {
+      "word": "going.",
+      "clean_word": "going",
+      "translation": "indo",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "tells",
+      "clean_word": "tells",
+      "translation": "conta/diz",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "her",
+      "clean_word": "her",
+      "translation": "a ela/dela",
+      "is_new": true,
+      "part_of_speech": "pronome"
+    },
+    {
+      "word": "about",
+      "clean_word": "about",
+      "translation": "sobre",
+      "is_new": true,
+      "part_of_speech": "preposição"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false
+    },
+    {
+      "word": "trip.",
+      "clean_word": "trip",
+      "translation": "viagem/jornada",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "They",
+      "clean_word": "they",
+      "translation": "eles",
+      "is_new": true,
+      "part_of_speech": "pronome"
+    },
+    {
+      "word": "talk",
+      "clean_word": "talk",
+      "translation": "conversam",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "for",
+      "clean_word": "for",
+      "translation": "por/durante",
+      "is_new": false
+    },
+    {
+      "word": "a",
+      "clean_word": "a",
+      "translation": "um/uma",
+      "is_new": false
+    },
+    {
+      "word": "while,",
+      "clean_word": "while",
+      "translation": "enquanto / um tempo",
+      "is_new": true,
+      "part_of_speech": "conjunção/substantivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false
+    },
+    {
+      "word": "Paul",
+      "clean_word": "paul",
+      "translation": "Paul",
+      "is_new": false
+    },
+    {
+      "word": "feels",
+      "clean_word": "feels",
+      "translation": "sente",
+      "is_new": true,
+      "part_of_speech": "verbo"
+    },
+    {
+      "word": "happy",
+      "clean_word": "happy",
+      "translation": "feliz",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "because",
+      "clean_word": "because",
+      "translation": "porque",
+      "is_new": true,
+      "part_of_speech": "conjunção"
+    },
+    {
+      "word": "his",
+      "clean_word": "his",
+      "translation": "sua",
+      "is_new": false
+    },
+    {
+      "word": "first",
+      "clean_word": "first",
+      "translation": "primeira",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "conversation",
+      "clean_word": "conversation",
+      "translation": "conversa",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "of",
+      "clean_word": "of",
+      "translation": "do",
+      "is_new": false
+    },
+    {
+      "word": "the",
+      "clean_word": "the",
+      "translation": "o",
+      "is_new": false
+    },
+    {
+      "word": "day",
+      "clean_word": "day",
+      "translation": "dia",
+      "is_new": true,
+      "part_of_speech": "substantivo"
+    },
+    {
+      "word": "is",
+      "clean_word": "is",
+      "translation": "é",
+      "is_new": false
+    },
+    {
+      "word": "easy",
+      "clean_word": "easy",
+      "translation": "fácil",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    },
+    {
+      "word": "and",
+      "clean_word": "and",
+      "translation": "e",
+      "is_new": false
+    },
+    {
+      "word": "natural.",
+      "clean_word": "natural",
+      "translation": "natural",
+      "is_new": true,
+      "part_of_speech": "adjetivo"
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "Onde Paul entra no começo da história?",
+      "options": [
+        "Em uma biblioteca",
+        "Em uma pequena cafeteria",
+        "Em um hotel",
+        "Em uma estação"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "id": 2,
+      "question": "O que Paul pede no balcão?",
+      "options": [
+        "Um café e água",
+        "Um sanduíche e suco",
+        "Chá e pão",
+        "Água e sopa"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 3,
+      "question": "O que a mulher pergunta a Paul?",
+      "options": [
+        "Quanto custa o café",
+        "Se o lugar está livre",
+        "Onde fica a estação",
+        "Se ele quer comer"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "id": 4,
+      "question": "Where does the woman sit?",
+      "options": [
+        "At Paul's table",
+        "Near the door",
+        "At the counter",
+        "Outside the cafe"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 5,
+      "question": "What does the woman ask Paul about?",
+      "options": [
+        "His trip",
+        "His house",
+        "His coffee",
+        "His dog"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 6,
+      "question": "How does Paul feel after the conversation?",
+      "options": [
+        "Happy",
+        "Angry",
+        "Afraid",
+        "Tired"
+      ],
+      "correct_answer": 0,
+      "type": "multiple_choice"
+    },
+    {
+      "id": 7,
+      "question": "Writing Practice: Write a short sentence in English saying what Paul orders at the cafe.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "coffee",
+        "water",
+        "paul",
+        "asks",
+        "wants"
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Writing Practice: Write a short sentence in English about Paul's first conversation of the day.",
+      "options": [],
+      "correct_answer": 0,
+      "type": "open_writing",
+      "expected_keywords": [
+        "conversation",
+        "easy",
+        "natural",
+        "happy",
+        "paul",
+        "day"
+      ]
+    }
+  ]
+}

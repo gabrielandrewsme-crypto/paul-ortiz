@@ -51,6 +51,7 @@ import WelcomeOnboardingModal from '@/src/components/WelcomeOnboardingModal';
 import TutorialModal from '@/src/components/TutorialModal';
 import BookCompletionModal from '@/src/components/BookCompletionModal';
 import PodcastModal from '@/src/components/PodcastModal';
+import MountainMap from '@/src/components/MountainMap';
 
 interface CheckpointCoord {
   id: number;
@@ -735,151 +736,19 @@ export default function DashboardClient() {
         </div>
       </div>
 
-      {/* CENTRAL MOUNTAIN STAGE */}
-      <div className="mountain-stage">
-        <svg viewBox="0 0 1000 560" className="mountain-svg">
-          <defs>
-            <linearGradient id="mountainGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#4f75a6" />
-              <stop offset="50%" stopColor="#3b5a82" />
-              <stop offset="100%" stopColor="#2c4566" />
-            </linearGradient>
-
-            <linearGradient id="mountainFacet" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#2e486b" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#1e324c" stopOpacity="0.9" />
-            </linearGradient>
-
-            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="6" result="blur" />
-              <feComposite in="SourceGraphic" in2="blur" operator="over" />
-            </filter>
-          </defs>
-
-          <path
-            d="M 120 540 Q 320 280 500 120 Q 680 280 880 540 Z"
-            fill="url(#mountainGrad)"
-          />
-
-          <path
-            d="M 500 120 Q 600 300 880 540 L 500 540 Z"
-            fill="url(#mountainFacet)"
-          />
-          <path
-            d="M 500 120 Q 420 260 380 540 L 500 540 Z"
-            fill="#345277"
-            opacity="0.4"
-          />
-
-          <path
-            d="M 500 120 L 460 185 Q 480 200 500 190 Q 520 205 540 185 Z"
-            fill="#ffffff"
-          />
-          <path
-            d="M 460 185 Q 475 210 490 195 Q 510 215 540 185 L 500 120 Z"
-            fill="#f1f5f9"
-            opacity="0.9"
-          />
-
-          {/* Trilha de subida em ziguezague */}
-          <path
-            d={pathD}
-            fill="none"
-            stroke="#ffffff"
-            strokeWidth="3.5"
-            strokeDasharray="6 6"
-            strokeLinecap="round"
-            opacity="0.75"
-          />
-
-          {/* Avatar no Checkpoint ativo */}
-          <g transform={climberTransform}>
-            {userAvatarConfig ? (
-              <AvatarRenderer config={userAvatarConfig} size={50} overrideBgColor="transparent" />
-            ) : (
-              <g>
-                <circle cx="0" cy="0" r="8" fill="none" stroke="#1e293b" strokeWidth="2.2" />
-                <circle cx="-2" cy="-2" r="1" fill="#1e293b" />
-                <circle cx="3" cy="-2" r="1" fill="#1e293b" />
-                <line x1="0" y1="8" x2="4" y2="25" stroke="#1e293b" strokeWidth="2.2" />
-              </g>
-            )}
-          </g>
-
-          {/* Checkpoints da Montanha com Regra de Bloqueio Sequencial Otimizados por Coleção */}
-          {activeCoords.map((cp) => {
-            const isActive = cp.id === activeCheckpoint;
-            const isSequentialUnlocked =
-              cp.id === 1 ||
-              freeMode ||
-              activeProgress.completedBooks.includes(cp.id - 1) ||
-              cp.id <= activeProgress.unlockedLevel ||
-              isSuperAdminUser;
-            const isPlanLocked = cp.id > 1 && !isPlusUser;
-            const isLocked = !isSequentialUnlocked || isPlanLocked;
-            const nodeTransform = getNodeTransform(cp.x, cp.y);
-
-            return (
-              <g 
-                key={cp.id} 
-                transform={nodeTransform}
-                className={isActive ? 'checkpoint-node active' : 'checkpoint-node'}
-                onClick={() => handleCheckpointClick(cp.id)}
-                style={{ cursor: isLocked ? 'not-allowed' : 'pointer' }}
-              >
-                {cp.hasFlag && (
-                  <g transform="translate(6, -26)">
-                    <line x1="0" y1="0" x2="0" y2="16" stroke="#b91c1c" strokeWidth="2" />
-                    <polygon points="0,0 12,4 0,9" fill="#ef4444" />
-                  </g>
-                )}
-
-                {isActive && (
-                  <circle
-                    cx="0"
-                    cy="0"
-                    r="20"
-                    fill="none"
-                    stroke="#ffffff"
-                    strokeWidth="3"
-                    className="active-pulse-ring"
-                  />
-                )}
-
-                {isActive && (
-                  <circle
-                    cx="0"
-                    cy="0"
-                    r="16"
-                    fill="none"
-                    stroke="#4a90e2"
-                    strokeWidth="3.5"
-                    filter="url(#glow)"
-                  />
-                )}
-
-                <circle
-                  cx="0"
-                  cy="0"
-                  r="13"
-                  className="checkpoint-circle"
-                  style={{ fill: isLocked ? '#64748b' : '#ffffff' }}
-                />
-
-                {isLocked ? (
-                  <g transform="translate(-6, -6)">
-                    <Lock size={12} color="#ffffff" />
-                  </g>
-                ) : (
-                  <text className="checkpoint-text">
-                    {cp.id}
-                  </text>
-                )}
-              </g>
-            );
-          })}
-        </svg>
-      </div>
+      {/* CENTRAL MOUNTAIN STAGE COM DESIGN VISUAL DINÂMICO POR TRIP */}
+      <MountainMap
+        tripId={activeTripId}
+        currentCheckpoint={activeCheckpoint}
+        totalCheckpoints={activeTrip.books.length || 1}
+        completedCheckpoints={activeProgress.completedBooks}
+        unlockedLevel={activeProgress.unlockedLevel}
+        isPlusUser={isPlusUser}
+        isSuperAdminUser={isSuperAdminUser}
+        freeMode={freeMode}
+        userAvatarConfig={userAvatarConfig}
+        onSelectCheckpoint={(cp) => handleCheckpointClick(cp)}
+      />
 
       {/* CARD DE COMUNIDADE & PRÁTICA DE CONVERSAÇÃO NO WHATSAPP */}
       <div className="w-full max-w-md sm:max-w-none mx-auto bg-gradient-to-r from-emerald-950/90 via-slate-900 to-slate-950 border border-emerald-500/30 rounded-3xl p-4 sm:p-5 mb-6 shadow-xl relative overflow-hidden flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
