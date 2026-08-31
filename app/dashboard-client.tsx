@@ -35,10 +35,15 @@ import {
   LogOut,
   Radio,
   Headphones,
-  MessageCircle
+  MessageCircle,
+  Compass,
+  Coffee,
+  Globe,
+  Briefcase
 } from 'lucide-react';
 import { allBooks, BookData, QuizQuestion } from '@/src/data/books';
 import { greatCommissionBooks, GreatCommissionBook } from '@/src/data/books/great-commission';
+import { allTrips, getTripById } from '@/src/data/trips';
 import AvatarRenderer, { AvatarConfig } from '@/src/components/AvatarRenderer';
 import UpgradeModal from '@/src/components/UpgradeModal';
 import InteractiveBookReader from '@/src/components/InteractiveBookReader';
@@ -111,7 +116,7 @@ export default function DashboardClient() {
     learnedWordsCount: 0,
   });
 
-  const [activeTab, setActiveTab] = useState<'main' | 'great_commission'>('main');
+  const [activeTripId, setActiveTripId] = useState<string>('mountain-adventure');
   const [activeCheckpoint, setActiveCheckpoint] = useState<number>(1);
   const [userRole, setUserRole] = useState<'USER' | 'MANAGER' | 'ADMIN'>('USER');
   const [userAvatarConfig, setUserAvatarConfig] = useState<AvatarConfig | null>(null);
@@ -194,13 +199,13 @@ export default function DashboardClient() {
     setIsMounted(true);
   }, []);
 
-  // Progresso da aba ativa no momento
-  const activeProgress = activeTab === 'main' ? mountainProgress : gcProgress;
-  const maxCheckpoints = activeTab === 'main' ? 16 : 5;
+  // Progresso da Trip ativa no momento
+  const activeProgress = activeTripId === 'mountain-adventure' ? mountainProgress : gcProgress;
+  const maxCheckpoints = activeTripId === 'mountain-adventure' ? 16 : 5;
 
-  // Salva o progresso na coleção correspondente
+  // Salva o progresso na Trip correspondente
   const saveProgress = (newProgress: BookProgress) => {
-    if (activeTab === 'main') {
+    if (activeTripId === 'mountain-adventure') {
       setMountainProgress(newProgress);
       localStorage.setItem('@antigravity:progress_mountain', JSON.stringify(newProgress));
       localStorage.setItem('@antigravity:progress', JSON.stringify(newProgress));
@@ -353,31 +358,30 @@ export default function DashboardClient() {
     userRole === 'MANAGER' || 
     (userData?.isSubscribed === true && userData?.subscriptionStatus === 'ACTIVE');
 
-  // Alternar abas com isolamento total de dados e checkpoints
-  const handleTabChange = (tab: 'main' | 'great_commission') => {
-    if (tab === 'great_commission' && !isPlusUser) {
+  // Alternar TRIPS com isolamento total de dados, progresso e checkpoints
+  const activeTrip = getTripById(activeTripId);
+
+  const handleTripChange = (tripId: string) => {
+    if (tripId === 'great-commission' && !isPlusUser) {
       setUpgradeSource('checkpoint_click');
       setIsUpgradeModalOpen(true);
       return;
     }
-    setActiveTab(tab);
-    const targetProg = tab === 'main' ? mountainProgress : gcProgress;
-    const maxLvl = tab === 'main' ? 16 : 5;
+    setActiveTripId(tripId);
+    const targetProg = tripId === 'mountain-adventure' ? mountainProgress : gcProgress;
+    const maxLvl = tripId === 'mountain-adventure' ? 16 : 5;
     setActiveCheckpoint(Math.min(maxLvl, Math.max(1, targetProg.unlockedLevel)));
     setCurrentStep(1);
     setOutputSentences(['', '', '']);
     setOutputSubmitted(false);
   };
 
-  // Coordenadas dinâmicas da trilha baseadas na coleção ativa (16 para Montanha, 5 para Great Commission)
-  const activeCoords = activeTab === 'main' ? CHECKPOINT_COORDS : CHECKPOINT_COORDS.slice(0, 5);
+  // Coordenadas dinâmicas da trilha baseadas na Trip ativa
+  const activeCoords = activeTripId === 'mountain-adventure' ? CHECKPOINT_COORDS : CHECKPOINT_COORDS.slice(0, 5);
   const pathD = buildPathD(activeCoords);
 
-  // Coleção de livros isolada da aba ativa
-  const currentBookList: BookData[] = activeTab === 'main'
-    ? allBooks
-    : (greatCommissionBooks as unknown as BookData[]);
-
+  // Coleção de livros isolada da Trip ativa
+  const currentBookList: BookData[] = activeTrip.books && activeTrip.books.length > 0 ? activeTrip.books : allBooks;
   const currentBook: BookData = currentBookList.find(b => b.checkpoint === activeCheckpoint) || currentBookList[0];
   const activeCoord = activeCoords.find(c => c.id === activeCheckpoint) || activeCoords[0];
   const wordsLearned = (mountainProgress.learnedWordsCount || 0) + (gcProgress.learnedWordsCount || 0);
@@ -399,7 +403,7 @@ export default function DashboardClient() {
       return;
     }
 
-    if (id > 1 || activeTab === 'great_commission') {
+    if (id > 1 || activeTripId === 'great-commission') {
       if (!isPlusUser) {
         setUpgradeSource('checkpoint_click');
         setIsUpgradeModalOpen(true);
@@ -642,68 +646,93 @@ export default function DashboardClient() {
         </div>
       )}
 
-      {/* SELETOR DE MÓDULOS / ABAS DA PLATAFORMA */}
-      <div style={{ display: 'flex', gap: '0.8rem', marginBottom: '0.5rem', zIndex: 10, flexWrap: 'wrap' }}>
-        <button
-          onClick={() => handleTabChange('main')}
-          style={{
-            background: activeTab === 'main' ? '#ffffff' : 'rgba(255,255,255,0.2)',
-            color: activeTab === 'main' ? '#1e293b' : '#ffffff',
-            border: 'none',
-            padding: '0.5rem 1.2rem',
-            borderRadius: '999px',
-            fontWeight: 800,
-            fontSize: '0.85rem',
-            cursor: 'pointer',
-            boxShadow: activeTab === 'main' ? '0 4px 12px rgba(0,0,0,0.1)' : 'none',
-            transition: 'all 0.2s'
-          }}
-        >
-          🏔️ Jornada da Montanha (16 Livros)
-        </button>
+      {/* NAVEGAÇÃO E SELETOR DE TRIPS (JORNADAS DE APRENDIZADO) */}
+      <div className="w-full mb-6 z-10">
+        <div className="flex items-center justify-between mb-3 px-1">
+          <div className="flex items-center gap-2">
+            <Compass className="text-sky-400" size={20} />
+            <h2 className="text-base sm:text-lg font-black text-white tracking-wide">
+              Jornadas de Aprendizado (TRIPS)
+            </h2>
+          </div>
+          <span className="text-[11px] font-bold text-slate-300 bg-slate-900/90 px-3 py-1 rounded-full border border-slate-800 shadow-sm">
+            TRIPS → BOOKS → VOCABULARY → PROGRESS
+          </span>
+        </div>
 
-        <button
-          onClick={() => handleTabChange('great_commission')}
-          style={{
-            background: activeTab === 'great_commission' ? '#ffffff' : 'rgba(255,255,255,0.2)',
-            color: activeTab === 'great_commission' ? '#1e293b' : '#ffffff',
-            border: 'none',
-            padding: '0.5rem 1.2rem',
-            borderRadius: '999px',
-            fontWeight: 800,
-            fontSize: '0.85rem',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.4rem',
-            boxShadow: activeTab === 'great_commission' ? '0 4px 12px rgba(0,0,0,0.1)' : 'none',
-            transition: 'all 0.2s'
-          }}
-        >
-          {!isPlusUser && <Lock size={14} color="#f59e0b" />}
-          <span>✨ The Great Commission (5 Livros)</span>
-        </button>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {allTrips.map((trip) => {
+            const isSelected = activeTripId === trip.id;
+            const isLocked = !trip.isAvailable || (trip.id === 'great-commission' && !isPlusUser);
 
-        <button
-          onClick={() => setIsPodcastModalOpen(true)}
-          style={{
-            background: 'rgba(99,102,241,0.3)',
-            color: '#ffffff',
-            border: '1px solid rgba(165,180,252,0.4)',
-            padding: '0.5rem 1.2rem',
-            borderRadius: '999px',
-            fontWeight: 800,
-            fontSize: '0.85rem',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.4rem',
-            transition: 'all 0.2s'
-          }}
-        >
-          <Radio size={15} className="text-sky-300" />
-          <span>🎙️ Podcasts</span>
-        </button>
+            return (
+              <div
+                key={trip.id}
+                onClick={() => {
+                  if (!trip.isAvailable) {
+                    setStatusToast('🔒 Esta Trip faz parte do roadmap de 100 livros e estará disponível em breve!');
+                    setTimeout(() => setStatusToast(''), 4000);
+                    return;
+                  }
+                  handleTripChange(trip.id);
+                }}
+                className={`relative rounded-2xl p-4 border transition-all duration-200 cursor-pointer overflow-hidden ${
+                  isSelected
+                    ? 'bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950 border-sky-400 shadow-xl ring-2 ring-sky-400/40'
+                    : trip.isAvailable
+                    ? 'bg-slate-900/70 border-slate-800 hover:border-slate-700 hover:bg-slate-900'
+                    : 'bg-slate-950/40 border-slate-900 opacity-60 hover:opacity-80'
+                }`}
+              >
+                {/* Accent glow line top */}
+                {isSelected && (
+                  <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${trip.accentColor}`} />
+                )}
+
+                <div className="flex items-start justify-between gap-2 mb-2">
+                  <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider ${
+                    trip.isAvailable
+                      ? 'bg-sky-500/20 text-sky-300 border border-sky-500/30'
+                      : 'bg-slate-800 text-slate-400 border border-slate-700'
+                  }`}>
+                    {trip.badgeText}
+                  </span>
+
+                  {isLocked && (
+                    <span className="p-1 rounded-full bg-slate-900/80 text-amber-400 border border-slate-800" title="Bloqueado / Em Breve">
+                      <Lock size={12} />
+                    </span>
+                  )}
+                </div>
+
+                <h3 className="font-extrabold text-white text-sm sm:text-base leading-snug">
+                  {trip.title}
+                </h3>
+                <p className="text-xs text-slate-400 mt-1 line-clamp-2 leading-relaxed">
+                  {trip.subtitle}
+                </p>
+
+                <div className="mt-3 flex items-center justify-between pt-2 border-t border-slate-800/80 text-xs">
+                  <span className="font-bold text-slate-400 flex items-center gap-1">
+                    {trip.books.length > 0 ? `${trip.books.length} minilivros` : 'Em desenvolvimento'}
+                  </span>
+
+                  {isSelected ? (
+                    <span className="text-sky-400 font-extrabold flex items-center gap-1">
+                      Trip Ativa <ChevronRight size={14} />
+                    </span>
+                  ) : trip.isAvailable ? (
+                    <span className="text-slate-400 hover:text-white font-bold flex items-center gap-1">
+                      Explorar <ChevronRight size={14} />
+                    </span>
+                  ) : (
+                    <span className="text-slate-500 font-bold">Roadmap</span>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       {/* CENTRAL MOUNTAIN STAGE */}
@@ -892,9 +921,7 @@ export default function DashboardClient() {
             <div className="flex items-center gap-2 text-xs font-bold text-sky-400 uppercase tracking-wider mb-1">
               <BookOpen size={15} />
               <span>
-                {activeTab === 'main'
-                  ? `Livro ${currentBook.checkpoint} de 16 — Jornada da Montanha`
-                  : `Livro ${currentBook.checkpoint} de 5 — The Great Commission`}
+                Livro {currentBook.checkpoint} de {activeTrip.books.length || 1} — {activeTrip.title}
               </span>
             </div>
             <h2 className="text-xl sm:text-2xl font-extrabold text-white">{currentBook.title}</h2>
