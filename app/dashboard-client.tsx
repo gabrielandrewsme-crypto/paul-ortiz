@@ -561,24 +561,20 @@ export default function DashboardClient() {
   return (
     <div className="app-container w-full max-w-md sm:max-w-4xl md:max-w-6xl mx-auto px-4 overflow-x-hidden">
       {/* HEADER BAR */}
+      {/* HEADER BAR MINIMALISTA */}
       <header className="header-bar">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
           <h1 className="brand-title">Paul Ortiz</h1>
-          {/* Indicador de Assinatura ou Botão de Upgrade */}
-          {isSuperAdminUser ? (
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/20 border border-amber-400 text-amber-100 font-extrabold text-xs">
-              <ShieldCheck size={15} className="text-amber-300" />
-              <span>Acesso Vitalício / Ilimitado</span>
+          {/* Badge de Plano (Acesso Vitalício para Admin vs. Plano Plus / Premium para Alunos) */}
+          {isSuperAdminUser || userRole === 'ADMIN' ? (
+            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/50 text-amber-300 font-extrabold text-xs shadow-sm">
+              <Crown size={14} className="text-amber-400" />
+              <span>Acesso Vitalício</span>
             </div>
           ) : isPlusUser ? (
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400 text-emerald-100 font-extrabold text-xs">
-              <Crown size={15} className="text-amber-300" />
-              <span>Plano Plus Ativo</span>
-              {userData?.subscriptionEndDate && (
-                <span className="text-[10px] bg-emerald-950/60 px-2 py-0.5 rounded-full text-emerald-300">
-                  {Math.max(0, Math.ceil((new Date(userData.subscriptionEndDate).getTime() - Date.now()) / (1000 * 60 * 60 * 24)))} dias restantes
-                </span>
-              )}
+            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/50 text-emerald-300 font-extrabold text-xs shadow-sm">
+              <Crown size={14} className="text-emerald-400" />
+              <span>Plano Plus</span>
             </div>
           ) : (
             <button
@@ -586,9 +582,9 @@ export default function DashboardClient() {
                 setUpgradeSource('header_btn');
                 setIsUpgradeModalOpen(true);
               }}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-extrabold text-xs shadow-md hover:scale-105 transition cursor-pointer"
+              className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-extrabold text-xs shadow-md hover:scale-105 transition cursor-pointer"
             >
-              <Crown size={15} /> Assinar Plano Plus
+              <Crown size={14} /> <span>Assinar Plano Plus</span>
             </button>
           )}
         </div>
@@ -606,7 +602,7 @@ export default function DashboardClient() {
 
           <div className="goal-group">
             <div className="goal-label">
-              Daily Goal: {wordsLearned}/{totalGoal} words
+              Vocabulário: {wordsLearned} / {totalGoal} palavras
             </div>
             <div className="goal-track">
               <div 
@@ -617,51 +613,23 @@ export default function DashboardClient() {
           </div>
         </div>
 
-        <div className="user-controls">
-          {/* BOTÃO PODCAST AUDIO EXPERIENCE */}
-          <button
-            onClick={() => setIsPodcastModalOpen(true)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-indigo-600 to-sky-500 hover:brightness-110 text-white font-extrabold text-xs shadow-md transition cursor-pointer"
-            title="Ouvir Episódios do Podcast Antigravity"
+        {/* LADO DIREITO: AVATAR CLICÁVEL QUE ABRE CONFIGURAÇÕES */}
+        <div className="user-controls flex items-center gap-3">
+          <button 
+            onClick={() => setIsSettingsOpen(true)} 
+            className="flex items-center gap-2 p-1 rounded-full hover:bg-white/10 transition cursor-pointer border border-white/20" 
+            title="Abrir Perfil & Configurações"
           >
-            <Radio size={16} className="text-sky-300 animate-pulse" />
-            <span className="hidden sm:inline">Podcast</span>
-          </button>
-
-          {/* BOTÃO TUTORIAL E OBJETIVO DA PLATAFORMA */}
-          <button
-            onClick={() => setIsTutorialModalOpen(true)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/20 hover:bg-white/35 text-white font-extrabold text-xs backdrop-blur-md border border-white/30 shadow-md transition cursor-pointer"
-            title="Ver Tutorial e Método de Aprendizado em 4 Passos"
-          >
-            <HelpCircle size={16} className="text-amber-300" />
-            <span className="hidden sm:inline">Tutorial & Objetivo</span>
-          </button>
-
-          {/* EXCLUSIVO PARA GABRIELANDREWS.ME@GMAIL.COM */}
-          {isSuperAdminUser && (
-            <Link
-              href="/admin"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md transition-all cursor-pointer"
-              title="Painel Administrativo Supremo"
-            >
-              <ShieldCheck size={16} />
-              <span>Painel Admin</span>
-            </Link>
-          )}
-
-          <Link href="/avatar" className="avatar-wrapper" title="Personalizar Avatar">
-            <div className="avatar-img">
-              {userAvatarConfig ? (
-                <AvatarRenderer config={userAvatarConfig} size={42} overrideBgColor="transparent" />
-              ) : (
-                <User size={22} color="#1e293b" />
-              )}
+            <div className="avatar-wrapper">
+              <div className="avatar-img">
+                {userAvatarConfig ? (
+                  <AvatarRenderer config={userAvatarConfig} size={40} overrideBgColor="transparent" />
+                ) : (
+                  <User size={20} className="text-slate-300" />
+                )}
+              </div>
+              <div className="status-dot" />
             </div>
-            <div className="status-dot" />
-          </Link>
-          <button className="icon-btn" onClick={() => setIsSettingsOpen(true)} title="Configurações">
-            <Settings size={20} />
           </button>
         </div>
       </header>
@@ -933,61 +901,94 @@ export default function DashboardClient() {
             <p className="text-xs text-slate-400 mt-0.5 max-w-2xl">{currentBook.summary}</p>
           </div>
 
-          {/* BARRA DE NAVEGAÇÃO DOS 4 PASSOS */}
-          <div className="flex items-center gap-1 sm:gap-2 bg-slate-900/90 p-1.5 rounded-2xl border border-slate-800 w-full md:w-auto overflow-x-auto">
+          {/* BARRA DE NAVEGAÇÃO DOS 4 PASSOS RESPONSIVA SEM SCROLLBAR */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:gap-2 bg-slate-900/90 p-1.5 rounded-2xl border border-slate-800 w-full md:w-auto">
             <button
               onClick={() => setCurrentStep(1)}
-              className={`flex-1 md:flex-none px-3 py-2 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer whitespace-nowrap ${
+              className={`w-full px-2 sm:px-3 py-2 rounded-xl font-extrabold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer ${
                 currentStep === 1
-                  ? 'bg-sky-500 text-slate-950 shadow-md'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                  ? 'bg-sky-500 text-slate-950 shadow-md shadow-sky-500/20'
+                  : 'bg-slate-900/60 text-slate-400 border border-slate-800/80 hover:text-white hover:bg-slate-800'
               }`}
             >
-              <span className="w-4 h-4 rounded-full bg-slate-950/30 flex items-center justify-center text-[10px]">1</span>
-              <span>1. Imersão</span>
+              <span className={`w-4 h-4 rounded-full flex items-center justify-center text-[10px] ${
+                currentStep === 1 ? 'bg-slate-950/30 text-slate-950 font-bold' : 'bg-slate-800 text-slate-400'
+              }`}>1</span>
+              <span className="truncate">1. Imersão</span>
             </button>
 
             <button
               onClick={() => setCurrentStep(2)}
-              className={`flex-1 md:flex-none px-3 py-2 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer whitespace-nowrap ${
+              className={`w-full px-2 sm:px-3 py-2 rounded-xl font-extrabold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer ${
                 currentStep === 2
-                  ? 'bg-amber-500 text-slate-950 shadow-md'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                  ? 'bg-sky-500 text-slate-950 shadow-md shadow-sky-500/20'
+                  : 'bg-slate-900/60 text-slate-400 border border-slate-800/80 hover:text-white hover:bg-slate-800'
               }`}
             >
-              <span className="w-4 h-4 rounded-full bg-slate-950/30 flex items-center justify-center text-[10px]">2</span>
-              <span>2. Flashcards</span>
+              <span className={`w-4 h-4 rounded-full flex items-center justify-center text-[10px] ${
+                currentStep === 2 ? 'bg-slate-950/30 text-slate-950 font-bold' : 'bg-slate-800 text-slate-400'
+              }`}>2</span>
+              <span className="truncate">2. Flashcards</span>
             </button>
 
             <button
               onClick={() => setCurrentStep(3)}
-              className={`flex-1 md:flex-none px-3 py-2 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer whitespace-nowrap ${
+              className={`w-full px-2 sm:px-3 py-2 rounded-xl font-extrabold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer ${
                 currentStep === 3
-                  ? 'bg-indigo-500 text-white shadow-md'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                  ? 'bg-sky-500 text-slate-950 shadow-md shadow-sky-500/20'
+                  : 'bg-slate-900/60 text-slate-400 border border-slate-800/80 hover:text-white hover:bg-slate-800'
               }`}
             >
-              <span className="w-4 h-4 rounded-full bg-slate-950/30 flex items-center justify-center text-[10px]">3</span>
-              <span>3. Output Ativo</span>
+              <span className={`w-4 h-4 rounded-full flex items-center justify-center text-[10px] ${
+                currentStep === 3 ? 'bg-slate-950/30 text-slate-950 font-bold' : 'bg-slate-800 text-slate-400'
+              }`}>3</span>
+              <span className="truncate">3. Output Ativo</span>
             </button>
 
             <button
               onClick={() => setCurrentStep(4)}
-              className={`flex-1 md:flex-none px-3 py-2 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer whitespace-nowrap ${
+              className={`w-full px-2 sm:px-3 py-2 rounded-xl font-extrabold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer ${
                 currentStep === 4
-                  ? 'bg-emerald-500 text-slate-950 shadow-md'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                  ? 'bg-sky-500 text-slate-950 shadow-md shadow-sky-500/20'
+                  : 'bg-slate-900/60 text-slate-400 border border-slate-800/80 hover:text-white hover:bg-slate-800'
               }`}
             >
-              <span className="w-4 h-4 rounded-full bg-slate-950/30 flex items-center justify-center text-[10px]">4</span>
-              <span>4. Conclusão</span>
+              <span className={`w-4 h-4 rounded-full flex items-center justify-center text-[10px] ${
+                currentStep === 4 ? 'bg-slate-950/30 text-slate-950 font-bold' : 'bg-slate-800 text-slate-400'
+              }`}>4</span>
+              <span className="truncate">4. Conclusão</span>
             </button>
           </div>
         </div>
 
-        {/* PASSO 1 — IMERSÃO NARRATIVA (LEITURA INTERATIVA & ÁUDIO) */}
+        {/* PASSO 1 — IMERSÃO NARRATIVA (LEITURA INTERATIVA, PODCAST INTEGRADO & ÁUDIO) */}
         {currentStep === 1 && (
           <div className="space-y-4">
+            {/* PLAYER DE PODCAST INTEGRADO AO CAPÍTULO */}
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-indigo-950/80 via-slate-900 to-slate-950 border border-indigo-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-lg">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 flex-shrink-0">
+                  <Radio size={22} className="animate-pulse" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-extrabold uppercase text-indigo-400 tracking-wider block">
+                    Podcast Explicativo do Capítulo
+                  </span>
+                  <h4 className="text-xs sm:text-sm font-extrabold text-white">
+                    Análise em Áudio & Pronúncia Nativa de {currentBook.title}
+                  </h4>
+                </div>
+              </div>
+
+              <button
+                onClick={() => setIsPodcastModalOpen(true)}
+                className="w-full sm:w-auto px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold text-xs flex items-center justify-center gap-2 transition cursor-pointer shadow-md whitespace-nowrap"
+              >
+                <Headphones size={15} />
+                <span>Ouvir Podcast do Capítulo</span>
+              </button>
+            </div>
+
             <InteractiveBookReader
               title={currentBook.title}
               storyEn={currentBook.story_en}
@@ -998,10 +999,10 @@ export default function DashboardClient() {
             <div className="flex justify-end pt-2">
               <button
                 onClick={() => setCurrentStep(2)}
-                className="px-6 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs sm:text-sm shadow-lg transition cursor-pointer flex items-center gap-2"
+                className="px-6 py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-black text-xs sm:text-sm shadow-lg shadow-sky-500/20 transition transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer flex items-center gap-2"
               >
                 <span>Avançar para Passo 2: Flashcards (SRS)</span>
-                <ChevronRight size={16} />
+                <ChevronRight size={18} />
               </button>
             </div>
           </div>
@@ -1738,16 +1739,35 @@ export default function DashboardClient() {
 
             {/* 3. AÇÕES E LOGOUT DESTACADO */}
             <div className="space-y-2.5 pt-1">
+              {/* TUTORIAL & MÉTODO */}
               <button
                 onClick={() => {
                   setIsSettingsOpen(false);
                   setIsTutorialModalOpen(true);
                 }}
-                className="w-full p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition cursor-pointer"
+                className="w-full p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm flex items-center justify-between transition cursor-pointer"
               >
-                <HelpCircle size={16} className="text-amber-500" />
-                <span>Como Funciona (Tutorial & Método)</span>
+                <div className="flex items-center gap-2">
+                  <HelpCircle size={16} className="text-amber-500" />
+                  <span>Tutorial & Como Funciona (4 Passos)</span>
+                </div>
+                <ChevronRight size={16} className="text-slate-400" />
               </button>
+
+              {/* PAINEL ADMIN (EXIBIDO ESTRITAMENTE PARA ADMINISTRADORES / SUPERADMIN) */}
+              {(isSuperAdminUser || userRole === 'ADMIN' || (userData as any)?.isAdmin === true) && (
+                <Link
+                  href="/admin"
+                  onClick={() => setIsSettingsOpen(false)}
+                  className="w-full p-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-extrabold text-xs sm:text-sm flex items-center justify-between transition cursor-pointer shadow-md"
+                >
+                  <div className="flex items-center gap-2">
+                    <ShieldCheck size={18} className="text-amber-300" />
+                    <span>Painel Administrativo</span>
+                  </div>
+                  <ChevronRight size={16} className="text-white/70" />
+                </Link>
+              )}
 
               <button
                 onClick={handleResetProgress}
