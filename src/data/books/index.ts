@@ -12,6 +12,11 @@ export interface InteractiveWord {
   translation: string;
   is_new: boolean;
   part_of_speech?: string;
+  // Campos pedagógicos para expansão futura (NGSL, repetição e classificação de vocabulário):
+  target_type?: 'new_target' | 'review' | 'support';
+  is_ngsl?: boolean;
+  is_ngsl_spoken?: boolean;
+  first_introduced_book_id?: string;
 }
 
 /** Pergunta do quiz ao final de um livro. */
@@ -35,6 +40,11 @@ export interface BookData {
   story_en: string;
   interactive_text: InteractiveWord[];
   quiz: QuizQuestion[];
+  // Campos de escalabilidade arquitetural:
+  trip_id?: string;
+  mountain_id?: string;
+  mountain_name?: string;
+  target_words_count?: number;
 }
 
 // ─── Imports dos 16 livros da Jornada da Montanha ───────────────────────────────────
