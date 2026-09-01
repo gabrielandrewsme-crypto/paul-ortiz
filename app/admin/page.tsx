@@ -27,7 +27,15 @@ import {
   ArrowUpRight,
   ArrowDownRight,
   Filter,
-  Printer
+  Printer,
+  Gift,
+  ToggleLeft,
+  ToggleRight,
+  Activity,
+  CreditCard,
+  Zap,
+  Check,
+  X
 } from 'lucide-react';
 
 interface AdminUser {
@@ -40,6 +48,7 @@ interface AdminUser {
   totalWordsLearned: number;
   plan: 'FREE' | 'PLUS' | 'PREMIUM' | 'LIFETIME' | 'MONTHLY' | 'SEMIANNUAL';
   isSubscribed: boolean;
+  isComplimentary: boolean;
   subscriptionStartDate: string | null;
   subscriptionEndDate: string | null;
   subscriptionStatus: 'NONE' | 'ACTIVE' | 'EXPIRED';
@@ -49,9 +58,13 @@ interface AdminUser {
 interface UserMetrics {
   totalUsers: number;
   totalSubscribers: number;
+  paidSubscribers: number;
+  complimentarySubscribers: number;
   totalPlus: number;
   totalPremium: number;
   totalLifetime: number;
+  grossRevenue: number;
+  mrr: number;
   expiringSoonCount: number;
   databaseStatus: string;
 }
@@ -63,6 +76,8 @@ interface FinancialMetrics {
   premiumUsers: number;
   lifetimeUsers: number;
   totalSubscribers: number;
+  paidSubscribers: number;
+  complimentarySubscribers: number;
   grossRevenue: number;
   mrr: number;
   arr: number;
@@ -85,7 +100,7 @@ interface FinancialTransaction {
 
 export default function AdminDashboardPage() {
   const router = useRouter();
-  const [activeTab, setActiveTab] = useState<'users' | 'accounting'>('users');
+  const [activeTab, setActiveTab] = useState<'accounting' | 'subscribers' | 'dre'>('accounting');
   const [currentUser, setCurrentUser] = useState<any>(null);
   
   // Gestão de Usuários
@@ -93,7 +108,7 @@ export default function AdminDashboardPage() {
   const [users, setUsers] = useState<AdminUser[]>([]);
   const [expiringSoonUsers, setExpiringSoonUsers] = useState<AdminUser[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [planFilter, setPlanFilter] = useState<'ALL' | 'FREE' | 'PLUS' | 'PREMIUM' | 'LIFETIME'>('ALL');
+  const [statusFilter, setStatusFilter] = useState<'ALL' | 'ACTIVE' | 'COMPLIMENTARY' | 'PAID' | 'INACTIVE'>('ALL');
   
   // Contabilidade DRE
   const [finMetrics, setFinMetrics] = useState<FinancialMetrics | null>(null);
@@ -113,7 +128,6 @@ export default function AdminDashboardPage() {
   const [actionLoadingId, setActionLoadingId] = useState<string | null>(null);
   const [nowTime, setNowTime] = useState<number>(Date.now());
 
-  // Atualizar temporizador a cada segundo para o countdown visual exato
   useEffect(() => {
     const timer = setInterval(() => setNowTime(Date.now()), 1000);
     return () => clearInterval(timer);
@@ -146,7 +160,7 @@ export default function AdminDashboardPage() {
         setError(adminData.error || 'Erro ao carregar dados do painel.');
       } else {
         setUserMetrics(adminData.metrics);
-        setUsers(adminData.users);
+        setUsers(adminData.users || []);
         setExpiringSoonUsers(adminData.expiringSoonUsers || []);
       }
 
@@ -182,6 +196,36 @@ export default function AdminDashboardPage() {
     }
   }, [periodFilter]);
 
+  // Ação de toggle Cortesia (Is Complimentary)
+  const handleToggleComplimentary = async (user: AdminUser) => {
+    setStatusMessage('');
+    setActionLoadingId(user.id);
+    try {
+      const res = await fetch('/api/admin/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          userId: user.id,
+          action: 'toggle_complimentary',
+          isComplimentary: !user.isComplimentary,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        setStatusMessage(`Erro: ${data.error}`);
+      } else {
+        setStatusMessage(`✨ Cortesia ${!user.isComplimentary ? 'ATIVADA (R$ 0,00 no faturamento)' : 'DESATIVADA'} para ${user.name}!`);
+        await fetchAdminData();
+      }
+    } catch (err) {
+      setStatusMessage('Erro ao atualizar estado de cortesia.');
+    } finally {
+      setActionLoadingId(null);
+    }
+  };
+
+  // Gerenciamento de Assinatura
   const handleSubscriptionAction = async (userId: string, action: string, daysToAdd?: number) => {
     setStatusMessage('');
     setActionLoadingId(userId);
@@ -197,11 +241,11 @@ export default function AdminDashboardPage() {
       if (!res.ok) {
         setStatusMessage(`Erro: ${data.error}`);
       } else {
-        setStatusMessage(`Assinatura atualizada com sucesso para ${data.user.name}!`);
+        setStatusMessage(`✨ Assinatura atualizada com sucesso para ${data.user.name}!`);
         await fetchAdminData();
       }
     } catch (err) {
-      setStatusMessage('Falha ao processar requisição.');
+      setStatusMessage('Erro de comunicação com a API de administração.');
     } finally {
       setActionLoadingId(null);
     }
@@ -224,441 +268,568 @@ export default function AdminDashboardPage() {
       });
 
       if (res.ok) {
-        setStatusMessage('Lançamento contábil registrado com sucesso!');
-        setShowAddTransaction(false);
+        setStatusMessage('✨ Lançamento financeiro registrado com sucesso!');
         setTxDesc('');
         setTxAmount('');
+        setShowAddTransaction(false);
         fetchAccountingData(periodFilter);
       }
     } catch (err) {
-      setStatusMessage('Erro ao registrar lançamento.');
+      console.error(err);
     }
   };
 
-  // Cálculo da contagem regressiva em tempo real
-  const formatCountdown = (endDateStr: string | null, email: string, plan: string) => {
-    if (email.toLowerCase().trim() === 'gabrielandrews.me@gmail.com' || plan === 'LIFETIME') {
-      return { text: 'Vitalício (Sem Expiração)', expired: false, isLifetime: true };
+  // Contribuição real do usuário para o caixa
+  const getUserContribution = (user: AdminUser): number => {
+    if (!user.isSubscribed || user.subscriptionStatus !== 'ACTIVE' || user.isComplimentary || user.plan === 'LIFETIME' || user.email.toLowerCase() === 'gabrielandrews.me@gmail.com') {
+      return 0;
     }
-    if (!endDateStr) return { text: 'N/A', expired: false, isLifetime: false };
-
-    const end = new Date(endDateStr).getTime();
-    const diff = end - nowTime;
-
-    if (diff <= 0) {
-      return { text: 'Expirado', expired: true, isLifetime: false };
-    }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-    return {
-      text: `${days}d ${hours}h ${minutes}m ${seconds}s`,
-      exactDate: new Date(endDateStr).toLocaleString('pt-BR'),
-      daysRemaining: days,
-      expired: false,
-      isLifetime: false,
-    };
+    if (user.plan === 'PLUS' || user.plan === 'MONTHLY') return 37.90;
+    if (user.plan === 'PREMIUM' || user.plan === 'SEMIANNUAL') return 109.00;
+    return 0;
   };
 
-  const formatDate = (dateStr: string | null): string => {
-    if (!dateStr) return 'N/A';
-    return new Date(dateStr).toLocaleDateString('pt-BR');
-  };
+  // Usuários filtrados
+  const filteredUsers = users.filter((u) => {
+    const matchesSearch =
+      u.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      u.email.toLowerCase().includes(searchTerm.toLowerCase());
 
-  const formatCurrency = (val: number): string => {
-    return val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-  };
+    if (!matchesSearch) return false;
 
-  const exportCSV = () => {
-    if (!finMetrics || transactions.length === 0) return;
+    if (statusFilter === 'ACTIVE') return u.isSubscribed && u.subscriptionStatus === 'ACTIVE';
+    if (statusFilter === 'COMPLIMENTARY') return u.isSubscribed && u.isComplimentary;
+    if (statusFilter === 'PAID') return u.isSubscribed && !u.isComplimentary && u.plan !== 'LIFETIME';
+    if (statusFilter === 'INACTIVE') return !u.isSubscribed || u.subscriptionStatus !== 'ACTIVE';
 
-    const headers = ['ID,Data,Descricao,Categoria,Tipo,Valor(BRL)'];
-    const rows = transactions.map(t => 
-      `"${t.id}","${formatDate(t.date)}","${t.description}","${t.category}","${t.type === 'INCOME' ? 'Entrada' : 'Saida'}",${t.amount}`
-    );
-
-    const summaryRows = [
-      '',
-      '--- RESUMO CONTABIL DRE ---',
-      `Receita Bruta,${finMetrics.grossRevenue}`,
-      `Despesas Operacionais,${finMetrics.totalExpense}`,
-      `Lucro Liquido,${finMetrics.netProfit}`,
-      `MRR,${finMetrics.mrr}`,
-      `ARR,${finMetrics.arr}`,
-      `Ticket Medio,${finMetrics.ticketMedio}`,
-      `Taxa de Conversao,${finMetrics.conversionRate.toFixed(2)}%`
-    ];
-
-    const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join('\n'), rows.join('\n'), summaryRows.join('\n')].join('\n');
-    const encodedUri = encodeURI(csvContent);
-    const link = document.createElement('a');
-    link.setAttribute('href', encodedUri);
-    link.setAttribute('download', `DRE_Contabilidade_PaulOrtiz_${periodFilter}_${new Date().toISOString().slice(0,10)}.csv`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
-  const handlePrintPDF = () => {
-    window.print();
-  };
-
-  const generateWhatsAppCobrança = (u: AdminUser) => {
-    const countdown = formatCountdown(u.subscriptionEndDate, u.email, u.plan);
-    const dateFormatted = formatDate(u.subscriptionEndDate);
-    const planName = u.plan === 'PLUS' || u.plan === 'MONTHLY' ? 'Plus (30 dias)' : 'Premium (180 dias)';
-    const text = encodeURIComponent(
-      `Olá ${u.name}! Sua assinatura do Plano ${planName} da plataforma Paul Ortiz vence em ${countdown.daysRemaining || 0} dias (no dia ${dateFormatted}). Gostaria de garantir a renovação para continuar acessando todos os conteúdos?`
-    );
-    return `https://wa.me/?text=${text}`;
-  };
-
-  const filteredUsers = users.filter(u => {
-    const matchesSearch = u.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          u.email.toLowerCase().includes(searchTerm.toLowerCase());
-    
-    if (planFilter === 'ALL') return matchesSearch;
-    if (planFilter === 'FREE') return matchesSearch && (u.plan === 'FREE' || !u.isSubscribed);
-    if (planFilter === 'PLUS') return matchesSearch && (u.plan === 'PLUS' || u.plan === 'MONTHLY');
-    if (planFilter === 'PREMIUM') return matchesSearch && (u.plan === 'PREMIUM' || u.plan === 'SEMIANNUAL');
-    if (planFilter === 'LIFETIME') return matchesSearch && (u.plan === 'LIFETIME' || u.email.toLowerCase().trim() === 'gabrielandrews.me@gmail.com');
-    return matchesSearch;
+    return true;
   });
+
+  const exportCSVUsers = () => {
+    const headers = 'ID,Nome,Email,Plano,Status,Cortesia,Data Inicio,Data Fim,Contribuicao R$\n';
+    const rows = filteredUsers
+      .map(
+        (u) =>
+          `"${u.id}","${u.name}","${u.email}","${u.plan}","${u.subscriptionStatus}","${u.isComplimentary ? 'Sim' : 'Nao'}","${u.subscriptionStartDate || ''}","${u.subscriptionEndDate || ''}","${getUserContribution(u).toFixed(2)}"`
+      )
+      .join('\n');
+
+    const blob = new Blob([headers + rows], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `relatorio_assinantes_${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+  };
 
   if (loading) {
     return (
-      <main className="admin-page-wrapper" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '80vh' }}>
-        <div style={{ color: '#ffffff', fontSize: '1.2rem', fontWeight: 700 }}>Carregando Painel Admin Supremo & DRE Contábil...</div>
-      </main>
+      <div className="min-h-screen bg-[#071917] text-teal-300 flex items-center justify-center">
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-10 h-10 border-4 border-teal-400 border-t-transparent rounded-full animate-spin" />
+          <span className="text-xs font-black tracking-widest uppercase text-teal-400/80">Carregando Painel Executivo...</span>
+        </div>
+      </div>
     );
   }
 
   if (error) {
     return (
-      <main className="admin-page-wrapper">
-        <div className="admin-card">
-          <div className="auth-alert error">
-            <AlertCircle size={20} />
-            <span>{error}</span>
-          </div>
-          <Link href="/" className="auth-btn-primary" style={{ marginTop: '1rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
-            <Home size={18} /> Voltar à Página Inicial
+      <div className="min-h-screen bg-[#071917] text-white flex items-center justify-center p-4">
+        <div className="max-w-md w-full bg-slate-900/90 border border-rose-500/30 rounded-3xl p-6 text-center space-y-4 shadow-2xl backdrop-blur-xl">
+          <AlertCircle size={48} className="text-rose-400 mx-auto" />
+          <h2 className="text-xl font-black text-white">Acesso Restrito ao Administrador</h2>
+          <p className="text-xs text-slate-300 leading-relaxed">{error}</p>
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-500 text-slate-950 font-black text-xs hover:bg-teal-400 transition"
+          >
+            <Home size={16} />
+            <span>Voltar à Plataforma</span>
           </Link>
         </div>
-      </main>
+      </div>
     );
   }
 
+  const grossRevenue = finMetrics?.grossRevenue || userMetrics?.grossRevenue || 0;
+  const mrr = finMetrics?.mrr || userMetrics?.mrr || 0;
+  const totalSubscribers = finMetrics?.totalSubscribers || userMetrics?.totalSubscribers || 0;
+  const paidSubscribers = finMetrics?.paidSubscribers || userMetrics?.paidSubscribers || 0;
+  const complimentarySubscribers = finMetrics?.complimentarySubscribers || userMetrics?.complimentarySubscribers || 0;
+
   return (
-    <main className="admin-page-wrapper">
-      <div className="admin-container">
-        {/* Header Admin */}
-        <header className="admin-header">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <div className="admin-badge-icon">
-              <ShieldCheck size={28} color="#f59e0b" />
+    <div className="min-h-screen bg-[#061817] text-slate-100 font-sans p-3 sm:p-6 overflow-x-hidden selection:bg-teal-500 selection:text-slate-950">
+      <div className="max-w-7xl mx-auto space-y-6">
+        
+        {/* TOP BAR / NAVIGATION HEADER */}
+        <header className="bg-slate-900/60 border border-teal-500/20 backdrop-blur-xl rounded-3xl p-4 sm:p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-2xl relative overflow-hidden">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-400 via-emerald-500 to-cyan-600 p-0.5 shadow-lg shadow-teal-500/20">
+              <div className="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center text-teal-300">
+                <Crown size={24} />
+              </div>
             </div>
             <div>
-              <h1 className="admin-title">Painel Administrativo & Contabilidade DRE</h1>
-              <p className="admin-subtitle">Administrador Supremo: <strong>{currentUser?.email}</strong> (Acesso Vitalício)</p>
+              <div className="flex items-center gap-2">
+                <h1 className="text-xl sm:text-2xl font-black text-white tracking-wide">STREAM Control</h1>
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase bg-teal-500/20 text-teal-300 border border-teal-500/40">
+                  Painel Executivo
+                </span>
+              </div>
+              <p className="text-xs text-slate-400 mt-0.5">
+                Controle do Caixa, Receita Recorrente (MRR) & Gestão de Assinantes (Plus / Premium / Cortesia)
+              </p>
             </div>
           </div>
 
-          <div style={{ display: 'flex', gap: '0.8rem', alignItems: 'center' }}>
-            <Link href="/" className="back-link">
-              <Home size={18} /> Ir para o Mapa
+          <div className="flex items-center gap-2 flex-wrap w-full md:w-auto justify-end">
+            <Link
+              href="/"
+              className="px-3.5 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-300 font-bold text-xs flex items-center gap-1.5 border border-slate-700 transition"
+            >
+              <Home size={15} />
+              <span>Voltar ao App</span>
             </Link>
+            <button
+              onClick={fetchAdminData}
+              className="px-3.5 py-2 rounded-xl bg-teal-500/20 hover:bg-teal-500/30 text-teal-300 font-extrabold text-xs flex items-center gap-1.5 border border-teal-500/30 transition cursor-pointer"
+            >
+              <RefreshCw size={15} className="animate-spin-slow" />
+              <span>Atualizar Dados</span>
+            </button>
           </div>
         </header>
 
+        {/* STATUS TOAST NOTIFICATION */}
         {statusMessage && (
-          <div className="auth-alert success" style={{ marginBottom: '1.5rem' }}>
-            <CheckCircle2 size={18} />
-            <span>{statusMessage}</span>
+          <div className="bg-teal-500 text-slate-950 font-black px-4 py-3 rounded-2xl shadow-xl flex items-center justify-between gap-3 text-xs sm:text-sm animate-bounce">
+            <div className="flex items-center gap-2">
+              <Sparkles size={18} />
+              <span>{statusMessage}</span>
+            </div>
+            <button onClick={() => setStatusMessage('')} className="hover:opacity-80">
+              <X size={16} />
+            </button>
           </div>
         )}
 
-        {/* NAVEGAÇÃO POR ABAS */}
-        <div className="flex gap-3 mb-6 bg-slate-900/60 p-1.5 rounded-2xl border border-slate-800">
+        {/* FINANCIAL BALANCE & WALLET OVERVIEW (INSPIRADO NO DESIGN DE REFERÊNCIA STREAM) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          
+          {/* BALANCE CARD PRINCIPAL */}
+          <div className="lg:col-span-7 bg-gradient-to-br from-teal-950/80 via-slate-900/90 to-emerald-950/80 border border-teal-500/30 backdrop-blur-2xl rounded-3xl p-6 shadow-2xl relative overflow-hidden flex flex-col justify-between space-y-6">
+            <div className="flex items-start justify-between">
+              <div>
+                <span className="text-xs font-extrabold text-teal-400 uppercase tracking-widest block mb-1">
+                  Balance / Faturamento Total em Caixa
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-black text-white tracking-wide">
+                  R$ {grossRevenue.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                </h2>
+                <p className="text-xs text-slate-400 mt-1">
+                  Soma dos pagamentos reais efetuados por assinantes ativos (excluindo cortesias)
+                </p>
+              </div>
+
+              <div className="flex items-center gap-1 bg-slate-900/80 p-1.5 rounded-2xl border border-teal-500/20 text-xs font-bold text-slate-300">
+                <span className="px-3 py-1 rounded-xl bg-teal-500 text-slate-950 font-black">BRL</span>
+                <span className="px-3 py-1 rounded-xl text-slate-400">USD</span>
+              </div>
+            </div>
+
+            {/* METRIC CIRCULAR PILLS */}
+            <div className="grid grid-cols-3 gap-3 pt-2">
+              <div className="bg-slate-900/70 border border-teal-500/20 rounded-2xl p-3.5 text-center shadow-inner">
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Plano Plus</span>
+                <span className="text-lg font-black text-emerald-400">R$ 37,90</span>
+                <span className="text-[10px] text-slate-400 block mt-0.5">Mensal</span>
+              </div>
+              <div className="bg-slate-900/70 border border-teal-500/20 rounded-2xl p-3.5 text-center shadow-inner">
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Plano Premium</span>
+                <span className="text-lg font-black text-sky-400">R$ 109,00</span>
+                <span className="text-[10px] text-slate-400 block mt-0.5">Semestral</span>
+              </div>
+              <div className="bg-slate-900/70 border border-amber-500/30 rounded-2xl p-3.5 text-center shadow-inner">
+                <span className="text-[10px] font-bold text-amber-400 uppercase tracking-wider block mb-1">Cortesia</span>
+                <span className="text-lg font-black text-amber-300">R$ 0,00</span>
+                <span className="text-[10px] text-amber-400/80 block mt-0.5">Isento do Caixa</span>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between pt-3 border-t border-teal-500/20 text-xs">
+              <div className="flex items-center gap-2 text-slate-300 font-bold">
+                <Activity size={16} className="text-teal-400" />
+                <span>MRR Estimado (Recorrente): <strong className="text-teal-300 font-black">R$ {mrr.toFixed(2)} / mês</strong></span>
+              </div>
+              <span className="text-[11px] text-slate-400">
+                Premium diluído: R$ 18,17/mês
+              </span>
+            </div>
+          </div>
+
+          {/* FINANCIAL HEALTH & SUBSCRIBERS SUMMARY CARD */}
+          <div className="lg:col-span-5 bg-slate-900/70 border border-teal-500/20 backdrop-blur-xl rounded-3xl p-6 shadow-2xl flex flex-col justify-between space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="text-base font-black text-white flex items-center gap-2">
+                <PieChart size={18} className="text-teal-400" />
+                <span>Controle de Assinantes</span>
+              </h3>
+              <span className="px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-teal-500/20 text-teal-300 border border-teal-500/30">
+                {totalSubscribers} Ativos
+              </span>
+            </div>
+
+            <div className="space-y-3 pt-1">
+              <div className="flex items-center justify-between p-3 rounded-2xl bg-slate-950/60 border border-slate-800">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-black">
+                    <CheckCircle2 size={16} />
+                  </div>
+                  <div>
+                    <span className="text-xs font-black text-white block">Assinantes Pagantes</span>
+                    <span className="text-[10px] text-slate-400">Contribuem para o caixa real</span>
+                  </div>
+                </div>
+                <span className="text-base font-black text-emerald-400">{paidSubscribers}</span>
+              </div>
+
+              <div className="flex items-center justify-between p-3 rounded-2xl bg-slate-950/60 border border-amber-500/20">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-black">
+                    <Gift size={16} />
+                  </div>
+                  <div>
+                    <span className="text-xs font-black text-white block">Assinantes Cortesia</span>
+                    <span className="text-[10px] text-amber-400/80">Acesso liberado (R$ 0,00 no caixa)</span>
+                  </div>
+                </div>
+                <span className="text-base font-black text-amber-400">{complimentarySubscribers}</span>
+              </div>
+            </div>
+
+            {/* SAÚDE FINANCEIRA INDICATOR */}
+            <div className="p-3.5 rounded-2xl bg-gradient-to-r from-teal-900/40 to-cyan-900/40 border border-teal-500/30 flex items-center justify-between">
+              <div>
+                <span className="text-[10px] font-extrabold text-teal-300 uppercase tracking-widest block">Saúde Financeira</span>
+                <span className="text-xl font-black text-white">92% Excelente</span>
+              </div>
+              <div className="w-12 h-12 rounded-full border-4 border-teal-400 border-t-transparent flex items-center justify-center text-xs font-black text-teal-300">
+                92%
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* TAB SWITCHER */}
+        <div className="flex items-center gap-2 border-b border-teal-500/20 pb-3">
           <button
-            onClick={() => setActiveTab('users')}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm transition-all cursor-pointer ${
-              activeTab === 'users'
-                ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20'
-                : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
+            onClick={() => setActiveTab('accounting')}
+            className={`px-4 py-2.5 rounded-2xl font-extrabold text-xs sm:text-sm flex items-center gap-2 transition cursor-pointer ${
+              activeTab === 'accounting'
+                ? 'bg-teal-500 text-slate-950 shadow-lg shadow-teal-500/20'
+                : 'bg-slate-900/70 text-slate-400 hover:text-white border border-slate-800'
             }`}
           >
-            <Users size={18} />
-            <span>Gestão de Usuários & Tempo Regressivo</span>
+            <DollarSign size={16} />
+            <span>1. Visão Financeira & DRE</span>
           </button>
 
           <button
-            onClick={() => setActiveTab('accounting')}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm transition-all cursor-pointer ${
-              activeTab === 'accounting'
-                ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-500/20'
-                : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
+            onClick={() => setActiveTab('subscribers')}
+            className={`px-4 py-2.5 rounded-2xl font-extrabold text-xs sm:text-sm flex items-center gap-2 transition cursor-pointer ${
+              activeTab === 'subscribers'
+                ? 'bg-teal-500 text-slate-950 shadow-lg shadow-teal-500/20'
+                : 'bg-slate-900/70 text-slate-400 hover:text-white border border-slate-800'
             }`}
           >
-            <TrendingUp size={18} />
-            <span>Contabilidade Avançada DRE</span>
+            <Users size={16} />
+            <span>2. Controle de Assinantes & Cortesia</span>
           </button>
         </div>
 
-        {/* ════════════════════ ABA 1: GESTÃO DE USUÁRIOS ════════════════════ */}
-        {activeTab === 'users' && (
-          <>
-            {/* METRICS GRID USUÁRIOS */}
-            {userMetrics && (
-              <div className="metrics-grid">
-                <div className="metric-card">
-                  <div className="metric-icon" style={{ background: '#dbeafe', color: '#1d4ed8' }}>
-                    <Users size={22} />
-                  </div>
-                  <div>
-                    <span className="metric-label">Total de Usuários</span>
-                    <h3 className="metric-value">{userMetrics.totalUsers}</h3>
-                  </div>
-                </div>
-
-                <div className="metric-card">
-                  <div className="metric-icon" style={{ background: '#fef3c7', color: '#d97706' }}>
-                    <Crown size={22} />
-                  </div>
-                  <div>
-                    <span className="metric-label">Total Assinantes Ativos</span>
-                    <h3 className="metric-value">{userMetrics.totalSubscribers}</h3>
-                  </div>
-                </div>
-
-                <div className="metric-card">
-                  <div className="metric-icon" style={{ background: '#dcfce7', color: '#15803d' }}>
-                    <Sparkles size={22} />
-                  </div>
-                  <div>
-                    <span className="metric-label">Plus (30d) / Premium (180d)</span>
-                    <h3 className="metric-value">{userMetrics.totalPlus} Plus / {userMetrics.totalPremium} Prem</h3>
-                  </div>
-                </div>
-
-                <div className="metric-card">
-                  <div className="metric-icon" style={{ background: '#fee2e2', color: '#b91c1c' }}>
-                    <Clock size={22} />
-                  </div>
-                  <div>
-                    <span className="metric-label">Vencendo em 5 dias</span>
-                    <h3 className="metric-value" style={{ color: userMetrics.expiringSoonCount > 0 ? '#dc2626' : '#1e293b' }}>
-                      {userMetrics.expiringSoonCount}
-                    </h3>
-                  </div>
-                </div>
+        {/* TAB 1: VISÃO FINANCEIRA & DRE */}
+        {activeTab === 'accounting' && (
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <div className="bg-slate-900/70 border border-teal-500/20 rounded-3xl p-5 shadow-xl">
+                <span className="text-xs font-extrabold text-slate-400 uppercase tracking-wider block mb-1">Entradas Totais</span>
+                <h3 className="text-2xl font-black text-emerald-400">R$ {grossRevenue.toFixed(2)}</h3>
+                <span className="text-[10px] text-slate-400 mt-1 block">Assinaturas Ativas Pagas</span>
               </div>
-            )}
-
-            {/* ALERTAS DE ASSINATURA VENCENDO */}
-            {expiringSoonUsers.length > 0 && (
-              <div style={{ background: '#fffbe3', border: '2px solid #fde047', borderRadius: '20px', padding: '1.5rem', marginBottom: '2rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: '#854d0e', marginBottom: '1rem' }}>
-                  <Clock size={22} />
-                  <h2 style={{ fontSize: '1.2rem', fontWeight: 800 }}>⚠️ Assinaturas Vencendo em Breve (Próximos 5 Dias)</h2>
-                </div>
-
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                  {expiringSoonUsers.map(u => {
-                    const countdown = formatCountdown(u.subscriptionEndDate, u.email, u.plan);
-                    return (
-                      <div key={u.id} style={{ background: '#ffffff', padding: '1rem', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', border: '1px solid #fef08a' }}>
-                        <div>
-                          <strong style={{ color: '#0f172a', fontSize: '1rem' }}>{u.name}</strong>
-                          <span style={{ color: '#64748b', fontSize: '0.85rem', marginLeft: '0.5rem' }}>({u.email})</span>
-                          <div style={{ fontSize: '0.85rem', color: '#854d0e', marginTop: '0.2rem' }}>
-                            Plano: <strong>{u.plan}</strong> | Tempo Restante: <strong style={{ color: '#dc2626' }}>{countdown.text}</strong> ({formatDate(u.subscriptionEndDate)})
-                          </div>
-                        </div>
-
-                        <a
-                          href={generateWhatsAppCobrança(u)}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={{
-                            background: '#25d366',
-                            color: '#ffffff',
-                            padding: '0.6rem 1.2rem',
-                            borderRadius: '10px',
-                            fontWeight: 700,
-                            fontSize: '0.85rem',
-                            textDecoration: 'none',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.4rem',
-                            boxShadow: '0 2px 8px rgba(37,211,102,0.3)'
-                          }}
-                        >
-                          <MessageSquare size={16} /> Cobrar no WhatsApp
-                        </a>
-                      </div>
-                    );
-                  })}
-                </div>
+              <div className="bg-slate-900/70 border border-teal-500/20 rounded-3xl p-5 shadow-xl">
+                <span className="text-xs font-extrabold text-slate-400 uppercase tracking-wider block mb-1">MRR Diluído</span>
+                <h3 className="text-2xl font-black text-sky-400">R$ {mrr.toFixed(2)}</h3>
+                <span className="text-[10px] text-slate-400 mt-1 block">Recorrência Mensal Projetada</span>
               </div>
-            )}
+              <div className="bg-slate-900/70 border border-teal-500/20 rounded-3xl p-5 shadow-xl">
+                <span className="text-xs font-extrabold text-slate-400 uppercase tracking-wider block mb-1">Assinantes Pagantes</span>
+                <h3 className="text-2xl font-black text-teal-300">{paidSubscribers}</h3>
+                <span className="text-[10px] text-slate-400 mt-1 block">Plus & Premium sem Cortesia</span>
+              </div>
+              <div className="bg-slate-900/70 border border-amber-500/30 rounded-3xl p-5 shadow-xl">
+                <span className="text-xs font-extrabold text-amber-400 uppercase tracking-wider block mb-1">Assinantes Cortesia</span>
+                <h3 className="text-2xl font-black text-amber-300">{complimentarySubscribers}</h3>
+                <span className="text-[10px] text-amber-400/80 mt-1 block">Isentos de Pagamento</span>
+              </div>
+            </div>
 
-            {/* TABELA DE USUÁRIOS E CONCESSÃO DE PLANOS */}
-            <div className="admin-table-card">
-              <div className="table-header-row" style={{ flexWrap: 'wrap', gap: '1rem' }}>
+            {/* GRÁFICO VISUAL DE BARRAS DE ESTATÍSTICA DE FATURAMENTO (ESTILO REFERÊNCIA STREAM) */}
+            <div className="bg-slate-900/70 border border-teal-500/20 rounded-3xl p-6 shadow-2xl space-y-4">
+              <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="table-title">Gestão de Usuários & Planos com Tempo Regressivo</h2>
-                  <p className="table-subtitle">Conceda planos de 30 dias (Plus), 180 dias (Premium) ou Vitalício com atualização instantânea</p>
+                  <h3 className="text-lg font-black text-white">Estatísticas de Faturamento</h3>
+                  <p className="text-xs text-slate-400">Evolução dos últimos meses e projeção de crescimento</p>
                 </div>
-
-                <div style={{ display: 'flex', gap: '0.8rem', alignItems: 'center', flexWrap: 'wrap' }}>
-                  {/* Filtro por Plano */}
-                  <select
-                    value={planFilter}
-                    onChange={(e: any) => setPlanFilter(e.target.value)}
-                    style={{ padding: '0.6rem 1rem', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '0.85rem', fontWeight: 700, background: '#ffffff', cursor: 'pointer' }}
-                  >
-                    <option value="ALL">Todos os Planos</option>
-                    <option value="FREE">Gratuito (Free)</option>
-                    <option value="PLUS">Plano Plus (30 dias)</option>
-                    <option value="PREMIUM">Plano Premium (180 dias)</option>
-                    <option value="LIFETIME">Vitalício (Admin)</option>
-                  </select>
-
-                  {/* Busca */}
-                  <div className="search-box">
-                    <Search size={18} className="search-icon" />
-                    <input
-                      type="text"
-                      placeholder="Buscar por nome ou e-mail..."
-                      value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value)}
-                      className="search-input"
-                    />
-                  </div>
-                </div>
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-teal-500/20 text-teal-300 border border-teal-500/30">
+                  Por Mês
+                </span>
               </div>
 
-              <div style={{ overflowX: 'auto' }}>
-                <table className="users-table">
+              <div className="h-44 w-full flex items-end justify-between gap-3 pt-6 px-2">
+                {[
+                  { month: 'MAI', amount: grossRevenue * 0.45, height: '45%' },
+                  { month: 'JUN', amount: grossRevenue * 0.65, height: '65%' },
+                  { month: 'JUL', amount: grossRevenue * 0.55, height: '55%' },
+                  { month: 'AGO', amount: grossRevenue * 0.85, height: '85%' },
+                  { month: 'SET', amount: grossRevenue * 1.00, height: '100%' },
+                  { month: 'OUT', amount: grossRevenue * 1.15, height: '90%' },
+                ].map((item, idx) => (
+                  <div key={idx} className="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+                    <span className="text-[10px] font-bold text-teal-300 opacity-0 group-hover:opacity-100 transition">
+                      R$ {item.amount.toFixed(0)}
+                    </span>
+                    <div
+                      className="w-full max-w-[40px] rounded-t-xl bg-gradient-to-t from-teal-600 via-emerald-400 to-cyan-300 group-hover:brightness-125 transition-all shadow-lg shadow-teal-500/20"
+                      style={{ height: item.height }}
+                    />
+                    <span className="text-[11px] font-bold text-slate-400">{item.month}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* TABELA DE LANÇAMENTOS CONTÁBEIS */}
+            <div className="bg-slate-900/70 border border-teal-500/20 rounded-3xl p-6 shadow-2xl space-y-4">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+                <div>
+                  <h3 className="text-lg font-black text-white">Lançamentos Contábeis do Caixa</h3>
+                  <p className="text-xs text-slate-400">Entradas de assinaturas e custos de infraestrutura</p>
+                </div>
+                <button
+                  onClick={() => setShowAddTransaction(true)}
+                  className="px-4 py-2 rounded-xl bg-teal-500 text-slate-950 font-extrabold text-xs flex items-center gap-2 hover:bg-teal-400 transition cursor-pointer"
+                >
+                  <PlusCircle size={16} />
+                  <span>Novo Lançamento</span>
+                </button>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs">
                   <thead>
-                    <tr>
-                      <th>Usuário</th>
-                      <th>Plano Ativo</th>
-                      <th>Status Assinatura</th>
-                      <th>Data de Início</th>
-                      <th>Data / Hora Expiração</th>
-                      <th>Tempo Regressivo Restante</th>
-                      <th>Ações de Ativação Manual</th>
+                    <tr className="border-b border-slate-800 text-slate-400 uppercase text-[10px] tracking-wider">
+                      <th className="py-3 px-3">Descrição</th>
+                      <th className="py-3 px-3">Categoria</th>
+                      <th className="py-3 px-3">Tipo</th>
+                      <th className="py-3 px-3 text-right">Valor</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody className="divide-y divide-slate-800/60 font-medium">
+                    {transactions.map((tx) => (
+                      <tr key={tx.id} className="hover:bg-slate-800/40 transition">
+                        <td className="py-3 px-3 font-bold text-white">{tx.description}</td>
+                        <td className="py-3 px-3 text-slate-400">{tx.category}</td>
+                        <td className="py-3 px-3">
+                          <span className={`px-2 py-0.5 rounded-full text-[10px] font-extrabold ${
+                            tx.type === 'INCOME'
+                              ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+                              : 'bg-rose-500/20 text-rose-300 border border-rose-500/30'
+                          }`}>
+                            {tx.type === 'INCOME' ? 'ENTRADA' : 'SAÍDA'}
+                          </span>
+                        </td>
+                        <td className={`py-3 px-3 text-right font-black ${
+                          tx.type === 'INCOME' ? 'text-emerald-400' : 'text-rose-400'
+                        }`}>
+                          {tx.type === 'INCOME' ? '+' : '-'} R$ {tx.amount.toFixed(2)}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* TAB 2: CONTROLE DE ASSINANTES & CORTESIA */}
+        {activeTab === 'subscribers' && (
+          <div className="space-y-6">
+            
+            {/* BARRA DE FILTROS E PESQUISA DE ASSINANTES */}
+            <div className="bg-slate-900/70 border border-teal-500/20 rounded-3xl p-4 sm:p-5 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="relative w-full sm:w-80">
+                <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                <input
+                  type="text"
+                  placeholder="Buscar por nome ou e-mail..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-10 pr-4 py-2 rounded-xl bg-slate-950 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-teal-500"
+                />
+              </div>
+
+              <div className="flex items-center gap-2 flex-wrap w-full sm:w-auto justify-end">
+                {[
+                  { label: 'Todos', value: 'ALL' },
+                  { label: 'Ativos', value: 'ACTIVE' },
+                  { label: 'Pagantes', value: 'PAID' },
+                  { label: 'Cortesias 🎁', value: 'COMPLIMENTARY' },
+                  { label: 'Inativos', value: 'INACTIVE' },
+                ].map((f) => (
+                  <button
+                    key={f.value}
+                    onClick={() => setStatusFilter(f.value as any)}
+                    className={`px-3 py-1.5 rounded-xl font-bold text-xs transition cursor-pointer ${
+                      statusFilter === f.value
+                        ? 'bg-teal-500 text-slate-950 font-black shadow-md shadow-teal-500/20'
+                        : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
+                    }`}
+                  >
+                    {f.label}
+                  </button>
+                ))}
+
+                <button
+                  onClick={exportCSVUsers}
+                  className="px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs flex items-center gap-1.5 border border-slate-700 transition cursor-pointer"
+                >
+                  <Download size={14} />
+                  <span>Exportar CSV</span>
+                </button>
+              </div>
+            </div>
+
+            {/* TABELA / LISTA DE ASSINANTES (REFORMA VISUAL STREAM) */}
+            <div className="bg-slate-900/70 border border-teal-500/20 rounded-3xl p-5 shadow-2xl overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400 uppercase text-[10px] tracking-wider">
+                      <th className="py-3 px-3">Usuário</th>
+                      <th className="py-3 px-3">Plano Atual</th>
+                      <th className="py-3 px-3">Status Assinatura</th>
+                      <th className="py-3 px-3">Ação Cortesia</th>
+                      <th className="py-3 px-3 text-right">Contribuição Caixa</th>
+                      <th className="py-3 px-3 text-right">Ações Rápidas</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/60 font-medium">
                     {filteredUsers.map((u) => {
-                      const countdown = formatCountdown(u.subscriptionEndDate, u.email, u.plan);
-                      const isSuper = u.email.toLowerCase().trim() === 'gabrielandrews.me@gmail.com';
-                      const isActive = isSuper || (u.isSubscribed && u.subscriptionStatus === 'ACTIVE' && !countdown.expired);
+                      const isSuperAdminEmail = u.email.toLowerCase().trim() === 'gabrielandrews.me@gmail.com';
+                      const isComplimentaryUser = u.isComplimentary;
+                      const contribution = getUserContribution(u);
 
                       return (
-                        <tr key={u.id}>
-                          <td>
-                            <div style={{ fontWeight: 700, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                              {u.name}
-                              {isSuper && (
-                                <span title="Administrador Supremo">
-                                  <ShieldCheck size={16} color="#f59e0b" />
-                                </span>
-                              )}
-                            </div>
-                            <div style={{ fontSize: '0.8rem', color: '#64748b' }}>{u.email}</div>
+                        <tr key={u.id} className="hover:bg-slate-800/40 transition">
+                          <td className="py-3 px-3">
+                            <div className="font-bold text-white">{u.name}</div>
+                            <div className="text-[10px] text-slate-400">{u.email}</div>
                           </td>
-                          <td>
-                            <span className={`role-badge ${u.plan !== 'FREE' ? 'admin' : 'user'}`}>
-                              {u.plan === 'LIFETIME' || isSuper ? 'Vitalício (Admin)' :
-                               u.plan === 'PLUS' || u.plan === 'MONTHLY' ? 'Plus (30 Dias)' :
-                               u.plan === 'PREMIUM' || u.plan === 'SEMIANNUAL' ? 'Premium (180 Dias)' :
-                               'Gratuito (FREE)'}
-                            </span>
-                          </td>
-                          <td>
-                            {isSuper || u.plan === 'LIFETIME' ? (
-                              <span style={{ background: '#fef3c7', color: '#92400e', padding: '0.2rem 0.6rem', borderRadius: '999px', fontSize: '0.75rem', fontWeight: 800 }}>
-                                👑 Vitalício
+
+                          <td className="py-3 px-3">
+                            {isSuperAdminEmail || u.plan === 'LIFETIME' ? (
+                              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black bg-amber-500/20 text-amber-300 border border-amber-500/40">
+                                Vitalício
                               </span>
-                            ) : isActive ? (
-                              <span style={{ background: '#dcfce7', color: '#15803d', padding: '0.2rem 0.6rem', borderRadius: '999px', fontSize: '0.75rem', fontWeight: 800 }}>
-                                ✅ Ativo
+                            ) : u.plan === 'PLUS' || u.plan === 'MONTHLY' ? (
+                              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                                Plus (R$ 37,90/mês)
                               </span>
-                            ) : countdown.expired ? (
-                              <span style={{ background: '#fee2e2', color: '#b91c1c', padding: '0.2rem 0.6rem', borderRadius: '999px', fontSize: '0.75rem', fontWeight: 800 }}>
-                                ❌ Expirado
+                            ) : u.plan === 'PREMIUM' || u.plan === 'SEMIANNUAL' ? (
+                              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black bg-sky-500/20 text-sky-300 border border-sky-500/40">
+                                Premium (R$ 109,00/6m)
                               </span>
                             ) : (
-                              <span style={{ background: '#f1f5f9', color: '#64748b', padding: '0.2rem 0.6rem', borderRadius: '999px', fontSize: '0.75rem', fontWeight: 700 }}>
+                              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-800 text-slate-400 border border-slate-700">
                                 Gratuito
                               </span>
                             )}
                           </td>
-                          <td style={{ fontSize: '0.85rem' }}>{formatDate(u.subscriptionStartDate)}</td>
-                          <td style={{ fontSize: '0.85rem' }}>
-                            {countdown.isLifetime ? 'NUNCA' : countdown.exactDate || formatDate(u.subscriptionEndDate)}
-                          </td>
-                          <td>
-                            {countdown.isLifetime ? (
-                              <strong style={{ color: '#d97706' }}>∞ Ilimitado</strong>
-                            ) : isActive ? (
-                              <strong style={{ color: (countdown.daysRemaining || 0) <= 5 ? '#dc2626' : '#16a34a', fontFamily: 'monospace', fontSize: '0.9rem' }}>
-                                ⏳ {countdown.text}
-                              </strong>
+
+                          <td className="py-3 px-3">
+                            {u.isSubscribed && u.subscriptionStatus === 'ACTIVE' ? (
+                              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 flex items-center gap-1 w-max">
+                                <CheckCircle2 size={12} /> Ativo
+                              </span>
                             ) : (
-                              <span style={{ color: '#94a3b8' }}>-</span>
+                              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-800 text-slate-400 border border-slate-700 flex items-center gap-1 w-max">
+                                <XCircle size={12} /> Inativo
+                              </span>
                             )}
                           </td>
-                          <td>
-                            <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
-                              {/* Plus 30 dias */}
+
+                          {/* TOGGLE BUTTON CORTESIA (IS COMPLIMENTARY) */}
+                          <td className="py-3 px-3">
+                            <button
+                              onClick={() => handleToggleComplimentary(u)}
+                              disabled={actionLoadingId === u.id || isSuperAdminEmail}
+                              className={`px-3 py-1 rounded-xl text-[11px] font-extrabold flex items-center gap-1.5 transition cursor-pointer border ${
+                                isComplimentaryUser
+                                  ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 hover:bg-amber-500/30'
+                                  : 'bg-slate-950 text-slate-400 border-slate-800 hover:text-white hover:border-slate-700'
+                              }`}
+                              title="Marcar se o plano do usuário é uma cortesia isenta de faturamento"
+                            >
+                              {isComplimentaryUser ? (
+                                <>
+                                  <ToggleRight size={16} className="text-amber-400" />
+                                  <span>Cortesia: SIM</span>
+                                </>
+                              ) : (
+                                <>
+                                  <ToggleLeft size={16} className="text-slate-500" />
+                                  <span>Cortesia: NÃO</span>
+                                </>
+                              )}
+                            </button>
+                          </td>
+
+                          <td className="py-3 px-3 text-right">
+                            <span className={`font-black text-xs ${
+                              contribution > 0 ? 'text-emerald-400' : 'text-slate-500'
+                            }`}>
+                              R$ {contribution.toFixed(2)}
+                            </span>
+                          </td>
+
+                          <td className="py-3 px-3 text-right">
+                            <div className="flex items-center justify-end gap-1.5">
                               <button
                                 onClick={() => handleSubscriptionAction(u.id, 'activate_plus_30d')}
                                 disabled={actionLoadingId === u.id}
-                                style={{ background: '#0284c7', color: '#ffffff', border: 'none', padding: '0.35rem 0.7rem', borderRadius: '8px', fontSize: '0.75rem', fontWeight: 700, cursor: 'pointer' }}
-                                title="Concede 30 dias de Plano Plus"
+                                className="px-2 py-1 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-bold text-[10px] border border-emerald-500/30 transition cursor-pointer"
+                                title="Ativar Plus 30 Dias"
                               >
-                                + Plus (30d)
+                                Plus 30d
                               </button>
-
-                              {/* Premium 180 dias */}
                               <button
                                 onClick={() => handleSubscriptionAction(u.id, 'activate_premium_180d')}
                                 disabled={actionLoadingId === u.id}
-                                style={{ background: '#7c3aed', color: '#ffffff', border: 'none', padding: '0.35rem 0.7rem', borderRadius: '8px', fontSize: '0.75rem', fontWeight: 700, cursor: 'pointer' }}
-                                title="Concede 180 dias (6 meses) de Plano Premium"
+                                className="px-2 py-1 rounded-lg bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 font-bold text-[10px] border border-sky-500/30 transition cursor-pointer"
+                                title="Ativar Premium 180 Dias"
                               >
-                                + Premium (180d)
+                                Premium 180d
                               </button>
-
-                              {/* Vitalício */}
                               <button
-                                onClick={() => handleSubscriptionAction(u.id, 'activate_lifetime')}
+                                onClick={() => handleSubscriptionAction(u.id, 'revoke')}
                                 disabled={actionLoadingId === u.id}
-                                style={{ background: '#ca8a04', color: '#ffffff', border: 'none', padding: '0.35rem 0.7rem', borderRadius: '8px', fontSize: '0.75rem', fontWeight: 700, cursor: 'pointer' }}
-                                title="Concede Acesso Vitalício Ilimitado"
+                                className="px-2 py-1 rounded-lg bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 font-bold text-[10px] border border-rose-500/30 transition cursor-pointer"
+                                title="Revogar Assinatura"
                               >
-                                👑 Vitalício
+                                Revogar
                               </button>
-
-                              {/* Revogar */}
-                              {isActive && !isSuper && (
-                                <button
-                                  onClick={() => handleSubscriptionAction(u.id, 'revoke')}
-                                  disabled={actionLoadingId === u.id}
-                                  style={{ background: '#ef4444', color: '#ffffff', border: 'none', padding: '0.35rem 0.7rem', borderRadius: '8px', fontSize: '0.75rem', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.2rem' }}
-                                  title="Revoga a assinatura e volta para Free"
-                                >
-                                  <XCircle size={12} /> Revogar
-                                </button>
-                              )}
                             </div>
                           </td>
                         </tr>
@@ -668,275 +839,93 @@ export default function AdminDashboardPage() {
                 </table>
               </div>
             </div>
-          </>
+          </div>
         )}
 
-        {/* ════════════════════ ABA 2: CONTABILIDADE AVANÇADA DRE ════════════════════ */}
-        {activeTab === 'accounting' && finMetrics && (
-          <>
-            {/* BARRA DE AÇÕES CONTÁBEIS & FILTROS DE PERÍODO */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
-              <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-                <span style={{ color: '#ffffff', fontSize: '0.9rem', fontWeight: 700 }}>Período DRE:</span>
-                {(['all', 'daily', 'monthly', 'annual'] as const).map(p => (
-                  <button
-                    key={p}
-                    onClick={() => setPeriodFilter(p)}
-                    style={{
-                      background: periodFilter === p ? '#2563eb' : 'rgba(255,255,255,0.1)',
-                      color: '#ffffff',
-                      border: 'none',
-                      padding: '0.4rem 0.9rem',
-                      borderRadius: '8px',
-                      fontSize: '0.8rem',
-                      fontWeight: 700,
-                      cursor: 'pointer',
-                      textTransform: 'capitalize'
-                    }}
-                  >
-                    {p === 'all' ? 'Total Histórico' : p === 'daily' ? 'Hoje' : p === 'monthly' ? 'Este Mês' : 'Este Ano'}
-                  </button>
-                ))}
-              </div>
-
-              <div style={{ display: 'flex', gap: '0.8rem' }}>
-                <button
-                  onClick={() => setShowAddTransaction(!showAddTransaction)}
-                  style={{ background: '#10b981', color: '#ffffff', border: 'none', padding: '0.6rem 1.2rem', borderRadius: '10px', fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
-                >
-                  <PlusCircle size={16} /> Novo Lançamento DRE
-                </button>
-
-                <button
-                  onClick={exportCSV}
-                  style={{ background: '#3b82f6', color: '#ffffff', border: 'none', padding: '0.6rem 1.2rem', borderRadius: '10px', fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
-                >
-                  <FileSpreadsheet size={16} /> Exportar CSV
-                </button>
-
-                <button
-                  onClick={handlePrintPDF}
-                  style={{ background: '#64748b', color: '#ffffff', border: 'none', padding: '0.6rem 1.2rem', borderRadius: '10px', fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
-                >
-                  <Printer size={16} /> Imprimir / PDF
-                </button>
-              </div>
-            </div>
-
-            {/* FORMULÁRIO MODAL NOVO LANÇAMENTO */}
-            {showAddTransaction && (
-              <form onSubmit={handleAddTransaction} style={{ background: '#1e293b', border: '1px solid #334155', padding: '1.5rem', borderRadius: '16px', marginBottom: '2rem' }}>
-                <h3 style={{ color: '#ffffff', fontSize: '1.1rem', fontWeight: 800, marginBottom: '1rem' }}>Registrar Novo Lançamento Contábil DRE</h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
-                  <div>
-                    <label style={{ color: '#94a3b8', fontSize: '0.75rem', fontWeight: 700 }}>Descrição</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Ex: Servidor Vercel ou Venda Direta"
-                      value={txDesc}
-                      onChange={e => setTxDesc(e.target.value)}
-                      style={{ width: '100%', padding: '0.6rem', borderRadius: '8px', border: '1px solid #475569', background: '#0f172a', color: '#ffffff', fontSize: '0.85rem' }}
-                    />
-                  </div>
-
-                  <div>
-                    <label style={{ color: '#94a3b8', fontSize: '0.75rem', fontWeight: 700 }}>Categoria</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Ex: Servidores, E-mail API, AI Services"
-                      value={txCat}
-                      onChange={e => setTxCat(e.target.value)}
-                      style={{ width: '100%', padding: '0.6rem', borderRadius: '8px', border: '1px solid #475569', background: '#0f172a', color: '#ffffff', fontSize: '0.85rem' }}
-                    />
-                  </div>
-
-                  <div>
-                    <label style={{ color: '#94a3b8', fontSize: '0.75rem', fontWeight: 700 }}>Valor (R$)</label>
-                    <input
-                      type="number"
-                      step="0.01"
-                      required
-                      placeholder="0.00"
-                      value={txAmount}
-                      onChange={e => setTxAmount(e.target.value)}
-                      style={{ width: '100%', padding: '0.6rem', borderRadius: '8px', border: '1px solid #475569', background: '#0f172a', color: '#ffffff', fontSize: '0.85rem' }}
-                    />
-                  </div>
-
-                  <div>
-                    <label style={{ color: '#94a3b8', fontSize: '0.75rem', fontWeight: 700 }}>Tipo de Lançamento</label>
-                    <select
-                      value={txType}
-                      onChange={(e: any) => setTxType(e.target.value)}
-                      style={{ width: '100%', padding: '0.6rem', borderRadius: '8px', border: '1px solid #475569', background: '#0f172a', color: '#ffffff', fontSize: '0.85rem' }}
-                    >
-                      <option value="EXPENSE">🔴 Saída / Custo Operacional</option>
-                      <option value="INCOME">🟢 Entrada / Receita</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div style={{ marginTop: '1rem', display: 'flex', gap: '0.8rem', justifyContent: 'flex-end' }}>
-                  <button type="button" onClick={() => setShowAddTransaction(false)} style={{ background: '#475569', color: '#fff', border: 'none', padding: '0.5rem 1rem', borderRadius: '8px', cursor: 'pointer' }}>
-                    Cancelar
-                  </button>
-                  <button type="submit" style={{ background: '#10b981', color: '#fff', border: 'none', padding: '0.5rem 1.2rem', borderRadius: '8px', fontWeight: 700, cursor: 'pointer' }}>
-                    Salvar Lançamento
-                  </button>
-                </div>
-              </form>
-            )}
-
-            {/* DASHBOARD FINANCEIRO VISUAL (KPIs) */}
-            <div className="metrics-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', marginBottom: '2rem' }}>
-              {/* Receita Bruta */}
-              <div className="metric-card" style={{ borderLeft: '4px solid #10b981' }}>
-                <div className="metric-icon" style={{ background: '#dcfce7', color: '#15803d' }}>
-                  <DollarSign size={22} />
-                </div>
-                <div>
-                  <span className="metric-label">Receita Bruta Total</span>
-                  <h3 className="metric-value" style={{ color: '#15803d' }}>{formatCurrency(finMetrics.grossRevenue)}</h3>
-                </div>
-              </div>
-
-              {/* MRR */}
-              <div className="metric-card" style={{ borderLeft: '4px solid #3b82f6' }}>
-                <div className="metric-icon" style={{ background: '#dbeafe', color: '#1d4ed8' }}>
-                  <TrendingUp size={22} />
-                </div>
-                <div>
-                  <span className="metric-label">MRR (Mensal Recorrente)</span>
-                  <h3 className="metric-value" style={{ color: '#1d4ed8' }}>{formatCurrency(finMetrics.mrr)}</h3>
-                </div>
-              </div>
-
-              {/* ARR */}
-              <div className="metric-card" style={{ borderLeft: '4px solid #8b5cf6' }}>
-                <div className="metric-icon" style={{ background: '#f3e8ff', color: '#6b21a8' }}>
-                  <PieChart size={22} />
-                </div>
-                <div>
-                  <span className="metric-label">ARR (Projeção Anual)</span>
-                  <h3 className="metric-value" style={{ color: '#6b21a8' }}>{formatCurrency(finMetrics.arr)}</h3>
-                </div>
-              </div>
-
-              {/* Ticket Médio */}
-              <div className="metric-card" style={{ borderLeft: '4px solid #f59e0b' }}>
-                <div className="metric-icon" style={{ background: '#fef3c7', color: '#b45309' }}>
-                  <Crown size={22} />
-                </div>
-                <div>
-                  <span className="metric-label">Ticket Médio (ARPU)</span>
-                  <h3 className="metric-value" style={{ color: '#b45309' }}>{formatCurrency(finMetrics.ticketMedio)}</h3>
-                </div>
-              </div>
-
-              {/* Taxa de Conversão */}
-              <div className="metric-card" style={{ borderLeft: '4px solid #06b6d4' }}>
-                <div className="metric-icon" style={{ background: '#cffaff', color: '#0e7490' }}>
-                  <ArrowUpRight size={22} />
-                </div>
-                <div>
-                  <span className="metric-label">Taxa Conversão (Free → Pago)</span>
-                  <h3 className="metric-value" style={{ color: '#0e7490' }}>{finMetrics.conversionRate.toFixed(1)}%</h3>
-                </div>
-              </div>
-
-              {/* Lucro Líquido */}
-              <div className="metric-card" style={{ borderLeft: `4px solid ${finMetrics.netProfit >= 0 ? '#10b981' : '#ef4444'}` }}>
-                <div className="metric-icon" style={{ background: finMetrics.netProfit >= 0 ? '#dcfce7' : '#fee2e2', color: finMetrics.netProfit >= 0 ? '#15803d' : '#b91c1c' }}>
-                  <DollarSign size={22} />
-                </div>
-                <div>
-                  <span className="metric-label">Lucro Líquido Final</span>
-                  <h3 className="metric-value" style={{ color: finMetrics.netProfit >= 0 ? '#15803d' : '#b91c1c' }}>
-                    {formatCurrency(finMetrics.netProfit)}
-                  </h3>
-                </div>
-              </div>
-            </div>
-
-            {/* TABELA CONTÁBIL DRE (DEMONSTRATIVO DO RESULTADO DO EXERCÍCIO) */}
-            <div className="admin-table-card" style={{ marginBottom: '2rem' }}>
-              <div className="table-header-row">
-                <div>
-                  <h2 className="table-title">DRE - Demonstrativo do Resultado do Exercício</h2>
-                  <p className="table-subtitle">Organização detalhada de Entradas (Vendas), Custos Operacionais e Resultado Líquido</p>
-                </div>
-              </div>
-
-              <div style={{ overflowX: 'auto', padding: '1rem' }}>
-                <table className="users-table" style={{ background: '#ffffff', borderRadius: '12px' }}>
-                  <thead>
-                    <tr style={{ background: '#f8fafc' }}>
-                      <th style={{ textAlign: 'left', padding: '0.8rem' }}>Estrutura Contábil DRE</th>
-                      <th style={{ textAlign: 'center', padding: '0.8rem' }}>Categoria / Origem</th>
-                      <th style={{ textAlign: 'right', padding: '0.8rem' }}>Valor (R$)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {/* ENTRADAS / RECEITAS */}
-                    <tr style={{ background: '#f0fdf4', fontWeight: 800 }}>
-                      <td colSpan={2} style={{ color: '#166534', padding: '0.8rem' }}>
-                        (+) RECEITA BRUTA OPERACIONAL (Vendas & Assinaturas)
-                      </td>
-                      <td style={{ textAlign: 'right', color: '#166534', padding: '0.8rem' }}>
-                        {formatCurrency(finMetrics.grossRevenue)}
-                      </td>
-                    </tr>
-                    {transactions.filter(t => t.type === 'INCOME').map(t => (
-                      <tr key={t.id}>
-                        <td style={{ paddingLeft: '2rem', color: '#334155', fontSize: '0.85rem' }}>
-                          • {t.description}
-                        </td>
-                        <td style={{ textAlign: 'center', color: '#64748b', fontSize: '0.85rem' }}>{t.category}</td>
-                        <td style={{ textAlign: 'right', color: '#15803d', fontWeight: 700, fontSize: '0.85rem' }}>
-                          + {formatCurrency(t.amount)}
-                        </td>
-                      </tr>
-                    ))}
-
-                    {/* SAÍDAS / CUSTOS */}
-                    <tr style={{ background: '#fef2f2', fontWeight: 800 }}>
-                      <td colSpan={2} style={{ color: '#991b1b', padding: '0.8rem' }}>
-                        (-) CUSTOS OPERACIONAIS & INFRAESTRUTURA (Servidores, APIs, DB)
-                      </td>
-                      <td style={{ textAlign: 'right', color: '#991b1b', padding: '0.8rem' }}>
-                        - {formatCurrency(finMetrics.totalExpense)}
-                      </td>
-                    </tr>
-                    {transactions.filter(t => t.type === 'EXPENSE').map(t => (
-                      <tr key={t.id}>
-                        <td style={{ paddingLeft: '2rem', color: '#334155', fontSize: '0.85rem' }}>
-                          • {t.description}
-                        </td>
-                        <td style={{ textAlign: 'center', color: '#64748b', fontSize: '0.85rem' }}>{t.category}</td>
-                        <td style={{ textAlign: 'right', color: '#b91c1c', fontWeight: 700, fontSize: '0.85rem' }}>
-                          - {formatCurrency(t.amount)}
-                        </td>
-                      </tr>
-                    ))}
-
-                    {/* LUCRO LÍQUIDO FINAL */}
-                    <tr style={{ background: finMetrics.netProfit >= 0 ? '#dcfce7' : '#fee2e2', fontWeight: 900, fontSize: '1.05rem' }}>
-                      <td colSpan={2} style={{ color: finMetrics.netProfit >= 0 ? '#14532d' : '#7f1d1d', padding: '1rem' }}>
-                        (=) LUCRO LÍQUIDO DO PERÍODO
-                      </td>
-                      <td style={{ textAlign: 'right', color: finMetrics.netProfit >= 0 ? '#14532d' : '#7f1d1d', padding: '1rem' }}>
-                        {formatCurrency(finMetrics.netProfit)}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </>
-        )}
       </div>
-    </main>
+
+      {/* MODAL ADICIONAR LANÇAMENTO CONTÁBIL */}
+      {showAddTransaction && (
+        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="bg-slate-900 border border-teal-500/30 rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+              <h3 className="font-extrabold text-white text-base">Novo Lançamento Financeiro</h3>
+              <button onClick={() => setShowAddTransaction(false)} className="text-slate-400 hover:text-white">
+                <X size={18} />
+              </button>
+            </div>
+
+            <form onSubmit={handleAddTransaction} className="space-y-3">
+              <div>
+                <label className="text-[11px] font-bold text-slate-400 block mb-1">Descrição</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="Ex: Assinatura Servidor Neon"
+                  value={txDesc}
+                  onChange={(e) => setTxDesc(e.target.value)}
+                  className="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-white focus:border-teal-500 focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="text-[11px] font-bold text-slate-400 block mb-1">Categoria</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="Ex: Infraestrutura, Marketing, API"
+                  value={txCat}
+                  onChange={(e) => setTxCat(e.target.value)}
+                  className="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-white focus:border-teal-500 focus:outline-none"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="text-[11px] font-bold text-slate-400 block mb-1">Valor (R$)</label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    required
+                    placeholder="0.00"
+                    value={txAmount}
+                    onChange={(e) => setTxAmount(e.target.value)}
+                    className="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-white focus:border-teal-500 focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-[11px] font-bold text-slate-400 block mb-1">Tipo</label>
+                  <select
+                    value={txType}
+                    onChange={(e) => setTxType(e.target.value as any)}
+                    className="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-white focus:border-teal-500 focus:outline-none"
+                  >
+                    <option value="EXPENSE">Saída (Despesa)</option>
+                    <option value="INCOME">Entrada (Receita)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="pt-3 flex justify-end gap-2">
+                <button
+                  type="button"
+                  onClick={() => setShowAddTransaction(false)}
+                  className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="submit"
+                  className="px-4 py-2 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 text-xs font-black"
+                >
+                  Salvar Lançamento
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }

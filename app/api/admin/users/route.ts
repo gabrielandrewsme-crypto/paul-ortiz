@@ -38,6 +38,7 @@ export async function GET() {
         totalWordsLearned: true,
         plan: true,
         isSubscribed: true,
+        isComplimentary: true,
         subscriptionStartDate: true,
         subscriptionEndDate: true,
         subscriptionStatus: true,
@@ -58,18 +59,34 @@ export async function GET() {
     });
 
     const totalUsers = users.length;
-    const totalSubscribers = users.filter((u) => u.isSubscribed && u.subscriptionStatus === 'ACTIVE').length;
+    const activeSubscribers = users.filter((u) => u.isSubscribed && u.subscriptionStatus === 'ACTIVE');
+    const totalSubscribers = activeSubscribers.length;
+    
+    const complimentarySubscribers = activeSubscribers.filter((u) => u.isComplimentary).length;
+    const paidSubscribers = activeSubscribers.filter((u) => !u.isComplimentary && u.plan !== 'LIFETIME' && !isSuperAdmin(u.email)).length;
+
+    const paidPlusCount = activeSubscribers.filter((u) => (u.plan === 'PLUS' || u.plan === 'MONTHLY') && !u.isComplimentary).length;
+    const paidPremiumCount = activeSubscribers.filter((u) => (u.plan === 'PREMIUM' || u.plan === 'SEMIANNUAL') && !u.isComplimentary).length;
     const totalPlus = users.filter((u) => (u.plan === 'PLUS' || u.plan === 'MONTHLY') && u.isSubscribed).length;
     const totalPremium = users.filter((u) => (u.plan === 'PREMIUM' || u.plan === 'SEMIANNUAL') && u.isSubscribed).length;
     const totalLifetime = users.filter((u) => u.plan === 'LIFETIME' || isSuperAdmin(u.email)).length;
+
+    // Faturamento Total (Caixa Real)
+    const grossRevenue = (paidPlusCount * 37.90) + (paidPremiumCount * 109.00);
+    // MRR (Plus 37.90/mês + Premium 109.00 / 6 meses = 18.17/mês)
+    const mrr = (paidPlusCount * 37.90) + (paidPremiumCount * (109.00 / 6));
 
     return NextResponse.json({
       metrics: {
         totalUsers,
         totalSubscribers,
+        paidSubscribers,
+        complimentarySubscribers,
         totalPlus,
         totalPremium,
         totalLifetime,
+        grossRevenue,
+        mrr,
         expiringSoonCount: expiringSoonUsers.length,
         databaseStatus: 'Conectado (Neon PostgreSQL)',
       },
@@ -83,8 +100,8 @@ export async function GET() {
 }
 
 /**
- * POST /api/admin/users (Gerenciamento de Assinatura)
- * Actions: "activate_plus_30d", "activate_premium_180d", "activate_lifetime", "revoke", "renew"
+ * POST /api/admin/users (Gerenciamento de Assinatura & Cortesia)
+ * Actions: "activate_plus_30d", "activate_premium_180d", "activate_lifetime", "revoke", "renew", "toggle_complimentary"
  */
 export async function POST(request: Request) {
   try {
@@ -93,7 +110,8 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Acesso restrito ao e-mail administrador Supremo.' }, { status: 403 });
     }
 
-    const { userId, action, daysToAdd } = await request.json();
+    const body = await request.json();
+    const { userId, action, daysToAdd, isComplimentary } = body;
 
     if (!userId || !action) {
       return NextResponse.json({ error: 'Parâmetros inválidos.' }, { status: 400 });
@@ -107,7 +125,11 @@ export async function POST(request: Request) {
     const now = new Date();
     let updateData: any = {};
 
-    if (action === 'activate_plus_30d' || action === 'activate_monthly') {
+    if (action === 'toggle_complimentary') {
+      updateData = {
+        isComplimentary: isComplimentary !== undefined ? Boolean(isComplimentary) : !targetUser.isComplimentary,
+      };
+    } else if (action === 'activate_plus_30d' || action === 'activate_monthly') {
       const endDate = new Date(now);
       endDate.setDate(endDate.getDate() + 30);
 
@@ -170,6 +192,7 @@ export async function POST(request: Request) {
         email: true,
         plan: true,
         isSubscribed: true,
+        isComplimentary: true,
         subscriptionStartDate: true,
         subscriptionEndDate: true,
         subscriptionStatus: true,

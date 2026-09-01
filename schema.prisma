@@ -90,6 +90,7 @@ model User {
   
   plan                  SubscriptionPlan   @default(FREE) @map("plan")
   isSubscribed          Boolean            @default(false) @map("is_subscribed")
+  isComplimentary       Boolean            @default(false) @map("is_complimentary")
   subscriptionStartDate DateTime?          @map("subscription_start_date") @db.Timestamptz
   subscriptionEndDate   DateTime?          @map("subscription_end_date") @db.Timestamptz
   subscriptionStatus    SubscriptionStatus @default(NONE) @map("subscription_status")

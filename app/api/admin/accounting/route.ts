@@ -2,8 +2,8 @@ import { NextResponse } from 'next/server';
 import { getSessionUser, isSuperAdmin } from '@/src/lib/auth';
 import { prisma } from '@/src/lib/db';
 
-const PLUS_PRICE = 37.90;      // Plano Plus (30 dias)
-const PREMIUM_PRICE = 109.90;  // Plano Premium (180 dias / ~6 meses)
+const PLUS_PRICE = 37.90;      // Plano Plus (Mensal)
+const PREMIUM_PRICE = 109.00;  // Plano Premium (Semestral R$ 109.00)
 
 /**
  * GET /api/admin/accounting
@@ -26,6 +26,7 @@ export async function GET(request: Request) {
         email: true,
         plan: true,
         isSubscribed: true,
+        isComplimentary: true,
         subscriptionStatus: true,
         createdAt: true,
       },
@@ -35,17 +36,24 @@ export async function GET(request: Request) {
     const subscribers = users.filter((u) => u.isSubscribed && u.subscriptionStatus === 'ACTIVE');
     const totalSubscribers = subscribers.length;
     
-    const plusUsers = users.filter((u) => (u.plan === 'PLUS' || u.plan === 'MONTHLY') && u.isSubscribed).length;
-    const premiumUsers = users.filter((u) => (u.plan === 'PREMIUM' || u.plan === 'SEMIANNUAL') && u.isSubscribed).length;
+    const complimentarySubscribers = subscribers.filter((u) => u.isComplimentary).length;
+    const paidSubscribers = subscribers.filter((u) => !u.isComplimentary && u.plan !== 'LIFETIME' && !isSuperAdmin(u.email)).length;
+
+    // Apenas assinantes pagantes entram no faturamento real do caixa
+    const paidPlusCount = subscribers.filter((u) => (u.plan === 'PLUS' || u.plan === 'MONTHLY') && !u.isComplimentary).length;
+    const paidPremiumCount = subscribers.filter((u) => (u.plan === 'PREMIUM' || u.plan === 'SEMIANNUAL') && !u.isComplimentary).length;
+    
+    const totalPlus = users.filter((u) => (u.plan === 'PLUS' || u.plan === 'MONTHLY') && u.isSubscribed).length;
+    const totalPremium = users.filter((u) => (u.plan === 'PREMIUM' || u.plan === 'SEMIANNUAL') && u.isSubscribed).length;
     const lifetimeUsers = users.filter((u) => u.plan === 'LIFETIME' || isSuperAdmin(u.email)).length;
     const freeUsers = Math.max(0, totalUsers - totalSubscribers);
 
-    // MRR = (Plus * 37.90) + (Premium * (109.90 / 6))
-    const mrr = (plusUsers * PLUS_PRICE) + (premiumUsers * (PREMIUM_PRICE / 6));
+    // MRR = (Plus pagantes * 37.90) + (Premium pagantes * (109.00 / 6))
+    const mrr = (paidPlusCount * PLUS_PRICE) + (paidPremiumCount * (PREMIUM_PRICE / 6));
     const arr = mrr * 12;
 
-    // Receita Calculada de Assinaturas
-    const calculatedSubscriptionRevenue = (plusUsers * PLUS_PRICE) + (premiumUsers * PREMIUM_PRICE);
+    // Faturamento Total (Caixa Real)
+    const calculatedSubscriptionRevenue = (paidPlusCount * PLUS_PRICE) + (paidPremiumCount * PREMIUM_PRICE);
 
     // Buscar transações financeiras cadastradas no banco (se houver)
     let transactions = await prisma.financialTransaction.findMany({
@@ -55,8 +63,8 @@ export async function GET(request: Request) {
     // Se a tabela de transações estiver vazia, popular com lançamentos base de exemplo contábil
     if (transactions.length === 0) {
       const defaultTransactions = [
-        { description: 'Vendas Assinaturas Plano Plus (Mensal)', category: 'Assinaturas Plus', amount: plusUsers * PLUS_PRICE || 379.00, type: 'INCOME' as const },
-        { description: 'Vendas Assinaturas Plano Premium (Semestral)', category: 'Assinaturas Premium', amount: premiumUsers * PREMIUM_PRICE || 549.50, type: 'INCOME' as const },
+        { description: 'Vendas Assinaturas Plano Plus (Mensal)', category: 'Assinaturas Plus', amount: paidPlusCount * PLUS_PRICE || 379.00, type: 'INCOME' as const },
+        { description: 'Vendas Assinaturas Plano Premium (Semestral)', category: 'Assinaturas Premium', amount: paidPremiumCount * PREMIUM_PRICE || 549.50, type: 'INCOME' as const },
         { description: 'Hospedagem & CDN Vercel Pro', category: 'Infraestrutura / Servidores', amount: 120.00, type: 'EXPENSE' as const },
         { description: 'Banco de Dados Neon PostgreSQL Pooler', category: 'Database', amount: 85.00, type: 'EXPENSE' as const },
         { description: 'Disparos Transacionais Resend Email API', category: 'E-mail API', amount: 45.00, type: 'EXPENSE' as const },
@@ -104,10 +112,12 @@ export async function GET(request: Request) {
       metrics: {
         totalUsers,
         freeUsers,
-        plusUsers,
-        premiumUsers,
+        plusUsers: totalPlus,
+        premiumUsers: totalPremium,
         lifetimeUsers,
         totalSubscribers,
+        paidSubscribers,
+        complimentarySubscribers,
         grossRevenue,
         mrr,
         arr,
