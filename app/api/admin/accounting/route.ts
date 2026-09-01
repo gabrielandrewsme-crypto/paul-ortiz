@@ -60,16 +60,23 @@ export async function GET(request: Request) {
       orderBy: { date: 'desc' },
     });
 
-    // Se a tabela de transações estiver vazia, popular com lançamentos base de exemplo contábil
+    // Se a tabela de transações estiver vazia, popular com lançamentos base sem polling/mock de entradas falsas
     if (transactions.length === 0) {
-      const defaultTransactions = [
-        { description: 'Vendas Assinaturas Plano Plus (Mensal)', category: 'Assinaturas Plus', amount: paidPlusCount * PLUS_PRICE || 379.00, type: 'INCOME' as const },
-        { description: 'Vendas Assinaturas Plano Premium (Semestral)', category: 'Assinaturas Premium', amount: paidPremiumCount * PREMIUM_PRICE || 549.50, type: 'INCOME' as const },
-        { description: 'Hospedagem & CDN Vercel Pro', category: 'Infraestrutura / Servidores', amount: 120.00, type: 'EXPENSE' as const },
-        { description: 'Banco de Dados Neon PostgreSQL Pooler', category: 'Database', amount: 85.00, type: 'EXPENSE' as const },
-        { description: 'Disparos Transacionais Resend Email API', category: 'E-mail API', amount: 45.00, type: 'EXPENSE' as const },
-        { description: 'API OpenAI LLM & Transcrição de Áudio', category: 'AI Services', amount: 110.00, type: 'EXPENSE' as const },
+      const defaultTransactions: Array<{ description: string; category: string; amount: number; type: 'INCOME' | 'EXPENSE' }> = [
+        { description: 'Hospedagem & CDN Vercel Pro', category: 'Infraestrutura / Servidores', amount: 120.00, type: 'EXPENSE' },
+        { description: 'Banco de Dados Neon PostgreSQL Pooler', category: 'Database', amount: 85.00, type: 'EXPENSE' },
+        { description: 'Disparos Transacionais Resend Email API', category: 'E-mail API', amount: 45.00, type: 'EXPENSE' },
+        { description: 'API OpenAI LLM & Transcrição de Áudio', category: 'AI Services', amount: 110.00, type: 'EXPENSE' },
       ];
+
+      if (calculatedSubscriptionRevenue > 0) {
+        defaultTransactions.unshift({
+          description: 'Receita Real de Assinaturas Ativas Pagas',
+          category: 'Assinaturas',
+          amount: calculatedSubscriptionRevenue,
+          type: 'INCOME',
+        });
+      }
 
       for (const t of defaultTransactions) {
         await prisma.financialTransaction.create({ data: t });
@@ -102,10 +109,10 @@ export async function GET(request: Request) {
       .filter((t) => t.type === 'EXPENSE')
       .reduce((sum, t) => sum + t.amount, 0);
 
-    const grossRevenue = totalIncome || calculatedSubscriptionRevenue;
+    const grossRevenue = calculatedSubscriptionRevenue + totalIncome;
     const netProfit = grossRevenue - totalExpense;
 
-    const ticketMedio = totalSubscribers > 0 ? grossRevenue / totalSubscribers : 0;
+    const ticketMedio = paidSubscribers > 0 ? grossRevenue / paidSubscribers : 0;
     const conversionRate = totalUsers > 0 ? (totalSubscribers / totalUsers) * 100 : 0;
 
     return NextResponse.json({

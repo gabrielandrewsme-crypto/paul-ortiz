@@ -133,9 +133,11 @@ export default function AdminDashboardPage() {
     return () => clearInterval(timer);
   }, []);
 
+  const [isRefreshing, setIsRefreshing] = useState(false);
+
   const fetchAdminData = async () => {
     try {
-      const meRes = await fetch('/api/auth/me');
+      const meRes = await fetch(`/api/auth/me?t=${Date.now()}`, { cache: 'no-store' });
       const meData = await meRes.json();
 
       if (!meData.authenticated || !meData.user) {
@@ -152,8 +154,8 @@ export default function AdminDashboardPage() {
         return;
       }
 
-      // Buscar dados de usuários
-      const adminRes = await fetch('/api/admin/users');
+      // Buscar dados de usuários com cache bypass
+      const adminRes = await fetch(`/api/admin/users?t=${Date.now()}`, { cache: 'no-store' });
       const adminData = await adminRes.json();
 
       if (!adminRes.ok) {
@@ -164,7 +166,7 @@ export default function AdminDashboardPage() {
         setExpiringSoonUsers(adminData.expiringSoonUsers || []);
       }
 
-      // Buscar dados contábeis
+      // Buscar dados contábeis com cache bypass
       await fetchAccountingData(periodFilter);
     } catch (err) {
       setError('Falha de conexão com o servidor.');
@@ -175,7 +177,7 @@ export default function AdminDashboardPage() {
 
   const fetchAccountingData = async (period: string) => {
     try {
-      const finRes = await fetch(`/api/admin/accounting?period=${period}`);
+      const finRes = await fetch(`/api/admin/accounting?period=${period}&t=${Date.now()}`, { cache: 'no-store' });
       const finData = await finRes.json();
       if (finRes.ok) {
         setFinMetrics(finData.metrics);
@@ -352,11 +354,22 @@ export default function AdminDashboardPage() {
     );
   }
 
-  const grossRevenue = finMetrics?.grossRevenue || userMetrics?.grossRevenue || 0;
-  const mrr = finMetrics?.mrr || userMetrics?.mrr || 0;
-  const totalSubscribers = finMetrics?.totalSubscribers || userMetrics?.totalSubscribers || 0;
-  const paidSubscribers = finMetrics?.paidSubscribers || userMetrics?.paidSubscribers || 0;
-  const complimentarySubscribers = finMetrics?.complimentarySubscribers || userMetrics?.complimentarySubscribers || 0;
+  // Cálculo dinâmico estrito derivado da lista real de usuários do banco
+  const activeSubscribersList = users.filter((u) => u.isSubscribed && u.subscriptionStatus === 'ACTIVE');
+  const complimentarySubscribersList = activeSubscribersList.filter((u) => u.isComplimentary);
+  const paidSubscribersList = activeSubscribersList.filter(
+    (u) => !u.isComplimentary && u.plan !== 'LIFETIME' && u.email.toLowerCase().trim() !== 'gabrielandrews.me@gmail.com'
+  );
+
+  const paidPlusList = paidSubscribersList.filter((u) => u.plan === 'PLUS' || u.plan === 'MONTHLY');
+  const paidPremiumList = paidSubscribersList.filter((u) => u.plan === 'PREMIUM' || u.plan === 'SEMIANNUAL');
+
+  const grossRevenue = (paidPlusList.length * 37.90) + (paidPremiumList.length * 109.00);
+  const mrr = (paidPlusList.length * 37.90) + (paidPremiumList.length * (109.00 / 6));
+
+  const totalSubscribers = activeSubscribersList.length;
+  const paidSubscribers = paidSubscribersList.length;
+  const complimentarySubscribers = complimentarySubscribersList.length;
 
   return (
     <div className="min-h-screen bg-[#061817] text-slate-100 font-sans p-3 sm:p-6 overflow-x-hidden selection:bg-teal-500 selection:text-slate-950">
@@ -392,11 +405,18 @@ export default function AdminDashboardPage() {
               <span>Voltar ao App</span>
             </Link>
             <button
-              onClick={fetchAdminData}
-              className="px-3.5 py-2 rounded-xl bg-teal-500/20 hover:bg-teal-500/30 text-teal-300 font-extrabold text-xs flex items-center gap-1.5 border border-teal-500/30 transition cursor-pointer"
+              onClick={async () => {
+                setStatusMessage('');
+                setIsRefreshing(true);
+                await fetchAdminData();
+                setIsRefreshing(false);
+                setStatusMessage('✨ Dados re-sincronizados em tempo real com o banco de dados!');
+              }}
+              disabled={isRefreshing}
+              className="px-3.5 py-2 rounded-xl bg-teal-500/20 hover:bg-teal-500/30 text-teal-300 font-extrabold text-xs flex items-center gap-1.5 border border-teal-500/30 transition cursor-pointer disabled:opacity-50"
             >
-              <RefreshCw size={15} className="animate-spin-slow" />
-              <span>Atualizar Dados</span>
+              <RefreshCw size={15} className={isRefreshing ? 'animate-spin' : ''} />
+              <span>{isRefreshing ? 'Sincronizando...' : 'Atualizar Dados'}</span>
             </button>
           </div>
         </header>
