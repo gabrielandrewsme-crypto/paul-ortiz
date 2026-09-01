@@ -773,8 +773,33 @@ export default function DashboardClient() {
         isSuperAdminUser={isSuperAdminUser}
         freeMode={freeMode}
         userAvatarConfig={userAvatarConfig}
-        onSelectCheckpoint={(cp) => handleCheckpointClick(cp)}
+        getBookId={(cpId) => {
+          if (activeTripId === 'great-commission') return `great-commission-0${cpId}`;
+          if (activeTripId === 'daily-life') return `book-${cpId + 16}`;
+          return `book-${cpId < 10 ? '0' + cpId : cpId}`;
+        }}
       />
+
+      {/* BOTÃO DESTACADO PARA ABRIR O CHECKPOINT SELECIONADO EM NOVA ABA */}
+      {(() => {
+        let activeBookId = `book-${activeCheckpoint < 10 ? '0' + activeCheckpoint : activeCheckpoint}`;
+        if (activeTripId === 'great-commission') activeBookId = `great-commission-0${activeCheckpoint}`;
+        if (activeTripId === 'daily-life') activeBookId = `book-${activeCheckpoint + 16}`;
+
+        return (
+          <div className="w-full max-w-md sm:max-w-none mx-auto mb-6 flex justify-center pt-2">
+            <a
+              href={`/read/${activeBookId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-gradient-to-r from-teal-400 via-emerald-400 to-cyan-500 hover:from-teal-300 hover:to-cyan-400 text-slate-950 font-black text-xs sm:text-sm flex items-center justify-center gap-2.5 shadow-xl shadow-teal-500/20 transition transform hover:scale-[1.02] cursor-pointer"
+            >
+              <BookOpen size={18} />
+              <span>📖 Abrir Leitura do Checkpoint {activeCheckpoint} em Nova Aba</span>
+            </a>
+          </div>
+        );
+      })()}
 
       {/* CARD DE COMUNIDADE & PRÁTICA DE CONVERSAÇÃO NO WHATSAPP */}
       <div className="w-full max-w-md sm:max-w-none mx-auto bg-gradient-to-r from-emerald-950/90 via-slate-900 to-slate-950 border border-emerald-500/30 rounded-3xl p-4 sm:p-5 mb-6 shadow-xl relative overflow-hidden flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">

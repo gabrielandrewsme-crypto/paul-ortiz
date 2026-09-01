@@ -221,6 +221,7 @@ interface MountainMapProps {
   isSuperAdminUser?: boolean;
   freeMode?: boolean;
   userAvatarConfig?: AvatarConfig | null;
+  getBookId?: (checkpoint: number) => string;
   onSelectCheckpoint?: (checkpoint: number) => void;
 }
 
@@ -234,6 +235,7 @@ export default function MountainMap({
   isSuperAdminUser = false,
   freeMode = false,
   userAvatarConfig = null,
+  getBookId,
   onSelectCheckpoint,
 }: MountainMapProps) {
   const theme = THEMES[tripId] || THEMES['mountain-adventure'];
@@ -331,65 +333,80 @@ export default function MountainMap({
           const isLocked = !isSequentialUnlocked || isPlanLocked;
           const nodeTransform = getNodeTransform(cp.x, cp.y);
 
+          const bookId = getBookId ? getBookId(cp.id) : `book-${cp.id < 10 ? '0' + cp.id : cp.id}`;
+          const targetHref = `/read/${bookId}`;
+
           return (
-            <g
+            <a
               key={cp.id}
-              transform={nodeTransform}
-              className={isActive ? 'checkpoint-node active' : 'checkpoint-node'}
-              onClick={() => {
-                if (onSelectCheckpoint) onSelectCheckpoint(cp.id);
+              href={isLocked ? '#' : targetHref}
+              target={isLocked ? undefined : '_blank'}
+              rel={isLocked ? undefined : 'noopener noreferrer'}
+              onClick={(e) => {
+                if (isLocked) {
+                  e.preventDefault();
+                }
+                if (onSelectCheckpoint) {
+                  onSelectCheckpoint(cp.id);
+                }
               }}
-              style={{ cursor: isLocked ? 'not-allowed' : 'pointer' }}
+              style={{ textDecoration: 'none' }}
             >
-              {cp.hasFlag && (
-                <g transform="translate(6, -26)">
-                  <line x1="0" y1="0" x2="0" y2="16" stroke="#b91c1c" strokeWidth="2" />
-                  <polygon points="0,0 12,4 0,9" fill={theme.flagColor} />
-                </g>
-              )}
+              <g
+                transform={nodeTransform}
+                className={isActive ? 'checkpoint-node active' : 'checkpoint-node'}
+                style={{ cursor: isLocked ? 'not-allowed' : 'pointer' }}
+              >
+                {cp.hasFlag && (
+                  <g transform="translate(6, -26)">
+                    <line x1="0" y1="0" x2="0" y2="16" stroke="#b91c1c" strokeWidth="2" />
+                    <polygon points="0,0 12,4 0,9" fill={theme.flagColor} />
+                  </g>
+                )}
 
-              {isActive && (
+                {isActive && (
+                  <circle
+                    cx="0"
+                    cy="0"
+                    r="20"
+                    fill="none"
+                    stroke="#ffffff"
+                    strokeWidth="3"
+                    className="active-pulse-ring"
+                  />
+                )}
+
+                {isActive && (
+                  <circle
+                    cx="0"
+                    cy="0"
+                    r="16"
+                    fill="none"
+                    stroke={theme.activeBorderColor}
+                    strokeWidth="3.5"
+                    filter={`url(#glow_${tripId})`}
+                  />
+                )}
+
                 <circle
                   cx="0"
                   cy="0"
-                  r="20"
-                  fill="none"
-                  stroke="#ffffff"
-                  strokeWidth="3"
-                  className="active-pulse-ring"
+                  r="13"
+                  className="checkpoint-circle"
+                  style={{ fill: isLocked ? '#64748b' : '#ffffff' }}
                 />
-              )}
 
-              {isActive && (
-                <circle
-                  cx="0"
-                  cy="0"
-                  r="16"
-                  fill="none"
-                  stroke={theme.activeBorderColor}
-                  strokeWidth="3.5"
-                  filter={`url(#glow_${tripId})`}
-                />
-              )}
-
-              <circle
-                cx="0"
-                cy="0"
-                r="13"
-                className="checkpoint-circle"
-                style={{ fill: isLocked ? '#64748b' : '#ffffff' }}
-              />
-
-              {isLocked ? (
-                <g transform="translate(-6, -6)">
-                  <Lock size={12} color="#ffffff" />
-                </g>
-              ) : (
-                <text className="checkpoint-text" fill="#1e293b" fontWeight="800" fontSize="11" textAnchor="middle" dy="4">
-                  {cp.id}
-                </text>
-              )}
-            </g>
+                {isLocked ? (
+                  <g transform="translate(-6, -6)">
+                    <Lock size={12} color="#ffffff" />
+                  </g>
+                ) : (
+                  <text className="checkpoint-text" fill="#1e293b" fontWeight="800" fontSize="11" textAnchor="middle" dy="4">
+                    {cp.id}
+                  </text>
+                )}
+              </g>
+            </a>
           );
         })}
       </svg>
