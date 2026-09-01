@@ -1,20 +1,23 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { 
   ArrowLeft, 
   BookOpen, 
   Volume2, 
-  Radio, 
-  Headphones, 
+  Play, 
+  Pause, 
+  RotateCcw,
+  ChevronLeft,
   ChevronRight, 
   CheckCircle2, 
   Layers, 
   Sparkles,
-  HelpCircle,
   Award,
-  X
+  X,
+  Eye,
+  EyeOff
 } from 'lucide-react';
 import { BookData } from '@/src/data/books';
 import InteractiveBookReader from '@/src/components/InteractiveBookReader';
@@ -25,25 +28,174 @@ interface ReadClientViewProps {
   userName: string;
 }
 
+/** Componente de Áudio com resiliência a erros (Fallback para Web Speech IA se o MP3 falhar) */
+function AudioPlayerWithFallback({ 
+  audioUrl, 
+  title, 
+  textToNarrate 
+}: { 
+  audioUrl?: string; 
+  title: string; 
+  textToNarrate: string;
+}) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [audioError, setAudioError] = useState(false);
+  const [useTTS, setUseTTS] = useState(false);
+
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    setIsPlaying(false);
+    setCurrentTime(0);
+    setAudioError(false);
+    setUseTTS(false);
+    if (typeof window !== 'undefined' && window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+    }
+  }, [audioUrl, title]);
+
+  const speakTextTTS = () => {
+    if (typeof window === 'undefined' || !window.speechSynthesis) return;
+
+    if (isPlaying) {
+      window.speechSynthesis.cancel();
+      setIsPlaying(false);
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+    const cleanText = textToNarrate || title;
+    const utterance = new SpeechSynthesisUtterance(cleanText);
+    utterance.lang = 'en-US';
+    utterance.rate = 0.85;
+    utterance.onend = () => setIsPlaying(false);
+    utterance.onerror = () => setIsPlaying(false);
+    window.speechSynthesis.speak(utterance);
+    setIsPlaying(true);
+  };
+
+  const togglePlay = () => {
+    if (useTTS || audioError || !audioUrl) {
+      speakTextTTS();
+      return;
+    }
+
+    if (!audioRef.current) return;
+
+    if (isPlaying) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      audioRef.current.play()
+        .then(() => setIsPlaying(true))
+        .catch((err) => {
+          console.warn('Arquivo de áudio MP3 indisponível, utilizando narração nativa IA:', err);
+          setAudioError(true);
+          setUseTTS(true);
+          speakTextTTS();
+        });
+    }
+  };
+
+  return (
+    <div className="p-4 rounded-2xl bg-slate-950/80 border border-teal-500/30 space-y-3 shadow-lg">
+      {audioUrl && !useTTS && (
+        <audio
+          ref={audioRef}
+          src={audioUrl}
+          onTimeUpdate={() => {
+            if (audioRef.current) setCurrentTime(audioRef.current.currentTime);
+          }}
+          onLoadedMetadata={() => {
+            if (audioRef.current) setDuration(audioRef.current.duration);
+          }}
+          onEnded={() => setIsPlaying(false)}
+          onError={() => {
+            setAudioError(true);
+            setUseTTS(true);
+          }}
+        />
+      )}
+
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center gap-3">
+          <button
+            onClick={togglePlay}
+            className="w-10 h-10 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-black flex items-center justify-center shadow-lg transition cursor-pointer"
+          >
+            {isPlaying ? <Pause size={20} /> : <Play size={20} className="ml-0.5" />}
+          </button>
+          <div>
+            <span className="text-[10px] font-black uppercase text-teal-400 tracking-wider block">
+              {useTTS ? '🎙️ Narração com Voz IA Nativa' : '🎧 Narração Nativa do Capítulo'}
+            </span>
+            <h4 className="text-xs sm:text-sm font-extrabold text-white">{title}</h4>
+          </div>
+        </div>
+
+        {duration > 0 && !useTTS && (
+          <span className="text-xs text-slate-400 font-mono font-bold">
+            {Math.floor(currentTime / 60)}:{Math.floor(currentTime % 60).toString().padStart(2, '0')} / {Math.floor(duration / 60)}:{Math.floor(duration % 60).toString().padStart(2, '0')}
+          </span>
+        )}
+      </div>
+
+      {duration > 0 && !useTTS && (
+        <input
+          type="range"
+          min="0"
+          max={duration || 100}
+          value={currentTime}
+          onChange={(e) => {
+            const val = parseFloat(e.target.value);
+            setCurrentTime(val);
+            if (audioRef.current) audioRef.current.currentTime = val;
+          }}
+          className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-teal-400"
+        />
+      )}
+    </div>
+  );
+}
+
 export default function ReadClientView({ book, userEmail, userName }: ReadClientViewProps) {
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [masteredWords, setMasteredWords] = useState<Set<string>>(new Set());
-  const [selectedOption, setSelectedOption] = useState<number | null>(null);
-  const [writtenAnswer, setWrittenAnswer] = useState<string>('');
-  const [writtenFeedback, setWrittenFeedback] = useState<string>('');
-  const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
-  const [quizScore, setQuizScore] = useState<number>(0);
-  const [quizCompleted, setQuizCompleted] = useState<boolean>(false);
   const [statusToast, setStatusToast] = useState<string>('');
 
+  // Estados dos Flashcards (SRS)
+  const [flashcardIdx, setFlashcardIdx] = useState<number>(0);
+  const [isFlipped, setIsFlipped] = useState<boolean>(false);
+
   const currentDeck = book.interactive_text || [];
+  const currentFlashcard = currentDeck[flashcardIdx] || null;
 
   const handleMarkAsMastered = (cleanWord: string) => {
     setMasteredWords((prev) => new Set(prev).add(cleanWord.toLowerCase().trim()));
   };
 
+  const speakWord = (word: string) => {
+    if (typeof window === 'undefined' || !window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = 'en-US';
+    utterance.rate = 0.85;
+    window.speechSynthesis.speak(utterance);
+  };
+
+  const handleNextCard = () => {
+    setIsFlipped(false); // Reseta para OCULTO por padrão
+    setFlashcardIdx((prev) => (prev + 1) % currentDeck.length);
+  };
+
+  const handlePrevCard = () => {
+    setIsFlipped(false); // Reseta para OCULTO por padrão
+    setFlashcardIdx((prev) => (prev > 0 ? prev - 1 : currentDeck.length - 1));
+  };
+
   const handleCompleteRead = () => {
-    // Salva o progresso no localStorage dependendo do tipo do livro
     let storageKey = '@antigravity:progress_mountain';
     if (book.id.startsWith('great-commission')) {
       storageKey = '@antigravity:progress_great_commission';
@@ -89,7 +241,6 @@ export default function ReadClientView({ book, userEmail, userName }: ReadClient
   const handleCloseTab = () => {
     if (typeof window !== 'undefined') {
       window.close();
-      // Se não for possível fechar por política do navegador, redirecionar para a Home
       window.location.href = '/';
     }
   };
@@ -98,7 +249,7 @@ export default function ReadClientView({ book, userEmail, userName }: ReadClient
     <div className="min-h-screen bg-[#061413] text-slate-100 font-sans p-3 sm:p-6 overflow-x-hidden selection:bg-teal-500 selection:text-slate-950">
       <div className="max-w-4xl mx-auto space-y-6">
 
-        {/* CAMEÇALHO DEDICADO DE LEITURA COM BOTÃO MINIMALISTA DE VOLTAR */}
+        {/* CABEÇALHO DEDICADO DE LEITURA COM BOTÃO MINIMALISTA DE VOLTAR */}
         <header className="flex items-center justify-between border-b border-teal-500/20 pb-4 pt-2">
           <button
             onClick={handleCloseTab}
@@ -136,13 +287,14 @@ export default function ReadClientView({ book, userEmail, userName }: ReadClient
             <h1 className="text-2xl sm:text-3xl font-black text-white">{book.title}</h1>
             <p className="text-xs sm:text-sm text-slate-400 mt-1 leading-relaxed">{book.summary}</p>
 
-            {/* PLAYER DE ÁUDIO DO LIVRO */}
-            {book.audio_url && (
-              <div className="mt-4 p-3.5 rounded-2xl bg-slate-950/80 border border-teal-500/30 flex items-center gap-3">
-                <Volume2 className="text-teal-400 flex-shrink-0" size={20} />
-                <audio controls src={book.audio_url} className="w-full h-8" />
-              </div>
-            )}
+            {/* PLAYER DE ÁUDIO RESILIENTE DO LIVRO */}
+            <div className="mt-4">
+              <AudioPlayerWithFallback
+                audioUrl={book.audio_url}
+                title={book.title}
+                textToNarrate={book.story_en}
+              />
+            </div>
           </div>
 
           {/* BARRA DE SELEÇÃO DOS PASSOS (1. Imersão, 2. Flashcards, 3. Quiz) */}
@@ -159,7 +311,10 @@ export default function ReadClientView({ book, userEmail, userName }: ReadClient
             </button>
 
             <button
-              onClick={() => setCurrentStep(2)}
+              onClick={() => {
+                setIsFlipped(false); // Reseta estado do flashcard
+                setCurrentStep(2);
+              }}
               className={`w-full py-2 px-3 rounded-xl font-extrabold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer ${
                 currentStep === 2
                   ? 'bg-teal-500 text-slate-950 font-black shadow-md'
@@ -194,7 +349,10 @@ export default function ReadClientView({ book, userEmail, userName }: ReadClient
 
             <div className="flex justify-end pt-2">
               <button
-                onClick={() => setCurrentStep(2)}
+                onClick={() => {
+                  setIsFlipped(false);
+                  setCurrentStep(2);
+                }}
                 className="px-6 py-3 rounded-2xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-black text-xs sm:text-sm shadow-xl transition transform hover:scale-[1.02] cursor-pointer flex items-center gap-2"
               >
                 <span>Avançar para Passo 2: Flashcards</span>
@@ -204,39 +362,124 @@ export default function ReadClientView({ book, userEmail, userName }: ReadClient
           </div>
         )}
 
-        {/* PASSO 2: REVISÃO DE FLASHCARDS DO CAPÍTULO */}
+        {/* PASSO 2: REVISÃO DE FLASHCARDS DO CAPÍTULO COM OCULTAÇÃO E REVELAÇÃO SOB CLIQUE */}
         {currentStep === 2 && (
-          <div className="bg-slate-900/80 border border-teal-500/20 backdrop-blur-xl rounded-3xl p-6 shadow-2xl space-y-4">
+          <div className="bg-slate-900/80 border border-teal-500/20 backdrop-blur-xl rounded-3xl p-6 shadow-2xl space-y-5">
             <div className="flex items-center justify-between border-b border-slate-800 pb-3">
               <div>
                 <h3 className="font-extrabold text-white text-lg flex items-center gap-2">
                   <Layers className="text-amber-400" size={20} />
-                  <span>Vocabulário Interativo do Capítulo</span>
+                  <span>Passo 2 — Treino de Vocabulário Flashcards (SRS)</span>
                 </h3>
-                <p className="text-xs text-slate-400">Total de {currentDeck.length} termos selecionados neste minilivro</p>
+                <p className="text-xs text-slate-400">
+                  Palavra {flashcardIdx + 1} de {currentDeck.length} deste minilivro
+                </p>
               </div>
               <span className="text-xs bg-teal-500/20 text-teal-300 font-extrabold px-3 py-1 rounded-full border border-teal-500/30">
-                {masteredWords.size} palavras praticadas
+                {masteredWords.size} dominadas
               </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-2">
-              {currentDeck.map((item, idx) => (
-                <div key={idx} className="p-3.5 rounded-2xl bg-slate-950/80 border border-slate-800 flex items-center justify-between">
-                  <div>
-                    <span className="font-black text-white text-sm block">{item.word}</span>
-                    <span className="text-xs text-teal-400 font-semibold">{item.translation}</span>
-                  </div>
-                  {item.part_of_speech && (
-                    <span className="text-[10px] uppercase font-bold text-slate-500 bg-slate-900 px-2 py-0.5 rounded-md border border-slate-800">
-                      {item.part_of_speech}
-                    </span>
+            {currentFlashcard === null ? (
+              <p className="text-slate-400 text-center py-8">Nenhuma palavra cadastrada neste capítulo.</p>
+            ) : (
+              <div className="space-y-4">
+                {/* CARTÃO VIRÁVEL (FRENTE: INGLÊS / VERSO: PORTUGUÊS SOB CLIQUE) */}
+                <div
+                  onClick={() => setIsFlipped(!isFlipped)}
+                  className="w-full min-h-[240px] rounded-3xl bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950/60 border-2 border-dashed border-teal-500/30 p-6 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300 transform hover:scale-[1.01] shadow-2xl relative select-none"
+                >
+                  <span className="absolute top-4 right-4 text-[10px] uppercase font-black tracking-widest text-slate-400 bg-slate-950/80 px-3 py-1 rounded-full border border-slate-800">
+                    {isFlipped ? '✨ Tradução Revelada' : '🔒 Clique para revelar tradução'}
+                  </span>
+
+                  {!isFlipped ? (
+                    /* FRENTE DO CARD — TRADUÇÃO ESTRITAMENTE OCULTA */
+                    <div className="space-y-3">
+                      <span className="text-[11px] font-black uppercase text-teal-400 tracking-widest block">
+                        Termo em Inglês
+                      </span>
+                      <h3 className="text-3xl sm:text-4xl font-black text-white tracking-wide">
+                        {currentFlashcard.word}
+                      </h3>
+                      {currentFlashcard.part_of_speech && (
+                        <span className="inline-block px-3 py-1 rounded-full bg-teal-500/10 text-teal-300 font-extrabold text-xs border border-teal-500/20">
+                          {currentFlashcard.part_of_speech}
+                        </span>
+                      )}
+                      <p className="text-xs text-slate-400 pt-3 flex items-center justify-center gap-1.5">
+                        <Eye size={16} className="text-teal-400" />
+                        <span>Clique no cartão para mostrar a tradução em Português</span>
+                      </p>
+                    </div>
+                  ) : (
+                    /* VERSO DO CARD — TRADUÇÃO EM PORTUGUÊS REVELADA APÓS O CLIQUE */
+                    <div className="space-y-3">
+                      <span className="text-[11px] font-black uppercase text-emerald-400 tracking-widest block">
+                        Tradução em Português
+                      </span>
+                      <h3 className="text-2xl sm:text-3xl font-black text-emerald-300">
+                        {currentFlashcard.translation}
+                      </h3>
+                      {currentFlashcard.part_of_speech && (
+                        <span className="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-extrabold text-xs border border-emerald-500/30">
+                          {currentFlashcard.part_of_speech}
+                        </span>
+                      )}
+                    </div>
                   )}
                 </div>
-              ))}
-            </div>
 
-            <div className="flex justify-end pt-4">
+                {/* CONTROLES DE NAVEGAÇÃO DOS FLASHCARDS */}
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+                  <div className="flex items-center gap-2 w-full sm:w-auto">
+                    <button
+                      onClick={() => speakWord(currentFlashcard.clean_word || currentFlashcard.word)}
+                      className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-extrabold text-xs flex items-center justify-center gap-2 border border-slate-700 transition cursor-pointer flex-1 sm:flex-initial"
+                    >
+                      <Volume2 size={16} className="text-teal-400" />
+                      <span>Ouvir Pronúncia</span>
+                    </button>
+
+                    <button
+                      onClick={() => setIsFlipped(!isFlipped)}
+                      className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-teal-300 font-extrabold text-xs flex items-center justify-center gap-2 border border-slate-700 transition cursor-pointer flex-1 sm:flex-initial"
+                    >
+                      {isFlipped ? <EyeOff size={16} /> : <Eye size={16} />}
+                      <span>{isFlipped ? 'Ocultar Tradução' : 'Revelar Tradução'}</span>
+                    </button>
+                  </div>
+
+                  <div className="flex items-center gap-2 w-full sm:w-auto">
+                    <button
+                      onClick={handlePrevCard}
+                      className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-extrabold text-xs border border-slate-700 transition cursor-pointer flex items-center gap-1 flex-1 sm:flex-initial"
+                    >
+                      <ChevronLeft size={16} />
+                      <span>Anterior</span>
+                    </button>
+
+                    <button
+                      onClick={handleNextCard}
+                      className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-extrabold text-xs border border-slate-700 transition cursor-pointer flex items-center gap-1 flex-1 sm:flex-initial"
+                    >
+                      <span>Próxima</span>
+                      <ChevronRight size={16} />
+                    </button>
+
+                    <button
+                      onClick={() => handleMarkAsMastered(currentFlashcard.clean_word || currentFlashcard.word)}
+                      className="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs shadow-lg transition cursor-pointer flex items-center justify-center gap-1.5 flex-1 sm:flex-initial"
+                    >
+                      <CheckCircle2 size={16} />
+                      <span>Dominada</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            <div className="flex justify-end pt-4 border-t border-slate-800">
               <button
                 onClick={() => setCurrentStep(3)}
                 className="px-6 py-3 rounded-2xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-black text-xs sm:text-sm shadow-xl transition transform hover:scale-[1.02] cursor-pointer flex items-center gap-2"
