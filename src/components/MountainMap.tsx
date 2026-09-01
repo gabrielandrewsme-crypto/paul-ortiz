@@ -22,27 +22,50 @@ interface CheckpointCoord {
   hasFlag?: boolean;
 }
 
-const CHECKPOINT_COORDS_MAX: CheckpointCoord[] = [
-  { id: 1, x: 250, y: 515 },
-  { id: 2, x: 295, y: 490 },
-  { id: 3, x: 345, y: 465 },
-  { id: 4, x: 395, y: 440 },
-  { id: 5, x: 445, y: 415 },
-  { id: 6, x: 485, y: 390 },
-  { id: 7, x: 440, y: 360 },
-  { id: 8, x: 395, y: 330, hasFlag: true },
-  { id: 9, x: 440, y: 300 },
-  { id: 10, x: 490, y: 275 },
-  { id: 11, x: 545, y: 250 },
-  { id: 12, x: 595, y: 228, hasFlag: true },
-  { id: 13, x: 550, y: 205 },
-  { id: 14, x: 500, y: 182 },
-  { id: 15, x: 455, y: 160, hasFlag: true },
-  { id: 16, x: 480, y: 140 },
-  { id: 17, x: 515, y: 120 },
-  { id: 18, x: 490, y: 100 },
-  { id: 19, x: 500, y: 80, hasFlag: true },
-];
+/**
+ * Gera coordenadas harmônicas, alinhadas e sem sobreposição
+ * para qualquer número de checkpoints (7 para Great Commission, 19 para Vida Cotidiana, 16 para Montanha)
+ */
+function getCoordsForTrip(tripId: string, totalCheckpoints: number): CheckpointCoord[] {
+  const count = Math.max(1, totalCheckpoints);
+  
+  // Trilha Great Commission ( exatamente 7 Checkpoints até o Topo Supremo )
+  if (count === 7 || tripId === 'great-commission') {
+    return [
+      { id: 1, x: 250, y: 500 },
+      { id: 2, x: 310, y: 440 },
+      { id: 3, x: 380, y: 380 },
+      { id: 4, x: 450, y: 320 },
+      { id: 5, x: 510, y: 250 },
+      { id: 6, x: 460, y: 185 },
+      { id: 7, x: 500, y: 130, hasFlag: true },
+    ];
+  }
+
+  // Distribuição linear padronizada para 19 Checkpoints (Vida Cotidiana) e 16 Checkpoints (Montanha)
+  const coords: CheckpointCoord[] = [];
+  const startY = 515;
+  const endY = 130;
+  const stepY = (startY - endY) / (count - 1 || 1);
+
+  for (let i = 0; i < count; i++) {
+    const id = i + 1;
+    const progress = i / (count - 1 || 1);
+    const y = Math.round(startY - i * stepY);
+    // Oscilação suave em X ao longo do formato cônico da montanha
+    const wave = Math.sin(progress * Math.PI * 3);
+    const x = Math.round(500 + wave * (150 * (1 - progress * 0.45)));
+    
+    coords.push({
+      id,
+      x,
+      y,
+      hasFlag: id === count || id === Math.round(count / 2),
+    });
+  }
+
+  return coords;
+}
 
 function buildPathD(coords: CheckpointCoord[]): string {
   return coords.map((pt, idx) => {
@@ -215,8 +238,8 @@ export default function MountainMap({
 }: MountainMapProps) {
   const theme = THEMES[tripId] || THEMES['mountain-adventure'];
 
-  // Ajusta a lista de coordenadas com base no total de checkpoints da Trip
-  const activeCoords = CHECKPOINT_COORDS_MAX.slice(0, Math.min(totalCheckpoints, CHECKPOINT_COORDS_MAX.length));
+  // Coordenadas calculadas rigorosamente por Trip e contagem total
+  const activeCoords = getCoordsForTrip(tripId, totalCheckpoints);
   const pathD = buildPathD(activeCoords);
 
   const activeCoord = activeCoords.find((c) => c.id === currentCheckpoint) || activeCoords[0];
