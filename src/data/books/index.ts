@@ -100,16 +100,44 @@ import { greatCommissionBooks } from './great-commission';
 export { dailyLifeBooks, greatCommissionBooks };
 
 /**
- * Busca qualquer livro da plataforma pelo seu `id` (ex: "book-01", "book-17", "gc-book1").
- * Procura na Jornada da Montanha, Vida Cotidiana e Great Commission.
+ * Busca qualquer livro da plataforma pelo seu `id` (ex: "book-01", "book-17", "great-commission-01").
+ * Procura na Jornada da Montanha, Vida Cotidiana e Great Commission com fallback amplo de tratamento de string.
  */
 export function getBookById(id: string): BookData | undefined {
+  if (!id) return undefined;
+  const cleanId = decodeURIComponent(id).trim().toLowerCase();
+
   const allPlatformBooks: BookData[] = [
     ...allBooks,
     ...(dailyLifeBooks as unknown as BookData[]),
     ...(greatCommissionBooks as unknown as BookData[]),
   ];
-  return allPlatformBooks.find((book) => book.id === id);
+
+  // 1. Busca por ID exato
+  let found = allPlatformBooks.find((book) => book.id.trim().toLowerCase() === cleanId);
+  if (found) return found;
+
+  // 2. Trata variações de padding de dígitos para Great Commission (ex: "great-commission-1" vs "great-commission-01")
+  if (cleanId.startsWith('great-commission-')) {
+    const numPart = cleanId.replace('great-commission-', '');
+    const checkpointNum = parseInt(numPart, 10);
+    if (!isNaN(checkpointNum)) {
+      found = (greatCommissionBooks as unknown as BookData[]).find((b) => b.checkpoint === checkpointNum);
+      if (found) return found;
+    }
+  }
+
+  // 3. Trata variações de padding de dígitos para Jornada / Vida Cotidiana (ex: "book-1" vs "book-01")
+  if (cleanId.startsWith('book-')) {
+    const numPart = cleanId.replace('book-', '');
+    const checkpointNum = parseInt(numPart, 10);
+    if (!isNaN(checkpointNum)) {
+      found = allPlatformBooks.find((b) => b.checkpoint === checkpointNum);
+      if (found) return found;
+    }
+  }
+
+  return undefined;
 }
 
 /**

@@ -324,12 +324,12 @@ export default function MountainMap({
         {activeCoords.map((cp) => {
           const isActive = cp.id === currentCheckpoint;
           const isSequentialUnlocked =
-            cp.id === 1 ||
+            cp.id <= 3 ||
             freeMode ||
             completedCheckpoints.includes(cp.id - 1) ||
             cp.id <= unlockedLevel ||
             isSuperAdminUser;
-          const isPlanLocked = cp.id > 1 && !isPlusUser;
+          const isPlanLocked = cp.id > 3 && !isPlusUser && !isSuperAdminUser;
           const isLocked = !isSequentialUnlocked || isPlanLocked;
           const nodeTransform = getNodeTransform(cp.x, cp.y);
 

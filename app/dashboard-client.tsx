@@ -65,24 +65,24 @@ export default function DashboardClient() {
   // 1. Estado com flag de montagem para ELIMINAR o flicker do F5
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
-  // Progresso isolado para a Jornada da Montanha
+  // Progresso isolado para a Jornada da Montanha (3 checkpoints liberados no plano gratuito)
   const [mountainProgress, setMountainProgress] = useState<BookProgress>({
     completedBooks: [1],
-    unlockedLevel: 1,
+    unlockedLevel: 3,
     learnedWordsCount: 0,
   });
 
-  // Progresso isolado para The Great Commission
+  // Progresso isolado para The Great Commission (3 checkpoints liberados no plano gratuito)
   const [gcProgress, setGcProgress] = useState<BookProgress>({
     completedBooks: [1],
-    unlockedLevel: 1,
+    unlockedLevel: 3,
     learnedWordsCount: 0,
   });
 
-  // Progresso isolado para Vida Cotidiana & Diálogos Reais
+  // Progresso isolado para Vida Cotidiana & Diálogos Reais (3 checkpoints liberados no plano gratuito)
   const [dailyLifeProgress, setDailyLifeProgress] = useState<BookProgress>({
     completedBooks: [1],
-    unlockedLevel: 1,
+    unlockedLevel: 3,
     learnedWordsCount: 0,
   });
 
@@ -381,12 +381,12 @@ export default function DashboardClient() {
     (gcProgress.learnedWordsCount || 0) +
     (dailyLifeProgress.learnedWordsCount || 0);
 
-  // Regra de bloqueio/desbloqueio sequencial dos Checkpoints por coleção
+  // Regra de bloqueio/desbloqueio sequencial dos Checkpoints por coleção (3 primeiros checkpoints são gratuitos por padrão)
   const handleCheckpointClick = (id: number) => {
     setStatusToast('');
 
     const isSequentialUnlocked =
-      id === 1 ||
+      id <= 3 ||
       freeMode ||
       activeProgress.completedBooks.includes(id - 1) ||
       id <= activeProgress.unlockedLevel ||
@@ -398,8 +398,9 @@ export default function DashboardClient() {
       return;
     }
 
-    if (id > 1 || activeTripId === 'great-commission') {
-      if (!isPlusUser) {
+    // Regra de Plano: Checkpoints 1, 2 e 3 são totalmente gratuitos. A partir do Checkpoint 4 exige Plano Plus.
+    if (id > 3) {
+      if (!isPlusUser && !isSuperAdminUser) {
         setUpgradeSource('checkpoint_click');
         setIsUpgradeModalOpen(true);
         return;
